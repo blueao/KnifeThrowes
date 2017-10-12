@@ -17,7 +17,7 @@ public class ModelHandle
     public const string SetYellowTrail = "yellow";
     public const string SetPinkTrail = "pink";
     //
-    public int monsterDeadCount;
+    private int monsterDeadCount;
     private static ModelHandle instance = null;
     private static readonly object padlock = new object();
     public int Score;
@@ -71,6 +71,19 @@ public class ModelHandle
                 }
             }
             return instance;
+        }
+    }
+
+    public int MonsterDeadCount
+    {
+        get { return monsterDeadCount; }
+        set
+        {
+            monsterDeadCount = value;
+            if (mainRect.GetComponent<MainGameController>().ListTotalObject.Count == ModelHandle.Instance.monsterDeadCount)
+            {
+                mainRect.GetComponent<MainGameController>().CanWin = true;
+            }
         }
     }
 }

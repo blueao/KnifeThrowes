@@ -681,6 +681,11 @@ public class MainGameController : MonoBehaviour, IOberser
             isGameReadyToPlay = true;
             PanelCount.SetActive(false);
             Reset();
+            if (se!=null)
+            {
+                se.Kill();
+                se = null;
+            }
         });
     }
 

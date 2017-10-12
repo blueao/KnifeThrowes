@@ -53,7 +53,6 @@ public class HandleKnifeSprite : MonoBehaviour
         }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("OnCollisionEnter2D");
         if (collision.gameObject.name == "BorderBottom" || collision.gameObject.name == "BorderTop")
         {
             MainGame.knifeObject.isMiss = true;

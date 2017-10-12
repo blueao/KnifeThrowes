@@ -32,7 +32,7 @@ public class Boar : MonoBehaviour,IMonster {
     [ContextMenu("die")]
     public void Die()
     {
-        ModelHandle.Instance.monsterDeadCount++;
+        ModelHandle.Instance.MonsterDeadCount++;
         StartCoroutine(WaitForDead());
         box.enabled = false;
 
