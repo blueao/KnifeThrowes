@@ -82,7 +82,7 @@ public class Knife : MonoBehaviour, IKnife
     }
     private void Start()
     {
-
+        ChildKnife.GetComponent<TrailRenderer>().sortingOrder = 31000;
         Idie();
         knifeTransfom = GetComponent<Transform>();
         spriteKnife = ChildKnife.transform.GetComponent<SpriteRenderer>();

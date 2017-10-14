@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using System.Collections.Generic;
 
 public class MainGameController : MonoBehaviour
 {
@@ -18,10 +19,26 @@ public class MainGameController : MonoBehaviour
     [SerializeField]
     private Transform[] Sky;
 
+    public int StupidCount;
+    public int FruitCount;
+    public int PumkinCount;
+    private Vector3 poolPosition;
+    public GameObject preFab;
+
     private float widthBG;
     private float heightBG;
     private float speedMoveBG;
     private float endPositionBG;
+
+    [HideInInspector]
+    public List<GameObject> ListStupid = new List<GameObject>();
+    [HideInInspector]
+    public List<GameObject> ListPumkin = new List<GameObject>();
+    [HideInInspector]
+    public List<GameObject> ListFruit = new List<GameObject>();
+
+   // Dictionary<string, GameObject> AllMonsterHere = new Dictionary<string, GameObject>();
+
     void Start()
     {
         spriteKnife = knifeObject.spriteKnife.GetComponent<Transform>();
@@ -31,12 +48,37 @@ public class MainGameController : MonoBehaviour
         widthBG = Grass[0].GetComponent<SpriteRenderer>().bounds.size.x;
         heightBG = Grass[0].GetComponent<SpriteRenderer>().bounds.size.y;
         endPositionBG = -widthBG - widthBG / 2;
+        poolPosition = new Vector3(0, 15, 0);
+
+        Initialized();
     }
     void Initialized()
     {
-
+        CreateObject();
     }
 
+    public void CreateObject()
+    {
+        for (int i = 0; i < StupidCount; i++)
+        {
+            GameObject stupidobj = (GameObject) Instantiate(preFab, poolPosition, Quaternion.identity);
+            stupidobj.name = "Stupid" + i;
+            ListStupid.Add(stupidobj);
+
+        }
+        for (int i = 0; i < PumkinCount; i++)
+        {
+            GameObject stupidobj = (GameObject)Instantiate(preFab, poolPosition, Quaternion.identity);
+            stupidobj.name = "Pumkin" + i;
+            ListPumkin.Add(stupidobj);
+        }
+        for (int i = 0; i < FruitCount; i++)
+        {
+            GameObject stupidobj = (GameObject)Instantiate(preFab, poolPosition, Quaternion.identity);
+            stupidobj.name = "Fruit" + i;
+            ListFruit.Add(stupidobj);
+        }
+    }
     public void MoveBackGround()
     {
 
@@ -59,7 +101,7 @@ public class MainGameController : MonoBehaviour
     private void FixedUpdate()
     {
         speedMoveBG = Time.fixedDeltaTime * 2f;
-        MoveBackGround();
+        // MoveBackGround();
         if (knifeObject.isIdie)
         {
             DragPosition();
