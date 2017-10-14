@@ -2,11 +2,17 @@ version: 2
 importPivots: 1
 tpsheetFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
+- Assets/Texture/EffectKnife/FullEffect.tpsheet
 - Assets/Texture/Knife/Knife.tpsheet
+- Assets/Texture/Target/Target.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
+- Assets/Texture/EffectKnife/FullEffect.png
 - Assets/Texture/Knife/Knife.png
+- Assets/Texture/Target/Target.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
 - 
 enableDebugOutput: 0
