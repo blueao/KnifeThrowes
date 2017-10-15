@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HandleKnifeSprite : MonoBehaviour {
+public class HandleKnifeSprite : MonoBehaviour
+{
 
     [SerializeField]
     private MainGameController MainGame;
@@ -11,10 +12,14 @@ public class HandleKnifeSprite : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.GetComponent<Ballon>())
+        {
+            return;
+        }
         MainGame.knifeObject.Hit();
         Debug.Log("Hit Trigger Obj");
     }
 
-   
+
 }
 

@@ -22,22 +22,34 @@ public class MainGameController : MonoBehaviour
     public int StupidCount;
     public int FruitCount;
     public int PumkinCount;
+
+    public int WoodTargetCount;
+
+    public int BallonCount;
+
     private Vector3 poolPosition;
     public GameObject preFab;
-
+    public GameObject preFabWoodTarget;
+    public GameObject preFabBallon;
     private float widthBG;
     private float heightBG;
     private float speedMoveBG;
     private float endPositionBG;
-
+    //List Stupid Type
     [HideInInspector]
     public List<GameObject> ListStupid = new List<GameObject>();
     [HideInInspector]
     public List<GameObject> ListPumkin = new List<GameObject>();
     [HideInInspector]
     public List<GameObject> ListFruit = new List<GameObject>();
+    //List WoodTarget Type
+    [HideInInspector]
+    public List<GameObject> ListWoodTarget = new List<GameObject>();
+    //List Ballon Type
+    [HideInInspector]
+    public List<GameObject> ListBallon = new List<GameObject>();
 
-   // Dictionary<string, GameObject> AllMonsterHere = new Dictionary<string, GameObject>();
+    // Dictionary<string, GameObject> AllMonsterHere = new Dictionary<string, GameObject>();
 
     void Start()
     {
@@ -61,7 +73,7 @@ public class MainGameController : MonoBehaviour
     {
         for (int i = 0; i < StupidCount; i++)
         {
-            GameObject stupidobj = (GameObject) Instantiate(preFab, poolPosition, Quaternion.identity);
+            GameObject stupidobj = (GameObject)Instantiate(preFab, poolPosition, Quaternion.identity);
             stupidobj.name = "Stupid" + i;
             ListStupid.Add(stupidobj);
 
@@ -77,6 +89,34 @@ public class MainGameController : MonoBehaviour
             GameObject stupidobj = (GameObject)Instantiate(preFab, poolPosition, Quaternion.identity);
             stupidobj.name = "Fruit" + i;
             ListFruit.Add(stupidobj);
+        }
+      
+        int woodtarget1 = WoodTargetCount % 3;
+        int woodtarget2 = (WoodTargetCount - woodtarget1) % 2;
+        int redtarget = WoodTargetCount - woodtarget1 - woodtarget2;
+        for (int i = 0; i < woodtarget1; i++)
+        {
+            GameObject woodTarget = (GameObject)Instantiate(preFabWoodTarget, poolPosition, Quaternion.identity);
+            woodTarget.name = "wood target 1" + i;
+            ListWoodTarget.Add(woodTarget);
+        }
+        for (int i = 0; i < woodtarget2; i++)
+        {
+            GameObject woodTarget = (GameObject)Instantiate(preFabWoodTarget, poolPosition, Quaternion.identity);
+            woodTarget.name = "wood target 2" + i;
+            ListWoodTarget.Add(woodTarget);
+        }
+        for (int i = 0; i < redtarget; i++)
+        {
+            GameObject woodTarget = (GameObject)Instantiate(preFabWoodTarget, poolPosition, Quaternion.identity);
+            woodTarget.name = "red target" + i;
+            ListWoodTarget.Add(woodTarget);
+        }
+        for (int i = 0; i < BallonCount; i++)
+        {
+            GameObject ballontarget = (GameObject)Instantiate(preFabBallon, poolPosition, Quaternion.identity);
+            ballontarget.name = "Ballon" + i;
+            ListBallon.Add(ballontarget);
         }
     }
     public void MoveBackGround()

@@ -1,16 +1,67 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using DG.Tweening;
 
-public class Ghost : MonoBehaviour {
+public class Ghost : MonoBehaviour,IMonster {
+
+    public GhostShadow ghostShadow;
+
+    private static Ghost intance = null;
+    private static readonly object padlock = new object();
+    private Ghost() { }
+    public static Ghost Intance
+    {
+        get
+        {
+            lock (padlock)
+            {
+
+
+                if (intance == null)
+                {
+                    intance = FindObjectOfType<Ghost>();
+                }
+                return intance;
+            }
+        }
+
+    }
+
+    public void Die()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Fly()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void InPool()
+    {
+        throw new NotImplementedException();
+    }
+    [ContextMenu("MoveGhost")]
+    public void Move()
+    {
+        GameObject a = (GameObject) Instantiate(ghostShadow,transform.localPosition,transform.localRotation);
+        transform.DOLocalMoveX(-100, 50f);
+    }
+
+    public void Normal()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SetSprite()
+    {
+        throw new NotImplementedException();
+    }
 
     private void Start()
     {
-        transform.GetComponent<TrailRenderer>().sortingOrder = 31500;
-        for (int i = 0; i < 4; i++)
-        {
-            GameObject go = (GameObject)Instantiate(gameObject, this.transform.localPosition, Quaternion.identity);
-            go.transform.parent = transform;
-        }
+        //transform.GetComponent<TrailRenderer>().sortingOrder = 31500;
     }
    
 }

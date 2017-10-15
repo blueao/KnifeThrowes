@@ -25,6 +25,8 @@ public class Stupid : MonoBehaviour, IMonster
         box = GetComponent<BoxCollider2D>();
         spriteItems = GetComponent<SpriteRenderer>();
         rdStupid = GetComponent<Rigidbody2D>();
+        box.isTrigger = true;
+        rdStupid.isKinematic = true;
         SetSprite();
 
     }
