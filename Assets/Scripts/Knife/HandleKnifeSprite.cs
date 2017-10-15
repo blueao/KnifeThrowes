@@ -8,16 +8,17 @@ public class HandleKnifeSprite : MonoBehaviour
     private MainGameController MainGame;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Hit Obj ");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Ballon>())
+        
+        if (collision.GetComponent<Ballon>()|| collision.GetComponent<Stone>() )
         {
+            Debug.Log("Return");
             return;
         }
         MainGame.knifeObject.Hit();
-        Debug.Log("Hit Trigger Obj");
+
     }
 
 

@@ -21,7 +21,10 @@ public class Ballon : MonoBehaviour, IMonster
         box =GetComponent<BoxCollider2D>();
         box.isTrigger = true;
         SetSprite();
-        Move();
+    }
+    public void setPosition(Vector3 v3)
+    {
+        transform.localPosition = v3;
     }
     public void Die()
     {

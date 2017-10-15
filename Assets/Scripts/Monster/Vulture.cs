@@ -3,30 +3,30 @@ using System.Collections;
 using System;
 using DG.Tweening;
 
-public class Dummy : MonoBehaviour, IMonster
+public class Vulture : MonoBehaviour, IMonster
 {
     SpriteRenderer sprite;
     BoxCollider2D box;
     float width;
     float height;
-    public Sprite[] SpriteDummy;
-
+    public Sprite[] SpriteVulture;
+    Sequence se;
     private void Start()
     {
-        gameObject.AddComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
+        gameObject.AddComponent<BoxCollider2D>();
         box = GetComponent<BoxCollider2D>();
         SetSprite();
+    }
+    public void Die()
+    {
+        box.enabled = false;
+        ShowVultureDead();
     }
     public void setPosition(Vector3 v3)
     {
         transform.localPosition = v3;
     }
-    public void Die()
-    {
-        ShowDummyDead();
-    }
-
     public void Fly()
     {
         throw new NotImplementedException();
@@ -36,6 +36,12 @@ public class Dummy : MonoBehaviour, IMonster
     {
         transform.localPosition = new Vector3(0, 15, 0);
         transform.localRotation = Quaternion.Euler(Vector3.zero);
+        if (se!=null)
+        {
+            se.Kill();
+            se = null;
+        }
+        box.enabled = true;
     }
 
     public void Move()
@@ -50,37 +56,37 @@ public class Dummy : MonoBehaviour, IMonster
 
     public void SetSprite()
     {
-        if (this.name.Contains("dummy (1)"))
+        if (this.name.Contains("vulture (1)"))
         {
-            sprite.sprite = SpriteDummy[0];
+            sprite.sprite = SpriteVulture[0];
             width = sprite.sprite.bounds.size.x;
             height = sprite.sprite.bounds.size.y;
-            box.offset = new Vector2(0, 4.2f);
-            box.size = new Vector2(1.3f, 2.7f);
+
         }
-        else if (this.name.Contains("dummy (2)"))
+        else if (this.name.Contains("vulture (2)"))
         {
-            sprite.sprite = SpriteDummy[1];
+            sprite.sprite = SpriteVulture[1];
             width = sprite.sprite.bounds.size.x;
             height = sprite.sprite.bounds.size.y;
-            box.offset = new Vector2(0, 4.4f);
-            box.size = new Vector2(1.3f, 2.2f);
+
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name=="Knife")
+        if (collision.name == "Knife")
         {
             Die();
         }
     }
-    void ShowDummyDead()
+    void ShowVultureDead()
     {
-        transform.DOLocalRotate(new Vector3(0, 0, -70),2f).OnComplete(() => {
+        se = DOTween.Sequence();
+        se.Append(transform.DOLocalRotate(new Vector3(0, 0, 180), 2f));
+        se.Join(transform.DOLocalMoveY(1, 0.5f).OnComplete(() =>
+        {
             sprite.enabled = false;
             InPool();
-        });
-
+        }));
 
     }
 }

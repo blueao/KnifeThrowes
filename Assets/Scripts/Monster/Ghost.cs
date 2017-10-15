@@ -63,5 +63,9 @@ public class Ghost : MonoBehaviour,IMonster {
     {
         //transform.GetComponent<TrailRenderer>().sortingOrder = 31500;
     }
-   
+    public void setPosition(Vector3 v3)
+    {
+        transform.localPosition = v3;
+    }
+
 }
