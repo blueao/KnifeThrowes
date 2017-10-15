@@ -38,6 +38,7 @@ public class Spiders : MonoBehaviour, IMonster
 
     public void InPool()
     {
+        SetSprite();
         transform.localPosition = new Vector3(0, 15, 0);
         transform.localRotation = Quaternion.Euler(Vector3.zero);
         if (se != null)
@@ -51,6 +52,7 @@ public class Spiders : MonoBehaviour, IMonster
             move = null;
         }
         box.enabled = true;
+        sprite.enabled = true;
     }
 
     public void Move()
@@ -84,6 +86,10 @@ public class Spiders : MonoBehaviour, IMonster
         if (collision.name == "Knife")
         {
             Die();
+        }
+        if (collision.name == "StartMove")
+        {
+            Move();
         }
     }
 }

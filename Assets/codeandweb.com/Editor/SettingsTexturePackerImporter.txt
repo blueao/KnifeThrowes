@@ -5,15 +5,18 @@ tpsheetFileNames:
 - Assets/Texture/EffectKnife/FullEffect.tpsheet
 - Assets/Texture/Ghost/Ghost.tpsheet
 - Assets/Texture/Knife/Knife.tpsheet
+- Assets/Texture/LosePanel/LosePanel.tpsheet
 - Assets/Texture/Target/Target.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
 - Assets/Texture/EffectKnife/FullEffect.png
 - Assets/Texture/Ghost/Ghost.png
 - Assets/Texture/Knife/Knife.png
+- Assets/Texture/LosePanel/LosePanel.png
 - Assets/Texture/Target/Target.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
 - 
 - 
 - 

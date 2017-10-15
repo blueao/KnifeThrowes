@@ -14,11 +14,12 @@ public class Ballon : MonoBehaviour, IMonster
     float height;
 
     Tween tweenMove;
+    Tween tweenAnim;
     private void Start()
     {
         gameObject.AddComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
-        box =GetComponent<BoxCollider2D>();
+        box = GetComponent<BoxCollider2D>();
         box.isTrigger = true;
         SetSprite();
     }
@@ -30,11 +31,12 @@ public class Ballon : MonoBehaviour, IMonster
     {
         ShowBallonDead();
         box.enabled = false;
-        if (tweenMove!=null)
+        if (tweenMove != null)
         {
             tweenMove.Kill();
             tweenMove = null;
         }
+
     }
 
     public void Fly()
@@ -44,14 +46,26 @@ public class Ballon : MonoBehaviour, IMonster
 
     public void InPool()
     {
+        box.isTrigger = true;
+        SetSprite();
         transform.localPosition = new Vector3(0, 15, 0);
+        if (tweenAnim != null)
+        {
+            tweenAnim.Kill();
+            tweenAnim = null;
+        }
+        sprite.enabled = true;
     }
 
     public void Move()
     {
-        tweenMove = transform.DOLocalMoveY(15, 20f);
+        tweenMove = transform.DOLocalMoveY(15, 40f);
     }
-
+    public IEnumerator startMove()
+    {
+        Move();
+        yield return new WaitForSeconds(1f);
+    }
     public void Normal()
     {
         throw new NotImplementedException();
@@ -69,15 +83,20 @@ public class Ballon : MonoBehaviour, IMonster
         {
             Die();
         }
+        if (collision.name == "StartMove")
+        {
+            StartCoroutine(startMove());
+        }
+
     }
     void ShowBallonDead()
     {
 
-        DOTween.To(() => 0, x => sprite.sprite = ListSpriteDeadBallon[x], ListSpriteDeadBallon.Length - 1, 1f).OnComplete(() =>
-        {
-            sprite.enabled = false;
-            InPool();
-        });
+        tweenAnim = DOTween.To(() => 0, x => sprite.sprite = ListSpriteDeadBallon[x], ListSpriteDeadBallon.Length - 1, 1f).OnComplete(() =>
+         {
+             sprite.enabled = false;
+             InPool();
+         });
 
     }
 }

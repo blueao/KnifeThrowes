@@ -39,7 +39,7 @@ public class Cow : MonoBehaviour,IMonster {
 
     public void InPool()
     {
-        sprite.enabled = false;
+        sprite.enabled = true;
         heart = 0;
         transform.localPosition = new Vector3(0, 15, 0);
         box.enabled = true;

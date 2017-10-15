@@ -34,6 +34,7 @@ public class Vulture : MonoBehaviour, IMonster
 
     public void InPool()
     {
+        SetSprite();
         transform.localPosition = new Vector3(0, 15, 0);
         transform.localRotation = Quaternion.Euler(Vector3.zero);
         if (se!=null)
@@ -42,6 +43,7 @@ public class Vulture : MonoBehaviour, IMonster
             se = null;
         }
         box.enabled = true;
+        sprite.enabled = true;
     }
 
     public void Move()
@@ -82,7 +84,7 @@ public class Vulture : MonoBehaviour, IMonster
     {
         se = DOTween.Sequence();
         se.Append(transform.DOLocalRotate(new Vector3(0, 0, 180), 2f));
-        se.Join(transform.DOLocalMoveY(1, 0.5f).OnComplete(() =>
+        se.Join(transform.DOLocalMoveY(transform.localPosition.y-2, 0.5f).OnComplete(() =>
         {
             sprite.enabled = false;
             InPool();

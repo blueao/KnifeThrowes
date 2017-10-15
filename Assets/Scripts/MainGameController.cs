@@ -19,6 +19,13 @@ public class MainGameController : MonoBehaviour
     [SerializeField]
     private Transform[] Sky;
 
+    [HideInInspector]
+    public bool isGameReadyToPlay;
+
+    //UI
+    public GameObject PanelLose;
+    public GameObject PanelWin;
+
     //SetCountMonster
     public int StupidCount;
     public int FruitCount;
@@ -106,12 +113,28 @@ public class MainGameController : MonoBehaviour
     public Transform[] BallonPos;
     public Transform[] CoinPos;
     public Transform[] CrazyDog;
+
+
+    //Reset
+    Vector3 startPostionMoveMonster;
+    Vector3 startBGGrass1;
+    Vector3 startBGGrass2;
+    Vector3 startBGGrass3;
+    Vector3 startBGSky1;
+    Vector3 startBGSky2;
+    Vector3 startBGSky3;
+    Vector3 startBGMoutain1;
+    Vector3 startBGMoutain2;
+    Vector3 startBGMoutain3;
+    Vector3 startBGHill1;
+    Vector3 startBGHill2;
+    Vector3 startBGHill3;
     void Start()
     {
         spriteKnife = knifeObject.spriteKnife.GetComponent<Transform>();
         spriteKnife.localPosition = new Vector3(spriteKnife.localPosition.x + knifeObject.spriteKnife.bounds.size.y, spriteKnife.localPosition.y, spriteKnife.localPosition.z);
         knifeObject.startKnifeTransfom = spriteKnife.localPosition;
-        knifeObject.SetUpEffectKnife("blue");
+        knifeObject.SetUpEffectKnife("seven");
         widthBG = Grass[0].GetComponent<SpriteRenderer>().bounds.size.x;
         heightBG = Grass[0].GetComponent<SpriteRenderer>().bounds.size.y;
         endPositionBG = -widthBG - widthBG / 2;
@@ -122,7 +145,7 @@ public class MainGameController : MonoBehaviour
     void Initialized()
     {
         redtarget = RedTargetPos.Length;
-        woodtarget1 = TargetPos.Length%2;
+        woodtarget1 = TargetPos.Length % 2;
         woodtarget2 = TargetPos.Length - woodtarget1;
         StupidCount = Stupid.Length;
         FruitCount = FruitPos.Length;
@@ -133,10 +156,12 @@ public class MainGameController : MonoBehaviour
         SpiderCount = SpriderPos.Length;
         DummyCount = DumkinPos.Length;
 
-
+        setStartPosBG();
         CreateObject();
         SetupPositionObj();
     }
+
+
     public void SetupPositionObj()
     {
         int redIndex = 0;
@@ -274,7 +299,7 @@ public class MainGameController : MonoBehaviour
             stupidobj.transform.parent = MoveMonster;
         }
 
-     
+
         for (int i = 0; i < woodtarget1; i++)
         {
             GameObject woodTarget = (GameObject)Instantiate(preFabWoodTarget, poolPosition, Quaternion.identity);
@@ -384,17 +409,21 @@ public class MainGameController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        speedMoveBG = Time.fixedDeltaTime * 1f;
-        MoveBackGround();
-        if (knifeObject.isIdie)
+        if (isGameReadyToPlay)
         {
-            DragPosition();
+            speedMoveBG = Time.fixedDeltaTime * 2f;
+            MoveBackGround();
+            if (knifeObject.isIdie)
+            {
+                DragPosition();
+            }
+
+            calculatorRotateChildKnife();
         }
-        calculatorRotateKnife();
-        calculatorRotateChildKnife();
     }
     public void calculatorRotateChildKnife()
     {
+        calculatorRotateKnife();
         if (knifeObject.isFly)
         {
             if (spriteKnife.localRotation.z == 0)
@@ -454,11 +483,57 @@ public class MainGameController : MonoBehaviour
         {
             knifeObject.isDrag = true;
         }
-        if (Input.GetMouseButtonUp(0) && knifeObject.isDrag)
+        if (Input.GetMouseButtonUp(0))
         {
             knifeObject.isDrag = false;
             calculorDrag();
         }
     }
 
+    public void OnClickPlayAgain()
+    {
+      
+        PanelLose.SetActive(false);
+        isGameReadyToPlay = true;
+        Reset();
+    }
+
+    public void Reset()
+    {
+        SetupPositionObj();
+        ResetBG();
+        knifeObject.Idie();
+    }
+    public void setStartPosBG()
+    {
+        startPostionMoveMonster = MoveMonster.transform.localPosition;
+        startBGGrass1 = Grass[0].transform.localPosition;
+        startBGGrass2 = Grass[1].transform.localPosition;
+        startBGGrass3 = Grass[2].transform.localPosition;
+        startBGSky1 = Sky[0].transform.localPosition;
+        startBGSky2 = Sky[1].transform.localPosition;
+        startBGSky3 = Sky[2].transform.localPosition;
+        startBGMoutain1 = Moutain[0].transform.localPosition;
+        startBGMoutain2 = Moutain[1].transform.localPosition;
+        startBGMoutain3 = Moutain[2].transform.localPosition;
+        startBGHill1 = Hill[0].transform.localPosition;
+        startBGHill2 = Hill[1].transform.localPosition;
+        startBGHill3 = Hill[2].transform.localPosition;
+    }
+    public void ResetBG()
+    {
+        MoveMonster.transform.localPosition = startPostionMoveMonster;
+        Grass[0].transform.localPosition = startBGGrass1;
+        Grass[1].transform.localPosition = startBGGrass2;
+        Grass[2].transform.localPosition = startBGGrass3;
+        Sky[0].transform.localPosition = startBGSky1;
+        Sky[1].transform.localPosition = startBGSky2;
+        Sky[2].transform.localPosition = startBGSky3;
+        Moutain[0].transform.localPosition = startBGMoutain1;
+        Moutain[1].transform.localPosition = startBGMoutain2;
+        Moutain[2].transform.localPosition = startBGMoutain3;
+        Hill[0].transform.localPosition = startBGHill1;
+        Hill[1].transform.localPosition = startBGHill2;
+        Hill[2].transform.localPosition = startBGHill3;
+    }
 }

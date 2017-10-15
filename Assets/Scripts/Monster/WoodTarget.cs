@@ -42,10 +42,12 @@ public class WoodTarget : MonoBehaviour, IMonster
 
     public void InPool()
     {
-
         transform.localPosition = new Vector3(0, 15, 0);
         box.enabled = true;
         spriteItems.enabled = true;
+        SetSprite();
+        spriteItems.enabled = true;
+        
     }
 
     public void Move()
@@ -91,6 +93,10 @@ public class WoodTarget : MonoBehaviour, IMonster
         if (collision.name == "Knife")
         {
             Die();
+        }
+        if (collision.name == "StartMove")
+        {
+            Move();
         }
     }
 }

@@ -22,12 +22,13 @@ public class Knife : MonoBehaviour, IKnife
     public Vector3 startKnifeTransfom;
     public Animator animatorEffectKnife;
     public RuntimeAnimatorController[] ListAnimaterEffect;
+    BoxCollider2D box;
     public void Fly()
     {
         spriteKnife.GetComponent<Transform>().localRotation = Quaternion.Euler(Vector3.zero);
         isIdie = false;
         isFly = true;
-
+        box.enabled = true;
     }
 
     public void Hit()
@@ -35,6 +36,7 @@ public class Knife : MonoBehaviour, IKnife
         isFly = false;
         ImpactKnife(true);
         RBknife.isKinematic = true;
+        box.enabled = false;
     }
 
     public void Idie()
@@ -64,7 +66,7 @@ public class Knife : MonoBehaviour, IKnife
     {
         animatorEffectKnife.GetComponent<SpriteRenderer>().enabled = isActive;
         animatorEffectKnife.enabled = isActive;
-        animatorEffectKnife.Play(0, 0);
+        animatorEffectKnife.Play(0, 0, 0);
         if (isActive)
         {
             RBknife.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -82,6 +84,8 @@ public class Knife : MonoBehaviour, IKnife
     }
     private void Start()
     {
+        box = ChildKnife.GetComponent<BoxCollider2D>();
+        box.enabled = false;
         ChildKnife.GetComponent<TrailRenderer>().sortingOrder = 31000;
         Idie();
         knifeTransfom = GetComponent<Transform>();

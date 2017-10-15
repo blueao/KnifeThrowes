@@ -1,0 +1,21 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:a81c43a38f555ea32b5704d216316dc7:36185945c2fd1d487568bdef7a6a6e8d:df9b57dc1e9cbb9892c607234128ddaf$
+#
+:format=40300
+:texture=LosePanel.png
+:size=1024x512
+:pivotpoints=enabled
+:borders=disabled
+
+button no watch;1;73;79;65; 0.5;0.5; 0;0;0;0; 4;79;0;0;0;0;65;79;65; 2;1;2;3;0;1;3
+button play again;1;140;309;96; 0.5;0.5; 0;0;0;0; 4;309;0;0;0;0;96;309;96; 2;1;2;3;0;1;3
+button yes watch;1;6;79;65; 0.5;0.5; 0;0;0;0; 4;79;0;0;0;0;65;79;65; 2;1;2;3;0;1;3
+panel watch video to get 1000;1;238;551;273; 0.5;0.5; 0;0;0;0; 4;551;0;0;0;0;273;551;273; 2;1;2;3;0;1;3
+text no watch;82;20;52;30; 0.5;0.5; 0;0;0;0; 4;52;0;0;0;0;30;52;30; 2;1;2;3;0;1;3
+text play again;82;86;274;52; 0.5;0.5; 0;0;0;0; 12;137;49;224;52;274;52;274;8;190;0;137;0;119;14;103;0;82;0;0;8;0;52;54;52; 10;9;10;11;8;9;11;6;7;8;6;8;11;0;4;5;0;5;6;4;0;1;1;2;3;4;1;3;0;6;11
+text yes watch;82;52;73;32; 0.5;0.5; 0;0;0;0; 5;73;24;73;0;0;0;0;32;53;32; 3;2;3;4;1;2;4;0;1;4

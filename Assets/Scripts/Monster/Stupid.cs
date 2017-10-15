@@ -19,6 +19,9 @@ public class Stupid : MonoBehaviour, IMonster
     bool jumb;
     public Animator TouchGrass;
     Rigidbody2D rdStupid;
+    Tween anim;
+    Tween jumtween;
+    bool isActiveMove;
     private void Start()
     {
         gameObject.AddComponent<BoxCollider2D>();
@@ -38,15 +41,21 @@ public class Stupid : MonoBehaviour, IMonster
     {
         ShowStupidDead();
         box.enabled = false;
+        if (jumtween!=null)
+        {
+            jumtween.Kill();
+            jumtween = null;
+        }
+
     }
     void ShowStupidDead()
     {
         rdStupid.constraints = RigidbodyConstraints2D.FreezeAll;
-        DOTween.To(() => 0, x => spriteItems.sprite = usedSprite[x], usedSprite.Length - 1, 1f).OnComplete(() =>
-             {
-                 spriteItems.enabled = false;
-                 InPool();
-             });
+        anim = DOTween.To(() => 0, x => spriteItems.sprite = usedSprite[x], usedSprite.Length - 1, 1f).OnComplete(() =>
+              {
+                  spriteItems.enabled = false;
+                  InPool();
+              });
 
     }
     public void Fly()
@@ -56,13 +65,11 @@ public class Stupid : MonoBehaviour, IMonster
     [ContextMenu("Jumb")]
     public void Move()
     {
+ 
         jumb = true;
-        float a = UnityEngine.Random.Range(height, height * 3);
-        Debug.Log(a);
-        transform.DOLocalMoveY(a, 0.5f).OnComplete(() =>
-        {
+        float a = UnityEngine.Random.Range(height, height * 2);
+        jumtween= transform.DOLocalMoveY(transform.localPosition.y + a, 0.5f);
 
-        });
     }
 
     public void Normal()
@@ -72,13 +79,29 @@ public class Stupid : MonoBehaviour, IMonster
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.GetComponent<Stone>())
+        {
+            isActiveMove = true;
+            rdStupid.isKinematic = false;
+            box.isTrigger = false;
+        }
         if (collision.name == "Knife")
         {
             Die();
         }
+        if (collision.name == "StartMove")
+        {
+            if (isActiveMove)
+            {
+                Move();
+            }
+        }
+  
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+  
         if (jumb)
         {
             jumb = false;
@@ -93,15 +116,37 @@ public class Stupid : MonoBehaviour, IMonster
                     TouchGrass.enabled = false;
                     transform.localScale = Vector3.one;
                     transform.localRotation = Quaternion.Euler(Vector3.zero);
+                    StartCoroutine(StartMove());
                 });
             });
         }
     }
 
+    public IEnumerator StartMove()
+    {
+        int a = UnityEngine.Random.Range(0, 2);
+        yield return new WaitForSeconds(a);
+        Move();
+    }
     public void InPool()
     {
         transform.localPosition = new Vector3(0, 15, 0);
         box.enabled = true;
+        box.isTrigger = true;
+        rdStupid.isKinematic = true;
+        spriteItems.enabled = true;
+        SetSprite();
+        if (anim != null)
+        {
+            anim.Kill();
+            anim = null;
+        }
+        if (jumtween != null)
+        {
+            jumtween.Kill();
+            jumtween = null;
+        }
+        rdStupid.constraints = RigidbodyConstraints2D.None;
     }
 
     public void SetSprite()

@@ -53,6 +53,8 @@ public class Bat : MonoBehaviour, IMonster
     }
     public void InPool()
     {
+        SetSprite();
+        box.isTrigger = true;
         sprite.enabled = true;
         box.enabled = true;
         transform.localPosition = new Vector3(0, 15, 0);
