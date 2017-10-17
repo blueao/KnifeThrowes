@@ -9,7 +9,7 @@ public class MainGameController : MonoBehaviour
     [SerializeField]
     public Knife knifeObject;
     float degreeKnifeZ;
-    private Transform spriteKnife;
+    public Transform spriteKnife;
 
     [SerializeField]
     private Transform[] Grass;
@@ -19,8 +19,6 @@ public class MainGameController : MonoBehaviour
     private Transform[] Moutain;
     [SerializeField]
     private Transform[] Sky;
-
-
     public bool isGameReadyToPlay;
 
     //UI
@@ -435,7 +433,7 @@ public class MainGameController : MonoBehaviour
             if (spriteKnife.localRotation.z == 0)
             {
 
-                spriteKnife.DOLocalRotate(new Vector3(0, 0, -180), 0.5f).OnComplete(() =>
+               knifeObject.KnifeRotate = spriteKnife.DOLocalRotate(new Vector3(0, 0, -180), 0.5f).OnComplete(() =>
                 {
                     knifeObject.isThow = true;
                 });

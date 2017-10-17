@@ -21,7 +21,9 @@ public class Stupid : MonoBehaviour, IMonster
     Rigidbody2D rdStupid;
     Tween anim;
     Tween jumtween;
+    Tween movetween;
     bool isActiveMove;
+    Sequence se;
     private void Start()
     {
         gameObject.AddComponent<BoxCollider2D>();
@@ -31,6 +33,7 @@ public class Stupid : MonoBehaviour, IMonster
         box.isTrigger = true;
         rdStupid.isKinematic = true;
         SetSprite();
+        se = DOTween.Sequence();
 
     }
     public void setPosition(Vector3 v3)
@@ -41,7 +44,7 @@ public class Stupid : MonoBehaviour, IMonster
     {
         ShowStupidDead();
         box.enabled = false;
-        if (jumtween!=null)
+        if (jumtween != null)
         {
             jumtween.Kill();
             jumtween = null;
@@ -65,10 +68,13 @@ public class Stupid : MonoBehaviour, IMonster
     [ContextMenu("Jumb")]
     public void Move()
     {
- 
+        if (isActiveMove)
+        {
+            se.Append(movetween = transform.DOLocalMoveX(transform.localPosition.x - width / 4, 1f));
+        }
         jumb = true;
         float a = UnityEngine.Random.Range(height, height * 2);
-        jumtween= transform.DOLocalMoveY(transform.localPosition.y + a, 0.5f);
+        se.Join(jumtween = transform.DOLocalMoveY(transform.localPosition.y + a, 0.5f));
 
     }
 
@@ -93,15 +99,16 @@ public class Stupid : MonoBehaviour, IMonster
         {
             if (isActiveMove)
             {
+
                 Move();
             }
         }
-  
+
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-  
+
         if (jumb)
         {
             jumb = false;
@@ -145,6 +152,16 @@ public class Stupid : MonoBehaviour, IMonster
         {
             jumtween.Kill();
             jumtween = null;
+        }
+        if (movetween != null)
+        {
+            movetween.Kill();
+            movetween = null;
+        }
+        if (se != null)
+        {
+            se.Kill();
+            se = null;
         }
         rdStupid.constraints = RigidbodyConstraints2D.None;
     }

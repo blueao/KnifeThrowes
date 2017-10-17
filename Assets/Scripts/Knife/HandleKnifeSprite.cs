@@ -18,10 +18,10 @@ public class HandleKnifeSprite : MonoBehaviour
             return;
         }
 
-        if (MainGame.knifeObject.isThow)
-        {
+        //if (MainGame.knifeObject.isThow)
+        //{
             MainGame.knifeObject.Hit();
-        }
+        //}
 
     }
 

@@ -17,7 +17,7 @@ public class HandleLoseGame : MonoBehaviour {
         {
             MainGame.isGameReadyToPlay = false;
             MainGame.PanelLose.SetActive(true);
-            DOTween.KillAll();
+            //DOTween.KillAll();
         }
     }
 }

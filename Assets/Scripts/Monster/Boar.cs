@@ -40,12 +40,8 @@ public class Boar : MonoBehaviour,IMonster {
             anim.Kill();
             anim = null;
         }
-        if (move != null)
-        {
-            move.Kill();
-            move = null;
-        }
-        yield return new WaitForSeconds(0.5f);
+        
+        yield return new WaitForSeconds(1f);
         sprite.enabled = false;
         InPool();
     }

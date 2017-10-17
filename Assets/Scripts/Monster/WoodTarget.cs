@@ -24,6 +24,7 @@ public class WoodTarget : MonoBehaviour, IMonster
     }
     public void Die()
     {
+        InPool();
         box.enabled = false;
         spriteItems.enabled = false;
         if (tweenMove != null)
@@ -31,7 +32,7 @@ public class WoodTarget : MonoBehaviour, IMonster
             tweenMove.Kill();
             tweenMove = null;
         }
-        InPool();
+      
 
     }
 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using DG.Tweening;
 
 public class Knife : MonoBehaviour, IKnife
 {
@@ -22,6 +23,8 @@ public class Knife : MonoBehaviour, IKnife
     public Vector3 startKnifeTransfom;
     public Animator animatorEffectKnife;
     public RuntimeAnimatorController[] ListAnimaterEffect;
+    [HideInInspector]
+    public Tween KnifeRotate;
     BoxCollider2D box;
     public void Fly()
     {
@@ -41,6 +44,7 @@ public class Knife : MonoBehaviour, IKnife
 
     public void Idie()
     {
+        KnifeRotate.Kill();
         isIdie = true;
         isFly = false;
         ResetKnife();
@@ -78,9 +82,10 @@ public class Knife : MonoBehaviour, IKnife
     {
         ImpactKnife(false);
         ChildKnife.transform.localPosition = startKnifeTransfom;
-        ChildKnife.transform.localRotation = Quaternion.Euler(Vector3.zero);
         RBknife.isKinematic = true;
         isThow = false;
+        ChildKnife.transform.localRotation = Quaternion.Euler(Vector3.zero);
+
     }
     private void Start()
     {

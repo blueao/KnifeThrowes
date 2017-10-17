@@ -6,8 +6,8 @@ public class KeepAspectRatio : MonoBehaviour
 
     public float Width;
     public float Height;
-    public float widthscreen = 1024f;
-    public float heightscreen = 768f;
+    public float widthscreen = 1280f;
+    public float heightscreen = 720f;
 
     void Awake()
     {
