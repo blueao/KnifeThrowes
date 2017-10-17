@@ -1,0 +1,385 @@
+fileFormatVersion: 2
+guid: 6e2199629db9f4c47bc25c5b42efca2d
+timeCreated: 1508102099
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: button ok 1
+    21300002: button play 1
+    21300004: button play 2
+    21300006: button watch now 1
+    21300008: lock 1
+    21300010: logo ok 1
+    21300012: 'panel  background halloween lock '
+    21300014: 'panel  background noel  lock '
+    21300016: 'panel  background noel '
+    21300018: panel ad service is unavaible 1
+    21300020: panel classic
+    21300022: panel seclect background 1
+    21300024: panel seclect background halloween
+    21300026: text watch a video to unlock
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: button ok 1
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 1804
+        width: 112
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -54, y: 45}
+        - {x: -56, y: 43}
+        - {x: -56, y: -45}
+        - {x: 56, y: -45}
+        - {x: 56, y: 44}
+        - {x: 54, y: 45}
+    - name: button play 1
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 1789
+        width: 117
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36.5, y: 60.5}
+        - {x: -58.5, y: 39.5}
+        - {x: -58.5, y: -41.5}
+        - {x: -55.5, y: -60.5}
+        - {x: 58.5, y: -60.5}
+        - {x: 58.5, y: 44.5}
+        - {x: 43.5, y: 60.5}
+    - name: button play 2
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 1967
+        width: 84
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -42, y: 40}
+        - {x: -42, y: -36}
+        - {x: -41, y: -40}
+        - {x: 12, y: -40}
+        - {x: 42, y: -20}
+        - {x: 42, y: 16}
+        - {x: 18, y: 40}
+    - name: button watch now 1
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 1912
+        width: 146
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -68, y: 67.5}
+        - {x: -73, y: 61.5}
+        - {x: -73, y: -60.5}
+        - {x: -68, y: -67.5}
+        - {x: 68, y: -67.5}
+        - {x: 73, y: -60.5}
+        - {x: 73, y: 61.5}
+        - {x: 68, y: 67.5}
+    - name: lock 1
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 1720
+        width: 56
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 41}
+        - {x: -28, y: 27}
+        - {x: -28, y: -41}
+        - {x: 28, y: -41}
+        - {x: 28, y: 23}
+        - {x: 24, y: 41}
+    - name: logo ok 1
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 1896
+        width: 71
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35.5, y: 34.5}
+        - {x: -35.5, y: -7.5}
+        - {x: -16.5, y: -34.5}
+        - {x: 1.5, y: -34.5}
+        - {x: 35.5, y: 16.5}
+        - {x: 35.5, y: 34.5}
+    - name: 'panel  background halloween lock '
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1375
+        width: 580
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 288, y: -66.5}
+        - {x: 290, y: -64.5}
+        - {x: 290, y: 64.5}
+        - {x: 289, y: 67.5}
+        - {x: 281, y: 75.5}
+        - {x: 278, y: 76.5}
+        - {x: -278, y: 76.5}
+        - {x: -281, y: 75.5}
+        - {x: -289, y: 67.5}
+        - {x: -290, y: 64.5}
+        - {x: -290, y: -64.5}
+        - {x: -288, y: -67.5}
+        - {x: -282, y: -74.5}
+        - {x: -279, y: -75.5}
+        - {x: -277, y: -76.5}
+        - {x: 277, y: -76.5}
+        - {x: 279, y: -75.5}
+        - {x: 282, y: -74.5}
+        - {x: 288, y: -67.5}
+    - name: 'panel  background noel  lock '
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1220
+        width: 580
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 290, y: 64.5}
+        - {x: 288, y: 66.5}
+        - {x: 288, y: 67.5}
+        - {x: 282, y: 74.5}
+        - {x: 279, y: 75.5}
+        - {x: 277, y: 76.5}
+        - {x: -277, y: 76.5}
+        - {x: -279, y: 75.5}
+        - {x: -282, y: 74.5}
+        - {x: -288, y: 67.5}
+        - {x: -290, y: 64.5}
+        - {x: -290, y: -64.5}
+        - {x: -289, y: -67.5}
+        - {x: -281, y: -75.5}
+        - {x: -278, y: -76.5}
+        - {x: 278, y: -76.5}
+        - {x: 281, y: -75.5}
+        - {x: 289, y: -67.5}
+        - {x: 290, y: -64.5}
+    - name: 'panel  background noel '
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1065
+        width: 580
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 290, y: 64.5}
+        - {x: 288, y: 66.5}
+        - {x: 288, y: 67.5}
+        - {x: 282, y: 74.5}
+        - {x: 279, y: 75.5}
+        - {x: 277, y: 76.5}
+        - {x: -277, y: 76.5}
+        - {x: -279, y: 75.5}
+        - {x: -282, y: 74.5}
+        - {x: -288, y: 67.5}
+        - {x: -290, y: 64.5}
+        - {x: -290, y: -64.5}
+        - {x: -289, y: -67.5}
+        - {x: -281, y: -75.5}
+        - {x: -278, y: -76.5}
+        - {x: 278, y: -76.5}
+        - {x: 281, y: -75.5}
+        - {x: 289, y: -67.5}
+        - {x: 290, y: -64.5}
+    - name: panel ad service is unavaible 1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 420
+        width: 533
+        height: 333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -266.5, y: 166.5}
+        - {x: -266.5, y: -166.5}
+        - {x: 264.5, y: -166.5}
+        - {x: 266.5, y: -164.5}
+        - {x: 266.5, y: 164.5}
+        - {x: 264.5, y: 166.5}
+    - name: panel classic
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1530
+        width: 782
+        height: 517
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 391, y: -241.5}
+        - {x: 391, y: 241.5}
+        - {x: 389, y: 246.5}
+        - {x: 380, y: 255.5}
+        - {x: 373, y: 258.5}
+        - {x: -373, y: 258.5}
+        - {x: -380, y: 255.5}
+        - {x: -389, y: 246.5}
+        - {x: -391, y: 241.5}
+        - {x: -391, y: -241.5}
+        - {x: -389, y: -246.5}
+        - {x: -379, y: -255.5}
+        - {x: -378, y: -255.5}
+        - {x: -377, y: -257.5}
+        - {x: -374, y: -258.5}
+        - {x: 374, y: -258.5}
+        - {x: 377, y: -257.5}
+        - {x: 379, y: -255.5}
+        - {x: 389, y: -246.5}
+    - name: panel seclect background 1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 910
+        width: 580
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 288, y: -66.5}
+        - {x: 290, y: -64.5}
+        - {x: 290, y: 64.5}
+        - {x: 289, y: 67.5}
+        - {x: 281, y: 75.5}
+        - {x: 278, y: 76.5}
+        - {x: -278, y: 76.5}
+        - {x: -281, y: 75.5}
+        - {x: -289, y: 67.5}
+        - {x: -290, y: 64.5}
+        - {x: -290, y: -64.5}
+        - {x: -288, y: -67.5}
+        - {x: -282, y: -74.5}
+        - {x: -279, y: -75.5}
+        - {x: -277, y: -76.5}
+        - {x: 277, y: -76.5}
+        - {x: 279, y: -75.5}
+        - {x: 282, y: -74.5}
+        - {x: 288, y: -67.5}
+    - name: panel seclect background halloween
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 755
+        width: 580
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 288, y: -66.5}
+        - {x: 290, y: -64.5}
+        - {x: 290, y: 64.5}
+        - {x: 289, y: 67.5}
+        - {x: 281, y: 75.5}
+        - {x: 278, y: 76.5}
+        - {x: -278, y: 76.5}
+        - {x: -281, y: 75.5}
+        - {x: -289, y: 67.5}
+        - {x: -290, y: 64.5}
+        - {x: -290, y: -64.5}
+        - {x: -288, y: -67.5}
+        - {x: -282, y: -74.5}
+        - {x: -279, y: -75.5}
+        - {x: -277, y: -76.5}
+        - {x: 277, y: -76.5}
+        - {x: 279, y: -75.5}
+        - {x: 282, y: -74.5}
+        - {x: 288, y: -67.5}
+    - name: text watch a video to unlock
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 387
+        width: 541
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

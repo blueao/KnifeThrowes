@@ -6,6 +6,8 @@ tpsheetFileNames:
 - Assets/Texture/Ghost/Ghost.tpsheet
 - Assets/Texture/Knife/Knife.tpsheet
 - Assets/Texture/LosePanel/LosePanel.tpsheet
+- Assets/Texture/Menu/MenuPanel.tpsheet
+- Assets/Texture/MenuChooseGame/MenuChooseGame.tpsheet
 - Assets/Texture/Target/Target.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
@@ -13,9 +15,13 @@ textureFileNames:
 - Assets/Texture/Ghost/Ghost.png
 - Assets/Texture/Knife/Knife.png
 - Assets/Texture/LosePanel/LosePanel.png
+- Assets/Texture/Menu/MenuPanel.png
+- Assets/Texture/MenuChooseGame/MenuChooseGame.png
 - Assets/Texture/Target/Target.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
 - 
 - 
 - 

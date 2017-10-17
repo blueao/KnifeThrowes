@@ -2,6 +2,7 @@
 using System.Collections;
 using DG.Tweening;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class MainGameController : MonoBehaviour
 {
@@ -19,13 +20,18 @@ public class MainGameController : MonoBehaviour
     [SerializeField]
     private Transform[] Sky;
 
-    [HideInInspector]
+
     public bool isGameReadyToPlay;
 
     //UI
     public GameObject PanelLose;
     public GameObject PanelWin;
-
+    public GameObject PanelCount;
+    public GameObject PanelChooseMap;
+    public GameObject Menu;
+    public Text textCount;
+    public Button ClassicBtn;
+    public Button PlayBtn;
     //SetCountMonster
     public int StupidCount;
     public int FruitCount;
@@ -411,7 +417,7 @@ public class MainGameController : MonoBehaviour
     {
         if (isGameReadyToPlay)
         {
-            speedMoveBG = Time.fixedDeltaTime * 2f;
+            speedMoveBG = Time.fixedDeltaTime * 1f;
             MoveBackGround();
             if (knifeObject.isIdie)
             {
@@ -434,12 +440,12 @@ public class MainGameController : MonoBehaviour
                     knifeObject.isThow = true;
                 });
             }
-            if (knifeObject.isThow)
-            {
+            //if (knifeObject.isThow)
+            //{
                 knifeObject.RBknife.isKinematic = false;
                 knifeObject.RBknife.AddTorque(-1f, ForceMode2D.Force);
                 spriteKnife.localPosition += Vector3.right * Time.fixedDeltaTime * 12f;
-            }
+            //}
         }
     }
     public void calculatorRotateKnife()
@@ -492,12 +498,61 @@ public class MainGameController : MonoBehaviour
 
     public void OnClickPlayAgain()
     {
-      
+
         PanelLose.SetActive(false);
         isGameReadyToPlay = true;
         Reset();
     }
+    public void OnClickClassic()
+    {
+        isActiveChooseMap(true);
+    }
+    public void isActiveChooseMap(bool isActive)
+    {
+        if (PanelChooseMap.activeSelf)
+        {
+            PanelChooseMap.SetActive(!isActive);
+        }
+        else
+            PanelChooseMap.SetActive(isActive);
+    }
+    public void isActiveMenu(bool isActive)
+    {
+        Menu.SetActive(isActive);
+    }
+    public void StartGame()
+    {
+        isActiveMenu(false);
+        CountNumber();
+    }
 
+    public void CountNumber()
+    {
+        Sequence se = DOTween.Sequence();
+        PanelCount.SetActive(true);
+        int count = 3;
+        textCount.text = count.ToString();
+        se.Append(textCount.rectTransform.DOScale(0.5f, 0.5f).OnComplete(() =>
+       {
+           count--;
+       }));
+        se.Append(textCount.rectTransform.DOScale(1, 0.5f).OnComplete(() =>
+        {
+            textCount.text = count.ToString();
+        }));
+        se.SetLoops(3).OnComplete(() =>
+        {
+            count = 3;
+            isGameReadyToPlay = true;
+            PanelCount.SetActive(false);
+            Reset();
+        });
+    }
+
+    public void WinGame()
+    {
+
+    }
     public void Reset()
     {
         SetupPositionObj();
