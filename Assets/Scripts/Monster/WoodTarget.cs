@@ -6,7 +6,6 @@ using DG.Tweening;
 public class WoodTarget : MonoBehaviour, IMonster
 {
 
-
     public SpriteRenderer spriteItems;
     public BoxCollider2D box;
     private Vector3 startposition;
@@ -24,7 +23,7 @@ public class WoodTarget : MonoBehaviour, IMonster
     }
     public void Die()
     {
-        InPool();
+        ModelHandle.Instance.SetScore(1);
         box.enabled = false;
         spriteItems.enabled = false;
         if (tweenMove != null)
@@ -33,6 +32,7 @@ public class WoodTarget : MonoBehaviour, IMonster
             tweenMove = null;
         }
       
+        InPool();
 
     }
 
@@ -43,11 +43,13 @@ public class WoodTarget : MonoBehaviour, IMonster
 
     public void InPool()
     {
+       ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         transform.localPosition = new Vector3(0, 15, 0);
         box.enabled = true;
         spriteItems.enabled = true;
         SetSprite();
         spriteItems.enabled = true;
+        gameObject.SetActive(false);
         
     }
 
@@ -65,7 +67,7 @@ public class WoodTarget : MonoBehaviour, IMonster
 
     public void Normal()
     {
-        throw new NotImplementedException();
+        gameObject.SetActive(true);
     }
 
     public void SetSprite()

@@ -49,7 +49,7 @@ public class Dummy : MonoBehaviour, IMonster
 
     public void Normal()
     {
-        throw new NotImplementedException();
+        gameObject.SetActive(true);
     }
 
     public void SetSprite()
@@ -84,7 +84,7 @@ public class Dummy : MonoBehaviour, IMonster
     }
     void ShowDummyDead()
     {
-        transform.DOLocalRotate(new Vector3(0, 0, -70),2f).OnComplete(() => {
+        transform.DOLocalRotate(new Vector3(0, 0, -75),2f).OnComplete(() => {
             //sprite.enabled = false;
         });
 

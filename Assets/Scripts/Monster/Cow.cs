@@ -43,6 +43,7 @@ public class Cow : MonoBehaviour,IMonster {
         heart = 0;
         transform.localPosition = new Vector3(0, 15, 0);
         box.enabled = true;
+        gameObject.SetActive(false);
     }
 
     public void Move()
@@ -52,7 +53,7 @@ public class Cow : MonoBehaviour,IMonster {
 
     public void Normal()
     {
-        throw new NotImplementedException();
+        gameObject.SetActive(true);
     }
 
     public void SetSprite()

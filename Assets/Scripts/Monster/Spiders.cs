@@ -25,6 +25,7 @@ public class Spiders : MonoBehaviour, IMonster
     {
         sprite.enabled = false;
         box.enabled = false;
+        ModelHandle.Instance.SetScore(1);
         InPool();
     }
     public void setPosition(Vector3 v3)
@@ -38,6 +39,7 @@ public class Spiders : MonoBehaviour, IMonster
 
     public void InPool()
     {
+        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         SetSprite();
         transform.localPosition = new Vector3(0, 15, 0);
         transform.localRotation = Quaternion.Euler(Vector3.zero);
@@ -53,6 +55,7 @@ public class Spiders : MonoBehaviour, IMonster
         }
         box.enabled = true;
         sprite.enabled = true;
+        gameObject.SetActive(false);
     }
 
     public void Move()
@@ -70,7 +73,7 @@ public class Spiders : MonoBehaviour, IMonster
 
     public void Normal()
     {
-        throw new NotImplementedException();
+        gameObject.SetActive(true);
     }
 
     public void SetSprite()

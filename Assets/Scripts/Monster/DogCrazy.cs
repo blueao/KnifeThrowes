@@ -50,6 +50,7 @@ public class DogCrazy : MonoBehaviour, IMonster
         }
         yield return new WaitForSeconds(0.5f);
         sprite.enabled = false;
+        ModelHandle.Instance.SetScore(10);
         InPool();
     }
     public void Fly()
@@ -59,6 +60,7 @@ public class DogCrazy : MonoBehaviour, IMonster
 
     public void InPool()
     {
+        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         if (anim != null)
         {
             anim.Kill();
@@ -75,11 +77,12 @@ public class DogCrazy : MonoBehaviour, IMonster
         box.isTrigger = true;
         SetSprite();
         sprite.enabled = true;
+        gameObject.SetActive(false);
     }
 
     public void Move()
     {
-        anim = DOTween.To(() => 0, x => sprite.sprite = ListSprite[x], ListSprite.Length - 1, 1f).OnComplete(() =>
+        anim = DOTween.To(() => 0, x => sprite.sprite = ListSprite[x], ListSprite.Length - 1, 0.3f).OnComplete(() =>
         {
         }).SetLoops(-1);
         move = transform.DOLocalMoveX(transform.localPosition.x-10, 8f).OnComplete(() =>
@@ -89,7 +92,7 @@ public class DogCrazy : MonoBehaviour, IMonster
 
     public void Normal()
     {
-        throw new NotImplementedException();
+        gameObject.SetActive(true);
     }
 
     public void SetSprite()

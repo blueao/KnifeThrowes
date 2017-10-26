@@ -40,6 +40,7 @@ public class Bat : MonoBehaviour, IMonster
             move.Kill();
             move = null;
         }
+        ModelHandle.Instance.SetScore(1);
         InPool();
     }
 
@@ -53,11 +54,13 @@ public class Bat : MonoBehaviour, IMonster
     }
     public void InPool()
     {
+        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         SetSprite();
         box.isTrigger = true;
         sprite.enabled = true;
         box.enabled = true;
         transform.localPosition = new Vector3(0, 15, 0);
+        gameObject.SetActive(false);
     }
     [ContextMenu("Move")]
     public void Move()
@@ -76,7 +79,7 @@ public class Bat : MonoBehaviour, IMonster
 
     public void Normal()
     {
-        throw new NotImplementedException();
+        gameObject.SetActive(true);
     }
 
     public void SetSprite()

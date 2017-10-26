@@ -8,7 +8,13 @@ public class HandleWinGame : MonoBehaviour {
     {
         if (collision.name == "StartMove")
         {
-            MainGame.WinGame();
+            MainGame.CanMove = false;
+            StartCoroutine(WaitForWin());
         }
+    }
+    IEnumerator WaitForWin()
+    {
+        yield return new WaitForSeconds(5f);
+        MainGame.WinGame();
     }
 }

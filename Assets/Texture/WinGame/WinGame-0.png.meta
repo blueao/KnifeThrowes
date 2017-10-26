@@ -1,0 +1,543 @@
+fileFormatVersion: 2
+guid: f59ae95c8c42b8d4c9600a88a0b85664
+timeCreated: 1508267833
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: button cancel
+    21300002: button continue
+    21300004: button exit
+    21300006: button get
+    21300008: button pause
+    21300010: button resume
+    21300012: button yes
+    21300014: logo gold
+    21300016: multi
+    21300018: oh no lose
+    21300020: panel are you sure to exit
+    21300022: panel congretulate get 2000
+    21300024: panel lv and gold
+    21300026: panel lv
+    21300028: panel menu pause
+    21300030: panel victory
+    21300032: text cancel
+    21300034: text continue
+    21300036: text exit
+    21300038: text get
+    21300040: text lv
+    21300042: text resume
+    21300044: text yes
+    21300046: unblelievable
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: button cancel
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 598
+        width: 172
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -86, y: -30.5}
+        - {x: -85, y: -31.5}
+        - {x: 86, y: -31.5}
+        - {x: 86, y: 31.5}
+        - {x: -84, y: 31.5}
+        - {x: -86, y: 29.5}
+    - name: button continue
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 883
+        width: 285
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -129.5, y: 38}
+        - {x: -142.5, y: 25}
+        - {x: -142.5, y: -18}
+        - {x: -136.5, y: -35}
+        - {x: -124.5, y: -38}
+        - {x: 123.5, y: -38}
+        - {x: 142.5, y: -26}
+        - {x: 142.5, y: 22}
+        - {x: 134.5, y: 38}
+    - name: button exit
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 663
+        width: 193
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -96.5, y: 30}
+        - {x: -96.5, y: -30}
+        - {x: 96.5, y: -30}
+        - {x: 96.5, y: 30}
+    - name: button get
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 787
+        width: 268
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -125, y: 47}
+        - {x: -134, y: 38}
+        - {x: -134, y: -39}
+        - {x: -128, y: -47}
+        - {x: 126, y: -47}
+        - {x: 134, y: -39}
+        - {x: 134, y: 39}
+        - {x: 129, y: 47}
+    - name: button pause
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 871
+        width: 58
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29, y: 26.5}
+        - {x: -29, y: -26.5}
+        - {x: 29, y: -26.5}
+        - {x: 29, y: 26.5}
+    - name: button resume
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 725
+        width: 194
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -97, y: 30}
+        - {x: -97, y: -30}
+        - {x: 97, y: -30}
+        - {x: 97, y: 30}
+    - name: button yes
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 533
+        width: 172
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -86, y: -30.5}
+        - {x: -85, y: -31.5}
+        - {x: 86, y: -31.5}
+        - {x: 86, y: 31.5}
+        - {x: -84, y: 31.5}
+        - {x: -86, y: 29.5}
+    - name: logo gold
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 851
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 23}
+        - {x: -23, y: 20}
+        - {x: -23, y: -17}
+        - {x: -16, y: -23}
+        - {x: 14, y: -23}
+        - {x: 23, y: -16}
+        - {x: 23, y: 21}
+        - {x: 17, y: 23}
+    - name: multi
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 373
+        width: 236
+        height: 205
+      alignment: 9
+      pivot: {x: 0.4915254, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 61, y: -51.5}
+        - {x: 62, y: -55.5}
+        - {x: 65, y: -60.5}
+        - {x: 114, y: -54.5}
+        - {x: 114, y: 64.5}
+        - {x: 106, y: 102.5}
+        - {x: -46, y: 102.5}
+        - {x: -110, y: 50.5}
+        - {x: -110, y: -54.5}
+        - {x: -68, y: -87.5}
+        - {x: -31, y: -68.5}
+        - {x: -15, y: -102.5}
+        - {x: 32, y: -102.5}
+        - {x: 72, y: -88.5}
+        - {x: 74, y: -81.5}
+        - {x: 65, y: -62.5}
+        - {x: 63, y: -59.5}
+    - name: oh no lose
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 326
+        width: 234
+        height: 205
+      alignment: 9
+      pivot: {x: 0.4957265, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 102.5}
+        - {x: -82, y: 79.5}
+        - {x: -110, y: 27.5}
+        - {x: -110, y: -54.5}
+        - {x: -109, y: -83.5}
+        - {x: -77, y: -102.5}
+        - {x: 57, y: -102.5}
+        - {x: 77, y: -87.5}
+        - {x: 112, y: -53.5}
+        - {x: 112, y: 73.5}
+        - {x: 102, y: 102.5}
+    - name: panel are you sure to exit
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 632
+        width: 567
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -283.5, y: 91.5}
+        - {x: -283.5, y: -91.5}
+        - {x: 283.5, y: -91.5}
+        - {x: 283.5, y: 91.5}
+    - name: panel congretulate get 2000
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 379
+        width: 521
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 258.5, y: -117.5}
+        - {x: 260.5, y: -115.5}
+        - {x: 260.5, y: 117.5}
+        - {x: 258.5, y: 119.5}
+        - {x: 258.5, y: 120.5}
+        - {x: 254.5, y: 124.5}
+        - {x: 253.5, y: 124.5}
+        - {x: 252.5, y: 125.5}
+        - {x: -252.5, y: 125.5}
+        - {x: -258.5, y: 120.5}
+        - {x: -258.5, y: 119.5}
+        - {x: -260.5, y: 117.5}
+        - {x: -260.5, y: -115.5}
+        - {x: -258.5, y: -117.5}
+        - {x: -258.5, y: -118.5}
+        - {x: -252.5, y: -124.5}
+        - {x: -249.5, y: -125.5}
+        - {x: 247.5, y: -125.5}
+        - {x: 251.5, y: -124.5}
+        - {x: 258.5, y: -118.5}
+    - name: panel lv and gold
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 961
+        width: 366
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 183, y: 17}
+        - {x: 182, y: 20}
+        - {x: 170, y: 29}
+        - {x: 166, y: 31}
+        - {x: -183, y: 31}
+        - {x: -183, y: -31}
+        - {x: 163, y: -31}
+        - {x: 171, y: -29}
+        - {x: 183, y: -15}
+    - name: panel lv
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 50
+        width: 154
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -77, y: 27}
+        - {x: -77, y: -27}
+        - {x: 73, y: -27}
+        - {x: 77, y: -23}
+        - {x: 77, y: 18}
+        - {x: 73, y: 27}
+    - name: panel menu pause
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 175
+        width: 214
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -107, y: 74.5}
+        - {x: -107, y: -74.5}
+        - {x: 107, y: -74.5}
+        - {x: 107, y: 74.5}
+    - name: panel victory
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 817
+        width: 616
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 273, y: -81}
+        - {x: 286, y: -68}
+        - {x: 291, y: -62}
+        - {x: 295, y: -56}
+        - {x: 298, y: -52}
+        - {x: 304, y: -38}
+        - {x: 308, y: -26}
+        - {x: 308, y: 25}
+        - {x: 307, y: 29}
+        - {x: 303, y: 44}
+        - {x: 295, y: 57}
+        - {x: 287, y: 67}
+        - {x: 272, y: 82}
+        - {x: 267, y: 86}
+        - {x: 257, y: 93}
+        - {x: 248, y: 97}
+        - {x: 234, y: 102}
+        - {x: 232, y: 103}
+        - {x: -231, y: 103}
+        - {x: -244, y: 99}
+        - {x: -253, y: 95}
+        - {x: -266, y: 87}
+        - {x: -276, y: 79}
+        - {x: -283, y: 71}
+        - {x: -295, y: 56}
+        - {x: -299, y: 48}
+        - {x: -303, y: 39}
+        - {x: -306, y: 31}
+        - {x: -308, y: 24}
+        - {x: -308, y: -21}
+        - {x: -306, y: -30}
+        - {x: -303, y: -39}
+        - {x: -295, y: -56}
+        - {x: -290, y: -63}
+        - {x: -271, y: -84}
+        - {x: -258, y: -92}
+        - {x: -245, y: -98}
+        - {x: -234, y: -102}
+        - {x: -231, y: -103}
+        - {x: 230, y: -103}
+        - {x: 234, y: -102}
+        - {x: 248, y: -97}
+        - {x: 265, y: -88}
+    - name: text cancel
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 825
+        width: 123
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: text continue
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 340
+        width: 210
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: text exit
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 926
+        width: 85
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 42.5, y: -1.5}
+        - {x: 42.5, y: 16.5}
+        - {x: -42.5, y: 16.5}
+        - {x: -42.5, y: -16.5}
+        - {x: 40.5, y: -16.5}
+    - name: text get
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 106
+        width: 166
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -76, y: 33.5}
+        - {x: -83, y: 29.5}
+        - {x: -83, y: -21.5}
+        - {x: -78, y: -33.5}
+        - {x: 77, y: -33.5}
+        - {x: 83, y: -18.5}
+        - {x: 83, y: 32.5}
+        - {x: 82, y: 33.5}
+    - name: text lv
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 1003
+        width: 34
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: text resume
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 337
+        width: 167
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 83.5, y: 17}
+        - {x: -83.5, y: 17}
+        - {x: -83.5, y: -17}
+        - {x: -71.5, y: -17}
+        - {x: -71.5, y: -16}
+        - {x: -70.5, y: -17}
+        - {x: 83.5, y: -17}
+    - name: text yes
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 899
+        width: 56
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: unblelievable
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 580
+        width: 252
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44, y: 102.5}
+        - {x: -97, y: 82.5}
+        - {x: -65, y: 32.5}
+        - {x: -62, y: 29.5}
+        - {x: -55, y: 29.5}
+        - {x: -108, y: 29.5}
+        - {x: -111, y: 28.5}
+        - {x: -109, y: 21.5}
+        - {x: -126, y: -8.5}
+        - {x: -126, y: -53.5}
+        - {x: -50, y: -102.5}
+        - {x: 63, y: -102.5}
+        - {x: 126, y: -59.5}
+        - {x: 126, y: 53.5}
+        - {x: 70, y: 102.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -7,7 +7,11 @@ public class HandleImpactKnife : MonoBehaviour
     private MainGameController MainGame;
     private void FinishEffectKnife()
     {
-        MainGame.knifeObject.Idie();
+        if (MainGame.knifeObject.isThow)
+        {
+            //MainGame.knifeObject.isThow = false;
+            MainGame.knifeObject.Idie();
+        }
     }
   
 }

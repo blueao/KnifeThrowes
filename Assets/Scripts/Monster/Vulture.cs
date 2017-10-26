@@ -44,6 +44,7 @@ public class Vulture : MonoBehaviour, IMonster
         }
         box.enabled = true;
         sprite.enabled = true;
+        gameObject.SetActive(false);
     }
 
     public void Move()
@@ -53,7 +54,7 @@ public class Vulture : MonoBehaviour, IMonster
 
     public void Normal()
     {
-        throw new NotImplementedException();
+        gameObject.SetActive(true);
     }
 
     public void SetSprite()

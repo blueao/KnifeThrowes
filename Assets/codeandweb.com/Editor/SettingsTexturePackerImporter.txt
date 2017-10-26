@@ -8,7 +8,10 @@ tpsheetFileNames:
 - Assets/Texture/LosePanel/LosePanel.tpsheet
 - Assets/Texture/Menu/MenuPanel.tpsheet
 - Assets/Texture/MenuChooseGame/MenuChooseGame.tpsheet
+- Assets/Texture/PanelShop/PanelShopDao-1.tpsheet
+- Assets/Texture/PanelShop/PanelShopDao-2.tpsheet
 - Assets/Texture/Target/Target.tpsheet
+- Assets/Texture/WinGame/WinGame.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
 - Assets/Texture/EffectKnife/FullEffect.png
@@ -17,9 +20,15 @@ textureFileNames:
 - Assets/Texture/LosePanel/LosePanel.png
 - Assets/Texture/Menu/MenuPanel.png
 - Assets/Texture/MenuChooseGame/MenuChooseGame.png
+- Assets/Texture/PanelShop/PanelShopDao-1.png
+- Assets/Texture/PanelShop/PanelShopDao-2.png
 - Assets/Texture/Target/Target.png
+- Assets/Texture/WinGame/WinGame-0.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
+- 
 - 
 - 
 - 

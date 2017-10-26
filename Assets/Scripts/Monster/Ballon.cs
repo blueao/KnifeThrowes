@@ -12,7 +12,6 @@ public class Ballon : MonoBehaviour, IMonster
     BoxCollider2D box;
     float width;
     float height;
-
     Tween tweenMove;
     Tween tweenAnim;
     private void Start()
@@ -29,7 +28,6 @@ public class Ballon : MonoBehaviour, IMonster
     }
     public void Die()
     {
-        ShowBallonDead();
         box.enabled = false;
         if (tweenMove != null)
         {
@@ -37,6 +35,7 @@ public class Ballon : MonoBehaviour, IMonster
             tweenMove = null;
         }
 
+        ShowBallonDead();
     }
 
     public void Fly()
@@ -46,6 +45,7 @@ public class Ballon : MonoBehaviour, IMonster
 
     public void InPool()
     {
+        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         box.isTrigger = true;
         SetSprite();
         transform.localPosition = new Vector3(0, 15, 0);
@@ -55,6 +55,7 @@ public class Ballon : MonoBehaviour, IMonster
             tweenAnim = null;
         }
         sprite.enabled = true;
+        gameObject.SetActive(false);
     }
 
     public void Move()
@@ -68,7 +69,7 @@ public class Ballon : MonoBehaviour, IMonster
     }
     public void Normal()
     {
-        throw new NotImplementedException();
+        gameObject.SetActive(true);
     }
 
     public void SetSprite()
@@ -95,6 +96,7 @@ public class Ballon : MonoBehaviour, IMonster
         tweenAnim = DOTween.To(() => 0, x => sprite.sprite = ListSpriteDeadBallon[x], ListSpriteDeadBallon.Length - 1, 1f).OnComplete(() =>
          {
              sprite.enabled = false;
+             ModelHandle.Instance.SetScore(10);
              InPool();
          });
 

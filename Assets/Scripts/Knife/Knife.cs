@@ -25,7 +25,8 @@ public class Knife : MonoBehaviour, IKnife
     public RuntimeAnimatorController[] ListAnimaterEffect;
     [HideInInspector]
     public Tween KnifeRotate;
-    BoxCollider2D box;
+    public BoxCollider2D box;
+    public bool isMiss;
     public void Fly()
     {
         spriteKnife.GetComponent<Transform>().localRotation = Quaternion.Euler(Vector3.zero);
@@ -40,6 +41,7 @@ public class Knife : MonoBehaviour, IKnife
         ImpactKnife(true);
         RBknife.isKinematic = true;
         box.enabled = false;
+        animatorEffectKnife.gameObject.GetComponent<TrailRenderer>().Clear();
     }
 
     public void Idie()
@@ -48,11 +50,14 @@ public class Knife : MonoBehaviour, IKnife
         isIdie = true;
         isFly = false;
         ResetKnife();
+        StopCoroutine(ChildKnife.GetComponent<HandleKnifeSprite>().Rigid());
+        box.isTrigger = true;
+
     }
 
     public void Miss()
     {
-        throw new NotImplementedException();
+
     }
     public void SetUpEffectKnife(string color)
     {
@@ -60,7 +65,8 @@ public class Knife : MonoBehaviour, IKnife
         {
             if (color == material[i].name.ToLower())
             {
-                ChildKnife.GetComponent<TrailRenderer>().material = material[i];
+                //ChildKnife.GetComponent<TrailRenderer>().material = material[i];
+                animatorEffectKnife.gameObject.GetComponent<TrailRenderer>().material = material[i];
                 animatorEffectKnife.runtimeAnimatorController = ListAnimaterEffect[i];
                 break;
             }
@@ -78,20 +84,24 @@ public class Knife : MonoBehaviour, IKnife
         else
             RBknife.constraints = RigidbodyConstraints2D.None;
     }
-    private void ResetKnife()
+    public void ResetKnife()
     {
+        animatorEffectKnife.GetComponent<TrailRenderer>().enabled = true;
+        isMiss = false;
         ImpactKnife(false);
         ChildKnife.transform.localPosition = startKnifeTransfom;
         RBknife.isKinematic = true;
         isThow = false;
-        ChildKnife.transform.localRotation = Quaternion.Euler(Vector3.zero);
-
+        ChildKnife.transform.localRotation = Quaternion.Euler(new Vector3(180,0,0));
+        animatorEffectKnife.gameObject.GetComponent<TrailRenderer>().Clear();
     }
     private void Start()
     {
         box = ChildKnife.GetComponent<BoxCollider2D>();
         box.enabled = false;
-        ChildKnife.GetComponent<TrailRenderer>().sortingOrder = 31000;
+        box.isTrigger = true;
+        //ChildKnife.GetComponent<TrailRenderer>().sortingOrder = 31000;
+        animatorEffectKnife.gameObject.GetComponent<TrailRenderer>().sortingOrder = 31000;
         Idie();
         knifeTransfom = GetComponent<Transform>();
         spriteKnife = ChildKnife.transform.GetComponent<SpriteRenderer>();

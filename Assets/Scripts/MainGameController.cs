@@ -3,8 +3,9 @@ using System.Collections;
 using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
 
-public class MainGameController : MonoBehaviour
+public class MainGameController : MonoBehaviour, IOberser
 {
     [SerializeField]
     public Knife knifeObject;
@@ -22,12 +23,15 @@ public class MainGameController : MonoBehaviour
     public bool isGameReadyToPlay;
 
     //UI
+    public GameObject PanelGet;
     public GameObject PanelLose;
     public GameObject PanelWin;
     public GameObject PanelCount;
     public GameObject PanelChooseMap;
     public GameObject Menu;
     public Text textCount;
+    public Text CoinMenu;
+    public Text Level;
     public Button ClassicBtn;
     public Button PlayBtn;
     //SetCountMonster
@@ -61,6 +65,7 @@ public class MainGameController : MonoBehaviour
     public GameObject preFabBat;
     public GameObject preFabCrazyDog;
     public GameObject preFabBoar;
+    public GameObject preFabCoinImage;
     //BG
     private float widthBG;
     private float heightBG;
@@ -102,8 +107,10 @@ public class MainGameController : MonoBehaviour
     [HideInInspector]
     public List<GameObject> ListBoar = new List<GameObject>();
     // Dictionary<string, GameObject> AllMonsterHere = new Dictionary<string, GameObject>();
-
-
+    //List Boar Type
+    [HideInInspector]
+    public List<GameObject> ListCoinPool = new List<GameObject>();
+    public int Coinpool;
     //ListTransMap1
     public Transform[] RedTargetPos;
     public Transform[] Stupid;
@@ -133,14 +140,16 @@ public class MainGameController : MonoBehaviour
     Vector3 startBGHill1;
     Vector3 startBGHill2;
     Vector3 startBGHill3;
+
     void Start()
     {
         spriteKnife = knifeObject.spriteKnife.GetComponent<Transform>();
         spriteKnife.localPosition = new Vector3(spriteKnife.localPosition.x + knifeObject.spriteKnife.bounds.size.y, spriteKnife.localPosition.y, spriteKnife.localPosition.z);
         knifeObject.startKnifeTransfom = spriteKnife.localPosition;
         knifeObject.SetUpEffectKnife("seven");
-        widthBG = Grass[0].GetComponent<SpriteRenderer>().bounds.size.x;
-        heightBG = Grass[0].GetComponent<SpriteRenderer>().bounds.size.y;
+        widthBG = Mathf.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.x) - 1;
+        Debug.Log(widthBG);
+        heightBG = Mathf.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.y) - 1;
         endPositionBG = -widthBG - widthBG / 2;
         poolPosition = new Vector3(0, 15, 0);
 
@@ -148,6 +157,14 @@ public class MainGameController : MonoBehaviour
     }
     void Initialized()
     {
+        int scores = PlayerPrefs.GetInt("score");
+        ScoreNumber.text = scores.ToString();
+        AnimCoin();
+        CoinMenu.text = scores.ToString();
+        Level.text = "123456";
+
+        ModelHandle.Instance.actionSetCoin += SetCoin;
+        ModelHandle.Instance.actiongGetCoin += getCoinPool;
         redtarget = RedTargetPos.Length;
         woodtarget1 = TargetPos.Length % 2;
         woodtarget2 = TargetPos.Length - woodtarget1;
@@ -175,6 +192,7 @@ public class MainGameController : MonoBehaviour
                 && (redIndex < RedTargetPos.Length))
             {
                 ListWoodTarget[j].transform.localPosition = RedTargetPos[redIndex].transform.localPosition;
+                ListWoodTarget[j].SetActive(true);
                 redIndex++;
             }
         }
@@ -185,6 +203,7 @@ public class MainGameController : MonoBehaviour
                 && (woodIndex < TargetPos.Length))
             {
                 ListWoodTarget[j].transform.localPosition = TargetPos[woodIndex].transform.localPosition;
+                ListWoodTarget[j].SetActive(true);
                 woodIndex++;
             }
         }
@@ -195,6 +214,7 @@ public class MainGameController : MonoBehaviour
                 && (stupidnum < Stupid.Length))
             {
                 ListStupid[j].transform.localPosition = Stupid[stupidnum].transform.localPosition;
+                ListStupid[j].SetActive(true);
                 stupidnum++;
             }
         }
@@ -205,6 +225,7 @@ public class MainGameController : MonoBehaviour
                 && (fruitnum < FruitPos.Length))
             {
                 ListFruit[j].transform.localPosition = FruitPos[fruitnum].transform.localPosition;
+                ListFruit[j].SetActive(true);
                 fruitnum++;
             }
         }
@@ -215,6 +236,7 @@ public class MainGameController : MonoBehaviour
                 && (boarNum < BoarsPos.Length))
             {
                 ListBoar[j].transform.localPosition = BoarsPos[boarNum].transform.localPosition;
+                ListBoar[j].SetActive(true);
                 boarNum++;
             }
         }
@@ -225,6 +247,7 @@ public class MainGameController : MonoBehaviour
                 && (ballonNum < BallonPos.Length))
             {
                 ListBallon[j].transform.localPosition = BallonPos[ballonNum].transform.localPosition;
+                ListBallon[j].SetActive(true);
                 ballonNum++;
             }
         }
@@ -235,6 +258,7 @@ public class MainGameController : MonoBehaviour
                 && (pumkinNum < PumKinPos.Length))
             {
                 ListPumkin[j].transform.localPosition = PumKinPos[pumkinNum].transform.localPosition;
+                ListPumkin[j].SetActive(true);
                 pumkinNum++;
             }
         }
@@ -245,6 +269,7 @@ public class MainGameController : MonoBehaviour
                 && (vutulreNum < VulturePos.Length))
             {
                 ListVulture[j].transform.localPosition = VulturePos[vutulreNum].transform.localPosition;
+                ListVulture[j].SetActive(true);
                 vutulreNum++;
             }
         }
@@ -255,6 +280,7 @@ public class MainGameController : MonoBehaviour
                 && (spiderNum < SpriderPos.Length))
             {
                 ListSprider[j].transform.localPosition = SpriderPos[spiderNum].transform.localPosition;
+                ListSprider[j].SetActive(true);
                 spiderNum++;
             }
         }
@@ -265,6 +291,7 @@ public class MainGameController : MonoBehaviour
                 && (dumkinNum < DumkinPos.Length))
             {
                 ListDummy[j].transform.localPosition = DumkinPos[dumkinNum].transform.localPosition;
+                ListDummy[j].SetActive(true);
                 dumkinNum++;
             }
         }
@@ -275,12 +302,21 @@ public class MainGameController : MonoBehaviour
                 && (crazyDogNum < CrazyDog.Length))
             {
                 ListCrazyDog[j].transform.localPosition = CrazyDog[crazyDogNum].transform.localPosition;
+                ListCrazyDog[j].SetActive(true);
                 crazyDogNum++;
             }
         }
     }
     public void CreateObject()
     {
+        for (int i = 0; i < Coinpool; i++)
+        {
+            GameObject coinpool = (GameObject)Instantiate(preFabCoinImage, poolPosition, Quaternion.identity);
+            coinpool.name = "CoinPool" + i;
+            ListCoinPool.Add(coinpool);
+            coinpool.SetActive(false);
+        }
+
         for (int i = 0; i < StupidCount; i++)
         {
             GameObject stupidobj = (GameObject)Instantiate(preFab, poolPosition, Quaternion.identity);
@@ -335,7 +371,7 @@ public class MainGameController : MonoBehaviour
 
         for (int i = 0; i < DummyCount; i++)
         {
-            int b = Random.Range(1, 3);
+            int b = UnityEngine.Random.Range(1, 3);
             GameObject dummy = (GameObject)Instantiate(preDummy, poolPosition, Quaternion.identity);
             dummy.name = "dummy (" + b + ")" + i;
             ListDummy.Add(dummy);
@@ -344,7 +380,7 @@ public class MainGameController : MonoBehaviour
 
         for (int i = 0; i < VultureCount; i++)
         {
-            int b = Random.Range(1, 3);
+            int b = UnityEngine.Random.Range(1, 3);
             GameObject vulture = (GameObject)Instantiate(preVulture, poolPosition, Quaternion.identity);
             vulture.name = "vulture (" + b + ")" + i;
             ListVulture.Add(vulture);
@@ -411,12 +447,16 @@ public class MainGameController : MonoBehaviour
 
         MoveMonster.transform.localPosition += Vector3.left * speedMoveBG;
     }
+    public bool CanMove;
     private void FixedUpdate()
     {
         if (isGameReadyToPlay)
         {
             speedMoveBG = Time.fixedDeltaTime * 1f;
-            MoveBackGround();
+            if (CanMove)
+            {
+                //MoveBackGround();
+            }
             if (knifeObject.isIdie)
             {
                 DragPosition();
@@ -433,16 +473,22 @@ public class MainGameController : MonoBehaviour
             if (spriteKnife.localRotation.z == 0)
             {
 
-               knifeObject.KnifeRotate = spriteKnife.DOLocalRotate(new Vector3(0, 0, -180), 0.5f).OnComplete(() =>
+                knifeObject.KnifeRotate = spriteKnife.DOLocalRotate(new Vector3(0, 0, -180), 0.5f).OnComplete(() =>
                 {
                     knifeObject.isThow = true;
                 });
+                //if (spriteKnife.localRotation.z > 90)
+                //{
+                   
+                //}
+
             }
             //if (knifeObject.isThow)
             //{
-                knifeObject.RBknife.isKinematic = false;
-                knifeObject.RBknife.AddTorque(-1f, ForceMode2D.Force);
-                spriteKnife.localPosition += Vector3.right * Time.fixedDeltaTime * 12f;
+            knifeObject.RBknife.isKinematic = false;
+           // knifeObject.RBknife.AddTorque(-1f, ForceMode2D.Force);
+           // knifeObject.RBknife.AddForce(new Vector2(1f, 0f), ForceMode2D.Force);
+            spriteKnife.localPosition += Vector3.right * Time.fixedDeltaTime * a;
             //}
         }
     }
@@ -481,15 +527,26 @@ public class MainGameController : MonoBehaviour
         knifeObject.Fly();
     }
 
+    Vector3 startMousePosition;
+    Vector3 endMousePosition;
+    public float a = 1f;
     public void DragPosition()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && knifeObject.isIdie)
         {
+            startMousePosition = Input.mousePosition;
             knifeObject.isDrag = true;
         }
         if (Input.GetMouseButtonUp(0))
         {
             knifeObject.isDrag = false;
+            endMousePosition = Input.mousePosition;
+            a = (Mathf.Abs(endMousePosition.x - startMousePosition.x) / 100);
+            Debug.Log(a);
+            if (a > 2f)
+            {
+                a = a * 3;
+            }
             calculorDrag();
         }
     }
@@ -498,6 +555,7 @@ public class MainGameController : MonoBehaviour
     {
 
         PanelLose.SetActive(false);
+        CanMove = true;
         isGameReadyToPlay = true;
         Reset();
     }
@@ -541,6 +599,7 @@ public class MainGameController : MonoBehaviour
         se.SetLoops(3).OnComplete(() =>
         {
             count = 3;
+            CanMove = true;
             isGameReadyToPlay = true;
             PanelCount.SetActive(false);
             Reset();
@@ -549,8 +608,40 @@ public class MainGameController : MonoBehaviour
 
     public void WinGame()
     {
+        isGameReadyToPlay = false;
+        Reset();
+        isPanelWinGame(true);
+    }
+    public void isPanelWinGame(bool isActive)
+    {
+        PanelWin.SetActive(isActive);
+    }
+    public void isPanelGet(bool isActive)
+    {
+        PanelGet.SetActive(isActive);
+    }
+    public void OnContinueClick()
+    {
+        isPanelWinGame(false);
+        isPanelGet(true);
+    }
+    public void OnGetClick()
+    {
+        isPanelGet(false);
+        isActiveMenu(true);
+    }
+    public Text ScoreNumber;
+    public Transform Coin;
+    public void AnimCoin()
+    {
+        Sequence se = DOTween.Sequence();
+        se.Append(Coin.DOScaleX(0, 0.5f));
+        se.Append(Coin.DOScaleX(1, 0.5f));
+        se.SetLoops(-1);
 
     }
+
+
     public void Reset()
     {
         SetupPositionObj();
@@ -588,5 +679,72 @@ public class MainGameController : MonoBehaviour
         Hill[0].transform.localPosition = startBGHill1;
         Hill[1].transform.localPosition = startBGHill2;
         Hill[2].transform.localPosition = startBGHill3;
+    }
+
+    public void getCoinPool(Vector3 start)
+    {
+        Coin.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        Sequence se = DOTween.Sequence();
+        Tween a = null; ;
+        for (int i = 0; i < ListCoinPool.Count; i++)
+        {
+            if (!ListCoinPool[i].activeSelf)
+            {
+                ListCoinPool[i].transform.SetParent(MoveMonster);
+                ListCoinPool[i].transform.localPosition = start;
+                ListCoinPool[i].SetActive(true);
+                se.Append(ListCoinPool[i].transform.DOScaleX(0, 0.5f));
+                se.Join(ListCoinPool[i].transform.DOScaleX(1, 0.5f));
+                se.SetLoops(-1);
+
+                a = ListCoinPool[i].transform.DOMove(Coin.transform.position, 1f).OnComplete(() =>
+                {
+                    ListCoinPool[i].transform.localPosition = poolPosition;
+                    ListCoinPool[i].SetActive(false);
+                    if (se != null)
+                    {
+                        se.Kill();
+                        se = null;
+                    }
+                    if (a != null)
+                    {
+                        a.Kill();
+                        a = null;
+                    }
+                });
+                break;
+            }
+            GameObject coinpool = (GameObject)Instantiate(preFabCoinImage, poolPosition, Quaternion.identity);
+            coinpool.name = "CoinPool" + i;
+            ListCoinPool.Add(coinpool);
+            ListCoinPool[i].transform.SetParent(MoveMonster);
+            ListCoinPool[i].transform.localPosition = start;
+            ListCoinPool[i].SetActive(true);
+            se.Append(ListCoinPool[i].transform.DOScaleX(0, 0.5f));
+            se.Join(ListCoinPool[i].transform.DOScaleX(0, 0.5f));
+            se.SetLoops(-1);
+            a = ListCoinPool[i].transform.DOMove(Coin.transform.position, 1f).OnComplete(() =>
+            {
+                ListCoinPool[i].transform.localPosition = poolPosition;
+                ListCoinPool[i].SetActive(false);
+                if (se != null)
+                {
+                    se.Kill();
+                    se = null;
+                }
+                if (a != null)
+                {
+                    a.Kill();
+                    a = null;
+                }
+            });
+        }
+
+
+    }
+    public void SetCoin()
+    {
+        int scores = PlayerPrefs.GetInt("score");
+        ScoreNumber.text = scores.ToString();
     }
 }
