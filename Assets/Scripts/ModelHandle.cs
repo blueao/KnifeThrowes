@@ -13,13 +13,17 @@ public class ModelHandle
     public Action<Vector3> actiongGetCoin;
     ModelHandle() { }
 
+     ScrollRectController mainRect =   GameObject.FindObjectOfType(typeof(ScrollRectController)) as ScrollRectController;
     public void SetScore(int score)
     {
-        MainGameController main = new MainGameController();
         int scores = PlayerPrefs.GetInt("score");
         scores += score;
         PlayerPrefs.SetInt("score", scores);
         actionSetCoin();
+    }
+    public void setSpriTemp(int index)
+    {
+        mainRect.KnifeTemp.sprite = mainRect.ListSpriteKnifeContempl[index];
     }
     public static ModelHandle Instance
     {

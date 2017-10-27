@@ -66,6 +66,9 @@ public class MainGameController : MonoBehaviour, IOberser
     public GameObject preFabCrazyDog;
     public GameObject preFabBoar;
     public GameObject preFabCoinImage;
+
+
+    public ScrollRectController scrollrecController;
     //BG
     private float widthBG;
     private float heightBG;
@@ -746,5 +749,18 @@ public class MainGameController : MonoBehaviour, IOberser
     {
         int scores = PlayerPrefs.GetInt("score");
         ScoreNumber.text = scores.ToString();
+    }
+    public GameObject ShopDao;
+    public void isActiveShopDao(bool isActive)
+    {
+        ShopDao.SetActive(isActive);
+    }
+    public void OPenShop()
+    {
+        isActiveShopDao(true);
+    }
+    public void CloseShop()
+    {
+        isActiveShopDao(false);
     }
 }

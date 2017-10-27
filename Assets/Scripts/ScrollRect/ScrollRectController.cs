@@ -1,13 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class ScrollRectController : MonoBehaviour
 {
 
     public RectTransform panel;
-    public GameObject[] listGO;
+    public List<GameObject> listGO;
     public RectTransform center;
-
+    public GameObject preFabKnifeShop;
+    public MainGameController MainGame;
+    public Sprite[] ListSpriteKnife;
+    public Sprite[] ListSpriteKnifeContempl;
+    public Sprite[] ListMoney;
     private int start = 1;
     private float[] distance;
     float[] distReposition;
@@ -15,27 +21,55 @@ public class ScrollRectController : MonoBehaviour
     private int GODistance;
     private int numberGO;
     int lengt;
+
+    public Image KnifeTemp;
+    public Image Lock;
     private void Start()
     {
-        lengt = listGO.Length;
+        CreateObject();
+        lengt = listGO.Count;
         distance = new float[lengt];
         distReposition = new float[lengt];
         GODistance = (int)(listGO[1].GetComponent<RectTransform>().anchoredPosition.y - listGO[0].GetComponent<RectTransform>().anchoredPosition.y);
-       // panel.anchoredPosition = new Vector2(0f,(start - 1)*-115);
+        // panel.anchoredPosition = new Vector2(0f,(start - 1)*-115);
+    }
+
+    void CreateObject()
+    {
+        for (int i = 0; i < ListSpriteKnife.Length; i++)
+        {
+            GameObject SpriteKnifeLeft = (GameObject)Instantiate(preFabKnifeShop, preFabKnifeShop.transform.localPosition, Quaternion.identity);
+            SpriteKnifeLeft.transform.SetParent(panel, false);
+            SpriteKnifeLeft.name = "KnifeLeft" + i;
+            SpriteKnifeLeft.transform.GetChild(1).GetComponent<Image>().sprite = ListSpriteKnife[i];
+
+            for (int j = 0; j < ListMoney.Length; j++)
+            {
+                if (ListMoney[j].name.Remove(0, 5) == (SpriteKnifeLeft.transform.GetChild(1).GetComponent<Image>().sprite.name.Remove(0, 6)))
+                {
+                    SpriteKnifeLeft.transform.GetChild(2).transform.GetChild(2).GetComponent<Image>().sprite = ListMoney[j];
+                    break;
+                }
+            }
+
+            SpriteKnifeLeft.transform.localPosition = new Vector3(SpriteKnifeLeft.transform.localPosition.x, SpriteKnifeLeft.transform.localPosition.y - 115f * i, SpriteKnifeLeft.transform.localPosition.z);
+
+            listGO.Add(SpriteKnifeLeft);
+        }
     }
     private void Update()
     {
-            for (int i = 0; i < listGO.Length; i++)
+        for (int i = 0; i < listGO.Count; i++)
         {
             distReposition[i] = center.GetComponent<RectTransform>().position.y - listGO[i].GetComponent<RectTransform>().position.y;
             distance[i] = Mathf.Abs(distReposition[i]);
-            if (distReposition[i] > 460)
-            {
-                float curX = listGO[i].GetComponent<RectTransform>().anchoredPosition.x;
-                float curY = listGO[i].GetComponent<RectTransform>().anchoredPosition.y;
-                Vector2 newAnchor = new Vector2(curX, curY + (lengt + GODistance));
-                listGO[i].GetComponent<RectTransform>().anchoredPosition = newAnchor;
-            }
+            //if (distReposition[i] > 460)
+            //{
+            //    float curX = listGO[i].GetComponent<RectTransform>().anchoredPosition.x;
+            //    float curY = listGO[i].GetComponent<RectTransform>().anchoredPosition.y;
+            //    Vector2 newAnchor = new Vector2(curX, curY + (lengt + GODistance));
+            //    listGO[i].GetComponent<RectTransform>().anchoredPosition = newAnchor;
+            //}
             //if (distReposition[i] > -460)
             //{
             //    float curX = listGO[i].GetComponent<RectTransform>().anchoredPosition.x;
@@ -44,9 +78,9 @@ public class ScrollRectController : MonoBehaviour
             //    listGO[i].GetComponent<RectTransform>().anchoredPosition = newAnchor;
             //}
         }
-        
+
         float minDistance = Mathf.Min(distance);
-        for (int a = 0; a < listGO.Length; a++)
+        for (int a = 0; a < listGO.Count; a++)
         {
             if (minDistance == distance[a])
             {
@@ -54,8 +88,6 @@ public class ScrollRectController : MonoBehaviour
             }
             if (!drag)
             {
-                //Lerp(numberGO * -GODistance);
-                Debug.Log(numberGO);
                 Lerp(-listGO[numberGO].GetComponent<RectTransform>().anchoredPosition.y);
             }
         }
@@ -66,7 +98,7 @@ public class ScrollRectController : MonoBehaviour
     {
         float newY = Mathf.Lerp(panel.anchoredPosition.y, position, Time.deltaTime * 5f);
 
-        if (Mathf.Abs(position-newY)<5f)
+        if (Mathf.Abs(position - newY) < 5f)
         {
             newY = position;
         }
