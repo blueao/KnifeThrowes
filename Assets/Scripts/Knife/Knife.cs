@@ -58,7 +58,7 @@ public class Knife : MonoBehaviour, IKnife
         ResetKnife();
         StopCoroutine(ChildKnife.GetComponent<HandleKnifeSprite>().Rigid());
         box.isTrigger = true;
-
+        box.enabled = false;
     }
 
     public void Miss()

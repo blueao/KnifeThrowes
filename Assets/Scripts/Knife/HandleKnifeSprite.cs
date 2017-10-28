@@ -28,6 +28,7 @@ public class HandleKnifeSprite : MonoBehaviour
             });
             MainGame.knifeObject.animatorEffectKnife.GetComponent<TrailRenderer>().enabled = false;
             MainGame.knifeObject.box.isTrigger = false;
+            MainGame.knifeObject.box.enabled = true;
             MainGame.knifeObject.isMiss = true;
             if (go == null)
             {
@@ -67,7 +68,7 @@ public class HandleKnifeSprite : MonoBehaviour
         }
         if (MainGame.knifeObject.isMiss)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
         }
         else
         {

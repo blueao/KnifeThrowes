@@ -10,6 +10,7 @@ tpsheetFileNames:
 - Assets/Texture/MenuChooseGame/MenuChooseGame.tpsheet
 - Assets/Texture/PanelShop/PanelShopDao-1.tpsheet
 - Assets/Texture/PanelShop/PanelShopDao-2.tpsheet
+- Assets/Texture/QuitPanel/QuitPanel.tpsheet
 - Assets/Texture/Target/Target.tpsheet
 - Assets/Texture/WinGame/WinGame.tpsheet
 textureFileNames:
@@ -22,10 +23,12 @@ textureFileNames:
 - Assets/Texture/MenuChooseGame/MenuChooseGame.png
 - Assets/Texture/PanelShop/PanelShopDao-1.png
 - Assets/Texture/PanelShop/PanelShopDao-2.png
+- Assets/Texture/QuitPanel/QuitPanel.png
 - Assets/Texture/Target/Target.png
 - Assets/Texture/WinGame/WinGame-0.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
 - 
 - 
 - 

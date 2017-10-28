@@ -1,0 +1,383 @@
+fileFormatVersion: 2
+guid: a754dc3dc4f59ea4a8216051013ac779
+timeCreated: 1509214682
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: button cancel
+    21300002: button exit
+    21300004: button pause
+    21300006: button resume
+    21300008: button yes
+    21300010: logo gold
+    21300012: multi
+    21300014: oh no lose
+    21300016: panel are you sure to exit
+    21300018: panel lv and gold
+    21300020: panel lv
+    21300022: panel menu pause
+    21300024: text cancel
+    21300026: text exit
+    21300028: text lv
+    21300030: text resume
+    21300032: text yes
+    21300034: unblelievable
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: button cancel
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 34
+        width: 172
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -86, y: -30.5}
+        - {x: -85, y: -31.5}
+        - {x: 86, y: -31.5}
+        - {x: 86, y: 31.5}
+        - {x: -84, y: 31.5}
+        - {x: -86, y: 29.5}
+    - name: button exit
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 389
+        width: 193
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -96.5, y: 30}
+        - {x: -96.5, y: -30}
+        - {x: 96.5, y: -30}
+        - {x: 96.5, y: 30}
+    - name: button pause
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 238
+        width: 58
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29, y: 26.5}
+        - {x: -29, y: -26.5}
+        - {x: 29, y: -26.5}
+        - {x: 29, y: 26.5}
+    - name: button resume
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 451
+        width: 194
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -97, y: 30}
+        - {x: -97, y: -30}
+        - {x: 97, y: -30}
+        - {x: 97, y: 30}
+    - name: button yes
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 34
+        width: 172
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -86, y: -30.5}
+        - {x: -85, y: -31.5}
+        - {x: 86, y: -31.5}
+        - {x: 86, y: 31.5}
+        - {x: -84, y: 31.5}
+        - {x: -86, y: 29.5}
+    - name: logo gold
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 190
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 23}
+        - {x: -23, y: 20}
+        - {x: -23, y: -17}
+        - {x: -16, y: -23}
+        - {x: 14, y: -23}
+        - {x: 23, y: -16}
+        - {x: 23, y: 21}
+        - {x: 17, y: 23}
+    - name: multi
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 99
+        width: 236
+        height: 205
+      alignment: 9
+      pivot: {x: 0.4915254, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 61, y: -51.5}
+        - {x: 62, y: -55.5}
+        - {x: 65, y: -60.5}
+        - {x: 114, y: -54.5}
+        - {x: 114, y: 64.5}
+        - {x: 106, y: 102.5}
+        - {x: -46, y: 102.5}
+        - {x: -110, y: 50.5}
+        - {x: -110, y: -54.5}
+        - {x: -68, y: -87.5}
+        - {x: -31, y: -68.5}
+        - {x: -15, y: -102.5}
+        - {x: 32, y: -102.5}
+        - {x: 72, y: -88.5}
+        - {x: 74, y: -81.5}
+        - {x: 65, y: -62.5}
+        - {x: 63, y: -59.5}
+    - name: oh no lose
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 99
+        width: 234
+        height: 205
+      alignment: 9
+      pivot: {x: 0.4957265, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 102.5}
+        - {x: -82, y: 79.5}
+        - {x: -110, y: 27.5}
+        - {x: -110, y: -54.5}
+        - {x: -109, y: -83.5}
+        - {x: -77, y: -102.5}
+        - {x: 57, y: -102.5}
+        - {x: 77, y: -87.5}
+        - {x: 112, y: -53.5}
+        - {x: 112, y: 73.5}
+        - {x: 102, y: 102.5}
+    - name: panel are you sure to exit
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 328
+        width: 567
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -283.5, y: 91.5}
+        - {x: -283.5, y: -91.5}
+        - {x: 283.5, y: -91.5}
+        - {x: 283.5, y: 91.5}
+    - name: panel lv and gold
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 35
+        width: 366
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 183, y: 17}
+        - {x: 182, y: 20}
+        - {x: 170, y: 29}
+        - {x: 166, y: 31}
+        - {x: -183, y: 31}
+        - {x: -183, y: -31}
+        - {x: 163, y: -31}
+        - {x: 171, y: -29}
+        - {x: 183, y: -15}
+    - name: panel lv
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 297
+        width: 154
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -77, y: 27}
+        - {x: -77, y: -27}
+        - {x: 73, y: -27}
+        - {x: 77, y: -23}
+        - {x: 77, y: 18}
+        - {x: 73, y: 27}
+    - name: panel menu pause
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 146
+        width: 214
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -107, y: 74.5}
+        - {x: -107, y: -74.5}
+        - {x: 107, y: -74.5}
+        - {x: 107, y: 74.5}
+    - name: text cancel
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 8
+        width: 123
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: text exit
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 293
+        width: 85
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 42.5, y: -1.5}
+        - {x: 42.5, y: 16.5}
+        - {x: -42.5, y: 16.5}
+        - {x: -42.5, y: -16.5}
+        - {x: 40.5, y: -16.5}
+    - name: text lv
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 12
+        width: 34
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: text resume
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 353
+        width: 167
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 83.5, y: 17}
+        - {x: -83.5, y: 17}
+        - {x: -83.5, y: -17}
+        - {x: -71.5, y: -17}
+        - {x: -71.5, y: -16}
+        - {x: -70.5, y: -17}
+        - {x: 83.5, y: -17}
+    - name: text yes
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 7
+        width: 56
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: unblelievable
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 306
+        width: 252
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44, y: 102.5}
+        - {x: -97, y: 82.5}
+        - {x: -65, y: 32.5}
+        - {x: -62, y: 29.5}
+        - {x: -55, y: 29.5}
+        - {x: -108, y: 29.5}
+        - {x: -111, y: 28.5}
+        - {x: -109, y: 21.5}
+        - {x: -126, y: -8.5}
+        - {x: -126, y: -53.5}
+        - {x: -50, y: -102.5}
+        - {x: 63, y: -102.5}
+        - {x: 126, y: -59.5}
+        - {x: 126, y: 53.5}
+        - {x: 70, y: 102.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

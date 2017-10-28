@@ -51,7 +51,7 @@ public class MainGameController : MonoBehaviour, IOberser
     public int BoarCount;
 
     private Vector3 poolPosition;
-
+    public GameObject QuitPanel;
     //MoveObj
     public Transform MoveMonster;
     //prefab Monster
@@ -491,8 +491,9 @@ public class MainGameController : MonoBehaviour, IOberser
             //{
             knifeObject.RBknife.isKinematic = false;
            // knifeObject.RBknife.AddTorque(spriteKnife.right.y * v);
-            // knifeObject.RBknife.AddForce(new Vector2(1f, 0f), ForceMode2D.Force);
-            spriteKnife.localPosition += Vector3.right * Time.fixedDeltaTime * a;
+                spriteKnife.localPosition += Vector3.right * Time.fixedDeltaTime * a;
+             knifeObject.RBknife.AddForce(Vector2.right);
+        
             //}
         }
     }
@@ -547,7 +548,13 @@ public class MainGameController : MonoBehaviour, IOberser
         {
             knifeObject.isDrag = false;
             endMousePosition = Input.mousePosition;
+            if (endMousePosition.x - startMousePosition.x> endMousePosition.y - startMousePosition.y)
+            {
             a = (Mathf.Abs(endMousePosition.x - startMousePosition.x) / 100);
+
+            }
+            else
+                a = (Mathf.Abs(endMousePosition.y - startMousePosition.y) / 100);
             if (a > 2f)
             {
                 a = a * 3;
@@ -764,6 +771,15 @@ public class MainGameController : MonoBehaviour, IOberser
     public void CloseShop()
     {
         isActiveShopDao(false);
+    }
+    public void SetActiveQuitPanel()
+    {
+        if (QuitPanel.activeSelf)
+        {
+        QuitPanel.SetActive(false);
+        }
+        else
+            QuitPanel.SetActive(true);
     }
 
 }
