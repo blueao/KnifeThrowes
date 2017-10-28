@@ -149,7 +149,7 @@ public class MainGameController : MonoBehaviour, IOberser
         spriteKnife = knifeObject.spriteKnife.GetComponent<Transform>();
         spriteKnife.localPosition = new Vector3(spriteKnife.localPosition.x + knifeObject.spriteKnife.bounds.size.y, spriteKnife.localPosition.y, spriteKnife.localPosition.z);
         knifeObject.startKnifeTransfom = spriteKnife.localPosition;
-        knifeObject.SetUpEffectKnife("seven");
+        knifeObject.SetUpEffectKnife(ModelHandle.SetSevenTrail);
         widthBG = Mathf.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.x) - 1;
         Debug.Log(widthBG);
         heightBG = Mathf.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.y) - 1;
@@ -160,11 +160,15 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     void Initialized()
     {
-        int scores = PlayerPrefs.GetInt("score");
+        int scores = PlayerPrefs.GetInt(ModelHandle.KeyScore);
         ScoreNumber.text = scores.ToString();
         AnimCoin();
         CoinMenu.text = scores.ToString();
         Level.text = "123456";
+        //knife
+        int indexKnife = PlayerPrefs.GetInt(ModelHandle.KeyKnifeSprite);
+        this.GetComponent<ScrollRectController>().setUseSpriteKnife(indexKnife);
+        //
 
         ModelHandle.Instance.actionSetCoin += SetCoin;
         ModelHandle.Instance.actiongGetCoin += getCoinPool;
@@ -458,7 +462,7 @@ public class MainGameController : MonoBehaviour, IOberser
             speedMoveBG = Time.fixedDeltaTime * 1f;
             if (CanMove)
             {
-                //MoveBackGround();
+                MoveBackGround();
             }
             if (knifeObject.isIdie)
             {

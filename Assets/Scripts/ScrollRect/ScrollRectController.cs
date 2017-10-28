@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ScrollRectController : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class ScrollRectController : MonoBehaviour
     public Sprite[] ListSpriteKnife;
     public Sprite[] ListSpriteKnifeContempl;
     public Sprite[] ListMoney;
+    public Sprite[] Unlock;
+    public Sprite[] ListSpriteKnifeUseAfterBuy;
     private int start = 1;
     private float[] distance;
     float[] distReposition;
@@ -24,16 +27,74 @@ public class ScrollRectController : MonoBehaviour
 
     public Image KnifeTemp;
     public Image Lock;
+    Sprite imagelock;
     private void Start()
     {
+#if TESTTING
+        PlayerPrefs.SetInt(ModelHandle.KeyScore, 99999);
+        ModelHandle.Instance.SetScore(PlayerPrefs.GetInt(ModelHandle.KeyScore));
+#endif
         CreateObject();
         lengt = listGO.Count;
         distance = new float[lengt];
         distReposition = new float[lengt];
         GODistance = (int)(listGO[1].GetComponent<RectTransform>().anchoredPosition.y - listGO[0].GetComponent<RectTransform>().anchoredPosition.y);
+        imagelock = Lock.sprite;
+        InitShop();
         // panel.anchoredPosition = new Vector2(0f,(start - 1)*-115);
     }
-
+    Tween anim;
+    public void RunAnimUnlock()
+    {
+        Lock.transform.localScale = new Vector3(7, 7, 7);
+        anim = DOTween.To(() => 0, x => Lock.sprite = Unlock[x], Unlock.Length - 1, 1f).OnComplete(() =>
+        {
+            setActiveLock(false);
+            Lock.sprite = imagelock;
+            Lock.transform.localScale = Vector3.one;
+            if (anim != null)
+            {
+                anim.Kill();
+                anim = null;
+            }
+        });
+    }
+    public void setUseSpriteKnife(int index)
+    {
+        gameObject.GetComponent<MainGameController>().spriteKnife.GetComponent<SpriteRenderer>().sprite = ListSpriteKnifeUseAfterBuy[index];
+    }
+    public void setActiveLock(bool isActive)
+    {
+        Lock.enabled = isActive;
+    }
+    int indexItemsBuyed = -1;
+    void InitShop()
+    {
+        for (int i = 0; i < listGO.Count; i++)
+        {
+            if (PlayerPrefs.HasKey((ModelHandle.KeyKnifeSprite + i)))
+            {
+                indexItemsBuyed = PlayerPrefs.GetInt(ModelHandle.KeyKnifeSprite + i);
+            } 
+          
+            Debug.Log(indexItemsBuyed);
+            if (indexItemsBuyed == 0)
+            {
+                setActiveLock(false);
+            }
+            if (i == indexItemsBuyed)
+            {
+                listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().isCanbuy = false;
+                listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().AnimBuy.enabled = true;
+                listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().AnimBuy.transform.GetChild(0).GetComponent<Image>().enabled = true;
+                listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().Buy.enabled = false;
+                listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().Gold.enabled = false;
+                listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().Money.enabled = false;
+            }
+            else
+                listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().isCanbuy = true;
+        }
+    }
     void CreateObject()
     {
         for (int i = 0; i < ListSpriteKnife.Length; i++)
@@ -63,20 +124,6 @@ public class ScrollRectController : MonoBehaviour
         {
             distReposition[i] = center.GetComponent<RectTransform>().position.y - listGO[i].GetComponent<RectTransform>().position.y;
             distance[i] = Mathf.Abs(distReposition[i]);
-            //if (distReposition[i] > 460)
-            //{
-            //    float curX = listGO[i].GetComponent<RectTransform>().anchoredPosition.x;
-            //    float curY = listGO[i].GetComponent<RectTransform>().anchoredPosition.y;
-            //    Vector2 newAnchor = new Vector2(curX, curY + (lengt + GODistance));
-            //    listGO[i].GetComponent<RectTransform>().anchoredPosition = newAnchor;
-            //}
-            //if (distReposition[i] > -460)
-            //{
-            //    float curX = listGO[i].GetComponent<RectTransform>().anchoredPosition.x;
-            //    float curY = listGO[i].GetComponent<RectTransform>().anchoredPosition.y;
-            //    Vector2 newAnchor = new Vector2(curX, curY - (lengt + GODistance));
-            //    listGO[i].GetComponent<RectTransform>().anchoredPosition = newAnchor;
-            //}
         }
 
         float minDistance = Mathf.Min(distance);
