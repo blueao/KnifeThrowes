@@ -1,14 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class HandleKnifeSprite : MonoBehaviour
 {
 
     [SerializeField]
-    private MainGameController MainGame;
+    public MainGameController MainGame;
 
 
-
+    Vector3 startCameraPosition;
+    private void Start()
+    {
+        startCameraPosition = MainGame.transform.localPosition;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("OnTriggerEnter2D");
@@ -18,44 +23,62 @@ public class HandleKnifeSprite : MonoBehaviour
         }
         if (collision.name == "BorderBottom" && !MainGame.knifeObject.isMiss || collision.name == "BorderTop" == !MainGame.knifeObject.isMiss)
         {
-            MainGame.knifeObject.animatorEffectKnife.GetComponent<TrailRenderer>().enabled=false;
+            MainGame.transform.DOShakePosition(0.5f, 0.1f).SetAutoKill(true).OnComplete(() => {
+                MainGame.transform.localPosition = startCameraPosition;
+            });
+            MainGame.knifeObject.animatorEffectKnife.GetComponent<TrailRenderer>().enabled = false;
             MainGame.knifeObject.box.isTrigger = false;
             MainGame.knifeObject.isMiss = true;
-            StopCoroutine(Rigid());
-            StartCoroutine(Rigid());
+            if (go == null)
+            {
+                go = StartCoroutine(Rigid());
+            }
+
             return;
         }
-            if (collision.name != "BorderBottom" && !MainGame.knifeObject.isMiss || collision.name != "BorderTop" == !MainGame.knifeObject.isMiss)
+        if (collision.name != "BorderBottom" && !MainGame.knifeObject.isMiss || collision.name != "BorderTop" && !MainGame.knifeObject.isMiss)
         {
+            MainGame.transform.DOShakePosition(0.5f, 0.1f).SetAutoKill(true).OnComplete(()=> {
+                MainGame.transform.localPosition = startCameraPosition;
+            });
             MainGame.knifeObject.Hit();
         }
-
-  
-
-
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        Debug.Log(collision.gameObject.name);
-        Debug.Log(MainGame.knifeObject.isThow);
+        Debug.Log("OnCollisionEnter2D");
         if (collision.gameObject.name == "BorderBottom" || collision.gameObject.name == "BorderTop")
         {
-            StartCoroutine(Rigid());
+            MainGame.knifeObject.isMiss = true;
+            if (go == null)
+            {
+                go = StartCoroutine(Rigid());
+            }
         }
     }
+    public Coroutine go;
     public IEnumerator Rigid()
     {
-        
-        yield return new WaitUntil(()=> MainGame.knifeObject.isThow);
-        MainGame.knifeObject.isMiss = true;
+        yield return new WaitUntil(() => MainGame.knifeObject.isThow);
         MainGame.knifeObject.box.isTrigger = false;
         if (MainGame.knifeObject.isThow)
         {
             MainGame.knifeObject.isThow = false;
         }
-        yield return new WaitForSeconds(1f);
+        if (MainGame.knifeObject.isMiss)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        else
+        {
+            if (go != null)
+            {
+                StopCoroutine(go);
+                go = null;
+            }
+        }
         MainGame.knifeObject.Idie();
+
     }
 }
 

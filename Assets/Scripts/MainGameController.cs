@@ -151,7 +151,6 @@ public class MainGameController : MonoBehaviour, IOberser
         knifeObject.startKnifeTransfom = spriteKnife.localPosition;
         knifeObject.SetUpEffectKnife(ModelHandle.SetSevenTrail);
         widthBG = Mathf.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.x) - 1;
-        Debug.Log(widthBG);
         heightBG = Mathf.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.y) - 1;
         endPositionBG = -widthBG - widthBG / 2;
         poolPosition = new Vector3(0, 15, 0);
@@ -474,9 +473,11 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void calculatorRotateChildKnife()
     {
+
         calculatorRotateKnife();
         if (knifeObject.isFly)
         {
+
             if (spriteKnife.localRotation.z == 0)
             {
 
@@ -484,17 +485,13 @@ public class MainGameController : MonoBehaviour, IOberser
                 {
                     knifeObject.isThow = true;
                 });
-                //if (spriteKnife.localRotation.z > 90)
-                //{
-                   
-                //}
 
             }
             //if (knifeObject.isThow)
             //{
             knifeObject.RBknife.isKinematic = false;
-           // knifeObject.RBknife.AddTorque(-1f, ForceMode2D.Force);
-           // knifeObject.RBknife.AddForce(new Vector2(1f, 0f), ForceMode2D.Force);
+           // knifeObject.RBknife.AddTorque(spriteKnife.right.y * v);
+            // knifeObject.RBknife.AddForce(new Vector2(1f, 0f), ForceMode2D.Force);
             spriteKnife.localPosition += Vector3.right * Time.fixedDeltaTime * a;
             //}
         }
@@ -541,6 +538,8 @@ public class MainGameController : MonoBehaviour, IOberser
     {
         if (Input.GetMouseButtonDown(0) && knifeObject.isIdie)
         {
+    
+
             startMousePosition = Input.mousePosition;
             knifeObject.isDrag = true;
         }
@@ -549,7 +548,6 @@ public class MainGameController : MonoBehaviour, IOberser
             knifeObject.isDrag = false;
             endMousePosition = Input.mousePosition;
             a = (Mathf.Abs(endMousePosition.x - startMousePosition.x) / 100);
-            Debug.Log(a);
             if (a > 2f)
             {
                 a = a * 3;
@@ -767,4 +765,5 @@ public class MainGameController : MonoBehaviour, IOberser
     {
         isActiveShopDao(false);
     }
+
 }

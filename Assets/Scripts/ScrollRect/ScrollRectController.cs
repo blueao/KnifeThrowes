@@ -31,6 +31,7 @@ public class ScrollRectController : MonoBehaviour
     private void Start()
     {
 #if TESTTING
+
         PlayerPrefs.SetInt(ModelHandle.KeyScore, 99999);
         ModelHandle.Instance.SetScore(PlayerPrefs.GetInt(ModelHandle.KeyScore));
 #endif
@@ -75,9 +76,7 @@ public class ScrollRectController : MonoBehaviour
             if (PlayerPrefs.HasKey((ModelHandle.KeyKnifeSprite + i)))
             {
                 indexItemsBuyed = PlayerPrefs.GetInt(ModelHandle.KeyKnifeSprite + i);
-            } 
-          
-            Debug.Log(indexItemsBuyed);
+            }
             if (indexItemsBuyed == 0)
             {
                 setActiveLock(false);

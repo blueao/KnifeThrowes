@@ -46,6 +46,12 @@ public class Knife : MonoBehaviour, IKnife
 
     public void Idie()
     {
+        if (ChildKnife.GetComponent<HandleKnifeSprite>().go != null)
+        {
+            StopCoroutine(ChildKnife.GetComponent<HandleKnifeSprite>().go);
+            ChildKnife.GetComponent<HandleKnifeSprite>().go = null;
+        }
+
         KnifeRotate.Kill();
         isIdie = true;
         isFly = false;
@@ -108,4 +114,7 @@ public class Knife : MonoBehaviour, IKnife
         RBknife = spriteKnife.GetComponent<Rigidbody2D>();
     }
 
+    public void SetUpPhysticKnife()
+    {
+    }
 }
