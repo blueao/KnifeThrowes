@@ -25,6 +25,8 @@ public class Knife : MonoBehaviour, IKnife
     public RuntimeAnimatorController[] ListAnimaterEffect;
     [HideInInspector]
     public Tween KnifeRotate;
+
+    public MainGameController MainGame;
     public BoxCollider2D box;
     public bool isMiss;
     public void Fly()
@@ -37,6 +39,12 @@ public class Knife : MonoBehaviour, IKnife
 
     public void Hit()
     {
+        MainGame.IsDrop = false;
+        if (ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop != null)
+        {
+            ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop.Kill();
+            ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop = null;
+        }
         isFly = false;
         ImpactKnife(true);
         RBknife.isKinematic = true;
@@ -46,13 +54,23 @@ public class Knife : MonoBehaviour, IKnife
 
     public void Idie()
     {
+        MainGame.IsDrop = false;
+        if (ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop != null)
+        {
+            ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop.Kill();
+            ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop = null;
+        }
+
         if (ChildKnife.GetComponent<HandleKnifeSprite>().go != null)
         {
             StopCoroutine(ChildKnife.GetComponent<HandleKnifeSprite>().go);
             ChildKnife.GetComponent<HandleKnifeSprite>().go = null;
         }
-
-        KnifeRotate.Kill();
+        if (KnifeRotate != null)
+        {
+            KnifeRotate.Kill();
+            KnifeRotate = null;
+        }
         isIdie = true;
         isFly = false;
         ResetKnife();
@@ -92,13 +110,14 @@ public class Knife : MonoBehaviour, IKnife
     }
     public void ResetKnife()
     {
+        MainGame.IsDrop = false;
         animatorEffectKnife.GetComponent<TrailRenderer>().enabled = true;
         isMiss = false;
         ImpactKnife(false);
         ChildKnife.transform.localPosition = startKnifeTransfom;
         RBknife.isKinematic = true;
         isThow = false;
-        ChildKnife.transform.localRotation = Quaternion.Euler(new Vector3(180,0,0));
+        ChildKnife.transform.localRotation = Quaternion.Euler(new Vector3(180, 0, 0));
         animatorEffectKnife.gameObject.GetComponent<TrailRenderer>().Clear();
     }
     private void Start()

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ModelHandle
 {
+    //public bool isCanHit;
     //Varible Key
     public const string KeyKnifeSprite = "spriteKnife";
     public const string KeyScore = "score";

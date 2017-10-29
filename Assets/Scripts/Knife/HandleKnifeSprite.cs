@@ -8,15 +8,17 @@ public class HandleKnifeSprite : MonoBehaviour
     [SerializeField]
     public MainGameController MainGame;
 
-
+    [HideInInspector]
+    public Tween RotateKnifeLoop;
     Vector3 startCameraPosition;
+
     private void Start()
     {
         startCameraPosition = MainGame.transform.localPosition;
+      
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("OnTriggerEnter2D");
         if (collision.GetComponent<Ballon>() || collision.GetComponent<Stone>())
         {
             return;
@@ -37,14 +39,18 @@ public class HandleKnifeSprite : MonoBehaviour
 
             return;
         }
-        if (collision.name != "BorderBottom" && !MainGame.knifeObject.isMiss || collision.name != "BorderTop" && !MainGame.knifeObject.isMiss)
+        if (collision.name != "BorderBottom" && !MainGame.knifeObject.isMiss /*&&ModelHandle.Instance.isCanHit*/||
+            collision.name != "BorderTop" && !MainGame.knifeObject.isMiss /*&& ModelHandle.Instance.isCanHit*/)
         {
-            MainGame.transform.DOShakePosition(0.5f, 0.1f).SetAutoKill(true).OnComplete(()=> {
+            MainGame.transform.DOShakePosition(0.5f, 0.1f).SetAutoKill(true).OnComplete(() =>
+            {
                 MainGame.transform.localPosition = startCameraPosition;
             });
             MainGame.knifeObject.Hit();
         }
-    }
+
+
+        }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("OnCollisionEnter2D");
@@ -68,7 +74,7 @@ public class HandleKnifeSprite : MonoBehaviour
         }
         if (MainGame.knifeObject.isMiss)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.3f);
         }
         else
         {

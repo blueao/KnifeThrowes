@@ -93,7 +93,7 @@ public class WoodTarget : MonoBehaviour, IMonster
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Knife")
+        if (collision.name == "Knife" /*&& ModelHandle.Instance.isCanHit*/)
         {
             Die();
         }

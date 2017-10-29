@@ -27,15 +27,17 @@ public class Stupid : MonoBehaviour, IMonster
 
     private void Start()
     {
+
+        spriteItems = GetComponent<SpriteRenderer>();
+        SetSprite();
         gameObject.AddComponent<BoxCollider2D>();
         box = GetComponent<BoxCollider2D>();
-        spriteItems = GetComponent<SpriteRenderer>();
         rdStupid = GetComponent<Rigidbody2D>();
         box.isTrigger = true;
         rdStupid.isKinematic = true;
-        SetSprite();
         se = DOTween.Sequence();
         heightJumb = 4f;
+        rdStupid.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     private void OnEnable()
     {
@@ -76,7 +78,12 @@ public class Stupid : MonoBehaviour, IMonster
     {
         if (isActiveMove)
         {
-            se.Append(movetween = transform.DOLocalMoveX(transform.localPosition.x -  width /2, 1f));
+            if (transform.name.Contains("Fruit"))
+            {
+                se.Append(movetween = transform.DOLocalMoveX(transform.localPosition.x - width*2, 1f));
+            }
+            else
+            se.Append(movetween = transform.DOLocalMoveX(transform.localPosition.x - width / 2, 1f));
         }
         jumb = true;
         heightJumb = UnityEngine.Random.Range(height, height * 2);

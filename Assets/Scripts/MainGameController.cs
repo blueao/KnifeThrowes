@@ -150,8 +150,8 @@ public class MainGameController : MonoBehaviour, IOberser
         spriteKnife.localPosition = new Vector3(spriteKnife.localPosition.x + knifeObject.spriteKnife.bounds.size.y, spriteKnife.localPosition.y, spriteKnife.localPosition.z);
         knifeObject.startKnifeTransfom = spriteKnife.localPosition;
         knifeObject.SetUpEffectKnife(ModelHandle.SetSevenTrail);
-        widthBG = Mathf.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.x) - 1;
-        heightBG = Mathf.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.y) - 1;
+        widthBG =(float) Math.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.x,1);
+        heightBG = Mathf.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.y) - 1f;
         endPositionBG = -widthBG - widthBG / 2;
         poolPosition = new Vector3(0, 15, 0);
 
@@ -444,10 +444,10 @@ public class MainGameController : MonoBehaviour, IOberser
 
             if (Grass[i].localPosition.x <= endPositionBG)
             {
-                Grass[i].localPosition = new Vector3(Grass[i].localPosition.x - speedMoveBG * Grass.Length + widthBG * Grass.Length, Grass[i].localPosition.y, Grass[i].localPosition.z);
-                Hill[i].localPosition = new Vector3(Hill[i].localPosition.x - speedMoveBG * Grass.Length + widthBG * Grass.Length, Hill[i].localPosition.y, Hill[i].localPosition.z);
-                Moutain[i].localPosition = new Vector3(Moutain[i].localPosition.x - speedMoveBG * Grass.Length + widthBG * Grass.Length, Moutain[i].localPosition.y, Moutain[i].localPosition.z);
-                Sky[i].localPosition = new Vector3(Sky[i].localPosition.x - speedMoveBG * Grass.Length + widthBG * Grass.Length, Sky[i].localPosition.y, Sky[i].localPosition.z);
+                Grass[i].localPosition = new Vector3(Grass[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length - (Mathf.Abs(endPositionBG - Grass[i].localPosition.x )+0.2f), Grass[i].localPosition.y, Grass[i].localPosition.z);
+                Hill[i].localPosition = new Vector3(Hill[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length- (Mathf.Abs(endPositionBG - Hill[i].localPosition.x) + 0.2f), Hill[i].localPosition.y, Hill[i].localPosition.z);
+                Moutain[i].localPosition = new Vector3(Moutain[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length - (Mathf.Abs(endPositionBG - Moutain[i].localPosition.x) + 0.2f), Moutain[i].localPosition.y, Moutain[i].localPosition.z);
+                Sky[i].localPosition = new Vector3(Sky[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length- (Mathf.Abs(endPositionBG - Sky[i].localPosition.x) + 0.2f), Sky[i].localPosition.y, Sky[i].localPosition.z);
             }
         }
 
@@ -471,29 +471,68 @@ public class MainGameController : MonoBehaviour, IOberser
             calculatorRotateChildKnife();
         }
     }
+    float time = 1f;
+    private bool isDrop;
+    public bool IsDrop
+    {
+        get { return isDrop; }
+        set
+        {
+
+            if (rotateDrop != null)
+            {
+                rotateDrop.Kill();
+                rotateDrop = null;
+            }
+            isDrop = value;
+        }
+    }
+    Tween rotateDrop;
     public void calculatorRotateChildKnife()
     {
-
         calculatorRotateKnife();
         if (knifeObject.isFly)
         {
-
-            if (spriteKnife.localRotation.z == 0)
+            if (knifeObject.ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop == null)
             {
+                knifeObject.isThow = true;
 
-                knifeObject.KnifeRotate = spriteKnife.DOLocalRotate(new Vector3(0, 0, -180), 0.5f).OnComplete(() =>
-                {
-                    knifeObject.isThow = true;
-                });
-
+                knifeObject.ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop = knifeObject.ChildKnife.transform.DOLocalRotate(new Vector3(
+                    knifeObject.ChildKnife.transform.localRotation.x,
+                    knifeObject.ChildKnife.transform.localRotation.y,
+                    -540), time, RotateMode.FastBeyond360).OnComplete(() =>
+                    {
+                        knifeObject.animatorEffectKnife.GetComponent<TrailRenderer>().enabled = false;
+                        IsDrop = true;
+                    });
             }
+            if (IsDrop && rotateDrop ==null)
+            {
+                rotateDrop = knifeObject.ChildKnife.transform.DOLocalRotate(new Vector3(knifeObject.ChildKnife.transform.localRotation.x,
+                 knifeObject.ChildKnife.transform.localRotation.y, -270), 1f,RotateMode.Fast).OnComplete(() => { IsDrop = false; });
+            }
+
+            //if (knifeObject.ChildKnife.transform.localRotation.z>90 && knifeObject.ChildKnife.transform.localRotation.z<270)
+            //{
+            //    ModelHandle.Instance.isCanHit = true;
+            //}
+            //else
+            //    ModelHandle.Instance.isCanHit = false;
+
+            //if (spriteKnife.localRotation.z == 0)
+            //{
+
+            //    knifeObject.KnifeRotate = spriteKnife.DOLocalRotate(new Vector3(0, 0, -180), 0.5f).OnComplete(() =>
+            //    {
+            //        knifeObject.isThow = true;
+            //    });
+
+            //}
             //if (knifeObject.isThow)
             //{
             knifeObject.RBknife.isKinematic = false;
-           // knifeObject.RBknife.AddTorque(spriteKnife.right.y * v);
-                spriteKnife.localPosition += Vector3.right * Time.fixedDeltaTime * a;
-             knifeObject.RBknife.AddForce(Vector2.right);
-        
+            // knifeObject.RBknife.AddTorque(spriteKnife.right.y * v);
+            spriteKnife.localPosition += Vector3.right * Time.fixedDeltaTime * a;
             //}
         }
     }
@@ -539,7 +578,7 @@ public class MainGameController : MonoBehaviour, IOberser
     {
         if (Input.GetMouseButtonDown(0) && knifeObject.isIdie)
         {
-    
+
 
             startMousePosition = Input.mousePosition;
             knifeObject.isDrag = true;
@@ -548,16 +587,27 @@ public class MainGameController : MonoBehaviour, IOberser
         {
             knifeObject.isDrag = false;
             endMousePosition = Input.mousePosition;
-            if (endMousePosition.x - startMousePosition.x> endMousePosition.y - startMousePosition.y)
+            if (endMousePosition.x - startMousePosition.x > endMousePosition.y - startMousePosition.y)
             {
-            a = (Mathf.Abs(endMousePosition.x - startMousePosition.x) / 100);
+                a = (Mathf.Abs(endMousePosition.x - startMousePosition.x) / 100);
 
             }
             else
+            {
                 a = (Mathf.Abs(endMousePosition.y - startMousePosition.y) / 100);
+            }
+            float min = 0.5f;
+            float max = 3f;
+            if (a < min)
+            {
+                time = max;
+            }
+            else
+                time = 0.75f;
             if (a > 2f)
             {
-                a = a * 3;
+                a = a * 2f;
+
             }
             calculorDrag();
         }
@@ -760,6 +810,9 @@ public class MainGameController : MonoBehaviour, IOberser
         ScoreNumber.text = scores.ToString();
     }
     public GameObject ShopDao;
+
+
+
     public void isActiveShopDao(bool isActive)
     {
         ShopDao.SetActive(isActive);
@@ -776,7 +829,7 @@ public class MainGameController : MonoBehaviour, IOberser
     {
         if (QuitPanel.activeSelf)
         {
-        QuitPanel.SetActive(false);
+            QuitPanel.SetActive(false);
         }
         else
             QuitPanel.SetActive(true);
