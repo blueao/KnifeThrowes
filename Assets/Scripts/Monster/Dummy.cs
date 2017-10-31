@@ -40,6 +40,7 @@ public class Dummy : MonoBehaviour, IMonster
         transform.localRotation = Quaternion.Euler(Vector3.zero);
         sprite.enabled = true;
         SetSprite();
+        dummydeath = false;
     }
 
     public void Move()
@@ -73,18 +74,30 @@ public class Dummy : MonoBehaviour, IMonster
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name=="Knife")
+        if (collision.name == "Knife")
         {
             Die();
         }
-        if (collision.name=="End")
+        if (collision.name == "End")
         {
             InPool();
         }
     }
+    float speed = 2f;
+    bool dummydeath;
+    [ContextMenu("Death")]
+    private void FixedUpdate()
+    {
+        if (dummydeath)
+        {
+            speed -= Time.fixedDeltaTime*4f;
+            ShowDummyDead();
+        }
+    }
     void ShowDummyDead()
     {
-        transform.DOLocalRotate(new Vector3(0, 0, -75),2f).OnComplete(() => {
+        transform.DOLocalRotate(new Vector3(0, 0, -75), speed).OnComplete(() =>
+        {
             //sprite.enabled = false;
         });
 

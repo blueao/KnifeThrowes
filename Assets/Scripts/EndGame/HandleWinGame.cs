@@ -12,9 +12,26 @@ public class HandleWinGame : MonoBehaviour {
             StartCoroutine(WaitForWin());
         }
     }
+    private void Update()
+    {
+        if (MainGame.CanMove)
+        {
+            for (int i = 0; i < MainGame.ListTotalObject.Count; i++)
+            {
+                if (MainGame.ListTotalObject[i].activeSelf)
+                {
+                    break;
+                }
+                if (!MainGame.ListTotalObject[MainGame.ListTotalObject.Count-1].activeSelf)
+                {
+                    MainGame.CanWin = true;
+                }
+            }
+        }
+    }
     IEnumerator WaitForWin()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitUntil(()=> MainGame.CanWin);
         MainGame.WinGame();
     }
 }

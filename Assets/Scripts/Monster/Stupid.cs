@@ -22,7 +22,7 @@ public class Stupid : MonoBehaviour, IMonster
     Tween anim;
     Tween jumtween;
     Tween movetween;
-    bool isActiveMove;
+    public bool isActiveMove;
     Sequence se;
 
     private void Start()
@@ -80,15 +80,21 @@ public class Stupid : MonoBehaviour, IMonster
         {
             if (transform.name.Contains("Fruit"))
             {
-                se.Append(movetween = transform.DOLocalMoveX(transform.localPosition.x - width*2, 1f));
+                se.Append(movetween = transform.DOLocalMoveX(transform.localPosition.x - width * 1.5f, 1f));
             }
-            else
-            se.Append(movetween = transform.DOLocalMoveX(transform.localPosition.x - width / 2, 1f));
+            if (transform.name.Contains("Pumkin"))
+            {
+                se.Append(movetween = transform.DOLocalMoveX(transform.localPosition.x - width * 2f, 1f));
+            }
+            if (transform.name.Contains("Stupid"))
+            {
+                se.Append(movetween = transform.DOLocalMoveX(transform.localPosition.x - width, 1f));
+            }
         }
         jumb = true;
         heightJumb = UnityEngine.Random.Range(height, height * 2);
         se.Join(jumtween = transform.DOLocalMoveY(transform.localPosition.y + heightJumb, 0.5f));
-
+        onTheGround = false;
     }
     float heightJumb;
     int speedmove;
@@ -99,12 +105,12 @@ public class Stupid : MonoBehaviour, IMonster
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Stone>())
-        {
-            isActiveMove = true;
-            rdStupid.isKinematic = false;
-            box.isTrigger = false;
-        }
+        //if (collision.gameObject.GetComponent<Stone>())
+        //{
+        //    isActiveMove = true;
+           
+        //    box.isTrigger = false;
+        //}
         if (collision.name == "BorderBottom")
         {
             speedmove = 1;
@@ -116,6 +122,7 @@ public class Stupid : MonoBehaviour, IMonster
         }
         if (collision.name == "StartMove")
         {
+            //rdStupid.isKinematic = false;
             isActiveMove = true;
             rdStupid.isKinematic = false;
             box.isTrigger = false;
@@ -129,7 +136,7 @@ public class Stupid : MonoBehaviour, IMonster
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        onTheGround = true;
         if (jumb)
         {
             jumb = false;
@@ -149,16 +156,16 @@ public class Stupid : MonoBehaviour, IMonster
             });
         }
     }
-
+    bool onTheGround;
     public IEnumerator StartMove()
     {
         int a = UnityEngine.Random.Range(0, 2);
-        yield return new WaitForSeconds(a);
+        yield return new WaitUntil(() => onTheGround);
         Move();
     }
     public void InPool()
     {
-        speedmove = 2; 
+        speedmove = 2;
         ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         transform.localPosition = new Vector3(0, 15, 0);
         box.enabled = true;

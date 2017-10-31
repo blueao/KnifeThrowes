@@ -9,8 +9,11 @@ public class Boar : MonoBehaviour,IMonster {
     float width;
     float height;
     public Sprite[] ListSprite;
+    public Sprite[] ListBloodSprite;
+    public SpriteRenderer EffectBlood;
     Tween move;
     Tween anim;
+    Tween death;
     Vector3 startposition;
     private void Start()
     {
@@ -26,6 +29,7 @@ public class Boar : MonoBehaviour,IMonster {
     {
         transform.localPosition = v3;
     }
+    [ContextMenu("die")]
     public void Die()
     {
         StartCoroutine(WaitForDead());
@@ -34,14 +38,23 @@ public class Boar : MonoBehaviour,IMonster {
     }
     public IEnumerator WaitForDead()
     {
+        death = DOTween.To(() => 0, x => EffectBlood.sprite = ListBloodSprite[x], ListBloodSprite.Length - 1, 2f).OnComplete(() =>
+        {
+            EffectBlood.sprite = null;
+            if (death != null)
+            {
+                death.Kill();
+                death = null;
+            }
+        });
         sprite.sprite = spriteDead;
         if (anim != null)
         {
             anim.Kill();
             anim = null;
         }
-        
-        yield return new WaitForSeconds(1f);
+   
+        yield return new WaitUntil(()=> death==null);
         sprite.enabled = false;
         ModelHandle.Instance.SetScore(10);
         InPool();

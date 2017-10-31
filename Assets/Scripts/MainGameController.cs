@@ -110,6 +110,8 @@ public class MainGameController : MonoBehaviour, IOberser
     [HideInInspector]
     public List<GameObject> ListBoar = new List<GameObject>();
     // Dictionary<string, GameObject> AllMonsterHere = new Dictionary<string, GameObject>();
+    [HideInInspector]
+    public List<GameObject> ListTotalObject = new List<GameObject>();
     //List Boar Type
     [HideInInspector]
     public List<GameObject> ListCoinPool = new List<GameObject>();
@@ -221,6 +223,7 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListStupid[j].transform.localPosition = Stupid[stupidnum].transform.localPosition;
                 ListStupid[j].SetActive(true);
+                ListStupid[j].GetComponent<Stupid>().isActiveMove = false;
                 stupidnum++;
             }
         }
@@ -232,6 +235,7 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListFruit[j].transform.localPosition = FruitPos[fruitnum].transform.localPosition;
                 ListFruit[j].SetActive(true);
+                ListStupid[j].GetComponent<Stupid>().isActiveMove = false;
                 fruitnum++;
             }
         }
@@ -265,6 +269,7 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListPumkin[j].transform.localPosition = PumKinPos[pumkinNum].transform.localPosition;
                 ListPumkin[j].SetActive(true);
+                ListStupid[j].GetComponent<Stupid>().isActiveMove = false;
                 pumkinNum++;
             }
         }
@@ -321,6 +326,7 @@ public class MainGameController : MonoBehaviour, IOberser
             coinpool.name = "CoinPool" + i;
             ListCoinPool.Add(coinpool);
             coinpool.SetActive(false);
+            ListTotalObject.Add(coinpool);
         }
 
         for (int i = 0; i < StupidCount; i++)
@@ -329,6 +335,7 @@ public class MainGameController : MonoBehaviour, IOberser
             stupidobj.name = "Stupid" + i;
             ListStupid.Add(stupidobj);
             stupidobj.transform.parent = MoveMonster;
+            ListTotalObject.Add(stupidobj);
         }
         for (int i = 0; i < PumkinCount; i++)
         {
@@ -336,6 +343,7 @@ public class MainGameController : MonoBehaviour, IOberser
             stupidobj.name = "Pumkin" + i;
             ListPumkin.Add(stupidobj);
             stupidobj.transform.parent = MoveMonster;
+            ListTotalObject.Add(stupidobj);
         }
         for (int i = 0; i < FruitCount; i++)
         {
@@ -343,6 +351,8 @@ public class MainGameController : MonoBehaviour, IOberser
             stupidobj.name = "Fruit" + i;
             ListFruit.Add(stupidobj);
             stupidobj.transform.parent = MoveMonster;
+            ListTotalObject.Add(stupidobj);
+
         }
 
 
@@ -352,6 +362,7 @@ public class MainGameController : MonoBehaviour, IOberser
             woodTarget.name = "wood target 1" + i;
             ListWoodTarget.Add(woodTarget);
             woodTarget.transform.parent = MoveMonster;
+            ListTotalObject.Add(woodTarget);
         }
         for (int i = 0; i < woodtarget2; i++)
         {
@@ -359,6 +370,7 @@ public class MainGameController : MonoBehaviour, IOberser
             woodTarget.name = "wood target 2" + i;
             ListWoodTarget.Add(woodTarget);
             woodTarget.transform.parent = MoveMonster;
+            ListTotalObject.Add(woodTarget);
         }
         for (int i = 0; i < redtarget; i++)
         {
@@ -366,6 +378,7 @@ public class MainGameController : MonoBehaviour, IOberser
             woodTarget.name = "red target" + i;
             ListWoodTarget.Add(woodTarget);
             woodTarget.transform.parent = MoveMonster;
+            ListTotalObject.Add(woodTarget);
         }
         for (int i = 0; i < BallonCount; i++)
         {
@@ -399,6 +412,7 @@ public class MainGameController : MonoBehaviour, IOberser
             spider.name = "spider" + i;
             ListSprider.Add(spider);
             spider.transform.parent = MoveMonster;
+            ListTotalObject.Add(spider);
         }
         for (int i = 0; i < CowCount; i++)
         {
@@ -414,6 +428,7 @@ public class MainGameController : MonoBehaviour, IOberser
             bat.name = "Bat" + i;
             ListBat.Add(bat);
             bat.transform.parent = MoveMonster;
+            ListTotalObject.Add(bat);
         }
         for (int i = 0; i < CrazyDogCount; i++)
         {
@@ -421,6 +436,7 @@ public class MainGameController : MonoBehaviour, IOberser
             crazydog.name = "CrazyDog" + i;
             ListCrazyDog.Add(crazydog);
             crazydog.transform.parent = MoveMonster;
+            ListTotalObject.Add(crazydog);
         }
         for (int i = 0; i < BoarCount; i++)
         {
@@ -428,6 +444,7 @@ public class MainGameController : MonoBehaviour, IOberser
             boar.name = "Boar" + i;
             ListBoar.Add(boar);
             boar.transform.parent = MoveMonster;
+            ListTotalObject.Add(boar);
         }
 
 
@@ -454,11 +471,12 @@ public class MainGameController : MonoBehaviour, IOberser
         MoveMonster.transform.localPosition += Vector3.left * speedMoveBG;
     }
     public bool CanMove;
+    public bool CanWin;
     private void FixedUpdate()
     {
         if (isGameReadyToPlay)
         {
-            speedMoveBG = Time.fixedDeltaTime * 1f;
+            speedMoveBG = Time.fixedDeltaTime * 1.7f;
             if (CanMove)
             {
                 MoveBackGround();
@@ -493,41 +511,34 @@ public class MainGameController : MonoBehaviour, IOberser
         calculatorRotateKnife();
         if (knifeObject.isFly)
         {
-            if (knifeObject.ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop == null)
-            {
-                knifeObject.isThow = true;
+            //if (knifeObject.ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop == null)
+            //{
+            //    knifeObject.isThow = true;
 
-                knifeObject.ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop = knifeObject.ChildKnife.transform.DOLocalRotate(new Vector3(
-                    knifeObject.ChildKnife.transform.localRotation.x,
-                    knifeObject.ChildKnife.transform.localRotation.y,
-                    -540), time, RotateMode.FastBeyond360).OnComplete(() =>
-                    {
-                        knifeObject.animatorEffectKnife.GetComponent<TrailRenderer>().enabled = false;
-                        IsDrop = true;
-                    });
+            //    knifeObject.ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop = knifeObject.ChildKnife.transform.DOLocalRotate(new Vector3(
+            //        knifeObject.ChildKnife.transform.localRotation.x,
+            //        knifeObject.ChildKnife.transform.localRotation.y,
+            //        -540), time, RotateMode.FastBeyond360).OnComplete(() =>
+            //        {
+            //            knifeObject.animatorEffectKnife.GetComponent<TrailRenderer>().enabled = false;
+            //            IsDrop = true;
+            //        });
+            //}
+            if (spriteKnife.localRotation.z == 0)
+            {
+
+                knifeObject.KnifeRotate = spriteKnife.DOLocalRotate(new Vector3(0, 0, -180), 0.5f).OnComplete(() =>
+                {
+                    knifeObject.isThow = true;
+                    IsDrop = true;
+                });
+
             }
-            if (IsDrop && rotateDrop ==null)
+            if (IsDrop && rotateDrop == null)
             {
                 rotateDrop = knifeObject.ChildKnife.transform.DOLocalRotate(new Vector3(knifeObject.ChildKnife.transform.localRotation.x,
-                 knifeObject.ChildKnife.transform.localRotation.y, -270), 1f,RotateMode.Fast).OnComplete(() => { IsDrop = false; });
+                 knifeObject.ChildKnife.transform.localRotation.y, -270), 1f, RotateMode.Fast).OnComplete(() => { IsDrop = false; });
             }
-
-            //if (knifeObject.ChildKnife.transform.localRotation.z>90 && knifeObject.ChildKnife.transform.localRotation.z<270)
-            //{
-            //    ModelHandle.Instance.isCanHit = true;
-            //}
-            //else
-            //    ModelHandle.Instance.isCanHit = false;
-
-            //if (spriteKnife.localRotation.z == 0)
-            //{
-
-            //    knifeObject.KnifeRotate = spriteKnife.DOLocalRotate(new Vector3(0, 0, -180), 0.5f).OnComplete(() =>
-            //    {
-            //        knifeObject.isThow = true;
-            //    });
-
-            //}
             //if (knifeObject.isThow)
             //{
             knifeObject.RBknife.isKinematic = false;

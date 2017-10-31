@@ -29,14 +29,28 @@ public class DogCrazy : MonoBehaviour, IMonster
     {
         transform.localPosition = v3;
     }
+    [ContextMenu("die")]
     public void Die()
     {
         StartCoroutine(WaitForDead());
         box.enabled = false;
        
     }
+    public Sprite[] ListBloodSprite;
+    public SpriteRenderer EffectBlood;
+    Tween death;
+
     public IEnumerator WaitForDead()
     {
+        death = DOTween.To(() => 0, x => EffectBlood.sprite = ListBloodSprite[x], ListBloodSprite.Length - 1, 2f).OnComplete(() =>
+        {
+            EffectBlood.sprite = null;
+            if (death != null)
+            {
+                death.Kill();
+                death = null;
+            }
+        });
         sprite.sprite = spriteDead;
         if (anim != null)
         {
@@ -48,7 +62,7 @@ public class DogCrazy : MonoBehaviour, IMonster
             move.Kill();
             move = null;
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitUntil(() => death == null);
         sprite.enabled = false;
         ModelHandle.Instance.SetScore(10);
         InPool();
