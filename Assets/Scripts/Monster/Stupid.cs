@@ -33,7 +33,10 @@ public class Stupid : MonoBehaviour, IMonster
         gameObject.AddComponent<BoxCollider2D>();
         box = GetComponent<BoxCollider2D>();
         rdStupid = GetComponent<Rigidbody2D>();
-        box.isTrigger = true;
+        if (!transform.name.Contains("Pumkin"))
+        {
+            box.isTrigger = true;
+        }
         rdStupid.isKinematic = true;
         se = DOTween.Sequence();
         heightJumb = 4f;
@@ -81,18 +84,21 @@ public class Stupid : MonoBehaviour, IMonster
             if (transform.name.Contains("Fruit"))
             {
                 se.Append(movetween = transform.DOLocalMoveX(transform.localPosition.x - width * 1.5f, 1f));
+                heightJumb = UnityEngine.Random.Range(height, height * 2);
             }
             if (transform.name.Contains("Pumkin"))
             {
                 se.Append(movetween = transform.DOLocalMoveX(transform.localPosition.x - width * 2f, 1f));
+                heightJumb = height * 2;
             }
             if (transform.name.Contains("Stupid"))
             {
                 se.Append(movetween = transform.DOLocalMoveX(transform.localPosition.x - width, 1f));
+                heightJumb = UnityEngine.Random.Range(height, height * 2);
             }
         }
         jumb = true;
-        heightJumb = UnityEngine.Random.Range(height, height * 2);
+
         se.Join(jumtween = transform.DOLocalMoveY(transform.localPosition.y + heightJumb, 0.5f));
         onTheGround = false;
     }
@@ -108,7 +114,7 @@ public class Stupid : MonoBehaviour, IMonster
         //if (collision.gameObject.GetComponent<Stone>())
         //{
         //    isActiveMove = true;
-           
+
         //    box.isTrigger = false;
         //}
         if (collision.name == "BorderBottom")

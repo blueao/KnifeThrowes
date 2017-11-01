@@ -303,6 +303,7 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListDummy[j].transform.localPosition = DumkinPos[dumkinNum].transform.localPosition;
                 ListDummy[j].SetActive(true);
+                ListDummy[j].GetComponent<Dummy>().InPool();
                 dumkinNum++;
             }
         }

@@ -36,7 +36,7 @@ public class Dummy : MonoBehaviour, IMonster
     public void InPool()
     {
         box.enabled = true;
-        transform.localPosition = new Vector3(0, 15, 0);
+       // transform.localPosition = new Vector3(0, 15, 0);
         transform.localRotation = Quaternion.Euler(Vector3.zero);
         sprite.enabled = true;
         SetSprite();
