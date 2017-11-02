@@ -24,6 +24,7 @@ public class WoodTarget : MonoBehaviour, IMonster
     public void Die()
     {
         ModelHandle.Instance.SetScore(1);
+        ModelHandle.Instance.monsterDeadCount++;
         box.enabled = false;
         spriteItems.enabled = false;
         if (tweenMove != null)

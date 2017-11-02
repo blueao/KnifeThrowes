@@ -69,6 +69,7 @@ public class Stupid : MonoBehaviour, IMonster
                   spriteItems.enabled = false;
                   InPool();
                   ModelHandle.Instance.SetScore(1);
+                  ModelHandle.Instance.monsterDeadCount++;
               });
 
     }

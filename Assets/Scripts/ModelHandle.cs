@@ -17,6 +17,7 @@ public class ModelHandle
     public const string SetYellowTrail = "yellow";
     public const string SetPinkTrail = "pink";
     //
+    public int monsterDeadCount;
     private static ModelHandle instance = null;
     private static readonly object padlock = new object();
     public int Score;

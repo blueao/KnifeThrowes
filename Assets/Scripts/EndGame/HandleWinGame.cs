@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HandleWinGame : MonoBehaviour {
+public class HandleWinGame : MonoBehaviour
+{
 
     public MainGameController MainGame;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -14,24 +15,14 @@ public class HandleWinGame : MonoBehaviour {
     }
     private void Update()
     {
-        if (MainGame.CanMove)
+        if (MainGame.ListTotalObject.Count == ModelHandle.Instance.monsterDeadCount)
         {
-            for (int i = 0; i < MainGame.ListTotalObject.Count; i++)
-            {
-                if (MainGame.ListTotalObject[i].activeSelf)
-                {
-                    break;
-                }
-                if (!MainGame.ListTotalObject[MainGame.ListTotalObject.Count-1].activeSelf)
-                {
-                    MainGame.CanWin = true;
-                }
-            }
+            MainGame.CanWin = true;
         }
     }
     IEnumerator WaitForWin()
     {
-        yield return new WaitUntil(()=> MainGame.CanWin);
+        yield return new WaitUntil(() => MainGame.CanWin);
         MainGame.WinGame();
     }
 }

@@ -23,6 +23,7 @@ public class Spiders : MonoBehaviour, IMonster
     }
     public void Die()
     {
+        ModelHandle.Instance.monsterDeadCount++;
         sprite.enabled = false;
         box.enabled = false;
         ModelHandle.Instance.SetScore(1);

@@ -184,7 +184,7 @@ public class MainGameController : MonoBehaviour, IOberser
         VultureCount = VulturePos.Length;
         SpiderCount = SpriderPos.Length;
         DummyCount = DumkinPos.Length;
-
+        CrazyDogCount = CrazyDog.Length;
         setStartPosBG();
         CreateObject();
         SetupPositionObj();
@@ -303,7 +303,11 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListDummy[j].transform.localPosition = DumkinPos[dumkinNum].transform.localPosition;
                 ListDummy[j].SetActive(true);
-                ListDummy[j].GetComponent<Dummy>().InPool();
+                if (ListDummy[j].GetComponent<BoxCollider2D>()!=null)
+                {
+                    ListDummy[j].GetComponent<Dummy>().InPool();
+                }
+                
                 dumkinNum++;
             }
         }

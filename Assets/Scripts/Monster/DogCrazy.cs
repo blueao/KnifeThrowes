@@ -32,6 +32,7 @@ public class DogCrazy : MonoBehaviour, IMonster
     [ContextMenu("die")]
     public void Die()
     {
+        ModelHandle.Instance.monsterDeadCount++;
         StartCoroutine(WaitForDead());
         box.enabled = false;
        
