@@ -104,6 +104,10 @@ public class Ghost : MonoBehaviour, IMonster
         {
             InPool();
         }
+        if (collision.name == "StartMove")
+        {
+            Move();
+        }
     }
     public void setPosition(Vector3 v3)
     {

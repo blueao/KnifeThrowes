@@ -92,5 +92,9 @@ public class Bat : MonoBehaviour, IMonster
         {
             Die();
         }
+        if (collision.name == "StartMove")
+        {
+            Move();
+        }
     }
 }

@@ -13,7 +13,9 @@ public class HandleLoseGame : MonoBehaviour {
             || collision.GetComponent<DogCrazy>()
             || collision.GetComponent<WoodTarget>()
             || collision.GetComponent<Spiders>()
-            || collision.GetComponent<Ghost>())
+            || collision.GetComponent<Ghost>()
+            || collision.GetComponent<Bird>()
+            )
         {
             MainGame.isGameReadyToPlay = false;
             MainGame.PanelLose.SetActive(true);

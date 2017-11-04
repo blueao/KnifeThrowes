@@ -23,7 +23,7 @@ public class Stupid : MonoBehaviour, IMonster
     Tween jumtween;
     Tween movetween;
     public bool isActiveMove;
-    Sequence se;
+    public Sequence se;
 
     private void Start()
     {
@@ -162,11 +162,15 @@ public class Stupid : MonoBehaviour, IMonster
                     TouchGrass.enabled = false;
                     transform.localScale = Vector3.one;
                     transform.localRotation = Quaternion.Euler(Vector3.zero);
-                    StartCoroutine(StartMove());
+                    //if (CoMove==null)
+                    //{
+                    CoMove = StartCoroutine(StartMove());
+                    //}
                 });
             });
         }
     }
+    public Coroutine CoMove;
     bool onTheGround;
     public IEnumerator StartMove()
     {
@@ -176,11 +180,20 @@ public class Stupid : MonoBehaviour, IMonster
     }
     public void InPool()
     {
+        if (CoMove != null)
+        {
+            StopCoroutine(CoMove);
+            CoMove = null;
+        }
         speedmove = 2;
         ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         transform.localPosition = new Vector3(0, 15, 0);
-        box.enabled = true;
-        box.isTrigger = true;
+        if (GetComponent<BoxCollider2D>() != null)
+        {
+            box.enabled = true;
+            box.isTrigger = true;
+        }
+
         rdStupid.isKinematic = true;
         spriteItems.enabled = true;
         SetSprite();

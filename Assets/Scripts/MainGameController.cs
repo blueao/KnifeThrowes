@@ -72,7 +72,6 @@ public class MainGameController : MonoBehaviour, IOberser
     public GameObject preGhost;
     public GameObject preBird;
     public GameObject preWizard;
-
     public ScrollRectController scrollrecController;
     //BG
     private float widthBG;
@@ -146,6 +145,12 @@ public class MainGameController : MonoBehaviour, IOberser
     public Transform[] BallonPos;
     public Transform[] CoinPos;
     public Transform[] CrazyDog;
+    public Transform[] wizardPos0;
+    public Transform[] birdPos0;
+    public Transform[] ghostPos0;
+    public Transform[] rabbitPos0;
+    public Transform[] batPos0;
+    public Transform[] cowpos0;
     //ListMap2
     public Transform[] RedTargetPos2;
     public Transform[] Stupid2;
@@ -159,6 +164,12 @@ public class MainGameController : MonoBehaviour, IOberser
     public Transform[] BallonPos2;
     public Transform[] CoinPos2;
     public Transform[] CrazyDog2;
+    public Transform[] wizardPos;
+    public Transform[] birdPos;
+    public Transform[] ghostPos;
+    public Transform[] rabbitPos;
+    public Transform[] batPos;
+    public Transform[] cowpos;
     //Map1
     [SerializeField]
     private Sprite[] Grass1;
@@ -195,13 +206,12 @@ public class MainGameController : MonoBehaviour, IOberser
 
     void Start()
     {
-        SetUpMap1();
         spriteKnife = knifeObject.spriteKnife.GetComponent<Transform>();
         spriteKnife.localPosition = new Vector3(spriteKnife.localPosition.x + knifeObject.spriteKnife.bounds.size.y, spriteKnife.localPosition.y, spriteKnife.localPosition.z);
         knifeObject.startKnifeTransfom = spriteKnife.localPosition;
         knifeObject.SetUpEffectKnife(ModelHandle.SetSevenTrail);
-        widthBG =(float) Math.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.x,1);
-        heightBG = Mathf.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.y) - 1f;
+        widthBG = 26.7f; /*(float)Math.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.x, 1);*/
+        //heightBG = Mathf.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.y) - 1f;
         endPositionBG = -widthBG - widthBG / 2;
         poolPosition = new Vector3(0, 15, 0);
 
@@ -222,32 +232,116 @@ public class MainGameController : MonoBehaviour, IOberser
         ModelHandle.Instance.actionSetCoin += SetCoin;
         ModelHandle.Instance.actiongGetCoin += getCoinPool;
 
+        if (RedTargetPos.Length > RedTargetPos2.Length)
+        {
+            redtarget = RedTargetPos.Length;
+        }
+        else
+        {
+            redtarget = RedTargetPos2.Length;
+        }
+        if (TargetPos.Length > TargetPos2.Length)
+        {
+            woodtarget1 = TargetPos.Length % 2;
+            woodtarget2 = TargetPos.Length - woodtarget1;
+        }
+        else
+        {
+            woodtarget1 = TargetPos2.Length % 2;
+            woodtarget2 = TargetPos2.Length - woodtarget1;
+        }
+        if (Stupid.Length > Stupid2.Length)
+        {
+            StupidCount = Stupid.Length;
+        }
+        else
+            StupidCount = Stupid2.Length;
 
-        redtarget = RedTargetPos.Length;
-        woodtarget1 = TargetPos.Length % 2;
-        woodtarget2 = TargetPos.Length - woodtarget1;
-        StupidCount = Stupid.Length;
-        FruitCount = FruitPos.Length;
-        BoarCount = BoarsPos.Length;
-        BallonCount = BallonPos.Length;
-        PumkinCount = PumKinPos.Length;
-        VultureCount = VulturePos.Length;
-        SpiderCount = SpriderPos.Length;
-        DummyCount = DumkinPos.Length;
-        CrazyDogCount = CrazyDog.Length;
-        //birdCount = 
-        //wizardCount =
-        //rabitCount =
-        //ghostCount=
+        if (FruitPos.Length > FruitPos2.Length)
+        {
+            FruitCount = FruitPos.Length;
+        }
+        else
+            FruitCount = FruitPos2.Length;
+        if (BoarsPos.Length > BoarsPos2.Length)
+        {
+            BoarCount = BoarsPos.Length;
+        }
+        else
+            BoarCount = BoarsPos2.Length;
+        if (BallonPos.Length > BallonPos2.Length)
+        {
+            BallonCount = BallonPos.Length;
+        }
+        else
+            BallonCount = BallonPos2.Length;
+
+        if (PumKinPos.Length > PumKinPos2.Length)
+        {
+            PumkinCount = PumKinPos.Length;
+        }
+        else
+            PumkinCount = PumKinPos2.Length;
+
+        if (VulturePos.Length > VulturePos2.Length)
+        {
+            VultureCount = VulturePos.Length;
+        }
+        else
+            VultureCount = VulturePos2.Length;
+
+        if (SpriderPos.Length > SpriderPos2.Length)
+        {
+            SpiderCount = SpriderPos.Length;
+        }
+        else
+            SpiderCount = SpriderPos2.Length;
+
+        if (DumkinPos.Length > DumkinPos2.Length)
+        {
+            DummyCount = DumkinPos.Length;
+        }
+        else
+            DummyCount = DumkinPos2.Length;
 
 
-        setStartPosBG();
-        CreateObject();
-        SetupPositionObj();
+        if (CrazyDog.Length > CrazyDog2.Length)
+        {
+            CrazyDogCount = CrazyDog.Length;
+        }
+        else
+            CrazyDogCount = CrazyDog2.Length;
+
+        birdCount = birdPos.Length;
+        wizardCount = wizardPos.Length;
+        rabitCount = rabbitPos.Length;
+        ghostCount = ghostPos.Length;
+        BatCount = batPos.Length;
+        CowCount = cowpos.Length;
+
+        //SetupPositionObj();
     }
 
 
-    public void SetupPositionObj()
+    public void SetupPositionObj(
+        Transform[] RedTargetPos,
+         Transform[] TargetPos,
+         Transform[] Stupid,
+          Transform[] FruitPos,
+           Transform[] BoarsPos,
+            Transform[] BallonPos,
+             Transform[] PumKinPos,
+              Transform[] VulturePos,
+               Transform[] SpriderPos,
+                Transform[] DumkinPos,
+                 Transform[] CrazyDog,
+                   Transform[] batPos,
+                     Transform[] ghostPos,
+                       Transform[] rabbitPos,
+                         Transform[] wizardPos,
+                           Transform[] birdPos,
+                            Transform[] cowpos
+        )
     {
         int redIndex = 0;
         for (int j = 0; j < ListWoodTarget.Count; j++)
@@ -314,7 +408,7 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListBallon[j].transform.localPosition = BallonPos[ballonNum].transform.localPosition;
                 ListBallon[j].SetActive(true);
-                if (ListBallon[j].GetComponent<BoxCollider2D>()!=null)
+                if (ListBallon[j].GetComponent<BoxCollider2D>() != null)
                 {
                     ListBallon[j].GetComponent<Ballon>().box.enabled = true;
                 }
@@ -331,6 +425,7 @@ public class MainGameController : MonoBehaviour, IOberser
                 ListPumkin[j].transform.localPosition = PumKinPos[pumkinNum].transform.localPosition;
                 ListPumkin[j].SetActive(true);
                 ListStupid[j].GetComponent<Stupid>().isActiveMove = false;
+
                 pumkinNum++;
             }
         }
@@ -364,11 +459,11 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListDummy[j].transform.localPosition = DumkinPos[dumkinNum].transform.localPosition;
                 ListDummy[j].SetActive(true);
-                if (ListDummy[j].GetComponent<BoxCollider2D>()!=null)
+                if (ListDummy[j].GetComponent<BoxCollider2D>() != null)
                 {
                     ListDummy[j].GetComponent<Dummy>().InPool();
                 }
-                
+
                 dumkinNum++;
             }
         }
@@ -381,6 +476,80 @@ public class MainGameController : MonoBehaviour, IOberser
                 ListCrazyDog[j].transform.localPosition = CrazyDog[crazyDogNum].transform.localPosition;
                 ListCrazyDog[j].SetActive(true);
                 crazyDogNum++;
+            }
+        }
+
+        //
+        int batnum = 0;
+        for (int j = 0; j < ListBat.Count; j++)
+        {
+            if (ListBat[j].name.Contains("Bat")
+                && (batnum < batPos.Length))
+            {
+                ListBat[j].transform.localPosition = batPos[batnum].transform.localPosition;
+                ListBat[j].SetActive(true);
+                batnum++;
+            }
+        }
+        //
+        int ghostnum = 0;
+        for (int j = 0; j < ListGhost.Count; j++)
+        {
+            if (ListGhost[j].name.Contains("Ghost")
+                && (ghostnum < ghostPos.Length))
+            {
+                ListGhost[j].transform.localPosition = ghostPos[ghostnum].transform.localPosition;
+                ListGhost[j].SetActive(true);
+                ghostnum++;
+            }
+        }
+        //
+        int rabbitnum = 0;
+        for (int j = 0; j < ListRabbit.Count; j++)
+        {
+            if (ListRabbit[j].name.Contains("rabbit")
+                && (rabbitnum < rabbitPos.Length))
+            {
+                ListRabbit[j].transform.localPosition = rabbitPos[rabbitnum].transform.localPosition;
+                ListRabbit[j].SetActive(true);
+                rabbitnum++;
+            }
+        }
+        //
+        int birdnum = 0;
+        for (int j = 0; j < ListBird.Count; j++)
+        {
+            if (ListBird[j].name.Contains("Bird")
+                && (birdnum < birdPos.Length))
+            {
+                ListBird[j].transform.localPosition = birdPos[birdnum].transform.localPosition;
+                ListBird[j].SetActive(true);
+                birdnum++;
+            }
+        }
+        //
+
+        int wizardnum = 0;
+        for (int j = 0; j < ListWizard.Count; j++)
+        {
+            if (ListWizard[j].name.Contains("wizard")
+                && (wizardnum < wizardPos.Length))
+            {
+                ListWizard[j].transform.localPosition = wizardPos[wizardnum].transform.localPosition;
+                ListWizard[j].SetActive(true);
+                wizardnum++;
+            }
+        }
+        //
+        int cownum = 0;
+        for (int j = 0; j < ListCow.Count; j++)
+        {
+            if (ListCow[j].name.Contains("Cow")
+                && (cownum < cowpos.Length))
+            {
+                ListCow[j].transform.localPosition = cowpos[cownum].transform.localPosition;
+                ListCow[j].SetActive(true);
+                cownum++;
             }
         }
     }
@@ -400,6 +569,7 @@ public class MainGameController : MonoBehaviour, IOberser
             Bird.name = "Bird" + i;
             ListBird.Add(Bird);
             Bird.SetActive(false);
+            Bird.transform.parent = MoveMonster;
             ListTotalObject.Add(Bird);
         }
         for (int i = 0; i < ghostCount; i++)
@@ -408,6 +578,7 @@ public class MainGameController : MonoBehaviour, IOberser
             ghost.name = "Ghost" + i;
             ListGhost.Add(ghost);
             ghost.SetActive(false);
+            ghost.transform.parent = MoveMonster;
             ListTotalObject.Add(ghost);
         }
         for (int i = 0; i < rabitCount; i++)
@@ -416,6 +587,7 @@ public class MainGameController : MonoBehaviour, IOberser
             rabbit.name = "rabbit" + i;
             ListRabbit.Add(rabbit);
             rabbit.SetActive(false);
+            rabbit.transform.parent = MoveMonster;
             ListTotalObject.Add(rabbit);
         }
         for (int i = 0; i < wizardCount; i++)
@@ -424,6 +596,7 @@ public class MainGameController : MonoBehaviour, IOberser
             wizard.name = "wizard" + i;
             ListWizard.Add(wizard);
             wizard.SetActive(false);
+            wizard.transform.parent = MoveMonster;
             ListTotalObject.Add(wizard);
         }
         for (int i = 0; i < StupidCount; i++)
@@ -557,10 +730,10 @@ public class MainGameController : MonoBehaviour, IOberser
             Sky[i].localPosition += Vector3.left * speedMoveBG;
             if (Grass[i].localPosition.x <= endPositionBG)
             {
-                Grass[i].localPosition = new Vector3(Grass[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length - (Mathf.Abs(endPositionBG - Grass[i].localPosition.x )+0.2f), Grass[i].localPosition.y, Grass[i].localPosition.z);
-                Hill[i].localPosition = new Vector3(Hill[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length- (Mathf.Abs(endPositionBG - Hill[i].localPosition.x) + 0.2f), Hill[i].localPosition.y, Hill[i].localPosition.z);
+                Grass[i].localPosition = new Vector3(Grass[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length - (Mathf.Abs(endPositionBG - Grass[i].localPosition.x) + 0.2f), Grass[i].localPosition.y, Grass[i].localPosition.z);
+                Hill[i].localPosition = new Vector3(Hill[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length - (Mathf.Abs(endPositionBG - Hill[i].localPosition.x) + 0.2f), Hill[i].localPosition.y, Hill[i].localPosition.z);
                 Moutain[i].localPosition = new Vector3(Moutain[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length - (Mathf.Abs(endPositionBG - Moutain[i].localPosition.x) + 0.2f), Moutain[i].localPosition.y, Moutain[i].localPosition.z);
-                Sky[i].localPosition = new Vector3(Sky[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length- (Mathf.Abs(endPositionBG - Sky[i].localPosition.x) + 0.2f), Sky[i].localPosition.y, Sky[i].localPosition.z);
+                Sky[i].localPosition = new Vector3(Sky[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length - (Mathf.Abs(endPositionBG - Sky[i].localPosition.x) + 0.2f), Sky[i].localPosition.y, Sky[i].localPosition.z);
             }
         }
 
@@ -575,7 +748,7 @@ public class MainGameController : MonoBehaviour, IOberser
             speedMoveBG = Time.fixedDeltaTime * 1.7f;
             if (CanMove)
             {
-                //MoveBackGround();
+                MoveBackGround();
             }
             if (knifeObject.isIdie)
             {
@@ -745,20 +918,44 @@ public class MainGameController : MonoBehaviour, IOberser
     {
         Menu.SetActive(isActive);
     }
+    int ChooseMapNumber;
     public void StartGame()
     {
+        ChooseMapNumber = 0;
         SetUpMap1();
+
+        setStartPosBG();
+        CreateObject();
+
+        isActionMonsterNeverUse();
         isActiveMenu(false);
         CountNumber();
     }
     public void StartGame2()
     {
+        ChooseMapNumber = 1;
         SetUpMap2();
+
+        setStartPosBG();
+        CreateObject();
+
+        isActionMonsterNeverUse();
         isActiveMenu(false);
         CountNumber();
     }
+    public void isActionMonsterNeverUse()
+    {
+        for (int i = 0; i < ListTotalObject.Count; i++)
+        {
+            if (ListTotalObject[i].transform.localPosition.y == 15)
+            {
+                ListTotalObject[i].SetActive(false);
+            }
+        }
+    }
     public void SetUpMap1()
     {
+        SetupPositionObj(RedTargetPos, TargetPos, Stupid, FruitPos, BoarsPos, BallonPos, PumKinPos, VulturePos, SpriderPos, DumkinPos, CrazyDog, batPos0, ghostPos0, rabbitPos0, wizardPos0, birdPos0, cowpos0);
         for (int i = 0; i < Grass.Length; i++)
         {
             Grass[i].GetComponent<SpriteRenderer>().sprite = Grass1[i];
@@ -780,10 +977,13 @@ public class MainGameController : MonoBehaviour, IOberser
         {
             House[i].gameObject.SetActive(false);
         }
+        Map2.gameObject.SetActive(false);
+        Map1.gameObject.SetActive(true);
         MoveMonster = Map1;
     }
     public void SetUpMap2()
     {
+        SetupPositionObj(RedTargetPos2, TargetPos2, Stupid2, FruitPos2, BoarsPos2, BallonPos2, PumKinPos2, VulturePos2, SpriderPos2, DumkinPos2, CrazyDog2, batPos, ghostPos, rabbitPos, wizardPos, birdPos, cowpos);
         for (int i = 0; i < Grass.Length; i++)
         {
             Grass[i].GetComponent<SpriteRenderer>().sprite = Grass2[i];
@@ -805,8 +1005,11 @@ public class MainGameController : MonoBehaviour, IOberser
         {
             House[i].gameObject.SetActive(true);
         }
+        Map1.gameObject.SetActive(false);
+        Map2.gameObject.SetActive(true);
         MoveMonster = Map2;
     }
+
     public void CountNumber()
     {
         Sequence se = DOTween.Sequence();
@@ -828,7 +1031,7 @@ public class MainGameController : MonoBehaviour, IOberser
             isGameReadyToPlay = true;
             PanelCount.SetActive(false);
             Reset();
-            if (se!=null)
+            if (se != null)
             {
                 se.Kill();
                 se = null;
@@ -874,7 +1077,16 @@ public class MainGameController : MonoBehaviour, IOberser
 
     public void Reset()
     {
-        SetupPositionObj();
+   
+
+        if (ChooseMapNumber == 0)
+        {
+            SetupPositionObj(RedTargetPos, TargetPos, Stupid, FruitPos, BoarsPos, BallonPos, PumKinPos, VulturePos, SpriderPos, DumkinPos, CrazyDog, batPos0, ghostPos0, rabbitPos0, wizardPos0, birdPos0, cowpos0);
+        }
+        else
+        {
+            SetupPositionObj(RedTargetPos2, TargetPos2, Stupid2, FruitPos2, BoarsPos2, BallonPos2, PumKinPos2, VulturePos2, SpriderPos2, DumkinPos2, CrazyDog2, batPos, ghostPos, rabbitPos, wizardPos, birdPos, cowpos);
+        }
         ResetBG();
         knifeObject.Idie();
     }

@@ -13,6 +13,7 @@ public class Cow : MonoBehaviour,IMonster {
     int heart;
     public void Die()
     {
+        ModelHandle.Instance.SetScore(-10);
         box.enabled = false;
         heart++;
         StartCoroutine(WaitForHit());
