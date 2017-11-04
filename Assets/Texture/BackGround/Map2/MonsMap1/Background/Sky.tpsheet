@@ -1,0 +1,16 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:574dec480c2408f8abb9f6ef8d5fc190:fb5fbc1fa179ad8206a41718e50449dd:bb5df6490e5b4fd36ec847d9701f5b39$
+#
+:format=40300
+:texture=Sky.png
+:size=2048x2048
+:pivotpoints=enabled
+:borders=disabled
+
+sky h (1);1;1280;2046;767; 0.5;0.5; 0;0;0;0
+sky h (2);1;511;2046;767; 0.5;0.5; 0;0;0;0

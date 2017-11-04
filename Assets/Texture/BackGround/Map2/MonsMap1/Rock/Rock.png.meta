@@ -1,0 +1,175 @@
+fileFormatVersion: 2
+guid: def4994c13e77684fb88a05ccd528a28
+timeCreated: 1509774167
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Rock (1)
+    21300002: Rock (2)
+    21300004: Rock (3)
+    21300006: Rock (4)
+    21300008: Rock (5)
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Rock (1)
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 191
+        width: 160
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -80, y: 79}
+        - {x: -80, y: 24}
+        - {x: -26, y: -78}
+        - {x: -20, y: -79}
+        - {x: 32, y: -79}
+        - {x: 74, y: -42}
+        - {x: 80, y: 0}
+        - {x: 80, y: 79}
+    - name: Rock (2)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 288
+        width: 250
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 115, y: -25.5}
+        - {x: 94, y: -6.5}
+        - {x: 79, y: 28.5}
+        - {x: 80, y: 50.5}
+        - {x: 79, y: 78.5}
+        - {x: 70, y: 104.5}
+        - {x: 64, y: 111.5}
+        - {x: -105, y: 111.5}
+        - {x: -108, y: 103.5}
+        - {x: -107, y: 68.5}
+        - {x: -104, y: 48.5}
+        - {x: -116, y: 33.5}
+        - {x: -125, y: -81.5}
+        - {x: -125, y: -111.5}
+        - {x: 125, y: -111.5}
+        - {x: 125, y: -83.5}
+        - {x: 122, y: -55.5}
+    - name: Rock (3)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 83
+        width: 250
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 120, y: 15.5}
+        - {x: 118, y: 27.5}
+        - {x: 118, y: 98.5}
+        - {x: 115, y: 101.5}
+        - {x: -123, y: 101.5}
+        - {x: -125, y: 99.5}
+        - {x: -125, y: 51.5}
+        - {x: -118, y: 30.5}
+        - {x: -118, y: -4.5}
+        - {x: -116, y: -20.5}
+        - {x: -114, y: -32.5}
+        - {x: -105, y: -60.5}
+        - {x: -97, y: -100.5}
+        - {x: -96, y: -101.5}
+        - {x: 125, y: -101.5}
+        - {x: 125, y: -48.5}
+        - {x: 122, y: -20.5}
+    - name: Rock (4)
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 49
+        width: 160
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -80, y: 70}
+        - {x: -80, y: 22}
+        - {x: -48, y: -59}
+        - {x: -26, y: -70}
+        - {x: 46, y: -70}
+        - {x: 80, y: 2}
+        - {x: 80, y: 70}
+    - name: Rock (5)
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 351
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -80, y: 80}
+        - {x: -80, y: 38}
+        - {x: -72, y: -19}
+        - {x: -34, y: -76}
+        - {x: -19, y: -80}
+        - {x: 29, y: -80}
+        - {x: 58, y: -63}
+        - {x: 80, y: 23}
+        - {x: 80, y: 80}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -9,7 +9,7 @@ public class Ballon : MonoBehaviour, IMonster
     public Sprite[] ListSpriteDeadBallon;
     public Sprite[] ListSpriteBallon;
     SpriteRenderer sprite;
-    BoxCollider2D box;
+    public BoxCollider2D box;
     float width;
     float height;
     Tween tweenMove;

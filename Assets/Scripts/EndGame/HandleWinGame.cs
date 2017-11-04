@@ -15,7 +15,7 @@ public class HandleWinGame : MonoBehaviour
     }
     IEnumerator WaitForWin()
     {
-        yield return new WaitUntil(() => MainGame.CanWin);
+        yield return new WaitForSeconds(10f);
         MainGame.WinGame();
     }
 }

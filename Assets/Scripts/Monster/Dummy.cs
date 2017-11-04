@@ -40,7 +40,6 @@ public class Dummy : MonoBehaviour, IMonster
         transform.localRotation = Quaternion.Euler(Vector3.zero);
         sprite.enabled = true;
         SetSprite();
-        dummydeath = false;
     }
 
     public void Move()
@@ -83,17 +82,7 @@ public class Dummy : MonoBehaviour, IMonster
             InPool();
         }
     }
-    float speed = 2f;
-    bool dummydeath;
-    [ContextMenu("Death")]
-    private void FixedUpdate()
-    {
-        if (dummydeath)
-        {
-            speed -= Time.fixedDeltaTime*4f;
-            ShowDummyDead();
-        }
-    }
+    float speed = 1f;
     void ShowDummyDead()
     {
         transform.DOLocalRotate(new Vector3(0, 0, -75), speed).OnComplete(() =>

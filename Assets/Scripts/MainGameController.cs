@@ -12,14 +12,10 @@ public class MainGameController : MonoBehaviour, IOberser
     float degreeKnifeZ;
     public Transform spriteKnife;
 
-    [SerializeField]
-    private Transform[] Grass;
-    [SerializeField]
-    private Transform[] Hill;
-    [SerializeField]
-    private Transform[] Moutain;
-    [SerializeField]
-    private Transform[] Sky;
+    public Transform[] Grass;
+    public Transform[] Hill;
+    public Transform[] Moutain;
+    public Transform[] Sky;
     public bool isGameReadyToPlay;
 
     //UI
@@ -53,7 +49,9 @@ public class MainGameController : MonoBehaviour, IOberser
     private Vector3 poolPosition;
     public GameObject QuitPanel;
     //MoveObj
-    public Transform MoveMonster;
+    public Transform Map1;
+    public Transform Map2;
+    private Transform MoveMonster;
     //prefab Monster
     public GameObject preFab;
     public GameObject preFabWoodTarget;
@@ -131,6 +129,26 @@ public class MainGameController : MonoBehaviour, IOberser
     public Transform[] CrazyDog;
 
 
+    //Map1
+    [SerializeField]
+    private Sprite[] Grass1;
+    [SerializeField]
+    private Sprite[] Hill1;
+    [SerializeField]
+    private Sprite[] Moutain1;
+    [SerializeField]
+    private Sprite[] Sky1;
+    //Map2
+    [SerializeField]
+    private Sprite[] Grass2;
+    [SerializeField]
+    private Sprite[] Hill2;
+    [SerializeField]
+    private Sprite[] House2;
+    [SerializeField]
+    private Sprite[] Sky2;
+
+
     //Reset
     Vector3 startPostionMoveMonster;
     Vector3 startBGGrass1;
@@ -148,6 +166,7 @@ public class MainGameController : MonoBehaviour, IOberser
 
     void Start()
     {
+        SetUpMap1();
         spriteKnife = knifeObject.spriteKnife.GetComponent<Transform>();
         spriteKnife.localPosition = new Vector3(spriteKnife.localPosition.x + knifeObject.spriteKnife.bounds.size.y, spriteKnife.localPosition.y, spriteKnife.localPosition.z);
         knifeObject.startKnifeTransfom = spriteKnife.localPosition;
@@ -258,6 +277,11 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListBallon[j].transform.localPosition = BallonPos[ballonNum].transform.localPosition;
                 ListBallon[j].SetActive(true);
+                if (ListBallon[j].GetComponent<BoxCollider2D>()!=null)
+                {
+                    ListBallon[j].GetComponent<Ballon>().box.enabled = true;
+                }
+
                 ballonNum++;
             }
         }
@@ -656,10 +680,30 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void StartGame()
     {
+        SetUpMap1();
         isActiveMenu(false);
         CountNumber();
     }
-
+    public void SetUpMap1()
+    {
+        for (int i = 0; i < Grass.Length; i++)
+        {
+            Grass[i].GetComponent<SpriteRenderer>().sprite = Grass1[i];
+        }
+        for (int i = 0; i < Grass.Length; i++)
+        {
+            Hill[i].GetComponent<SpriteRenderer>().sprite = Hill1[i];
+        }
+        for (int i = 0; i < Grass.Length; i++)
+        {
+            Moutain[i].GetComponent<SpriteRenderer>().sprite = Moutain1[i];
+        }
+        for (int i = 0; i < Grass.Length; i++)
+        {
+            Sky[i].GetComponent<SpriteRenderer>().sprite = Sky1[i];
+        }
+        MoveMonster = Map1;
+    }
     public void CountNumber()
     {
         Sequence se = DOTween.Sequence();

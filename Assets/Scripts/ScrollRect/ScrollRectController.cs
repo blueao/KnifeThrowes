@@ -119,22 +119,25 @@ public class ScrollRectController : MonoBehaviour
     }
     private void Update()
     {
-        for (int i = 0; i < listGO.Count; i++)
+        if (GetComponent<MainGameController>().Menu.activeSelf)
         {
-            distReposition[i] = center.GetComponent<RectTransform>().position.y - listGO[i].GetComponent<RectTransform>().position.y;
-            distance[i] = Mathf.Abs(distReposition[i]);
-        }
-
-        float minDistance = Mathf.Min(distance);
-        for (int a = 0; a < listGO.Count; a++)
-        {
-            if (minDistance == distance[a])
+            for (int i = 0; i < listGO.Count; i++)
             {
-                numberGO = a;
+                distReposition[i] = center.GetComponent<RectTransform>().position.y - listGO[i].GetComponent<RectTransform>().position.y;
+                distance[i] = Mathf.Abs(distReposition[i]);
             }
-            if (!drag)
+
+            float minDistance = Mathf.Min(distance);
+            for (int a = 0; a < listGO.Count; a++)
             {
-                Lerp(-listGO[numberGO].GetComponent<RectTransform>().anchoredPosition.y);
+                if (minDistance == distance[a])
+                {
+                    numberGO = a;
+                }
+                if (!drag)
+                {
+                    Lerp(-listGO[numberGO].GetComponent<RectTransform>().anchoredPosition.y);
+                }
             }
         }
     }
