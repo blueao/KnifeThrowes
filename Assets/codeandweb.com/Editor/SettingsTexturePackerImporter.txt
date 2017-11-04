@@ -2,6 +2,11 @@ version: 2
 importPivots: 1
 tpsheetFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
+- Assets/Texture/BackGround/Map2/MonsMap1/Background/Background1.tpsheet
+- Assets/Texture/BackGround/Map2/MonsMap1/Background/BackGround2.tpsheet
+- Assets/Texture/BackGround/Map2/MonsMap1/Background/Sky.tpsheet
+- Assets/Texture/BackGround/Map2/MonsMap1/Rock/Rock.tpsheet
+- Assets/Texture/BackGround/Map2/MonsMap1/Rock/Tree.tpsheet
 - Assets/Texture/EffectKnife/FullEffect.tpsheet
 - Assets/Texture/Ghost/Ghost.tpsheet
 - Assets/Texture/Knife/Knife.tpsheet
@@ -15,6 +20,11 @@ tpsheetFileNames:
 - Assets/Texture/WinGame/WinGame.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
+- Assets/Texture/BackGround/Map2/MonsMap1/Background/Background1.png
+- Assets/Texture/BackGround/Map2/MonsMap1/Background/BackGround2.png
+- Assets/Texture/BackGround/Map2/MonsMap1/Background/Sky.png
+- Assets/Texture/BackGround/Map2/MonsMap1/Rock/Rock.png
+- Assets/Texture/BackGround/Map2/MonsMap1/Rock/Tree.png
 - Assets/Texture/EffectKnife/FullEffect.png
 - Assets/Texture/Ghost/Ghost.png
 - Assets/Texture/Knife/Knife.png
@@ -28,6 +38,11 @@ textureFileNames:
 - Assets/Texture/WinGame/WinGame-0.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
+- 
+- 
+- 
 - 
 - 
 - 

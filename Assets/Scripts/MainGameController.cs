@@ -15,6 +15,7 @@ public class MainGameController : MonoBehaviour, IOberser
     public Transform[] Grass;
     public Transform[] Hill;
     public Transform[] Moutain;
+    public Transform[] House;
     public Transform[] Sky;
     public bool isGameReadyToPlay;
 
@@ -147,7 +148,6 @@ public class MainGameController : MonoBehaviour, IOberser
     private Sprite[] House2;
     [SerializeField]
     private Sprite[] Sky2;
-
 
     //Reset
     Vector3 startPostionMoveMonster;
@@ -487,7 +487,6 @@ public class MainGameController : MonoBehaviour, IOberser
             Hill[i].localPosition += Vector3.left * speedMoveBG;
             Moutain[i].localPosition += Vector3.left * speedMoveBG;
             Sky[i].localPosition += Vector3.left * speedMoveBG;
-
             if (Grass[i].localPosition.x <= endPositionBG)
             {
                 Grass[i].localPosition = new Vector3(Grass[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length - (Mathf.Abs(endPositionBG - Grass[i].localPosition.x )+0.2f), Grass[i].localPosition.y, Grass[i].localPosition.z);
@@ -680,7 +679,7 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void StartGame()
     {
-        SetUpMap1();
+        SetUpMap2();
         isActiveMenu(false);
         CountNumber();
     }
@@ -697,12 +696,42 @@ public class MainGameController : MonoBehaviour, IOberser
         for (int i = 0; i < Grass.Length; i++)
         {
             Moutain[i].GetComponent<SpriteRenderer>().sprite = Moutain1[i];
+            Moutain[i].gameObject.SetActive(true);
         }
         for (int i = 0; i < Grass.Length; i++)
         {
             Sky[i].GetComponent<SpriteRenderer>().sprite = Sky1[i];
         }
+        for (int i = 0; i < House.Length; i++)
+        {
+            House[i].gameObject.SetActive(false);
+        }
         MoveMonster = Map1;
+    }
+    public void SetUpMap2()
+    {
+        for (int i = 0; i < Grass.Length; i++)
+        {
+            Grass[i].GetComponent<SpriteRenderer>().sprite = Grass2[i];
+        }
+        for (int i = 0; i < Grass.Length; i++)
+        {
+            Hill[i].GetComponent<SpriteRenderer>().sprite = Hill2[i];
+        }
+        for (int i = 0; i < Grass.Length; i++)
+        {
+            Moutain[i].GetComponent<SpriteRenderer>().sprite = House2[i];
+            Moutain[i].gameObject.SetActive(false);
+        }
+        for (int i = 0; i < Grass.Length; i++)
+        {
+            Sky[i].GetComponent<SpriteRenderer>().sprite = Sky2[i];
+        }
+        for (int i = 0; i < House.Length; i++)
+        {
+            House[i].gameObject.SetActive(true);
+        }
+        MoveMonster = Map2;
     }
     public void CountNumber()
     {
