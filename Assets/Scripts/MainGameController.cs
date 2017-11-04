@@ -679,6 +679,12 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void StartGame()
     {
+        SetUpMap1();
+        isActiveMenu(false);
+        CountNumber();
+    }
+    public void StartGame2()
+    {
         SetUpMap2();
         isActiveMenu(false);
         CountNumber();
