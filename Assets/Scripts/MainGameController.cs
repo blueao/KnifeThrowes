@@ -46,7 +46,10 @@ public class MainGameController : MonoBehaviour, IOberser
     public int BatCount;
     public int CrazyDogCount;
     public int BoarCount;
-
+    public int ghostCount;
+    public int rabitCount;
+    public int wizardCount;
+    public int birdCount;
     private Vector3 poolPosition;
     public GameObject QuitPanel;
     //MoveObj
@@ -65,7 +68,10 @@ public class MainGameController : MonoBehaviour, IOberser
     public GameObject preFabCrazyDog;
     public GameObject preFabBoar;
     public GameObject preFabCoinImage;
-
+    public GameObject preRabbit;
+    public GameObject preGhost;
+    public GameObject preBird;
+    public GameObject preWizard;
 
     public ScrollRectController scrollrecController;
     //BG
@@ -114,6 +120,18 @@ public class MainGameController : MonoBehaviour, IOberser
     //List Boar Type
     [HideInInspector]
     public List<GameObject> ListCoinPool = new List<GameObject>();
+    //
+    [HideInInspector]
+    public List<GameObject> ListBird = new List<GameObject>();
+    //
+    [HideInInspector]
+    public List<GameObject> ListWizard = new List<GameObject>();
+    //
+    [HideInInspector]
+    public List<GameObject> ListGhost = new List<GameObject>();
+    //
+    [HideInInspector]
+    public List<GameObject> ListRabbit = new List<GameObject>();
     public int Coinpool;
     //ListTransMap1
     public Transform[] RedTargetPos;
@@ -128,8 +146,19 @@ public class MainGameController : MonoBehaviour, IOberser
     public Transform[] BallonPos;
     public Transform[] CoinPos;
     public Transform[] CrazyDog;
-
-
+    //ListMap2
+    public Transform[] RedTargetPos2;
+    public Transform[] Stupid2;
+    public Transform[] TargetPos2;
+    public Transform[] BoarsPos2;
+    public Transform[] VulturePos2;
+    public Transform[] DumkinPos2;
+    public Transform[] FruitPos2;
+    public Transform[] PumKinPos2;
+    public Transform[] SpriderPos2;
+    public Transform[] BallonPos2;
+    public Transform[] CoinPos2;
+    public Transform[] CrazyDog2;
     //Map1
     [SerializeField]
     private Sprite[] Grass1;
@@ -192,6 +221,8 @@ public class MainGameController : MonoBehaviour, IOberser
 
         ModelHandle.Instance.actionSetCoin += SetCoin;
         ModelHandle.Instance.actiongGetCoin += getCoinPool;
+
+
         redtarget = RedTargetPos.Length;
         woodtarget1 = TargetPos.Length % 2;
         woodtarget2 = TargetPos.Length - woodtarget1;
@@ -204,6 +235,12 @@ public class MainGameController : MonoBehaviour, IOberser
         SpiderCount = SpriderPos.Length;
         DummyCount = DumkinPos.Length;
         CrazyDogCount = CrazyDog.Length;
+        //birdCount = 
+        //wizardCount =
+        //rabitCount =
+        //ghostCount=
+
+
         setStartPosBG();
         CreateObject();
         SetupPositionObj();
@@ -357,7 +394,38 @@ public class MainGameController : MonoBehaviour, IOberser
             coinpool.SetActive(false);
             ListTotalObject.Add(coinpool);
         }
-
+        for (int i = 0; i < birdCount; i++)
+        {
+            GameObject Bird = (GameObject)Instantiate(preBird, poolPosition, Quaternion.identity);
+            Bird.name = "Bird" + i;
+            ListBird.Add(Bird);
+            Bird.SetActive(false);
+            ListTotalObject.Add(Bird);
+        }
+        for (int i = 0; i < ghostCount; i++)
+        {
+            GameObject ghost = (GameObject)Instantiate(preGhost, poolPosition, Quaternion.identity);
+            ghost.name = "Ghost" + i;
+            ListGhost.Add(ghost);
+            ghost.SetActive(false);
+            ListTotalObject.Add(ghost);
+        }
+        for (int i = 0; i < rabitCount; i++)
+        {
+            GameObject rabbit = (GameObject)Instantiate(preRabbit, poolPosition, Quaternion.identity);
+            rabbit.name = "rabbit" + i;
+            ListRabbit.Add(rabbit);
+            rabbit.SetActive(false);
+            ListTotalObject.Add(rabbit);
+        }
+        for (int i = 0; i < wizardCount; i++)
+        {
+            GameObject wizard = (GameObject)Instantiate(preWizard, poolPosition, Quaternion.identity);
+            wizard.name = "wizard" + i;
+            ListWizard.Add(wizard);
+            wizard.SetActive(false);
+            ListTotalObject.Add(wizard);
+        }
         for (int i = 0; i < StupidCount; i++)
         {
             GameObject stupidobj = (GameObject)Instantiate(preFab, poolPosition, Quaternion.identity);
@@ -507,7 +575,7 @@ public class MainGameController : MonoBehaviour, IOberser
             speedMoveBG = Time.fixedDeltaTime * 1.7f;
             if (CanMove)
             {
-                MoveBackGround();
+                //MoveBackGround();
             }
             if (knifeObject.isIdie)
             {
