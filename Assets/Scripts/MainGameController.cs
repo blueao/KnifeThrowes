@@ -35,33 +35,19 @@ public class MainGameController : MonoBehaviour, IOberser
     public Button ClassicBtn;
     public Button PlayBtn;
     //SetCountMonster
-    [HideInInspector]
     public int StupidCount;
-    [HideInInspector]
     public int FruitCount;
-    [HideInInspector]
     public int PumkinCount;
-    [HideInInspector]
     int woodtarget1;
-    [HideInInspector]
     int woodtarget2;
-    [HideInInspector]
     int redtarget;
-    [HideInInspector]
     public int BallonCount;
-    [HideInInspector]
     public int DummyCount;
-    [HideInInspector]
     public int VultureCount;
-    [HideInInspector]
     public int SpiderCount;
-    [HideInInspector]
     public int CowCount;
-    [HideInInspector]
     public int BatCount;
-    [HideInInspector]
     public int CrazyDogCount;
-    [HideInInspector]
     public int BoarCount;
 
     private Vector3 poolPosition;
@@ -187,171 +173,153 @@ public class MainGameController : MonoBehaviour, IOberser
 
         ModelHandle.Instance.actionSetCoin += SetCoin;
         ModelHandle.Instance.actiongGetCoin += getCoinPool;
-        //redtarget = RedTargetPos.Length;
-        //woodtarget1 = TargetPos.Length % 2;
-        //woodtarget2 = TargetPos.Length - woodtarget1;
-        //StupidCount = Stupid.Length;
-        //FruitCount = FruitPos.Length;
-        //BoarCount = BoarsPos.Length;
-        //BallonCount = BallonPos.Length;
-        //PumkinCount = PumKinPos.Length;
-        //VultureCount = VulturePos.Length;
-        //SpiderCount = SpriderPos.Length;
-        //DummyCount = DumkinPos.Length;
-        //CrazyDogCount = CrazyDog.Length;
-
-
+        redtarget = RedTargetPos.Length;
+        woodtarget1 = TargetPos.Length % 2;
+        woodtarget2 = TargetPos.Length - woodtarget1;
+        StupidCount = Stupid.Length;
+        FruitCount = FruitPos.Length;
+        BoarCount = BoarsPos.Length;
+        BallonCount = BallonPos.Length;
+        PumkinCount = PumKinPos.Length;
+        VultureCount = VulturePos.Length;
+        SpiderCount = SpriderPos.Length;
+        DummyCount = DumkinPos.Length;
+        CrazyDogCount = CrazyDog.Length;
         setStartPosBG();
         CreateObject();
-        //SetupPositionObj();
+        SetupPositionObj();
     }
 
-    public void setCountMonster()
+
+    public void SetupPositionObj()
     {
-        redtarget = 5;
-        woodtarget1 = 2;
-        woodtarget2 = 2;
-        StupidCount = 5;
-        FruitCount = 5;
-        BoarCount = 2;
-        BallonCount = 8;
-        PumkinCount = 5;
-        VultureCount = 3;
-        SpiderCount = 5;
-        DummyCount = 3;
-        CrazyDogCount = 2;
-    }
-    public void PositionObj()
-    {
-        for (int i = 0; i < ModelHandle.Instance.monsterNum; i++)
-        {
-           // ListTotalObject[i].
-        }
-    }
-    public void setUpEachPositionObj(string name , List<GameObject> ListTotalObj,Transform[] listTransfom,int num)
-    {
+        int redIndex = 0;
         for (int j = 0; j < ListWoodTarget.Count; j++)
         {
-            if (ListTotalObj[j].name.Contains(name))
+            if (ListWoodTarget[j].name.Contains("red target")
+                && (redIndex < RedTargetPos.Length))
             {
-                if (!ListTotalObj[j].activeSelf)
+                ListWoodTarget[j].transform.localPosition = RedTargetPos[redIndex].transform.localPosition;
+                ListWoodTarget[j].SetActive(true);
+                redIndex++;
+            }
+        }
+        int woodIndex = 0;
+        for (int j = 0; j < ListWoodTarget.Count; j++)
+        {
+            if (ListWoodTarget[j].name.Contains("wood target")
+                && (woodIndex < TargetPos.Length))
+            {
+                ListWoodTarget[j].transform.localPosition = TargetPos[woodIndex].transform.localPosition;
+                ListWoodTarget[j].SetActive(true);
+                woodIndex++;
+            }
+        }
+        int stupidnum = 0;
+        for (int j = 0; j < ListStupid.Count; j++)
+        {
+            if (ListStupid[j].name.Contains("Stupid")
+                && (stupidnum < Stupid.Length))
+            {
+                ListStupid[j].transform.localPosition = Stupid[stupidnum].transform.localPosition;
+                ListStupid[j].SetActive(true);
+                ListStupid[j].GetComponent<Stupid>().isActiveMove = false;
+                stupidnum++;
+            }
+        }
+        int fruitnum = 0;
+        for (int j = 0; j < ListFruit.Count; j++)
+        {
+            if (ListFruit[j].name.Contains("Fruit")
+                && (fruitnum < FruitPos.Length))
+            {
+                ListFruit[j].transform.localPosition = FruitPos[fruitnum].transform.localPosition;
+                ListFruit[j].SetActive(true);
+                ListStupid[j].GetComponent<Stupid>().isActiveMove = false;
+                fruitnum++;
+            }
+        }
+        int boarNum = 0;
+        for (int j = 0; j < ListBoar.Count; j++)
+        {
+            if (ListBoar[j].name.Contains("Boar")
+                && (boarNum < BoarsPos.Length))
+            {
+                ListBoar[j].transform.localPosition = BoarsPos[boarNum].transform.localPosition;
+                ListBoar[j].SetActive(true);
+                boarNum++;
+            }
+        }
+        int ballonNum = 0;
+        for (int j = 0; j < ListBallon.Count; j++)
+        {
+            if (ListBallon[j].name.Contains("Ballon")
+                && (ballonNum < BallonPos.Length))
+            {
+                ListBallon[j].transform.localPosition = BallonPos[ballonNum].transform.localPosition;
+                ListBallon[j].SetActive(true);
+                ballonNum++;
+            }
+        }
+        int pumkinNum = 0;
+        for (int j = 0; j < ListPumkin.Count; j++)
+        {
+            if (ListPumkin[j].name.Contains("Pumkin")
+                && (pumkinNum < PumKinPos.Length))
+            {
+                ListPumkin[j].transform.localPosition = PumKinPos[pumkinNum].transform.localPosition;
+                ListPumkin[j].SetActive(true);
+                ListStupid[j].GetComponent<Stupid>().isActiveMove = false;
+                pumkinNum++;
+            }
+        }
+        int vutulreNum = 0;
+        for (int j = 0; j < ListVulture.Count; j++)
+        {
+            if (ListVulture[j].name.Contains("vulture")
+                && (vutulreNum < VulturePos.Length))
+            {
+                ListVulture[j].transform.localPosition = VulturePos[vutulreNum].transform.localPosition;
+                ListVulture[j].SetActive(true);
+                vutulreNum++;
+            }
+        }
+        int spiderNum = 0;
+        for (int j = 0; j < ListSprider.Count; j++)
+        {
+            if (ListSprider[j].name.Contains("spider")
+                && (spiderNum < SpriderPos.Length))
+            {
+                ListSprider[j].transform.localPosition = SpriderPos[spiderNum].transform.localPosition;
+                ListSprider[j].SetActive(true);
+                spiderNum++;
+            }
+        }
+        int dumkinNum = 0;
+        for (int j = 0; j < ListDummy.Count; j++)
+        {
+            if (ListDummy[j].name.Contains("dummy")
+                && (dumkinNum < DumkinPos.Length))
+            {
+                ListDummy[j].transform.localPosition = DumkinPos[dumkinNum].transform.localPosition;
+                ListDummy[j].SetActive(true);
+                if (ListDummy[j].GetComponent<BoxCollider2D>()!=null)
                 {
-                    ListTotalObj[j].transform.localPosition = listTransfom[num].transform.localPosition;
-                    ListTotalObj[j].SetActive(true);
+                    ListDummy[j].GetComponent<Dummy>().InPool();
                 }
-                else
-                {
-                    GameObject go = null;
-                    int b = 0;
-                    switch (name)
-                    {
-                        case "CoinPool":
-                             go = (GameObject)Instantiate(preFabCoinImage, listTransfom[num].transform.localPosition, Quaternion.identity);
-                            go.name = "CoinPool" + num;
-                            ListCoinPool.Add(go);
-                            go.SetActive(false);
-                            ListTotalObject.Add(go);
-                            break;
-                        case "Stupid":
-                             go = (GameObject)Instantiate(preFab, listTransfom[num].transform.localPosition, Quaternion.identity);
-                            go.name = "Stupid" + num;
-                            ListStupid.Add(go);
-                            go.transform.parent = MoveMonster;
-                            ListTotalObject.Add(go);
-                            break;
-                        case "Pumkin":
-                             go = (GameObject)Instantiate(preFab, listTransfom[num].transform.localPosition, Quaternion.identity);
-                            go.name = "Pumkin" + num;
-                            ListPumkin.Add(go);
-                            go.transform.parent = MoveMonster;
-                            ListTotalObject.Add(go);
-                            break;
-                        case "Fruit":
-                             go = (GameObject)Instantiate(preFab, listTransfom[num].transform.localPosition, Quaternion.identity);
-                            go.name = "Fruit" + num;
-                            ListFruit.Add(go);
-                            go.transform.parent = MoveMonster;
-                            ListTotalObject.Add(go);
-                            break;
-                        case "wood target 1":
-                             go = (GameObject)Instantiate(preFabWoodTarget, listTransfom[num].transform.localPosition, Quaternion.identity);
-                            go.name = "wood target 1" + num;
-                            ListWoodTarget.Add(go);
-                            go.transform.parent = MoveMonster;
-                            ListTotalObject.Add(go);
-                            break;
-                        case "wood target 2":
-                             go = (GameObject)Instantiate(preFabWoodTarget, listTransfom[num].transform.localPosition, Quaternion.identity);
-                            go.name = "wood target 2" + num;
-                            ListWoodTarget.Add(go);
-                            go.transform.parent = MoveMonster;
-                            ListTotalObject.Add(go);
-                            break;
-                        case "red target":
-                             go = (GameObject)Instantiate(preFabWoodTarget, listTransfom[num].transform.localPosition, Quaternion.identity);
-                            go.name = "red target" + num;
-                            ListWoodTarget.Add(go);
-                            go.transform.parent = MoveMonster;
-                            ListTotalObject.Add(go);
-                            break;
-                        case "Ballon":
-                             go = (GameObject)Instantiate(preFabBallon, listTransfom[num].transform.localPosition, Quaternion.identity);
-                            go.name = "Ballon" + num;
-                            ListBallon.Add(go);
-                            go.transform.parent = MoveMonster;
-                            break;
-                        case "dummy":
-                             b = UnityEngine.Random.Range(1, 3);
-                            go = (GameObject)Instantiate(preDummy, listTransfom[num].transform.localPosition, Quaternion.identity);
-                            GameObject dummy = (GameObject)Instantiate(preDummy, poolPosition, Quaternion.identity);
-                            dummy.name = "dummy (" + b + ")" + num;
-                            ListDummy.Add(dummy);
-                            dummy.transform.parent = MoveMonster;
-                            break;
-                        case "vulture":
-                             b = UnityEngine.Random.Range(1, 3);
-                            go = (GameObject)Instantiate(preVulture, listTransfom[num].transform.localPosition, Quaternion.identity);
-                            go.name = "vulture (" + b + ")" + num;
-                            ListVulture.Add(go);
-                            go.transform.parent = MoveMonster;
-                            break;
-                        case "spider":
-                             go = (GameObject)Instantiate(preFabSpider, listTransfom[num].transform.localPosition, Quaternion.identity);
-                            go.name = "spider" + num;
-                            ListSprider.Add(go);
-                            go.transform.parent = MoveMonster;
-                            ListTotalObject.Add(go);
-                            break;
-                        case "Cow":
-                             go = (GameObject)Instantiate(preFabCow, listTransfom[num].transform.localPosition, Quaternion.identity);
-                            go.name = "Cow" + num;
-                            ListCow.Add(go);
-                            go.transform.parent = MoveMonster;
-                            break;
-                        case "Bat":
-                             go = (GameObject)Instantiate(preFabBat, listTransfom[num].transform.localPosition, Quaternion.identity);
-                            go.name = "Bat" + num;
-                            ListBat.Add(go);
-                            go.transform.parent = MoveMonster;
-                            ListTotalObject.Add(go);
-                            break;
-                        case "CrazyDog":
-                             go = (GameObject)Instantiate(preFabCrazyDog, listTransfom[num].transform.localPosition, Quaternion.identity);
-                            go.name = "CrazyDog" + num;
-                            ListCrazyDog.Add(go);
-                            go.transform.parent = MoveMonster;
-                            ListTotalObject.Add(go);
-                            break;
-                        case "Boar":
-                             go = (GameObject)Instantiate(preFabBoar, listTransfom[num].transform.localPosition, Quaternion.identity);
-                            go.name = "Boar" + num;
-                            ListBoar.Add(go);
-                            go.transform.parent = MoveMonster;
-                            ListTotalObject.Add(go);
-                            break;
-                    }
-                }
-               
+                
+                dumkinNum++;
+            }
+        }
+        int crazyDogNum = 0;
+        for (int j = 0; j < ListCrazyDog.Count; j++)
+        {
+            if (ListCrazyDog[j].name.Contains("CrazyDog")
+                && (crazyDogNum < CrazyDog.Length))
+            {
+                ListCrazyDog[j].transform.localPosition = CrazyDog[crazyDogNum].transform.localPosition;
+                ListCrazyDog[j].SetActive(true);
+                crazyDogNum++;
             }
         }
     }
@@ -759,7 +727,7 @@ public class MainGameController : MonoBehaviour, IOberser
 
     public void Reset()
     {
-        //SetupPositionObj();
+        SetupPositionObj();
         ResetBG();
         knifeObject.Idie();
     }
