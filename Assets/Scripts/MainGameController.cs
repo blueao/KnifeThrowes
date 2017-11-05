@@ -78,7 +78,7 @@ public class MainGameController : MonoBehaviour, IOberser
     private float heightBG;
     private float speedMoveBG;
     private float endPositionBG;
-
+    private float endPositionBGSky;
     //List Stupid Type
     [HideInInspector]
     public List<GameObject> ListStupid = new List<GameObject>();
@@ -213,7 +213,11 @@ public class MainGameController : MonoBehaviour, IOberser
         widthBG = 26.6f; /*(float)Math.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.x, 1);*/
         //heightBG = Mathf.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.y) - 1f;
         endPositionBG = -widthBG - widthBG / 2;
+        Debug.LogError(endPositionBGSky);
         poolPosition = new Vector3(0, 15, 0);
+
+        MoveMonster = Map1;
+        setStartPosBG();
 
         Initialized();
     }
@@ -322,7 +326,7 @@ public class MainGameController : MonoBehaviour, IOberser
         //SetupPositionObj();
     }
 
-#region SetupPosObj
+    #region SetupPosObj
     public void SetupPositionObj(
         Transform[] RedTargetPos,
          Transform[] TargetPos,
@@ -542,7 +546,7 @@ public class MainGameController : MonoBehaviour, IOberser
                 ListBird[j].transform.localPosition = birdPos[birdnum].transform.localPosition;
                 ListBird[j].SetActive(true);
                 //ListBird[j].GetComponent<Bird>().hp = 0;
-                if (ListBird[j].GetComponent<Bird>().GetComponent<BoxCollider2D>()!=null)
+                if (ListBird[j].GetComponent<Bird>().GetComponent<BoxCollider2D>() != null)
                 {
                     ListBird[j].GetComponent<Bird>().GetComponent<BoxCollider2D>().enabled = true;
                 }
@@ -577,7 +581,7 @@ public class MainGameController : MonoBehaviour, IOberser
             }
         }
     }
-#endregion
+    #endregion
     public void CreateObject()
     {
         for (int i = 0; i < Coinpool; i++)
@@ -744,6 +748,7 @@ public class MainGameController : MonoBehaviour, IOberser
 
 
     }
+    int countListSky;
     public void MoveBackGround()
     {
 
@@ -756,9 +761,13 @@ public class MainGameController : MonoBehaviour, IOberser
             if (Grass[i].localPosition.x <= endPositionBG)
             {
                 Grass[i].localPosition = new Vector3(Grass[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length - (Mathf.Abs(endPositionBG - Grass[i].localPosition.x) + 0.2f), Grass[i].localPosition.y, Grass[i].localPosition.z);
-                Hill[i].localPosition = new Vector3(Hill[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length - (Mathf.Abs(endPositionBG - Hill[i].localPosition.x) + 0.2f), Hill[i].localPosition.y, Hill[i].localPosition.z);
-                Moutain[i].localPosition = new Vector3(Moutain[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length - (Mathf.Abs(endPositionBG - Moutain[i].localPosition.x) + 0.2f), Moutain[i].localPosition.y, Moutain[i].localPosition.z);
-                Sky[i].localPosition = new Vector3(Sky[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length - (Mathf.Abs(endPositionBG - Sky[i].localPosition.x) + 0.2f), Sky[i].localPosition.y, Sky[i].localPosition.z);
+                Hill[i].localPosition = new Vector3(Hill[i].localPosition.x - (speedMoveBG * Hill.Length) + widthBG * Hill.Length - (Mathf.Abs(endPositionBG - Hill[i].localPosition.x) + 0.2f), Hill[i].localPosition.y, Hill[i].localPosition.z);
+                Moutain[i].localPosition = new Vector3(Moutain[i].localPosition.x - (speedMoveBG * Moutain.Length) + widthBG * Moutain.Length - (Mathf.Abs(endPositionBG - Moutain[i].localPosition.x) + 0.2f), Moutain[i].localPosition.y, Moutain[i].localPosition.z);
+
+            }
+            if (Sky[i].localPosition.x <= endPositionBGSky && i < countListSky)
+            {
+                Sky[i].localPosition = new Vector3(Sky[i].localPosition.x - (speedMoveBG * countListSky) + widthBG * countListSky - (Mathf.Abs(endPositionBGSky - Sky[i].localPosition.x) + 0.2f), Sky[i].localPosition.y, Sky[i].localPosition.z);
             }
         }
 
@@ -950,7 +959,7 @@ public class MainGameController : MonoBehaviour, IOberser
         ResetAllObjToPool();
         ResetBG();
     }
-#region resetOBj
+    #region resetOBj
     public void ResetAllObjToPool()
     {
         int redIndex = 0;
@@ -958,7 +967,7 @@ public class MainGameController : MonoBehaviour, IOberser
         {
             if (ListWoodTarget[j].name.Contains("red target"))
             {
-                
+
                 ListWoodTarget[j].transform.parent = MoveMonster;
                 ListWoodTarget[j].transform.localPosition = poolPosition;
                 ListWoodTarget[j].SetActive(false);
@@ -1164,7 +1173,7 @@ public class MainGameController : MonoBehaviour, IOberser
             }
         }
     }
-#endregion
+    #endregion
     public void OnClickClassic()
     {
         isActiveChooseMap(true);
@@ -1186,8 +1195,8 @@ public class MainGameController : MonoBehaviour, IOberser
     public void StartGame()
     {
         SetUpMap1();
-
-        setStartPosBG();
+        endPositionBGSky = endPositionBG;
+        //setStartPosBG();
         CreateObject();
         ResetBG();
         ChooseMapNumber = 0;
@@ -1200,7 +1209,8 @@ public class MainGameController : MonoBehaviour, IOberser
     public void StartGame2()
     {
         SetUpMap2();
-        setStartPosBG();
+        endPositionBGSky = -widthBG;
+        //setStartPosBG();
         CreateObject();
         ChooseMapNumber = 1;
         ResetBG();
@@ -1221,7 +1231,7 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void SetUpMap1()
     {
-        
+
         for (int i = 0; i < Grass.Length; i++)
         {
             Grass[i].GetComponent<SpriteRenderer>().sprite = Grass1[i];
@@ -1236,9 +1246,11 @@ public class MainGameController : MonoBehaviour, IOberser
             Moutain[i].gameObject.SetActive(true);
             Moutain[i].parent.gameObject.SetActive(true);
         }
-        for (int i = 0; i < Grass.Length; i++)
+        for (int i = 0; i < Sky.Length; i++)
         {
+            Sky[i].gameObject.SetActive(true);
             Sky[i].GetComponent<SpriteRenderer>().sprite = Sky1[i];
+            countListSky = i + 1;
         }
         for (int i = 0; i < House.Length; i++)
         {
@@ -1250,23 +1262,30 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void SetUpMap2()
     {
-     
-        for (int i = 0; i < Grass.Length; i++)
+
+        for (int i = 0; i < Grass2.Length; i++)
         {
             Grass[i].GetComponent<SpriteRenderer>().sprite = Grass2[i];
         }
-        for (int i = 0; i < Grass.Length; i++)
+        for (int i = 0; i < Hill2.Length; i++)
         {
             Hill[i].GetComponent<SpriteRenderer>().sprite = Hill2[i];
         }
-        for (int i = 0; i < Grass.Length; i++)
+        for (int i = 0; i < House2.Length; i++)
         {
             Moutain[i].GetComponent<SpriteRenderer>().sprite = House2[i];
             Moutain[i].gameObject.SetActive(false);
         }
-        for (int i = 0; i < Grass.Length; i++)
+        for (int i = 0; i < Sky.Length; i++)
         {
+            if (i >= Sky2.Length)
+            {
+                Sky[i].gameObject.SetActive(false);
+                break;
+            }
+
             Sky[i].GetComponent<SpriteRenderer>().sprite = Sky2[i];
+            countListSky = i + 1;
         }
         for (int i = 0; i < House.Length; i++)
         {
@@ -1344,12 +1363,12 @@ public class MainGameController : MonoBehaviour, IOberser
 
     public void Reset()
     {
-   
+
         if (ChooseMapNumber == 0)
         {
             SetupPositionObj(RedTargetPos, TargetPos, Stupid, FruitPos, BoarsPos, BallonPos, PumKinPos, VulturePos, SpriderPos, DumkinPos, CrazyDog, batPos0, ghostPos0, rabbitPos0, wizardPos0, birdPos0, cowpos0);
         }
-        if(ChooseMapNumber == 1)
+        if (ChooseMapNumber == 1)
         {
             SetupPositionObj(RedTargetPos2, TargetPos2, Stupid2, FruitPos2, BoarsPos2, BallonPos2, PumKinPos2, VulturePos2, SpriderPos2, DumkinPos2, CrazyDog2, batPos, ghostPos, rabbitPos, wizardPos, birdPos, cowpos);
         }
@@ -1362,9 +1381,11 @@ public class MainGameController : MonoBehaviour, IOberser
         startBGGrass1 = Grass[0].transform.localPosition;
         startBGGrass2 = Grass[1].transform.localPosition;
         startBGGrass3 = Grass[2].transform.localPosition;
+
         startBGSky1 = Sky[0].transform.localPosition;
         startBGSky2 = Sky[1].transform.localPosition;
         startBGSky3 = Sky[2].transform.localPosition;
+
         startBGMoutain1 = Moutain[0].transform.localPosition;
         startBGMoutain2 = Moutain[1].transform.localPosition;
         startBGMoutain3 = Moutain[2].transform.localPosition;
@@ -1378,9 +1399,15 @@ public class MainGameController : MonoBehaviour, IOberser
         Grass[0].transform.localPosition = startBGGrass1;
         Grass[1].transform.localPosition = startBGGrass2;
         Grass[2].transform.localPosition = startBGGrass3;
+
+
         Sky[0].transform.localPosition = startBGSky1;
+
         Sky[1].transform.localPosition = startBGSky2;
+
         Sky[2].transform.localPosition = startBGSky3;
+
+
         Moutain[0].transform.localPosition = startBGMoutain1;
         Moutain[1].transform.localPosition = startBGMoutain2;
         Moutain[2].transform.localPosition = startBGMoutain3;
