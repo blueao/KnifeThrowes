@@ -2,7 +2,8 @@
 using System.Collections;
 using DG.Tweening;
 
-public class Boar : MonoBehaviour,IMonster {
+public class Boar : MonoBehaviour, IMonster
+{
     SpriteRenderer sprite;
     public Sprite spriteDead;
     BoxCollider2D box;
@@ -22,7 +23,7 @@ public class Boar : MonoBehaviour,IMonster {
         gameObject.AddComponent<BoxCollider2D>();
         box = GetComponent<BoxCollider2D>();
         startposition = transform.localPosition;
-       
+
         SetSprite();
         box.isTrigger = true;
     }
@@ -34,13 +35,23 @@ public class Boar : MonoBehaviour,IMonster {
     public void Die()
     {
         ModelHandle.Instance.MonsterDeadCount++;
+        if (gameObject.name.Contains("wizard"))
+        {
+            sprite.enabled = false;
+            if (move1 != null)
+            {
+                move1.Kill();
+                move1 = null;
+            }
+        }
         StartCoroutine(WaitForDead());
         box.enabled = false;
 
     }
     public IEnumerator WaitForDead()
     {
-        death = DOTween.To(() => 0, x => EffectBlood.sprite = ListBloodSprite[x], ListBloodSprite.Length - 1, 2f).OnComplete(() =>
+    
+        death = DOTween.To(() => 0, x => EffectBlood.sprite = ListBloodSprite[x], ListBloodSprite.Length - 1, 1f).OnComplete(() =>
         {
             EffectBlood.sprite = null;
             if (death != null)
@@ -55,8 +66,8 @@ public class Boar : MonoBehaviour,IMonster {
             anim.Kill();
             anim = null;
         }
-   
-        yield return new WaitUntil(()=> death==null);
+      
+        yield return new WaitUntil(() => death == null);
         sprite.enabled = false;
         ModelHandle.Instance.SetScore(10);
         InPool();
@@ -67,7 +78,7 @@ public class Boar : MonoBehaviour,IMonster {
 
     public void InPool()
     {
-       // ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        // ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         if (anim != null)
         {
             anim.Kill();
@@ -99,19 +110,21 @@ public class Boar : MonoBehaviour,IMonster {
         }).SetLoops(-1);
         if (gameObject.name.Contains("wizard"))
         {
-            move1.Join(transform.DOLocalMoveX(transform.localPosition.x - 10, 8f));
+            move1.Join(transform.DOLocalMoveX(transform.localPosition.x - 10, 6f));
 
-            move1.Join(transform.DOLocalMoveY(transform.localPosition.y + -1f, 2f).OnComplete(() => {
+            move1.Join(transform.DOLocalMoveY(transform.localPosition.y + -1f, 2f).OnComplete(() =>
+            {
                 transform.DOLocalMoveY(transform.localPosition.y + 1f, 2f);
             })).SetLoops(-1);
 
-            move1.AppendCallback(() => {
+            move1.AppendCallback(() =>
+            {
                 InPool();
             });
         }
         else
         {
-            move = transform.DOLocalMoveX(transform.localPosition.x - 10, 8f).OnComplete(() =>
+            move = transform.DOLocalMoveX(transform.localPosition.x - 10, 6f).OnComplete(() =>
              {
                  InPool();
              });
@@ -128,7 +141,7 @@ public class Boar : MonoBehaviour,IMonster {
         sprite.sprite = ListSprite[0];
         width = sprite.sprite.bounds.size.x;
         height = sprite.sprite.bounds.size.y;
-        box.size = new Vector2(3,2);
+        box.size = new Vector2(3, 2);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -136,7 +149,7 @@ public class Boar : MonoBehaviour,IMonster {
         {
             Die();
         }
-        if (collision.name=="StartMove")
+        if (collision.name == "StartMove")
         {
             Move();
         }

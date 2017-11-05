@@ -26,6 +26,9 @@ public class Bat : MonoBehaviour, IMonster
         SetSprite();
         box.isTrigger = true;
     }
+    Tween death;
+    public Sprite[] ListBloodSprite;
+    public SpriteRenderer EffectBlood;
     public void Die()
     {
         sprite.enabled = false;
@@ -40,8 +43,19 @@ public class Bat : MonoBehaviour, IMonster
             move.Kill();
             move = null;
         }
+        death = DOTween.To(() => 0, x => EffectBlood.sprite = ListBloodSprite[x], ListBloodSprite.Length - 1, 1f).OnComplete(() =>
+        {
+            EffectBlood.sprite = null;
+            if (death != null)
+            {
+                death.Kill();
+                death = null;
+            }
+            InPool();
+        });
+
         ModelHandle.Instance.SetScore(1);
-        InPool();
+        
     }
 
     public void Fly()

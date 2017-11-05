@@ -30,7 +30,7 @@ public class Bird : MonoBehaviour, IMonster
         SetSprite();
         box.isTrigger = true;
     }
-    public int hp;
+    //public int hp;
     public void setPosition(Vector3 v3)
     {
         transform.localPosition = v3;
@@ -43,7 +43,7 @@ public class Bird : MonoBehaviour, IMonster
             move.Kill();
             move = null;
         }
-        hp++;
+        //hp++;
         ModelHandle.Instance.MonsterDeadCount++;
         StartCoroutine(WaitForDead());
     }
@@ -55,7 +55,6 @@ public class Bird : MonoBehaviour, IMonster
    
         death = DOTween.To(() => 0, x => EffectBlood.sprite = ListBloodSprite[x], ListBloodSprite.Length - 1, 1f).OnComplete(() =>
         {
-           
             EffectBlood.sprite = null;
             if (death != null)
             {
@@ -69,8 +68,8 @@ public class Bird : MonoBehaviour, IMonster
         sprite.enabled = true;
         box.enabled = true;
         Move();
-        if (hp == 2)
-        {
+        //if (hp == 2)
+        //{
             if (anim != null)
             {
                 anim.Kill();
@@ -79,10 +78,10 @@ public class Bird : MonoBehaviour, IMonster
 
             sprite.enabled = false;
             ModelHandle.Instance.SetScore(10);
-            hp = 0;
+            //hp = 0;
             InPool();
             box.enabled = false;
-        }
+        //}
     }
     public void Fly()
     {
@@ -114,7 +113,7 @@ public class Bird : MonoBehaviour, IMonster
         anim = DOTween.To(() => 0, x => sprite.sprite = ListSprite[x], ListSprite.Length - 1, 0.3f).OnComplete(() =>
         {
         }).SetLoops(-1);
-        move = transform.DOLocalMoveX(transform.localPosition.x - 10, 8f).OnComplete(() =>
+        move = transform.DOLocalMoveX(transform.localPosition.x - 10, 6f).OnComplete(() =>
         {
             InPool();
         });

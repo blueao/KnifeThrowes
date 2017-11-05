@@ -166,15 +166,16 @@ public class Stupid : MonoBehaviour, IMonster
                         TouchGrass.enabled = false;
                         transform.localScale = Vector3.one;
                         transform.localRotation = Quaternion.Euler(Vector3.zero);
-
-                        StartCoroutine(StartMove());
-                        
+                        if (gameObject.activeSelf)
+                        {
+                            StartCoroutine(StartMove());
+                        }                  
                     });
                 });
             }
         }
     }
-    public Coroutine CoMove;
+    //public Coroutine CoMove;
     bool onTheGround;
     public IEnumerator StartMove()
     {
@@ -184,11 +185,11 @@ public class Stupid : MonoBehaviour, IMonster
     }
     public void InPool()
     {
-        if (CoMove != null)
-        {
-            StopCoroutine(CoMove);
-            CoMove = null;
-        }
+        //if (CoMove != null)
+        //{
+        //    StopCoroutine(CoMove);
+        //    CoMove = null;
+        //}
         speedmove = 2;
         //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         transform.localPosition = new Vector3(0, 15, 0);
@@ -237,11 +238,11 @@ public class Stupid : MonoBehaviour, IMonster
         {
             rdStupid.isKinematic = true;
         }
-        if (CoMove != null)
-        {
-            StopCoroutine(CoMove);
-            CoMove = null;
-        }
+        //if (CoMove != null)
+        //{
+        //    StopCoroutine(CoMove);
+        //    CoMove = null;
+        //}
         //if (anim != null)
         //{
         //    anim.Kill();

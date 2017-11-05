@@ -11,8 +11,14 @@ public class Ghost : MonoBehaviour, IMonster
     public List<GameObject> listshadow = new List<GameObject>();
     public void Die()
     {
+        if (move != null)
+        {
+            move.Kill();
+            move = null;
+        }
         isMove = false;
         box.enabled = false;
+        sprite.enabled = false;
         StartCoroutine(WaitForDead());
 
     }
@@ -25,6 +31,7 @@ public class Ghost : MonoBehaviour, IMonster
     public void InPool()
     {
         box.enabled = true;
+        sprite.enabled = true;
         transform.localPosition = new Vector3(0, 15, 0);
         gameObject.SetActive(false);
         if (move != null)
@@ -39,7 +46,7 @@ public class Ghost : MonoBehaviour, IMonster
     public void Move()
     {
         isMove = true;
-        move.Join(transform.DOLocalMoveX(transform.localPosition.x - 10, 8f));
+        move.Join(transform.DOLocalMoveX(transform.localPosition.x - 10, 6f));
 
         move.Join(transform.DOLocalMoveY(transform.localPosition.y + 1f, 2f).OnComplete(()=> {
             transform.DOLocalMoveY(transform.localPosition.y - 1f, 2f);

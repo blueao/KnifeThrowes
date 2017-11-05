@@ -58,12 +58,13 @@ public class DogCrazy : MonoBehaviour, IMonster
             anim.Kill();
             anim = null;
         }
+     
+        yield return new WaitUntil(() => death == null);
         if (move != null)
         {
             move.Kill();
             move = null;
         }
-        yield return new WaitUntil(() => death == null);
         sprite.enabled = false;
         ModelHandle.Instance.SetScore(10);
         InPool();
@@ -100,7 +101,7 @@ public class DogCrazy : MonoBehaviour, IMonster
         anim = DOTween.To(() => 0, x => sprite.sprite = ListSprite[x], ListSprite.Length - 1, 0.3f).OnComplete(() =>
         {
         }).SetLoops(-1);
-        move = transform.DOLocalMoveX(transform.localPosition.x-10, 8f).OnComplete(() =>
+        move = transform.DOLocalMoveX(transform.localPosition.x-10, 6f).OnComplete(() =>
         {
         });
     }

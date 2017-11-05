@@ -21,13 +21,25 @@ public class Spiders : MonoBehaviour, IMonster
         startposition = transform.localPosition;
         SetSprite();
     }
+    Tween death;
+    public Sprite[] ListBloodSprite;
+    public SpriteRenderer EffectBlood;
     public void Die()
     {
         ModelHandle.Instance.MonsterDeadCount++;
         sprite.enabled = false;
         box.enabled = false;
-        ModelHandle.Instance.SetScore(1);
-        InPool();
+        death = DOTween.To(() => 0, x => EffectBlood.sprite = ListBloodSprite[x], ListBloodSprite.Length - 1, 1f).OnComplete(() =>
+        {
+            EffectBlood.sprite = null;
+            if (death != null)
+            {
+                death.Kill();
+                death = null;
+            }
+            InPool();
+            ModelHandle.Instance.SetScore(1);
+        });
     }
     public void setPosition(Vector3 v3)
     {

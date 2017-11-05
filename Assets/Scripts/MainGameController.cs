@@ -541,7 +541,7 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListBird[j].transform.localPosition = birdPos[birdnum].transform.localPosition;
                 ListBird[j].SetActive(true);
-                ListBird[j].GetComponent<Bird>().hp = 0;
+                //ListBird[j].GetComponent<Bird>().hp = 0;
                 if (ListBird[j].GetComponent<Bird>().GetComponent<BoxCollider2D>()!=null)
                 {
                     ListBird[j].GetComponent<Bird>().GetComponent<BoxCollider2D>().enabled = true;
@@ -1221,18 +1221,20 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void SetUpMap1()
     {
+        
         for (int i = 0; i < Grass.Length; i++)
         {
             Grass[i].GetComponent<SpriteRenderer>().sprite = Grass1[i];
         }
-        for (int i = 0; i < Grass.Length; i++)
+        for (int i = 0; i < Hill.Length; i++)
         {
             Hill[i].GetComponent<SpriteRenderer>().sprite = Hill1[i];
         }
-        for (int i = 0; i < Grass.Length; i++)
+        for (int i = 0; i < Moutain.Length; i++)
         {
             Moutain[i].GetComponent<SpriteRenderer>().sprite = Moutain1[i];
             Moutain[i].gameObject.SetActive(true);
+            Moutain[i].parent.gameObject.SetActive(true);
         }
         for (int i = 0; i < Grass.Length; i++)
         {
