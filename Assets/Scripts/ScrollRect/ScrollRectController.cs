@@ -9,7 +9,7 @@ public class ScrollRectController : MonoBehaviour
 
     public RectTransform panel;
     public List<GameObject> listGO;
-    public RectTransform center;
+    //public RectTransform center;
     public GameObject preFabKnifeShop;
     public MainGameController MainGame;
     public Sprite[] ListSpriteKnife;
@@ -32,7 +32,7 @@ public class ScrollRectController : MonoBehaviour
     {
 #if TESTTING
 
-        PlayerPrefs.SetInt(ModelHandle.KeyScore, 99999);
+        PlayerPrefs.SetInt(ModelHandle.KeyScore, 20000);
         ModelHandle.Instance.SetScore(PlayerPrefs.GetInt(ModelHandle.KeyScore));
 #endif
         //CreateObject();
@@ -69,12 +69,8 @@ public class ScrollRectController : MonoBehaviour
         Lock.enabled = isActive;
     }
     int indexItemsBuyed = -1;
-    void InitShop()
+   public void InitShop()
     {
-        for (int i = 0; i < panel.childCount; i++)
-        {
-            listGO.Add(panel.GetChild(i).gameObject);
-        }
         for (int i = 0; i < listGO.Count; i++)
         {
             if (PlayerPrefs.HasKey((ModelHandle.KeyKnifeSprite + i)))

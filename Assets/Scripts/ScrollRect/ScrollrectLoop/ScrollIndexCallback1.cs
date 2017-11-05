@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using DG.Tweening;
 
 public class ScrollIndexCallback1 : MonoBehaviour
 {
@@ -8,7 +9,6 @@ public class ScrollIndexCallback1 : MonoBehaviour
 
     public Sprite[] KnifePrices;
     public Sprite[] KnifeSprites;
-
     void ScrollCellIndex(int idx)
     {
         string name = "KnifeLeft" + idx.ToString();
@@ -21,6 +21,7 @@ public class ScrollIndexCallback1 : MonoBehaviour
             imgKnifePrice.sprite = KnifePrices[idx];
         }
         gameObject.name = name;
+        ModelHandle.Instance.AddGOListShop(gameObject);
     }
 
     // http://stackoverflow.com/questions/2288498/how-do-i-get-a-rainbow-color-gradient-in-c

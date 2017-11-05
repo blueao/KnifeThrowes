@@ -7,7 +7,7 @@ public class ModelHandle
 {
     //public bool isCanHit;
     //Varible Key
-    public const string KeyKnifeSprite = "spriteKnife";
+    public const string KeyKnifeSprite = "KnifeLeft";
     public const string KeyScore = "score";
     public const string SetBlueTrail = "blue";
     public const string SetGreenTrail = "green";
@@ -26,7 +26,7 @@ public class ModelHandle
     public Action<Vector3> actiongGetCoin;
     ModelHandle() { }
 
-    ScrollRectController mainRect = GameObject.FindObjectOfType(typeof(ScrollRectController)) as ScrollRectController;
+    public ScrollRectController mainRect = GameObject.FindObjectOfType(typeof(ScrollRectController)) as ScrollRectController;
     public void SetScore(int score)
     {
         int scores = PlayerPrefs.GetInt(KeyScore);
@@ -55,6 +55,14 @@ public class ModelHandle
     public void ActiveShop(bool isActive)
     {
         mainRect.GetComponent<MainGameController>().isActiveShopDao(isActive);
+    }
+    public void AddGOListShop(GameObject go)
+    {
+        if (!mainRect.listGO.Contains(go))
+        {
+            mainRect.listGO.Add(go);
+            mainRect.InitShop();
+        }
     }
     public static ModelHandle Instance
     {
