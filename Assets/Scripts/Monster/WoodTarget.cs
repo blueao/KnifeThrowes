@@ -53,7 +53,14 @@ public class WoodTarget : MonoBehaviour, IMonster
         gameObject.SetActive(false);
         
     }
-
+    public void ResetState()
+    {
+        if (tweenMove != null)
+        {
+            tweenMove.Kill();
+            tweenMove = null;
+        }
+    }
     public void Move()
     {
         tweenMove = transform.DOLocalMoveY(transform.localPosition.y + 1, 3f).OnComplete(() =>

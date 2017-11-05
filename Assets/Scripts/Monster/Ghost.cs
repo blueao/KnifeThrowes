@@ -21,7 +21,7 @@ public class Ghost : MonoBehaviour, IMonster
     {
         throw new NotImplementedException();
     }
-    Tween move;
+    Sequence move;
     public void InPool()
     {
         box.enabled = true;
@@ -39,8 +39,13 @@ public class Ghost : MonoBehaviour, IMonster
     public void Move()
     {
         isMove = true;
-        move = transform.DOLocalMoveX(transform.localPosition.x - 10, 8f).OnComplete(() =>
-        {
+        move.Join(transform.DOLocalMoveX(transform.localPosition.x - 10, 8f));
+
+        move.Join(transform.DOLocalMoveY(transform.localPosition.y + 1f, 2f).OnComplete(()=> {
+            transform.DOLocalMoveY(transform.localPosition.y - 1f, 2f);
+        })).SetLoops(-1);
+
+        move.AppendCallback(() => {
             InPool();
         });
     }

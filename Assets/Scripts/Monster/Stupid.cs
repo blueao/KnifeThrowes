@@ -16,7 +16,7 @@ public class Stupid : MonoBehaviour, IMonster
     Sprite[] usedSprite;
     private float width;
     private float height;
-    bool jumb;
+    public bool jumb;
     public Animator TouchGrass;
     Rigidbody2D rdStupid;
     Tween anim;
@@ -220,7 +220,40 @@ public class Stupid : MonoBehaviour, IMonster
         rdStupid.constraints = RigidbodyConstraints2D.None;
         gameObject.SetActive(false);
     }
-
+    public void ResetState()
+    {
+        isActiveMove = false;
+        jumb = false;
+        if (rdStupid!=null)
+        {
+            rdStupid.isKinematic = true;
+        }
+        if (CoMove != null)
+        {
+            StopCoroutine(CoMove);
+            CoMove = null;
+        }
+        if (anim != null)
+        {
+            anim.Kill();
+            anim = null;
+        }
+        if (jumtween != null)
+        {
+            jumtween.Kill();
+            jumtween = null;
+        }
+        if (movetween != null)
+        {
+            movetween.Kill();
+            movetween = null;
+        }
+        if (se != null)
+        {
+            se.Kill();
+            se = null;
+        }
+    }
     public void SetSprite()
     {
         if (this.name.Contains("Stupid"))

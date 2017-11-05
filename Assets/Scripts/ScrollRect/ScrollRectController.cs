@@ -35,11 +35,11 @@ public class ScrollRectController : MonoBehaviour
         PlayerPrefs.SetInt(ModelHandle.KeyScore, 99999);
         ModelHandle.Instance.SetScore(PlayerPrefs.GetInt(ModelHandle.KeyScore));
 #endif
-        CreateObject();
-        lengt = listGO.Count;
-        distance = new float[lengt];
-        distReposition = new float[lengt];
-        GODistance = (int)(listGO[1].GetComponent<RectTransform>().anchoredPosition.y - listGO[0].GetComponent<RectTransform>().anchoredPosition.y);
+        //CreateObject();
+        //lengt = listGO.Count;
+        //distance = new float[lengt];
+        //distReposition = new float[lengt];
+        //GODistance = (int)(listGO[1].GetComponent<RectTransform>().anchoredPosition.y - listGO[0].GetComponent<RectTransform>().anchoredPosition.y);
         imagelock = Lock.sprite;
         InitShop();
         // panel.anchoredPosition = new Vector2(0f,(start - 1)*-115);
@@ -71,6 +71,10 @@ public class ScrollRectController : MonoBehaviour
     int indexItemsBuyed = -1;
     void InitShop()
     {
+        for (int i = 0; i < panel.childCount; i++)
+        {
+            listGO.Add(panel.GetChild(i).gameObject);
+        }
         for (int i = 0; i < listGO.Count; i++)
         {
             if (PlayerPrefs.HasKey((ModelHandle.KeyKnifeSprite + i)))
@@ -96,70 +100,70 @@ public class ScrollRectController : MonoBehaviour
     }
     void CreateObject()
     {
-        for (int i = 0; i < ListSpriteKnife.Length; i++)
-        {
-            GameObject SpriteKnifeLeft = (GameObject)Instantiate(preFabKnifeShop, preFabKnifeShop.transform.localPosition, Quaternion.identity);
-            SpriteKnifeLeft.transform.SetParent(panel, false);
-            SpriteKnifeLeft.name = "KnifeLeft" + i;
-            SpriteKnifeLeft.transform.GetChild(1).GetComponent<Image>().sprite = ListSpriteKnife[i];
+        //for (int i = 0; i < ListSpriteKnife.Length; i++)
+        //{
+           // GameObject SpriteKnifeLeft = (GameObject)Instantiate(preFabKnifeShop, preFabKnifeShop.transform.localPosition, Quaternion.identity);
+            //SpriteKnifeLeft.transform.SetParent(panel, false);
+            //SpriteKnifeLeft.name = "KnifeLeft" + i;
+            //SpriteKnifeLeft.transform.GetChild(1).GetComponent<Image>().sprite = ListSpriteKnife[i];
 
-            for (int j = 0; j < ListMoney.Length; j++)
-            {
-                if (ListMoney[j].name.Remove(0, 5) == (SpriteKnifeLeft.transform.GetChild(1).GetComponent<Image>().sprite.name.Remove(0, 6)))
-                {
-                    SpriteKnifeLeft.transform.GetChild(2).transform.GetChild(2).GetComponent<Image>().sprite = ListMoney[j];
-                    break;
-                }
-            }
+            //for (int j = 0; j < ListMoney.Length; j++)
+            //{
+            //    if (ListMoney[j].name.Remove(0, 5) == (SpriteKnifeLeft.transform.GetChild(1).GetComponent<Image>().sprite.name.Remove(0, 6)))
+            //    {
+            //        SpriteKnifeLeft.transform.GetChild(2).transform.GetChild(2).GetComponent<Image>().sprite = ListMoney[j];
+            //        break;
+            //    }
+            //}
 
-            SpriteKnifeLeft.transform.localPosition = new Vector3(SpriteKnifeLeft.transform.localPosition.x, SpriteKnifeLeft.transform.localPosition.y - 115f * i, SpriteKnifeLeft.transform.localPosition.z);
+           // SpriteKnifeLeft.transform.localPosition = new Vector3(SpriteKnifeLeft.transform.localPosition.x, SpriteKnifeLeft.transform.localPosition.y - 115f * i, SpriteKnifeLeft.transform.localPosition.z);
 
-            listGO.Add(SpriteKnifeLeft);
-        }
+            //listGO.Add(SpriteKnifeLeft);
+        //}
     }
-    private void Update()
-    {
-        if (GetComponent<MainGameController>().Menu.activeSelf)
-        {
-            for (int i = 0; i < listGO.Count; i++)
-            {
-                distReposition[i] = center.GetComponent<RectTransform>().position.y - listGO[i].GetComponent<RectTransform>().position.y;
-                distance[i] = Mathf.Abs(distReposition[i]);
-            }
+    //private void FixedUpdate()
+    //{
+    //    if (GetComponent<MainGameController>().Menu.activeSelf)
+    //    {
+    //        for (int i = 0; i < listGO.Count; i++)
+    //        {
+    //            distReposition[i] = center.GetComponent<RectTransform>().position.y - listGO[i].GetComponent<RectTransform>().position.y;
+    //            distance[i] = Mathf.Abs(distReposition[i]);
+    //        }
 
-            float minDistance = Mathf.Min(distance);
-            for (int a = 0; a < listGO.Count; a++)
-            {
-                if (minDistance == distance[a])
-                {
-                    numberGO = a;
-                }
-                if (!drag)
-                {
-                    Lerp(-listGO[numberGO].GetComponent<RectTransform>().anchoredPosition.y);
-                }
-            }
-        }
-    }
+    //        float minDistance = Mathf.Min(distance);
+    //        for (int a = 0; a < listGO.Count; a++)
+    //        {
+    //            if (minDistance == distance[a])
+    //            {
+    //                numberGO = a;
+    //            }
+    //            if (!drag)
+    //            {
+    //                Lerp(-listGO[numberGO].GetComponent<RectTransform>().anchoredPosition.y);
+    //            }
+    //        }
+    //    }
+    //}
 
 
-    void Lerp(float position)
-    {
-        float newY = Mathf.Lerp(panel.anchoredPosition.y, position, Time.deltaTime * 5f);
+    //void Lerp(float position)
+    //{
+    //    float newY = Mathf.Lerp(panel.anchoredPosition.y, position, Time.fixedDeltaTime * 5f);
 
-        if (Mathf.Abs(position - newY) < 5f)
-        {
-            newY = position;
-        }
-        Vector2 newposition = new Vector2(panel.anchoredPosition.x, newY);
-        panel.anchoredPosition = newposition;
-    }
-    public void StartDrag()
-    {
-        drag = true;
-    }
-    public void EndDrag()
-    {
-        drag = false;
-    }
+    //    if (Mathf.Abs(position - newY) < 5f)
+    //    {
+    //        newY = position;
+    //    }
+    //    Vector2 newposition = new Vector2(panel.anchoredPosition.x, newY);
+    //    panel.anchoredPosition = newposition;
+    //}
+    //public void StartDrag()
+    //{
+    //    drag = true;
+    //}
+    //public void EndDrag()
+    //{
+    //    drag = false;
+    //}
 }

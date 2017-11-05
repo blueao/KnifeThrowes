@@ -210,7 +210,7 @@ public class MainGameController : MonoBehaviour, IOberser
         spriteKnife.localPosition = new Vector3(spriteKnife.localPosition.x + knifeObject.spriteKnife.bounds.size.y, spriteKnife.localPosition.y, spriteKnife.localPosition.z);
         knifeObject.startKnifeTransfom = spriteKnife.localPosition;
         knifeObject.SetUpEffectKnife(ModelHandle.SetSevenTrail);
-        widthBG = 26.7f; /*(float)Math.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.x, 1);*/
+        widthBG = 26.6f; /*(float)Math.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.x, 1);*/
         //heightBG = Mathf.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.y) - 1f;
         endPositionBG = -widthBG - widthBG / 2;
         poolPosition = new Vector3(0, 15, 0);
@@ -322,7 +322,7 @@ public class MainGameController : MonoBehaviour, IOberser
         //SetupPositionObj();
     }
 
-
+#region SetupPosObj
     public void SetupPositionObj(
         Transform[] RedTargetPos,
          Transform[] TargetPos,
@@ -349,6 +349,7 @@ public class MainGameController : MonoBehaviour, IOberser
             if (ListWoodTarget[j].name.Contains("red target")
                 && (redIndex < RedTargetPos.Length))
             {
+                ListWoodTarget[j].transform.parent = MoveMonster;
                 ListWoodTarget[j].transform.localPosition = RedTargetPos[redIndex].transform.localPosition;
                 ListWoodTarget[j].SetActive(true);
                 redIndex++;
@@ -357,6 +358,7 @@ public class MainGameController : MonoBehaviour, IOberser
         int woodIndex = 0;
         for (int j = 0; j < ListWoodTarget.Count; j++)
         {
+            ListWoodTarget[j].transform.parent = MoveMonster;
             if (ListWoodTarget[j].name.Contains("wood target")
                 && (woodIndex < TargetPos.Length))
             {
@@ -368,6 +370,7 @@ public class MainGameController : MonoBehaviour, IOberser
         int stupidnum = 0;
         for (int j = 0; j < ListStupid.Count; j++)
         {
+            ListStupid[j].transform.parent = MoveMonster;
             if (ListStupid[j].name.Contains("Stupid")
                 && (stupidnum < Stupid.Length))
             {
@@ -380,6 +383,7 @@ public class MainGameController : MonoBehaviour, IOberser
         int fruitnum = 0;
         for (int j = 0; j < ListFruit.Count; j++)
         {
+            ListFruit[j].transform.parent = MoveMonster;
             if (ListFruit[j].name.Contains("Fruit")
                 && (fruitnum < FruitPos.Length))
             {
@@ -392,6 +396,7 @@ public class MainGameController : MonoBehaviour, IOberser
         int boarNum = 0;
         for (int j = 0; j < ListBoar.Count; j++)
         {
+            ListBoar[j].transform.parent = MoveMonster;
             if (ListBoar[j].name.Contains("Boar")
                 && (boarNum < BoarsPos.Length))
             {
@@ -403,6 +408,7 @@ public class MainGameController : MonoBehaviour, IOberser
         int ballonNum = 0;
         for (int j = 0; j < ListBallon.Count; j++)
         {
+            ListBallon[j].transform.parent = MoveMonster;
             if (ListBallon[j].name.Contains("Ballon")
                 && (ballonNum < BallonPos.Length))
             {
@@ -419,19 +425,21 @@ public class MainGameController : MonoBehaviour, IOberser
         int pumkinNum = 0;
         for (int j = 0; j < ListPumkin.Count; j++)
         {
+            ListPumkin[j].transform.parent = MoveMonster;
             if (ListPumkin[j].name.Contains("Pumkin")
                 && (pumkinNum < PumKinPos.Length))
             {
                 ListPumkin[j].transform.localPosition = PumKinPos[pumkinNum].transform.localPosition;
                 ListPumkin[j].SetActive(true);
                 ListStupid[j].GetComponent<Stupid>().isActiveMove = false;
-
+                ListStupid[j].GetComponent<Stupid>().jumb = false;
                 pumkinNum++;
             }
         }
         int vutulreNum = 0;
         for (int j = 0; j < ListVulture.Count; j++)
         {
+            ListVulture[j].transform.parent = MoveMonster;
             if (ListVulture[j].name.Contains("vulture")
                 && (vutulreNum < VulturePos.Length))
             {
@@ -443,6 +451,7 @@ public class MainGameController : MonoBehaviour, IOberser
         int spiderNum = 0;
         for (int j = 0; j < ListSprider.Count; j++)
         {
+            ListSprider[j].transform.parent = MoveMonster;
             if (ListSprider[j].name.Contains("spider")
                 && (spiderNum < SpriderPos.Length))
             {
@@ -454,6 +463,7 @@ public class MainGameController : MonoBehaviour, IOberser
         int dumkinNum = 0;
         for (int j = 0; j < ListDummy.Count; j++)
         {
+            ListDummy[j].transform.parent = MoveMonster;
             if (ListDummy[j].name.Contains("dummy")
                 && (dumkinNum < DumkinPos.Length))
             {
@@ -470,6 +480,7 @@ public class MainGameController : MonoBehaviour, IOberser
         int crazyDogNum = 0;
         for (int j = 0; j < ListCrazyDog.Count; j++)
         {
+            ListCrazyDog[j].transform.parent = MoveMonster;
             if (ListCrazyDog[j].name.Contains("CrazyDog")
                 && (crazyDogNum < CrazyDog.Length))
             {
@@ -483,6 +494,7 @@ public class MainGameController : MonoBehaviour, IOberser
         int batnum = 0;
         for (int j = 0; j < ListBat.Count; j++)
         {
+            ListBat[j].transform.parent = MoveMonster;
             if (ListBat[j].name.Contains("Bat")
                 && (batnum < batPos.Length))
             {
@@ -495,6 +507,7 @@ public class MainGameController : MonoBehaviour, IOberser
         int ghostnum = 0;
         for (int j = 0; j < ListGhost.Count; j++)
         {
+            ListGhost[j].transform.parent = MoveMonster;
             if (ListGhost[j].name.Contains("Ghost")
                 && (ghostnum < ghostPos.Length))
             {
@@ -507,6 +520,7 @@ public class MainGameController : MonoBehaviour, IOberser
         int rabbitnum = 0;
         for (int j = 0; j < ListRabbit.Count; j++)
         {
+            ListRabbit[j].transform.parent = MoveMonster;
             if (ListRabbit[j].name.Contains("rabbit")
                 && (rabbitnum < rabbitPos.Length))
             {
@@ -519,6 +533,7 @@ public class MainGameController : MonoBehaviour, IOberser
         int birdnum = 0;
         for (int j = 0; j < ListBird.Count; j++)
         {
+            ListBird[j].transform.parent = MoveMonster;
             if (ListBird[j].name.Contains("Bird")
                 && (birdnum < birdPos.Length))
             {
@@ -532,6 +547,7 @@ public class MainGameController : MonoBehaviour, IOberser
         int wizardnum = 0;
         for (int j = 0; j < ListWizard.Count; j++)
         {
+            ListWizard[j].transform.parent = MoveMonster;
             if (ListWizard[j].name.Contains("wizard")
                 && (wizardnum < wizardPos.Length))
             {
@@ -544,6 +560,7 @@ public class MainGameController : MonoBehaviour, IOberser
         int cownum = 0;
         for (int j = 0; j < ListCow.Count; j++)
         {
+            ListCow[j].transform.parent = MoveMonster;
             if (ListCow[j].name.Contains("Cow")
                 && (cownum < cowpos.Length))
             {
@@ -553,6 +570,7 @@ public class MainGameController : MonoBehaviour, IOberser
             }
         }
     }
+#endregion
     public void CreateObject()
     {
         for (int i = 0; i < Coinpool; i++)
@@ -895,12 +913,252 @@ public class MainGameController : MonoBehaviour, IOberser
 
     public void OnClickPlayAgain()
     {
-
+        for (int i = 0; i < ListPumkin.Count; i++)
+        {
+            ListPumkin[i].GetComponent<Stupid>().ResetState();
+        }
+        for (int i = 0; i < ListWoodTarget.Count; i++)
+        {
+            ListWoodTarget[i].GetComponent<WoodTarget>().ResetState();
+        }
         PanelLose.SetActive(false);
         CanMove = true;
         isGameReadyToPlay = true;
         Reset();
     }
+    public void OnClickExit()
+    {
+        isGameReadyToPlay = false;
+        for (int i = 0; i < ListPumkin.Count; i++)
+        {
+            ListPumkin[i].GetComponent<Stupid>().ResetState();
+        }
+        for (int i = 0; i < ListWoodTarget.Count; i++)
+        {
+            ListWoodTarget[i].GetComponent<WoodTarget>().ResetState();
+        }
+        Debug.Log(ListTotalObject.Count);
+        Menu.SetActive(true);
+        PanelLose.SetActive(false);
+        CanMove = false;
+        ResetAllObjToPool();
+        //Reset();
+    }
+#region resetOBj
+    public void ResetAllObjToPool()
+    {
+        int redIndex = 0;
+        for (int j = 0; j < ListWoodTarget.Count; j++)
+        {
+            if (ListWoodTarget[j].name.Contains("red target"))
+            {
+                
+                ListWoodTarget[j].transform.parent = MoveMonster;
+                ListWoodTarget[j].transform.localPosition = poolPosition;
+                ListWoodTarget[j].SetActive(false);
+                redIndex++;
+            }
+        }
+        int woodIndex = 0;
+        for (int j = 0; j < ListWoodTarget.Count; j++)
+        {
+            ListWoodTarget[j].transform.parent = MoveMonster;
+            if (ListWoodTarget[j].name.Contains("wood target"))
+            {
+                ListWoodTarget[j].transform.localPosition = poolPosition;
+                ListWoodTarget[j].SetActive(false);
+                woodIndex++;
+            }
+        }
+        int stupidnum = 0;
+        for (int j = 0; j < ListStupid.Count; j++)
+        {
+            ListStupid[j].transform.parent = MoveMonster;
+            if (ListStupid[j].name.Contains("Stupid"))
+            {
+                ListStupid[j].transform.localPosition = poolPosition;
+                ListStupid[j].SetActive(false);
+                ListStupid[j].GetComponent<Stupid>().isActiveMove = false;
+                stupidnum++;
+            }
+        }
+        int fruitnum = 0;
+        for (int j = 0; j < ListFruit.Count; j++)
+        {
+            ListFruit[j].transform.parent = MoveMonster;
+            if (ListFruit[j].name.Contains("Fruit"))
+            {
+                ListFruit[j].transform.localPosition = poolPosition;
+                ListFruit[j].SetActive(false);
+                ListStupid[j].GetComponent<Stupid>().isActiveMove = false;
+                fruitnum++;
+            }
+        }
+        int boarNum = 0;
+        for (int j = 0; j < ListBoar.Count; j++)
+        {
+            ListBoar[j].transform.parent = MoveMonster;
+            if (ListBoar[j].name.Contains("Boar"))
+            {
+                ListBoar[j].transform.localPosition = poolPosition;
+                ListBoar[j].SetActive(false);
+                boarNum++;
+            }
+        }
+        int ballonNum = 0;
+        for (int j = 0; j < ListBallon.Count; j++)
+        {
+            ListBallon[j].transform.parent = MoveMonster;
+            if (ListBallon[j].name.Contains("Ballon"))
+            {
+                ListBallon[j].transform.localPosition = poolPosition;
+                ListBallon[j].SetActive(false);
+                if (ListBallon[j].GetComponent<BoxCollider2D>() != null)
+                {
+                    ListBallon[j].GetComponent<Ballon>().box.enabled = true;
+                }
+
+                ballonNum++;
+            }
+        }
+        int pumkinNum = 0;
+        for (int j = 0; j < ListPumkin.Count; j++)
+        {
+            ListPumkin[j].transform.parent = MoveMonster;
+            if (ListPumkin[j].name.Contains("Pumkin"))
+            {
+                ListPumkin[j].transform.localPosition = poolPosition;
+                ListPumkin[j].SetActive(false);
+                ListStupid[j].GetComponent<Stupid>().isActiveMove = false;
+                ListStupid[j].GetComponent<Stupid>().jumb = false;
+                pumkinNum++;
+            }
+        }
+        int vutulreNum = 0;
+        for (int j = 0; j < ListVulture.Count; j++)
+        {
+            ListVulture[j].transform.parent = MoveMonster;
+            if (ListVulture[j].name.Contains("vulture"))
+            {
+                ListVulture[j].transform.localPosition = poolPosition;
+                ListVulture[j].SetActive(false);
+                vutulreNum++;
+            }
+        }
+        int spiderNum = 0;
+        for (int j = 0; j < ListSprider.Count; j++)
+        {
+            ListSprider[j].transform.parent = MoveMonster;
+            if (ListSprider[j].name.Contains("spider"))
+            {
+                ListSprider[j].transform.localPosition = poolPosition;
+                ListSprider[j].SetActive(false);
+                spiderNum++;
+            }
+        }
+        int dumkinNum = 0;
+        for (int j = 0; j < ListDummy.Count; j++)
+        {
+            ListDummy[j].transform.parent = MoveMonster;
+            if (ListDummy[j].name.Contains("dummy"))
+            {
+                ListDummy[j].transform.localPosition = poolPosition;
+                ListDummy[j].SetActive(false);
+                if (ListDummy[j].GetComponent<BoxCollider2D>() != null)
+                {
+                    ListDummy[j].GetComponent<Dummy>().InPool();
+                }
+
+                dumkinNum++;
+            }
+        }
+        int crazyDogNum = 0;
+        for (int j = 0; j < ListCrazyDog.Count; j++)
+        {
+            ListCrazyDog[j].transform.parent = MoveMonster;
+            if (ListCrazyDog[j].name.Contains("CrazyDog"))
+            {
+                ListCrazyDog[j].transform.localPosition = poolPosition;
+                ListCrazyDog[j].SetActive(false);
+                crazyDogNum++;
+            }
+        }
+
+        //
+        int batnum = 0;
+        for (int j = 0; j < ListBat.Count; j++)
+        {
+            ListBat[j].transform.parent = MoveMonster;
+            if (ListBat[j].name.Contains("Bat"))
+            {
+                ListBat[j].transform.localPosition = poolPosition;
+                ListBat[j].SetActive(false);
+                batnum++;
+            }
+        }
+        //
+        int ghostnum = 0;
+        for (int j = 0; j < ListGhost.Count; j++)
+        {
+            ListGhost[j].transform.parent = MoveMonster;
+            if (ListGhost[j].name.Contains("Ghost"))
+            {
+                ListGhost[j].transform.localPosition = poolPosition;
+                ListGhost[j].SetActive(false);
+                ghostnum++;
+            }
+        }
+        //
+        int rabbitnum = 0;
+        for (int j = 0; j < ListRabbit.Count; j++)
+        {
+            ListRabbit[j].transform.parent = MoveMonster;
+            if (ListRabbit[j].name.Contains("rabbit"))
+            {
+                ListRabbit[j].transform.localPosition = poolPosition;
+                ListRabbit[j].SetActive(false);
+                rabbitnum++;
+            }
+        }
+        //
+        int birdnum = 0;
+        for (int j = 0; j < ListBird.Count; j++)
+        {
+            ListBird[j].transform.parent = MoveMonster;
+            if (ListBird[j].name.Contains("Bird"))
+            {
+                ListBird[j].transform.localPosition = poolPosition;
+                ListBird[j].SetActive(false);
+                birdnum++;
+            }
+        }
+        //
+
+        int wizardnum = 0;
+        for (int j = 0; j < ListWizard.Count; j++)
+        {
+            ListWizard[j].transform.parent = MoveMonster;
+            if (ListWizard[j].name.Contains("wizard"))
+            {
+                ListWizard[j].transform.localPosition = poolPosition;
+                ListWizard[j].SetActive(false);
+                wizardnum++;
+            }
+        }
+        //
+        int cownum = 0;
+        for (int j = 0; j < ListCow.Count; j++)
+        {
+            ListCow[j].transform.parent = MoveMonster;
+            if (ListCow[j].name.Contains("Cow"))
+            {
+                ListCow[j].transform.localPosition = poolPosition;
+                ListCow[j].SetActive(false);
+                cownum++;
+            }
+        }
+    }
+#endregion
     public void OnClickClassic()
     {
         isActiveChooseMap(true);
@@ -1078,7 +1336,6 @@ public class MainGameController : MonoBehaviour, IOberser
     public void Reset()
     {
    
-
         if (ChooseMapNumber == 0)
         {
             SetupPositionObj(RedTargetPos, TargetPos, Stupid, FruitPos, BoarsPos, BallonPos, PumKinPos, VulturePos, SpriderPos, DumkinPos, CrazyDog, batPos0, ghostPos0, rabbitPos0, wizardPos0, birdPos0, cowpos0);

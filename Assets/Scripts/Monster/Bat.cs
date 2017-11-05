@@ -54,6 +54,11 @@ public class Bat : MonoBehaviour, IMonster
     }
     public void InPool()
     {
+        if (move1 != null)
+        {
+            move1.Kill();
+            move1 = null;
+        }
         ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         SetSprite();
         box.isTrigger = true;
@@ -69,14 +74,24 @@ public class Bat : MonoBehaviour, IMonster
         {
         }).SetLoops(-1);
         int a = UnityEngine.Random.Range(0, 2);
-        if (a == 0)
-        {
-            tweenPath = transform.DOPath(waypointsUp, 10f, PathType.CatmullRom, PathMode.TopDown2D, 10, Color.black);
-        }
-        else
-            tweenPath = transform.DOPath(waypointsDown, 10f, PathType.CatmullRom, PathMode.TopDown2D, 10, Color.black);
-    }
+        //if (a == 0)
+        //{
+        //    tweenPath = transform.DOPath(waypointsUp, 10f, PathType.CatmullRom, PathMode.TopDown2D, 10, Color.black);
+        //}
+        //else
+        //    tweenPath = transform.DOPath(waypointsDown, 10f, PathType.CatmullRom, PathMode.TopDown2D, 10, Color.black);
 
+        move1.Join(transform.DOLocalMoveX(transform.localPosition.x - 10, 8f));
+
+        move1.Join(transform.DOLocalMoveY(transform.localPosition.y + -1f, 2f).OnComplete(() => {
+            transform.DOLocalMoveY(transform.localPosition.y + 1f, 2f);
+        })).SetLoops(-1);
+
+        move1.AppendCallback(() => {
+            InPool();
+        });
+    }
+    Sequence move1;
     public void Normal()
     {
         gameObject.SetActive(true);

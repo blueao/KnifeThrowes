@@ -12,6 +12,7 @@ public class Boar : MonoBehaviour,IMonster {
     public Sprite[] ListBloodSprite;
     public SpriteRenderer EffectBlood;
     Tween move;
+    Sequence move1;
     Tween anim;
     Tween death;
     Vector3 startposition;
@@ -77,6 +78,11 @@ public class Boar : MonoBehaviour,IMonster {
             move.Kill();
             move = null;
         }
+        if (move1 != null)
+        {
+            move1.Kill();
+            move1 = null;
+        }
         transform.localPosition = new Vector3(0, 15, 0);
         transform.localRotation = Quaternion.Euler(Vector3.zero);
         box.enabled = true;
@@ -91,10 +97,25 @@ public class Boar : MonoBehaviour,IMonster {
         anim = DOTween.To(() => 0, x => sprite.sprite = ListSprite[x], ListSprite.Length - 1, 0.3f).OnComplete(() =>
         {
         }).SetLoops(-1);
-        move = transform.DOLocalMoveX(transform.localPosition.x- 10, 8f).OnComplete(() =>
+        if (gameObject.name.Contains("wizard"))
         {
-            InPool();
-        });
+            move1.Join(transform.DOLocalMoveX(transform.localPosition.x - 10, 8f));
+
+            move1.Join(transform.DOLocalMoveY(transform.localPosition.y + -1f, 2f).OnComplete(() => {
+                transform.DOLocalMoveY(transform.localPosition.y + 1f, 2f);
+            })).SetLoops(-1);
+
+            move1.AppendCallback(() => {
+                InPool();
+            });
+        }
+        else
+        {
+            move = transform.DOLocalMoveX(transform.localPosition.x - 10, 8f).OnComplete(() =>
+             {
+                 InPool();
+             });
+        }
     }
 
     public void Normal()
