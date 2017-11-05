@@ -83,16 +83,16 @@ public class ScrollRectController : MonoBehaviour
             }
             if (i == indexItemsBuyed)
             {
-                listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().isCanbuy = false;
-                listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().AnimBuy.enabled = true;
-                listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().AnimBuy.transform.GetChild(0).GetComponent<Image>().enabled = true;
-                listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().Buy.enabled = false;
-                listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().Gold.enabled = false;
-                listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().Money.enabled = false;
+                listGO[i].transform.GetChild(1).GetComponent<HandleButtonBuy>().isCanbuy = false;
+                listGO[i].transform.GetChild(1).GetComponent<HandleButtonBuy>().AnimBuy.enabled = true;
+                listGO[i].transform.GetChild(1).GetComponent<HandleButtonBuy>().AnimBuy.transform.GetChild(0).GetComponent<Image>().enabled = true;
+                listGO[i].transform.GetChild(1).GetComponent<HandleButtonBuy>().Buy.enabled = false;
+                listGO[i].transform.GetChild(1).GetComponent<HandleButtonBuy>().Gold.enabled = false;
+                listGO[i].transform.GetChild(1).GetComponent<HandleButtonBuy>().Money.enabled = false;
                 setActiveLock(false);
             }
             else
-                listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().isCanbuy = true;
+                listGO[i].transform.GetChild(1).GetComponent<HandleButtonBuy>().isCanbuy = true;
         }
     }
     void CreateObject()
