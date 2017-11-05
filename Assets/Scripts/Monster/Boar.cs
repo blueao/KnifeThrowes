@@ -67,7 +67,7 @@ public class Boar : MonoBehaviour,IMonster {
 
     public void InPool()
     {
-        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+       // ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         if (anim != null)
         {
             anim.Kill();

@@ -59,7 +59,7 @@ public class Bat : MonoBehaviour, IMonster
             move1.Kill();
             move1 = null;
         }
-        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         SetSprite();
         box.isTrigger = true;
         sprite.enabled = true;

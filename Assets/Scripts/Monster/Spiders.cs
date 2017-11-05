@@ -40,7 +40,7 @@ public class Spiders : MonoBehaviour, IMonster
 
     public void InPool()
     {
-        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         SetSprite();
         transform.localPosition = new Vector3(0, 15, 0);
         transform.localRotation = Quaternion.Euler(Vector3.zero);

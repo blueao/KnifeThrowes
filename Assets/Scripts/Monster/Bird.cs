@@ -15,18 +15,22 @@ public class Bird : MonoBehaviour, IMonster
     Tween move;
     Tween anim;
     Tween death;
+    Rigidbody2D rdBird;
     Vector3 startposition;
     private void Start()
     {
+       
         sprite = GetComponent<SpriteRenderer>();
         gameObject.AddComponent<BoxCollider2D>();
         box = GetComponent<BoxCollider2D>();
         startposition = transform.localPosition;
-
+        gameObject.AddComponent<Rigidbody2D>();
+        rdBird = gameObject.GetComponent<Rigidbody2D>();
+        rdBird.gravityScale = 0;
         SetSprite();
         box.isTrigger = true;
     }
-    int hp;
+    public int hp;
     public void setPosition(Vector3 v3)
     {
         transform.localPosition = v3;
@@ -34,6 +38,11 @@ public class Bird : MonoBehaviour, IMonster
     [ContextMenu("die")]
     public void Die()
     {
+        if (move != null)
+        {
+            move.Kill();
+            move = null;
+        }
         hp++;
         ModelHandle.Instance.MonsterDeadCount++;
         StartCoroutine(WaitForDead());
@@ -42,8 +51,11 @@ public class Bird : MonoBehaviour, IMonster
     {
         box.enabled = false;
         sprite.enabled = false;
-        death = DOTween.To(() => 0, x => EffectBlood.sprite = ListBloodSprite[x], ListBloodSprite.Length - 1, 2f).OnComplete(() =>
+        rdBird.constraints = RigidbodyConstraints2D.FreezeAll;
+   
+        death = DOTween.To(() => 0, x => EffectBlood.sprite = ListBloodSprite[x], ListBloodSprite.Length - 1, 1f).OnComplete(() =>
         {
+           
             EffectBlood.sprite = null;
             if (death != null)
             {
@@ -53,8 +65,10 @@ public class Bird : MonoBehaviour, IMonster
         });
   
         yield return new WaitUntil(() => death == null);
+        rdBird.constraints = RigidbodyConstraints2D.None;
         sprite.enabled = true;
         box.enabled = true;
+        Move();
         if (hp == 2)
         {
             if (anim != null)
@@ -73,10 +87,9 @@ public class Bird : MonoBehaviour, IMonster
     public void Fly()
     {
     }
-
     public void InPool()
     {
-        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         if (anim != null)
         {
             anim.Kill();

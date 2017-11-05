@@ -230,7 +230,7 @@ public class MainGameController : MonoBehaviour, IOberser
         //
 
         ModelHandle.Instance.actionSetCoin += SetCoin;
-        ModelHandle.Instance.actiongGetCoin += getCoinPool;
+        //ModelHandle.Instance.actiongGetCoin += getCoinPool;
 
         if (RedTargetPos.Length > RedTargetPos2.Length)
         {
@@ -513,6 +513,7 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListGhost[j].transform.localPosition = ghostPos[ghostnum].transform.localPosition;
                 ListGhost[j].SetActive(true);
+                ListGhost[j].GetComponent<SpriteRenderer>().enabled = true;
                 ghostnum++;
             }
         }
@@ -526,6 +527,7 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListRabbit[j].transform.localPosition = rabbitPos[rabbitnum].transform.localPosition;
                 ListRabbit[j].SetActive(true);
+                ListRabbit[j].GetComponent<SpriteRenderer>().enabled = true;
                 rabbitnum++;
             }
         }
@@ -539,6 +541,11 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListBird[j].transform.localPosition = birdPos[birdnum].transform.localPosition;
                 ListBird[j].SetActive(true);
+                ListBird[j].GetComponent<Bird>().hp = 0;
+                if (ListBird[j].GetComponent<Bird>().GetComponent<BoxCollider2D>()!=null)
+                {
+                    ListBird[j].GetComponent<Bird>().GetComponent<BoxCollider2D>().enabled = true;
+                }
                 birdnum++;
             }
         }
@@ -937,12 +944,11 @@ public class MainGameController : MonoBehaviour, IOberser
         {
             ListWoodTarget[i].GetComponent<WoodTarget>().ResetState();
         }
-        Debug.Log(ListTotalObject.Count);
         Menu.SetActive(true);
         PanelLose.SetActive(false);
         CanMove = false;
         ResetAllObjToPool();
-        //Reset();
+        ResetBG();
     }
 #region resetOBj
     public void ResetAllObjToPool()
@@ -1179,24 +1185,26 @@ public class MainGameController : MonoBehaviour, IOberser
     int ChooseMapNumber;
     public void StartGame()
     {
-        ChooseMapNumber = 0;
         SetUpMap1();
 
         setStartPosBG();
         CreateObject();
+        ResetBG();
+        ChooseMapNumber = 0;
 
+        SetupPositionObj(RedTargetPos, TargetPos, Stupid, FruitPos, BoarsPos, BallonPos, PumKinPos, VulturePos, SpriderPos, DumkinPos, CrazyDog, batPos0, ghostPos0, rabbitPos0, wizardPos0, birdPos0, cowpos0);
         isActionMonsterNeverUse();
         isActiveMenu(false);
         CountNumber();
     }
     public void StartGame2()
     {
-        ChooseMapNumber = 1;
         SetUpMap2();
-
         setStartPosBG();
         CreateObject();
-
+        ChooseMapNumber = 1;
+        ResetBG();
+        SetupPositionObj(RedTargetPos2, TargetPos2, Stupid2, FruitPos2, BoarsPos2, BallonPos2, PumKinPos2, VulturePos2, SpriderPos2, DumkinPos2, CrazyDog2, batPos, ghostPos, rabbitPos, wizardPos, birdPos, cowpos);
         isActionMonsterNeverUse();
         isActiveMenu(false);
         CountNumber();
@@ -1213,7 +1221,6 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void SetUpMap1()
     {
-        SetupPositionObj(RedTargetPos, TargetPos, Stupid, FruitPos, BoarsPos, BallonPos, PumKinPos, VulturePos, SpriderPos, DumkinPos, CrazyDog, batPos0, ghostPos0, rabbitPos0, wizardPos0, birdPos0, cowpos0);
         for (int i = 0; i < Grass.Length; i++)
         {
             Grass[i].GetComponent<SpriteRenderer>().sprite = Grass1[i];
@@ -1241,7 +1248,7 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void SetUpMap2()
     {
-        SetupPositionObj(RedTargetPos2, TargetPos2, Stupid2, FruitPos2, BoarsPos2, BallonPos2, PumKinPos2, VulturePos2, SpriderPos2, DumkinPos2, CrazyDog2, batPos, ghostPos, rabbitPos, wizardPos, birdPos, cowpos);
+     
         for (int i = 0; i < Grass.Length; i++)
         {
             Grass[i].GetComponent<SpriteRenderer>().sprite = Grass2[i];
@@ -1300,7 +1307,7 @@ public class MainGameController : MonoBehaviour, IOberser
     public void WinGame()
     {
         isGameReadyToPlay = false;
-        Reset();
+        //Reset();
         isPanelWinGame(true);
     }
     public void isPanelWinGame(bool isActive)
@@ -1340,7 +1347,7 @@ public class MainGameController : MonoBehaviour, IOberser
         {
             SetupPositionObj(RedTargetPos, TargetPos, Stupid, FruitPos, BoarsPos, BallonPos, PumKinPos, VulturePos, SpriderPos, DumkinPos, CrazyDog, batPos0, ghostPos0, rabbitPos0, wizardPos0, birdPos0, cowpos0);
         }
-        else
+        if(ChooseMapNumber == 1)
         {
             SetupPositionObj(RedTargetPos2, TargetPos2, Stupid2, FruitPos2, BoarsPos2, BallonPos2, PumKinPos2, VulturePos2, SpriderPos2, DumkinPos2, CrazyDog2, batPos, ghostPos, rabbitPos, wizardPos, birdPos, cowpos);
         }

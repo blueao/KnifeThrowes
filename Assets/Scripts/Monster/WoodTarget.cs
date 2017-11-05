@@ -44,7 +44,7 @@ public class WoodTarget : MonoBehaviour, IMonster
 
     public void InPool()
     {
-       ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         transform.localPosition = new Vector3(0, 15, 0);
         box.enabled = true;
         spriteItems.enabled = true;

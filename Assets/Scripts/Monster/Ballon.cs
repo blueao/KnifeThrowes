@@ -45,7 +45,7 @@ public class Ballon : MonoBehaviour, IMonster
 
     public void InPool()
     {
-        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         box.isTrigger = true;
         SetSprite();
         transform.localPosition = new Vector3(0, 15, 0);

@@ -41,6 +41,7 @@ public class Stupid : MonoBehaviour, IMonster
         se = DOTween.Sequence();
         heightJumb = 4f;
         rdStupid.constraints = RigidbodyConstraints2D.FreezeRotation;
+        // box.enabled = false;
     }
     private void OnEnable()
     {
@@ -145,29 +146,32 @@ public class Stupid : MonoBehaviour, IMonster
 
 
     }
+    Tween DoScale;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        onTheGround = true;
-        if (jumb)
+        if (!rdStupid.isKinematic)
         {
-            jumb = false;
-            TouchGrass.GetComponent<SpriteRenderer>().enabled = true;
-            TouchGrass.enabled = true;
-            TouchGrass.Play("touchGrass", 0, 0);
-            transform.DOScaleY(height / 2, 0.2f).OnComplete(() =>
+            onTheGround = true;
+            if (jumb)
             {
-                transform.DOScaleY(height, 0.3f).OnComplete(() =>
+                jumb = false;
+                TouchGrass.GetComponent<SpriteRenderer>().enabled = true;
+                TouchGrass.enabled = true;
+                TouchGrass.Play("touchGrass", 0, 0);
+                DoScale = transform.DOScaleY(height / 2, 0.2f).OnComplete(() =>
                 {
-                    TouchGrass.GetComponent<SpriteRenderer>().enabled = false;
-                    TouchGrass.enabled = false;
-                    transform.localScale = Vector3.one;
-                    transform.localRotation = Quaternion.Euler(Vector3.zero);
-                    //if (CoMove==null)
-                    //{
-                    CoMove = StartCoroutine(StartMove());
-                    //}
+                    transform.DOScaleY(height, 0.3f).OnComplete(() =>
+                    {
+                        TouchGrass.GetComponent<SpriteRenderer>().enabled = false;
+                        TouchGrass.enabled = false;
+                        transform.localScale = Vector3.one;
+                        transform.localRotation = Quaternion.Euler(Vector3.zero);
+
+                        StartCoroutine(StartMove());
+                        
+                    });
                 });
-            });
+            }
         }
     }
     public Coroutine CoMove;
@@ -186,7 +190,7 @@ public class Stupid : MonoBehaviour, IMonster
             CoMove = null;
         }
         speedmove = 2;
-        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         transform.localPosition = new Vector3(0, 15, 0);
         if (GetComponent<BoxCollider2D>() != null)
         {
@@ -197,6 +201,11 @@ public class Stupid : MonoBehaviour, IMonster
         rdStupid.isKinematic = true;
         spriteItems.enabled = true;
         SetSprite();
+        if (DoScale != null)
+        {
+            DoScale.Kill();
+            DoScale = null;
+        }
         if (anim != null)
         {
             anim.Kill();
@@ -224,7 +233,7 @@ public class Stupid : MonoBehaviour, IMonster
     {
         isActiveMove = false;
         jumb = false;
-        if (rdStupid!=null)
+        if (rdStupid != null)
         {
             rdStupid.isKinematic = true;
         }
@@ -233,11 +242,11 @@ public class Stupid : MonoBehaviour, IMonster
             StopCoroutine(CoMove);
             CoMove = null;
         }
-        if (anim != null)
-        {
-            anim.Kill();
-            anim = null;
-        }
+        //if (anim != null)
+        //{
+        //    anim.Kill();
+        //    anim = null;
+        //}
         if (jumtween != null)
         {
             jumtween.Kill();
