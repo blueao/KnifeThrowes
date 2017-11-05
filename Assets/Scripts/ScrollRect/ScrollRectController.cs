@@ -89,6 +89,7 @@ public class ScrollRectController : MonoBehaviour
                 listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().Buy.enabled = false;
                 listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().Gold.enabled = false;
                 listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().Money.enabled = false;
+                setActiveLock(false);
             }
             else
                 listGO[i].transform.GetChild(2).GetComponent<HandleButtonBuy>().isCanbuy = true;

@@ -18,8 +18,13 @@ public class HandleLoseGame : MonoBehaviour {
             )
         {
             MainGame.isGameReadyToPlay = false;
-            MainGame.PanelLose.SetActive(true);
+            StartCoroutine(ShowPanelLose());
             //DOTween.KillAll();
         }
+    }
+    IEnumerator ShowPanelLose()
+    {
+        yield return new WaitForSeconds(1f);
+        MainGame.PanelLose.SetActive(true);
     }
 }

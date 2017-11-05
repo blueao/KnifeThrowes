@@ -213,7 +213,6 @@ public class MainGameController : MonoBehaviour, IOberser
         widthBG = 26.6f; /*(float)Math.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.x, 1);*/
         //heightBG = Mathf.Round(Grass[0].GetComponent<SpriteRenderer>().bounds.size.y) - 1f;
         endPositionBG = -widthBG - widthBG / 2;
-        Debug.LogError(endPositionBGSky);
         poolPosition = new Vector3(0, 15, 0);
 
         MoveMonster = Map1;

@@ -21,7 +21,7 @@ public class KeepAspectRatio : MonoBehaviour
 
     public void SetCamera()
     {
-        float targetaspect = 136.5f / 76.8f;
+        float targetaspect = 16f / 9f;
         float windowaspect = (float)Screen.width / (float)Screen.height;
         float scaleheight = windowaspect / targetaspect;
         if (scaleheight < 1.0f)

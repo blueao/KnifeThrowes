@@ -13,6 +13,6 @@ public class HandleButtonShop : MonoBehaviour {
         }
         else
             ModelHandle.Instance.setActiveLock(false);
-        ModelHandle.Instance.setActiveLock(true);
+        //ModelHandle.Instance.setActiveLock(true);
     }
 }
