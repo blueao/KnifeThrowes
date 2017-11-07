@@ -17,7 +17,8 @@ public class HandleLoseGame : MonoBehaviour {
             || collision.GetComponent<Bird>()
             )
         {
-            MainGame.isGameReadyToPlay = false;
+            MainGame.IsGameReadyToPlay = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             StartCoroutine(ShowPanelLose());
             //DOTween.KillAll();
         }
@@ -25,6 +26,9 @@ public class HandleLoseGame : MonoBehaviour {
     IEnumerator ShowPanelLose()
     {
         yield return new WaitForSeconds(1f);
-        MainGame.PanelLose.SetActive(true);
+        if (!MainGame.PanelLose.activeSelf)
+        {
+            MainGame.PanelLose.SetActive(true);
+        }
     }
 }

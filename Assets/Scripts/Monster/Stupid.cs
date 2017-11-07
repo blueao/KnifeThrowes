@@ -169,7 +169,7 @@ public class Stupid : MonoBehaviour, IMonster
                         if (gameObject.activeSelf)
                         {
                             StartCoroutine(StartMove());
-                        }                  
+                        }
                     });
                 });
             }
@@ -234,6 +234,8 @@ public class Stupid : MonoBehaviour, IMonster
     {
         isActiveMove = false;
         jumb = false;
+        StopCoroutine(StartMove());
+        gameObject.SetActive(false);
         if (rdStupid != null)
         {
             rdStupid.isKinematic = true;

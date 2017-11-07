@@ -64,6 +64,10 @@ public class ModelHandle
             mainRect.InitShop();
         }
     }
+    public void setSpriteKnifePos()
+    {
+        mainRect.GetComponent<MainGameController>().setPosKnifeSprite();
+    }
     public static ModelHandle Instance
     {
         get

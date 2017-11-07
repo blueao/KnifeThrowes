@@ -17,7 +17,7 @@ public class MainGameController : MonoBehaviour, IOberser
     public Transform[] Moutain;
     public Transform[] House;
     public Transform[] Sky;
-    public bool isGameReadyToPlay;
+    private bool isGameReadyToPlay;
 
     //UI
     public GameObject PanelGet;
@@ -72,6 +72,9 @@ public class MainGameController : MonoBehaviour, IOberser
     public GameObject preGhost;
     public GameObject preBird;
     public GameObject preWizard;
+
+    public GameObject preKnifeSprite;
+
     public ScrollRectController scrollrecController;
     //BG
     private float widthBG;
@@ -354,6 +357,10 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListWoodTarget[j].transform.parent = MoveMonster;
                 ListWoodTarget[j].transform.localPosition = RedTargetPos[redIndex].transform.localPosition;
+                if (ListWoodTarget[j].GetComponent<BoxCollider2D>() != null)
+                {
+                    ListWoodTarget[j].GetComponent<BoxCollider2D>().enabled = true;
+                }
                 ListWoodTarget[j].SetActive(true);
                 redIndex++;
             }
@@ -366,6 +373,10 @@ public class MainGameController : MonoBehaviour, IOberser
                 && (woodIndex < TargetPos.Length))
             {
                 ListWoodTarget[j].transform.localPosition = TargetPos[woodIndex].transform.localPosition;
+                if (ListWoodTarget[j].GetComponent<BoxCollider2D>() != null)
+                {
+                    ListWoodTarget[j].GetComponent<BoxCollider2D>().enabled = true;
+                }
                 ListWoodTarget[j].SetActive(true);
                 woodIndex++;
             }
@@ -581,8 +592,19 @@ public class MainGameController : MonoBehaviour, IOberser
         }
     }
     #endregion
+    public List<GameObject> ListKnifeSprite = new List<GameObject>();
     public void CreateObject()
     {
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject knifeSprite = (GameObject)Instantiate(preKnifeSprite, poolPosition, Quaternion.identity);
+            knifeSprite.name = "knifeSprite" + i;
+            knifeSprite.GetComponent<SpriteRenderer>().sprite = knifeObject.spriteKnife.GetComponent<SpriteRenderer>().sprite;
+            knifeSprite.transform.localScale = knifeObject.transform.localScale;
+            ListKnifeSprite.Add(knifeSprite);
+            knifeSprite.SetActive(false);
+        }
+
         for (int i = 0; i < Coinpool; i++)
         {
             GameObject coinpool = (GameObject)Instantiate(preFabCoinImage, poolPosition, Quaternion.identity);
@@ -776,7 +798,7 @@ public class MainGameController : MonoBehaviour, IOberser
     public bool CanWin;
     private void FixedUpdate()
     {
-        if (isGameReadyToPlay)
+        if (IsGameReadyToPlay)
         {
             speedMoveBG = Time.fixedDeltaTime * 1.7f;
             if (CanMove)
@@ -807,6 +829,17 @@ public class MainGameController : MonoBehaviour, IOberser
             isDrop = value;
         }
     }
+
+    public bool IsGameReadyToPlay
+    {
+        get { return isGameReadyToPlay; }
+        set
+        {
+            isGameReadyToPlay = value;
+            EndColider.enabled = value;
+        }
+    }
+
     Tween rotateDrop;
     public void calculatorRotateChildKnife()
     {
@@ -828,7 +861,6 @@ public class MainGameController : MonoBehaviour, IOberser
             //}
             if (spriteKnife.localRotation.z == 0)
             {
-
                 knifeObject.KnifeRotate = spriteKnife.DOLocalRotate(new Vector3(0, 0, -180), 0.5f).OnComplete(() =>
                 {
                     knifeObject.isThow = true;
@@ -925,25 +957,34 @@ public class MainGameController : MonoBehaviour, IOberser
             calculorDrag();
         }
     }
-
+    public BoxCollider2D EndColider;
     public void OnClickPlayAgain()
     {
         for (int i = 0; i < ListPumkin.Count; i++)
         {
             ListPumkin[i].GetComponent<Stupid>().ResetState();
         }
+        for (int i = 0; i < ListStupid.Count; i++)
+        {
+            ListStupid[i].GetComponent<Stupid>().ResetState();
+        }
+        for (int i = 0; i < ListFruit.Count; i++)
+        {
+            ListFruit[i].GetComponent<Stupid>().ResetState();
+        }
         for (int i = 0; i < ListWoodTarget.Count; i++)
         {
             ListWoodTarget[i].GetComponent<WoodTarget>().ResetState();
         }
         PanelLose.SetActive(false);
+        EndColider.enabled = true;
         CanMove = true;
-        isGameReadyToPlay = true;
+        IsGameReadyToPlay = true;
         Reset();
     }
     public void OnClickExit()
     {
-        isGameReadyToPlay = false;
+        IsGameReadyToPlay = false;
         for (int i = 0; i < ListPumkin.Count; i++)
         {
             ListPumkin[i].GetComponent<Stupid>().ResetState();
@@ -1313,7 +1354,7 @@ public class MainGameController : MonoBehaviour, IOberser
         {
             count = 3;
             CanMove = true;
-            isGameReadyToPlay = true;
+            IsGameReadyToPlay = true;
             PanelCount.SetActive(false);
             Reset();
             if (se != null)
@@ -1326,7 +1367,7 @@ public class MainGameController : MonoBehaviour, IOberser
 
     public void WinGame()
     {
-        isGameReadyToPlay = false;
+        IsGameReadyToPlay = false;
         //Reset();
         isPanelWinGame(true);
     }
@@ -1362,7 +1403,11 @@ public class MainGameController : MonoBehaviour, IOberser
 
     public void Reset()
     {
-
+        for (int i = 0; i < ListKnifeSprite.Count; i++)
+        {
+            ListKnifeSprite[i].SetActive(false);
+            objSpriteActive = 0;
+        }
         if (ChooseMapNumber == 0)
         {
             SetupPositionObj(RedTargetPos, TargetPos, Stupid, FruitPos, BoarsPos, BallonPos, PumKinPos, VulturePos, SpriderPos, DumkinPos, CrazyDog, batPos0, ghostPos0, rabbitPos0, wizardPos0, birdPos0, cowpos0);
@@ -1506,5 +1551,41 @@ public class MainGameController : MonoBehaviour, IOberser
         else
             QuitPanel.SetActive(true);
     }
-
+   public  int objSpriteActive = 0;
+    public void setPosKnifeSprite()
+    {
+        objSpriteActive++;
+        for (int i = 0; i < ListKnifeSprite.Count; i++)
+        {
+            if (!ListKnifeSprite[i].gameObject.activeSelf)
+            {
+                ListKnifeSprite[i].GetComponent<SpriteRenderer>().sprite = knifeObject.spriteKnife.GetComponent<SpriteRenderer>().sprite;
+                ListKnifeSprite[i].transform.position = knifeObject.spriteKnife.transform.position;
+                ListKnifeSprite[i].transform.localRotation = knifeObject.spriteKnife.transform.localRotation;
+                ListKnifeSprite[i].SetActive(true);
+                ListKnifeSprite[i].transform.parent = MoveMonster;
+                StartCoroutine(DisableSpriteKnife(i));
+                break;
+            }
+            if (objSpriteActive >= ListKnifeSprite.Count - 1)
+            {
+                Debug.Log("Intantine");
+                GameObject knifeSprite = (GameObject)Instantiate(preKnifeSprite, Vector3.zero, knifeObject.spriteKnife.transform.localRotation);
+                knifeSprite.GetComponent<SpriteRenderer>().sprite = knifeObject.spriteKnife.GetComponent<SpriteRenderer>().sprite;
+                knifeSprite.transform.position = knifeObject.spriteKnife.transform.position;
+                knifeSprite.transform.parent = MoveMonster;
+                knifeSprite.transform.localScale = knifeObject.transform.localScale;
+                knifeSprite.name = ListKnifeSprite[ListKnifeSprite.Count - 1].gameObject.name.Remove(11) + ListKnifeSprite.Count + i;
+                knifeSprite.SetActive(true);
+                ListKnifeSprite.Add(knifeSprite);
+                StartCoroutine(DisableSpriteKnife(ListKnifeSprite.Count-1));
+            }
+        }
+    }
+    public IEnumerator DisableSpriteKnife(int index)
+    {
+        objSpriteActive--;
+        yield return new WaitForSeconds(3);
+        ListKnifeSprite[index].gameObject.SetActive(false);
+    }
 }

@@ -90,7 +90,7 @@ public class Knife : MonoBehaviour, IKnife
             if (color == material[i].name.ToLower())
             {
                 //ChildKnife.GetComponent<TrailRenderer>().material = material[i];
-                animatorEffectKnife.gameObject.GetComponent<TrailRenderer>().material = material[i];
+               // animatorEffectKnife.gameObject.GetComponent<TrailRenderer>().material = material[i];
                 animatorEffectKnife.runtimeAnimatorController = ListAnimaterEffect[i];
                 break;
             }

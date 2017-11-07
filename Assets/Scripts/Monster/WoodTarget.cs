@@ -9,30 +9,33 @@ public class WoodTarget : MonoBehaviour, IMonster
     public SpriteRenderer spriteItems;
     public BoxCollider2D box;
     private Vector3 startposition;
-    private Tween tweenMove;
+    private Sequence tweenMove;
     public Sprite[] ListSprite;
     float width;
     float height;
     private void Start()
     {
+        SetSprite();
         gameObject.AddComponent<BoxCollider2D>();
         spriteItems = GetComponent<SpriteRenderer>();
         box = GetComponent<BoxCollider2D>();
         startposition = transform.localPosition;
-        SetSprite();
+      
     }
     public void Die()
     {
-        ModelHandle.Instance.SetScore(1);
-        ModelHandle.Instance.MonsterDeadCount++;
-        box.enabled = false;
-        spriteItems.enabled = false;
+
         if (tweenMove != null)
         {
             tweenMove.Kill();
             tweenMove = null;
         }
-      
+        ModelHandle.Instance.SetScore(1);
+        ModelHandle.Instance.MonsterDeadCount++;
+        box.enabled = false;
+        // spriteItems.enabled = false;
+
+
         InPool();
 
     }
@@ -46,12 +49,12 @@ public class WoodTarget : MonoBehaviour, IMonster
     {
         //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         transform.localPosition = new Vector3(0, 15, 0);
-        box.enabled = true;
+        //box.enabled = true;
         spriteItems.enabled = true;
         SetSprite();
         spriteItems.enabled = true;
-        gameObject.SetActive(false);
-        
+        //gameObject.SetActive(false);
+
     }
     public void ResetState()
     {
@@ -63,13 +66,11 @@ public class WoodTarget : MonoBehaviour, IMonster
     }
     public void Move()
     {
-        tweenMove = transform.DOLocalMoveY(transform.localPosition.y + 1, 3f).OnComplete(() =>
-        {
-            transform.DOLocalMoveY(startposition.y, 3f).OnComplete(() =>
-            {
-                Move();
-            });
-        });
+        tweenMove = DOTween.Sequence();
+        tweenMove.Append(transform.DOLocalMoveY(transform.localPosition.y + 1, 3f));
+        tweenMove.Append(transform.DOLocalMoveY(startposition.y, 3f));
+        tweenMove.SetLoops(-1);
+        tweenMove.Play();
 
     }
 
@@ -87,7 +88,7 @@ public class WoodTarget : MonoBehaviour, IMonster
             height = spriteItems.sprite.bounds.size.y;
         }
         else if (this.name.Contains("wood target 2"))
-        { 
+        {
             spriteItems.sprite = ListSprite[1];
             width = spriteItems.sprite.bounds.size.x;
             height = spriteItems.sprite.bounds.size.y;
@@ -103,7 +104,13 @@ public class WoodTarget : MonoBehaviour, IMonster
     {
         if (collision.name == "Knife" /*&& ModelHandle.Instance.isCanHit*/)
         {
+            if (tweenMove != null)
+            {
+                tweenMove.Kill();
+                tweenMove = null;
+            }
             Die();
+           // ModelHandle.Instance.setSpriteKnifePos();
         }
         if (collision.name == "StartMove")
         {
