@@ -19,12 +19,25 @@ public class WoodTarget : MonoBehaviour, IMonster
         gameObject.AddComponent<BoxCollider2D>();
         spriteItems = GetComponent<SpriteRenderer>();
         box = GetComponent<BoxCollider2D>();
+        if (this.name.Contains("wood target 1"))
+        {
+
+            box.size = new Vector2(0.3f, 2.37f);
+        }
+        else if (this.name.Contains("wood target 2"))
+        {
+
+        }
+        else if (this.name.Contains("red target"))
+        {
+            box.size = new Vector2(0.2f, 1.84f);
+        }
         startposition = transform.localPosition;
       
     }
     public void Die()
     {
-
+        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         if (tweenMove != null)
         {
             tweenMove.Kill();
@@ -34,7 +47,6 @@ public class WoodTarget : MonoBehaviour, IMonster
         ModelHandle.Instance.MonsterDeadCount++;
         box.enabled = false;
         // spriteItems.enabled = false;
-
 
         InPool();
 
@@ -47,8 +59,8 @@ public class WoodTarget : MonoBehaviour, IMonster
 
     public void InPool()
     {
-        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
-        transform.localPosition = new Vector3(0, 15, 0);
+        
+        //transform.localPosition = new Vector3(0, 15, 0);
         //box.enabled = true;
         spriteItems.enabled = true;
         SetSprite();
@@ -104,13 +116,14 @@ public class WoodTarget : MonoBehaviour, IMonster
     {
         if (collision.name == "Knife" /*&& ModelHandle.Instance.isCanHit*/)
         {
+            ModelHandle.Instance.SetSound(ModelHandle.HitWood);
             if (tweenMove != null)
             {
                 tweenMove.Kill();
                 tweenMove = null;
             }
             Die();
-           // ModelHandle.Instance.setSpriteKnifePos();
+            ModelHandle.Instance.setSpriteKnifePos();
         }
         if (collision.name == "StartMove")
         {

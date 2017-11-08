@@ -75,6 +75,7 @@ public class Dummy : MonoBehaviour, IMonster
     {
         if (collision.name == "Knife")
         {
+            ModelHandle.Instance.SetSound(ModelHandle.HitWood);
             Die();
         }
         if (collision.name == "End")

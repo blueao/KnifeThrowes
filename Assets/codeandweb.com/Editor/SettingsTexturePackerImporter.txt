@@ -10,6 +10,8 @@ tpsheetFileNames:
 - Assets/Texture/EffectKnife/FullEffect.tpsheet
 - Assets/Texture/Ghost/Ghost.tpsheet
 - Assets/Texture/Knife/Knife.tpsheet
+- Assets/Texture/KnifeCut/Knife Cut.tpsheet
+- Assets/Texture/KnifeCut/KnifeCut.tpsheet
 - Assets/Texture/LosePanel/LosePanel.tpsheet
 - Assets/Texture/Menu/MenuPanel.tpsheet
 - Assets/Texture/MenuChooseGame/MenuChooseGame.tpsheet
@@ -28,6 +30,8 @@ textureFileNames:
 - Assets/Texture/EffectKnife/FullEffect.png
 - Assets/Texture/Ghost/Ghost.png
 - Assets/Texture/Knife/Knife.png
+- Assets/Texture/KnifeCut/Knife Cut.png
+- Assets/Texture/KnifeCut/KnifeCut.png
 - Assets/Texture/LosePanel/LosePanel.png
 - Assets/Texture/Menu/MenuPanel.png
 - Assets/Texture/MenuChooseGame/MenuChooseGame.png
@@ -38,6 +42,8 @@ textureFileNames:
 - Assets/Texture/WinGame/WinGame-0.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
 - 
 - 
 - 

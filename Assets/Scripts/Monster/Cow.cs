@@ -66,7 +66,12 @@ public class Cow : MonoBehaviour,IMonster {
     {
         if (collision.name == "Knife")
         {
+            ModelHandle.Instance.SetSound(ModelHandle.CowDead);
             Die();
+        }
+        if (collision.name == "StartMove")
+        {
+            ModelHandle.Instance.SetSound(ModelHandle.CowApp);
         }
     }
     // Use this for initialization

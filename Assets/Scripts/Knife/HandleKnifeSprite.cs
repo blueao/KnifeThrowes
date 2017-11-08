@@ -25,9 +25,10 @@ public class HandleKnifeSprite : MonoBehaviour
         }
         if (collision.name == "BorderBottom" && !MainGame.knifeObject.isMiss || collision.name == "BorderTop" == !MainGame.knifeObject.isMiss)
         {
-            //MainGame.transform.DOShakePosition(0.5f, 0.1f).SetAutoKill(true).OnComplete(() => {
-            //    MainGame.transform.localPosition = startCameraPosition;
-            //});
+            MainGame.transform.DOShakePosition(0.5f, 0.1f).SetAutoKill(true).OnComplete(() =>
+            {
+                MainGame.transform.localPosition = startCameraPosition;
+            });
             MainGame.knifeObject.animatorEffectKnife.GetComponent<TrailRenderer>().enabled = false;
             MainGame.knifeObject.box.isTrigger = false;
             MainGame.knifeObject.box.enabled = true;
@@ -42,10 +43,10 @@ public class HandleKnifeSprite : MonoBehaviour
         if (collision.name != "BorderBottom" && !MainGame.knifeObject.isMiss /*&&ModelHandle.Instance.isCanHit*/||
             collision.name != "BorderTop" && !MainGame.knifeObject.isMiss /*&& ModelHandle.Instance.isCanHit*/)
         {
-            //MainGame.transform.DOShakePosition(0.5f, 0.1f).SetAutoKill(true).OnComplete(() =>
-            //{
-            //    MainGame.transform.localPosition = startCameraPosition;
-            //});
+            MainGame.transform.DOShakePosition(0.5f, 0.1f).SetAutoKill(true).OnComplete(() =>
+            {
+                MainGame.transform.localPosition = startCameraPosition;
+            });
             MainGame.knifeObject.Hit();
         }
 

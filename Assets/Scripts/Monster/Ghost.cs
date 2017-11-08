@@ -110,6 +110,7 @@ public class Ghost : MonoBehaviour, IMonster
     {
         if (collision.name == "Knife")
         {
+            ModelHandle.Instance.SetSound(ModelHandle.GhostDead);
             Die();
         }
         if (collision.name == "End")
@@ -147,6 +148,7 @@ public class Ghost : MonoBehaviour, IMonster
         yield return new WaitUntil(() => death == null);
         sprite.enabled = false;
         ModelHandle.Instance.SetScore(10);
+        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         InPool();
     }
 }

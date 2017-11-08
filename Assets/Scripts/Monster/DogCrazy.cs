@@ -76,7 +76,7 @@ public class DogCrazy : MonoBehaviour, IMonster
 
     public void InPool()
     {
-        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         if (anim != null)
         {
             anim.Kill();
@@ -101,7 +101,7 @@ public class DogCrazy : MonoBehaviour, IMonster
         anim = DOTween.To(() => 0, x => sprite.sprite = ListSprite[x], ListSprite.Length - 1, 0.3f).OnComplete(() =>
         {
         }).SetLoops(-1);
-        move = transform.DOLocalMoveX(transform.localPosition.x-10, 6f).OnComplete(() =>
+        move = transform.DOLocalMoveX(transform.localPosition.x-10, 4f).OnComplete(() =>
         {
         });
     }
@@ -121,10 +121,12 @@ public class DogCrazy : MonoBehaviour, IMonster
     {
         if (collision.name == "Knife")
         {
+            ModelHandle.Instance.SetSound(ModelHandle.DogDead);
             Die();
         }
         if (collision.name == "StartMove")
         {
+            ModelHandle.Instance.SetSound(ModelHandle.DogAli);
             Move();
         }
     }

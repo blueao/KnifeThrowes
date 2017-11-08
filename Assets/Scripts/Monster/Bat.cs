@@ -73,7 +73,7 @@ public class Bat : MonoBehaviour, IMonster
             move1.Kill();
             move1 = null;
         }
-        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         SetSprite();
         box.isTrigger = true;
         sprite.enabled = true;
@@ -119,10 +119,12 @@ public class Bat : MonoBehaviour, IMonster
     {
         if (collision.name == "Knife")
         {
+            ModelHandle.Instance.SetSound(ModelHandle.BatDead);
             Die();
         }
         if (collision.name == "StartMove")
         {
+            ModelHandle.Instance.SetSound(ModelHandle.BatApp);
             Move();
         }
     }

@@ -1,0 +1,477 @@
+fileFormatVersion: 2
+guid: 2344a92db07b5424896923393db4aba7
+timeCreated: 1510093113
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: c knife (1)
+    21300002: c knife 1200 (1)
+    21300004: c knife 1200 (2)
+    21300006: c knife 1300
+    21300008: c knife 1800
+    21300010: c knife 2000
+    21300012: c knife 2300
+    21300014: c knife 2600
+    21300016: c knife 2900
+    21300018: c knife 3500
+    21300020: c knife 5000
+    21300022: c knife 8000 (1)
+    21300024: c knife 8000 (2)
+    21300026: c knife 8500
+    21300028: c knife 9000
+    21300030: c knife 10000
+    21300032: c knife 11000
+    21300034: c knife 12000 (1)
+    21300036: c knife 12000 (2)
+    21300038: c knife 12000 (3)
+    21300040: c knife 15000 (1)
+    21300042: c knife 15000 (2)
+    21300044: c knife 15000 (3)
+    21300046: c knife 16000
+    21300048: c knife 17000
+    21300050: c knife 18000
+    21300052: c knife 22000
+    21300054: c knife 24000
+    21300056: c knife 27000
+    21300058: c knife 28000
+    21300060: c knife 30000
+    21300062: c knife 31000
+    21300064: c knife 33000
+    21300066: c knife 35000
+    21300068: c knife 38000
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: c knife (1)
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 456
+        width: 22
+        height: 183
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 1200 (1)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 82
+        width: 25
+        height: 182
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 1200 (2)
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 274
+        width: 20
+        height: 186
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 1300
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 458
+        width: 30
+        height: 181
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 1800
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 92
+        width: 20
+        height: 180
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 2000
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 66
+        width: 17
+        height: 195
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 2300
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 78
+        width: 26
+        height: 186
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 2600
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 459
+        width: 33
+        height: 183
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 2900
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 266
+        width: 30
+        height: 183
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 3500
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 81
+        width: 25
+        height: 185
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 5000
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 451
+        width: 30
+        height: 190
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 8000 (1)
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 267
+        width: 28
+        height: 190
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 8000 (2)
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 84
+        width: 25
+        height: 188
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 8500
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 269
+        width: 27
+        height: 185
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 9000
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 462
+        width: 34
+        height: 185
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 10000
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 649
+        width: 36
+        height: 186
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 11000
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 647
+        width: 36
+        height: 188
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 12000 (1)
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 642
+        width: 34
+        height: 187
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 12000 (2)
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 81
+        width: 26
+        height: 186
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 12000 (3)
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 78
+        width: 27
+        height: 187
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 15000 (1)
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 641
+        width: 33
+        height: 191
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 15000 (2)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 643
+        width: 35
+        height: 190
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 15000 (3)
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 274
+        width: 30
+        height: 186
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 16000
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 268
+        width: 30
+        height: 185
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 17000
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 835
+        width: 49
+        height: 188
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 18000
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 837
+        width: 41
+        height: 186
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 22000
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 834
+        width: 34
+        height: 189
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 24000
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 835
+        width: 35
+        height: 188
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 27000
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 644
+        width: 34
+        height: 189
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 28000
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 837
+        width: 37
+        height: 186
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 30000
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 263
+        width: 28
+        height: 185
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 31000
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 450
+        width: 32
+        height: 190
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 33000
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 455
+        width: 32
+        height: 190
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 35000
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 266
+        width: 27
+        height: 190
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: c knife 38000
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 831
+        width: 36
+        height: 192
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

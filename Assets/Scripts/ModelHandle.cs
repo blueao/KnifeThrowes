@@ -16,6 +16,26 @@ public class ModelHandle
     public const string SetWhiteTrail = "white";
     public const string SetYellowTrail = "yellow";
     public const string SetPinkTrail = "pink";
+
+    // SoundKey
+    public const string StupidDead = "StupidDie";
+    public const string StupidAli = "StupidAlive";
+    public const string SpiderApp = "SpiderAppear";
+    public const string RavenDead = "RavenDie";
+    public const string RavenApp = "RavenAppear";
+    public const string HitWood = "KnifeHitWood";
+    public const string GhostDead = "GhostDie";
+    public const string FruitDead = "FruitDie";
+    public const string DogDead = "DogDie";
+    public const string DogAli = "DogAlive";
+    public const string CowDead = "CowDie";
+    public const string CowApp = "CowAppear";
+    public const string BoarDead = "BoarDie";
+    public const string BoarApp = "BoarAppear";
+    public const string ButtonCli = "ButtonClick";
+    public const string BatDead = "BatDie";
+    public const string BatApp = "BatAppear";
+    public const string BallonEx = "BallonExp";
     //
     private int monsterDeadCount;
     private static ModelHandle instance = null;
@@ -24,6 +44,8 @@ public class ModelHandle
     public Transform CoinStart;
     public Action actionSetCoin;
     public Action<Vector3> actiongGetCoin;
+
+
     ModelHandle() { }
 
     public ScrollRectController mainRect = GameObject.FindObjectOfType(typeof(ScrollRectController)) as ScrollRectController;
@@ -52,6 +74,10 @@ public class ModelHandle
     {
         mainRect.setUseSpriteKnife(index);
     }
+    public void setUpSpriteCutAfterBuy(int index)
+    {
+        mainRect.setUseSpriteKnifeCut(index);
+    }
     public void ActiveShop(bool isActive)
     {
         mainRect.GetComponent<MainGameController>().isActiveShopDao(isActive);
@@ -63,6 +89,10 @@ public class ModelHandle
             mainRect.listGO.Add(go);
             mainRect.InitShop();
         }
+    }
+    public void SetSound(string sound)
+    {
+        mainRect.GetComponent<MainGameController>().SetSound(sound);
     }
     public void setSpriteKnifePos()
     {

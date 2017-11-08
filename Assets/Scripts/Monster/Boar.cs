@@ -78,7 +78,7 @@ public class Boar : MonoBehaviour, IMonster
 
     public void InPool()
     {
-        // ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+         ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         if (anim != null)
         {
             anim.Kill();
@@ -110,7 +110,7 @@ public class Boar : MonoBehaviour, IMonster
         }).SetLoops(-1);
         if (gameObject.name.Contains("wizard"))
         {
-            move1.Join(transform.DOLocalMoveX(transform.localPosition.x - 10, 6f));
+            move1.Join(transform.DOLocalMoveX(transform.localPosition.x - 10, 4f));
 
             move1.Join(transform.DOLocalMoveY(transform.localPosition.y + -1f, 2f).OnComplete(() =>
             {
@@ -124,7 +124,7 @@ public class Boar : MonoBehaviour, IMonster
         }
         else
         {
-            move = transform.DOLocalMoveX(transform.localPosition.x - 10, 6f).OnComplete(() =>
+            move = transform.DOLocalMoveX(transform.localPosition.x - 10, 4f).OnComplete(() =>
              {
                  InPool();
              });
@@ -147,10 +147,12 @@ public class Boar : MonoBehaviour, IMonster
     {
         if (collision.name == "Knife")
         {
+            ModelHandle.Instance.SetSound(ModelHandle.BoarDead);
             Die();
         }
         if (collision.name == "StartMove")
         {
+            ModelHandle.Instance.SetSound(ModelHandle.BoarApp);
             Move();
         }
     }

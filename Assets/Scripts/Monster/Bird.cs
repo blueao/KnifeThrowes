@@ -88,7 +88,7 @@ public class Bird : MonoBehaviour, IMonster
     }
     public void InPool()
     {
-        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         if (anim != null)
         {
             anim.Kill();
@@ -135,10 +135,12 @@ public class Bird : MonoBehaviour, IMonster
     {
         if (collision.name == "Knife")
         {
+            ModelHandle.Instance.SetSound(ModelHandle.RavenDead);
             Die();
         }
         if (collision.name == "StartMove")
         {
+            ModelHandle.Instance.SetSound(ModelHandle.RavenApp);
             Move();
         }
     }

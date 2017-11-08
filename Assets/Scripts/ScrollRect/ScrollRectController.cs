@@ -17,6 +17,7 @@ public class ScrollRectController : MonoBehaviour
     public Sprite[] ListMoney;
     public Sprite[] Unlock;
     public Sprite[] ListSpriteKnifeUseAfterBuy;
+    public Sprite[] ListSpriteCut;
     private int start = 1;
     private float[] distance;
     float[] distReposition;
@@ -63,6 +64,10 @@ public class ScrollRectController : MonoBehaviour
     public void setUseSpriteKnife(int index)
     {
         gameObject.GetComponent<MainGameController>().spriteKnife.GetComponent<SpriteRenderer>().sprite = ListSpriteKnifeUseAfterBuy[index];
+    }
+    public void setUseSpriteKnifeCut(int index)
+    {
+        gameObject.GetComponent<MainGameController>().KnifeSpriteCut = ListSpriteCut[index];
     }
     public void setActiveLock(bool isActive)
     {

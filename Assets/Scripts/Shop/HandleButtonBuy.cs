@@ -55,6 +55,7 @@ public class HandleButtonBuy : MonoBehaviour
     public void SaveDataAfterBuyCompleted(int index)
     {
         ModelHandle.Instance.setUpKnifeAfterBuy(index);
+        ModelHandle.Instance.setUpSpriteCutAfterBuy(index);
         PlayerPrefs.SetInt(ModelHandle.KeyKnifeSprite, index);
         PlayerPrefs.SetInt(ModelHandle.KeyKnifeSprite + index, index);
         ModelHandle.Instance.ActiveShop(false);

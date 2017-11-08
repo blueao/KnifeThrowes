@@ -78,6 +78,7 @@ public class Vulture : MonoBehaviour, IMonster
     {
         if (collision.name == "Knife")
         {
+            ModelHandle.Instance.SetSound(ModelHandle.HitWood);
             Die();
         }
     }

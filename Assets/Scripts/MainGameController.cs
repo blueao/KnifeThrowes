@@ -75,7 +75,33 @@ public class MainGameController : MonoBehaviour, IOberser
 
     public GameObject preKnifeSprite;
 
+    public Sprite KnifeSpriteCut;
+
     public ScrollRectController scrollrecController;
+
+    //
+
+    public AudioSource BackGround;
+    public AudioSource SoundManager;
+    public AudioClip BallonExp;
+    public AudioClip BatAppear;
+    public AudioClip BatDie;
+    public AudioClip ButtonClick;
+    public AudioClip BoarAppear;
+    public AudioClip BoarDie;
+    public AudioClip CowAppear;
+    public AudioClip CowDie;
+    public AudioClip DogAlive;
+    public AudioClip DogDie;
+    public AudioClip FruitDie;
+    public AudioClip GhostDie;
+    public AudioClip KnifeHitWood;
+    public AudioClip RavenAppear;
+    public AudioClip RavenDie;
+    public AudioClip SpiderAppear;
+    public AudioClip StupidAlive;
+    public AudioClip StupidDie;
+
     //BG
     private float widthBG;
     private float heightBG;
@@ -134,7 +160,7 @@ public class MainGameController : MonoBehaviour, IOberser
     //
     [HideInInspector]
     public List<GameObject> ListRabbit = new List<GameObject>();
-    public int Coinpool;
+    public int Coinpool = 5;
     //ListTransMap1
     public Transform[] RedTargetPos;
     public Transform[] Stupid;
@@ -231,12 +257,17 @@ public class MainGameController : MonoBehaviour, IOberser
         CoinMenu.text = scores.ToString();
         Level.text = "123456";
         //knife
-        int indexKnife = PlayerPrefs.GetInt(ModelHandle.KeyKnifeSprite);
-        this.GetComponent<ScrollRectController>().setUseSpriteKnife(indexKnife);
+        KnifeSpriteCut = GetComponent<ScrollRectController>().ListSpriteCut[0];
+        if (PlayerPrefs.HasKey(ModelHandle.KeyKnifeSprite))
+        {
+            int indexKnife = PlayerPrefs.GetInt(ModelHandle.KeyKnifeSprite);
+            this.GetComponent<ScrollRectController>().setUseSpriteKnife(indexKnife);
+            GetComponent<ScrollRectController>().setUseSpriteKnifeCut(indexKnife);
+        }
         //
 
         ModelHandle.Instance.actionSetCoin += SetCoin;
-        //ModelHandle.Instance.actiongGetCoin += getCoinPool;
+        ModelHandle.Instance.actiongGetCoin += getCoinPool;
 
         if (RedTargetPos.Length > RedTargetPos2.Length)
         {
@@ -325,6 +356,7 @@ public class MainGameController : MonoBehaviour, IOberser
         BatCount = batPos.Length;
         CowCount = cowpos.Length;
 
+        Coinpool = 5;
         //SetupPositionObj();
     }
 
@@ -599,7 +631,7 @@ public class MainGameController : MonoBehaviour, IOberser
         {
             GameObject knifeSprite = (GameObject)Instantiate(preKnifeSprite, poolPosition, Quaternion.identity);
             knifeSprite.name = "knifeSprite" + i;
-            knifeSprite.GetComponent<SpriteRenderer>().sprite = knifeObject.spriteKnife.GetComponent<SpriteRenderer>().sprite;
+            knifeSprite.GetComponent<SpriteRenderer>().sprite = KnifeSpriteCut;
             knifeSprite.transform.localScale = knifeObject.transform.localScale;
             ListKnifeSprite.Add(knifeSprite);
             knifeSprite.SetActive(false);
@@ -960,6 +992,7 @@ public class MainGameController : MonoBehaviour, IOberser
     public BoxCollider2D EndColider;
     public void OnClickPlayAgain()
     {
+        ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         for (int i = 0; i < ListPumkin.Count; i++)
         {
             ListPumkin[i].GetComponent<Stupid>().ResetState();
@@ -982,8 +1015,18 @@ public class MainGameController : MonoBehaviour, IOberser
         IsGameReadyToPlay = true;
         Reset();
     }
+    public void resetListKnifeSprite()
+    {
+        objSpriteActive = 0;
+        for (int i = 0; i < ListKnifeSprite.Count; i++)
+        {
+            ListKnifeSprite[i].SetActive(false);
+        }
+    }
     public void OnClickExit()
     {
+        ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
+        resetListKnifeSprite();
         IsGameReadyToPlay = false;
         for (int i = 0; i < ListPumkin.Count; i++)
         {
@@ -1216,6 +1259,7 @@ public class MainGameController : MonoBehaviour, IOberser
     #endregion
     public void OnClickClassic()
     {
+        ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         isActiveChooseMap(true);
     }
     public void isActiveChooseMap(bool isActive)
@@ -1234,6 +1278,7 @@ public class MainGameController : MonoBehaviour, IOberser
     int ChooseMapNumber;
     public void StartGame()
     {
+        ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         SetUpMap1();
         endPositionBGSky = endPositionBG;
         //setStartPosBG();
@@ -1248,6 +1293,7 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void StartGame2()
     {
+        ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         SetUpMap2();
         endPositionBGSky = -widthBG;
         //setStartPosBG();
@@ -1381,11 +1427,13 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void OnContinueClick()
     {
+        ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         isPanelWinGame(false);
         isPanelGet(true);
     }
     public void OnGetClick()
     {
+        ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         isPanelGet(false);
         isActiveMenu(true);
     }
@@ -1403,11 +1451,7 @@ public class MainGameController : MonoBehaviour, IOberser
 
     public void Reset()
     {
-        for (int i = 0; i < ListKnifeSprite.Count; i++)
-        {
-            ListKnifeSprite[i].SetActive(false);
-            objSpriteActive = 0;
-        }
+        resetListKnifeSprite();
         if (ChooseMapNumber == 0)
         {
             SetupPositionObj(RedTargetPos, TargetPos, Stupid, FruitPos, BoarsPos, BallonPos, PumKinPos, VulturePos, SpriderPos, DumkinPos, CrazyDog, batPos0, ghostPos0, rabbitPos0, wizardPos0, birdPos0, cowpos0);
@@ -1467,6 +1511,7 @@ public class MainGameController : MonoBehaviour, IOberser
         Tween a = null; ;
         for (int i = 0; i < ListCoinPool.Count; i++)
         {
+
             if (!ListCoinPool[i].activeSelf)
             {
                 ListCoinPool[i].transform.SetParent(MoveMonster);
@@ -1493,30 +1538,34 @@ public class MainGameController : MonoBehaviour, IOberser
                 });
                 break;
             }
-            GameObject coinpool = (GameObject)Instantiate(preFabCoinImage, poolPosition, Quaternion.identity);
-            coinpool.name = "CoinPool" + i;
-            ListCoinPool.Add(coinpool);
-            ListCoinPool[i].transform.SetParent(MoveMonster);
-            ListCoinPool[i].transform.localPosition = start;
-            ListCoinPool[i].SetActive(true);
-            se.Append(ListCoinPool[i].transform.DOScaleX(0, 0.5f));
-            se.Join(ListCoinPool[i].transform.DOScaleX(0, 0.5f));
-            se.SetLoops(-1);
-            a = ListCoinPool[i].transform.DOMove(Coin.transform.position, 1f).OnComplete(() =>
+            else
             {
-                ListCoinPool[i].transform.localPosition = poolPosition;
-                ListCoinPool[i].SetActive(false);
-                if (se != null)
+                GameObject coinpool = (GameObject)Instantiate(preFabCoinImage, poolPosition, Quaternion.identity);
+                coinpool.name = "CoinPool" + ListCoinPool.Count + i;
+                ListCoinPool.Add(coinpool);
+                ListCoinPool[i].transform.SetParent(MoveMonster);
+                ListCoinPool[i].transform.localPosition = start;
+                ListCoinPool[i].SetActive(true);
+                se.Append(ListCoinPool[i].transform.DOScaleX(0, 0.5f));
+                se.Join(ListCoinPool[i].transform.DOScaleX(0, 0.5f));
+                se.SetLoops(-1);
+
+                a = ListCoinPool[i].transform.DOMove(Coin.transform.position, 1f).OnComplete(() =>
                 {
-                    se.Kill();
-                    se = null;
-                }
-                if (a != null)
-                {
-                    a.Kill();
-                    a = null;
-                }
-            });
+                    ListCoinPool[i].transform.localPosition = poolPosition;
+                    ListCoinPool[i].SetActive(false);
+                    if (se != null)
+                    {
+                        se.Kill();
+                        se = null;
+                    }
+                    if (a != null)
+                    {
+                        a.Kill();
+                        a = null;
+                    }
+                });
+            }
         }
 
 
@@ -1532,6 +1581,7 @@ public class MainGameController : MonoBehaviour, IOberser
 
     public void isActiveShopDao(bool isActive)
     {
+        ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         ShopDao.SetActive(isActive);
     }
     public void OPenShop()
@@ -1551,41 +1601,112 @@ public class MainGameController : MonoBehaviour, IOberser
         else
             QuitPanel.SetActive(true);
     }
-   public  int objSpriteActive = 0;
+    public int objSpriteActive = 0;
     public void setPosKnifeSprite()
     {
-        objSpriteActive++;
+
         for (int i = 0; i < ListKnifeSprite.Count; i++)
         {
             if (!ListKnifeSprite[i].gameObject.activeSelf)
             {
-                ListKnifeSprite[i].GetComponent<SpriteRenderer>().sprite = knifeObject.spriteKnife.GetComponent<SpriteRenderer>().sprite;
+                ListKnifeSprite[i].GetComponent<SpriteRenderer>().sprite = KnifeSpriteCut;
                 ListKnifeSprite[i].transform.position = knifeObject.spriteKnife.transform.position;
-                ListKnifeSprite[i].transform.localRotation = knifeObject.spriteKnife.transform.localRotation;
+                ListKnifeSprite[i].transform.localRotation = Quaternion.Euler(knifeObject.spriteKnife.transform.localRotation.x + 180, knifeObject.spriteKnife.transform.localRotation.y, knifeObject.spriteKnife.transform.localRotation.z + 90);
                 ListKnifeSprite[i].SetActive(true);
                 ListKnifeSprite[i].transform.parent = MoveMonster;
-                StartCoroutine(DisableSpriteKnife(i));
+                DisableSpriteKnife(i);
                 break;
             }
             if (objSpriteActive >= ListKnifeSprite.Count - 1)
             {
                 Debug.Log("Intantine");
-                GameObject knifeSprite = (GameObject)Instantiate(preKnifeSprite, Vector3.zero, knifeObject.spriteKnife.transform.localRotation);
-                knifeSprite.GetComponent<SpriteRenderer>().sprite = knifeObject.spriteKnife.GetComponent<SpriteRenderer>().sprite;
+                GameObject knifeSprite = (GameObject)Instantiate(preKnifeSprite, Vector3.zero, Quaternion.Euler(knifeObject.spriteKnife.transform.localRotation.x + 180, knifeObject.spriteKnife.transform.localRotation.y, knifeObject.spriteKnife.transform.localRotation.z + 90));
+                knifeSprite.GetComponent<SpriteRenderer>().sprite = KnifeSpriteCut;
                 knifeSprite.transform.position = knifeObject.spriteKnife.transform.position;
                 knifeSprite.transform.parent = MoveMonster;
                 knifeSprite.transform.localScale = knifeObject.transform.localScale;
                 knifeSprite.name = ListKnifeSprite[ListKnifeSprite.Count - 1].gameObject.name.Remove(11) + ListKnifeSprite.Count + i;
                 knifeSprite.SetActive(true);
                 ListKnifeSprite.Add(knifeSprite);
-                StartCoroutine(DisableSpriteKnife(ListKnifeSprite.Count-1));
+                DisableSpriteKnife(ListKnifeSprite.Count - 1);
             }
         }
+        objSpriteActive++;
     }
-    public IEnumerator DisableSpriteKnife(int index)
+    public void DisableSpriteKnife(int index)
     {
-        objSpriteActive--;
-        yield return new WaitForSeconds(3);
-        ListKnifeSprite[index].gameObject.SetActive(false);
+        ListKnifeSprite[index].GetComponent<SpriteRenderer>().DOFade(0, 5f).OnComplete(() =>
+            {
+                Color tmp = new Color();
+                tmp.a = 255;
+                tmp.b = 1;
+                tmp.r = 1;
+                tmp.g = 1;
+                ListKnifeSprite[index].GetComponent<SpriteRenderer>().color = tmp;
+                objSpriteActive--;
+                ListKnifeSprite[index].gameObject.SetActive(false);
+            });
     }
+    float vollumn = 1f;
+    public void SetSound(string sound)
+    {
+        switch (sound)
+        { 
+            case ModelHandle.BallonEx:
+                SoundManager.PlayOneShot(BallonExp, vollumn);
+            break;
+            case ModelHandle.BatApp:
+                SoundManager.PlayOneShot(BatAppear, vollumn);
+                break;
+            case ModelHandle.BatDead:
+                SoundManager.PlayOneShot(BatDie, vollumn);
+                break;
+            case ModelHandle.ButtonCli:
+                SoundManager.PlayOneShot(ButtonClick, vollumn);
+                break;
+            case ModelHandle.BoarApp:
+                SoundManager.PlayOneShot(BoarAppear, vollumn);
+                break;
+            case ModelHandle.BoarDead:
+                SoundManager.PlayOneShot(BoarDie, vollumn);
+                break;
+            case ModelHandle.CowApp:
+                SoundManager.PlayOneShot(CowAppear, vollumn);
+                break;
+            case ModelHandle.CowDead:
+                SoundManager.PlayOneShot(CowDie, vollumn);
+                break;
+            case ModelHandle.DogAli:
+                SoundManager.PlayOneShot(DogAlive, vollumn);
+                break;
+            case ModelHandle.DogDead:
+                SoundManager.PlayOneShot(DogDie, vollumn);
+                break;
+            case ModelHandle.FruitDead:
+                SoundManager.PlayOneShot(FruitDie, vollumn);
+                break;
+            case ModelHandle.GhostDead:
+                SoundManager.PlayOneShot(GhostDie, vollumn);
+                break;
+            case ModelHandle.HitWood:
+                SoundManager.PlayOneShot(KnifeHitWood, vollumn);
+                break;
+            case ModelHandle.RavenApp:
+                SoundManager.PlayOneShot(RavenAppear, vollumn);
+                break;
+            case ModelHandle.RavenDead:
+                SoundManager.PlayOneShot(RavenDie, vollumn);
+                break;
+            case ModelHandle.SpiderApp:
+                SoundManager.PlayOneShot(SpiderAppear, vollumn);
+                break;
+            case ModelHandle.StupidAli:
+                SoundManager.PlayOneShot(StupidAlive, vollumn);
+                break;
+            case ModelHandle.StupidDead:
+                SoundManager.PlayOneShot(StupidDie, vollumn);
+                break;
+        }
+    }
+
 }

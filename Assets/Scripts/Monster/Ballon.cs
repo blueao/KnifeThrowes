@@ -82,6 +82,7 @@ public class Ballon : MonoBehaviour, IMonster
     {
         if (collision.name == "Knife")
         {
+            ModelHandle.Instance.SetSound(ModelHandle.BallonEx);
             Die();
         }
         if (collision.name == "StartMove")
@@ -97,6 +98,7 @@ public class Ballon : MonoBehaviour, IMonster
          {
              sprite.enabled = false;
              ModelHandle.Instance.SetScore(10);
+             ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
              InPool();
          });
 
