@@ -7,7 +7,7 @@ public class HandleButtonShop : MonoBehaviour {
     {
         int index = int.Parse(gameObject.name.Remove(0, 9));
         ModelHandle.Instance.setSpriTemp(index);
-        if (transform.GetChild(1).GetComponent<HandleButtonBuy>().isCanbuy)
+        if (transform.GetChild(1).GetComponent<HandleButtonBuy>().IsCanbuy)
         {
             ModelHandle.Instance.setActiveLock(true);
         }

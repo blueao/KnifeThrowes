@@ -9,8 +9,18 @@ public class ScrollIndexCallback1 : MonoBehaviour
 
     public Sprite[] KnifePrices;
     public Sprite[] KnifeSprites;
+    public HandleButtonBuy ControlButtonBuy;
+    int indexItemsBuyed;
     void ScrollCellIndex(int idx)
     {
+        for (int i = 0; i < ModelHandle.Instance.isObjBuyed.Length; i++)
+        {
+            if (PlayerPrefs.HasKey((ModelHandle.KeyKnifeSprite + i)))
+            {
+                indexItemsBuyed = PlayerPrefs.GetInt(ModelHandle.KeyKnifeSprite + i);
+                ModelHandle.Instance.isObjBuyed[indexItemsBuyed] = true;
+            }
+        }
         string name = "KnifeLeft" + idx.ToString();
         if (imgKnifeDisplay != null)
         {
@@ -21,8 +31,8 @@ public class ScrollIndexCallback1 : MonoBehaviour
             imgKnifePrice.sprite = KnifePrices[idx];
         }
         gameObject.name = name;
-        ModelHandle.Instance.AddGOListShop(gameObject);
-    }
+        ControlButtonBuy.IsCanbuy = !ModelHandle.Instance.isObjBuyed[idx];
+        }
 
     // http://stackoverflow.com/questions/2288498/how-do-i-get-a-rainbow-color-gradient-in-c
     public static Color Rainbow(float progress)

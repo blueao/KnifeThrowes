@@ -1610,6 +1610,7 @@ public class MainGameController : MonoBehaviour, IOberser
             if (!ListKnifeSprite[i].gameObject.activeSelf)
             {
                 ListKnifeSprite[i].GetComponent<SpriteRenderer>().sprite = KnifeSpriteCut;
+                ListKnifeSprite[i].GetComponent<SpriteRenderer>().sortingOrder = 10;
                 ListKnifeSprite[i].transform.position = knifeObject.spriteKnife.transform.position;
                 ListKnifeSprite[i].transform.localRotation = Quaternion.Euler(knifeObject.spriteKnife.transform.localRotation.x + 180, knifeObject.spriteKnife.transform.localRotation.y, knifeObject.spriteKnife.transform.localRotation.z + 90);
                 ListKnifeSprite[i].SetActive(true);
@@ -1622,6 +1623,7 @@ public class MainGameController : MonoBehaviour, IOberser
                 Debug.Log("Intantine");
                 GameObject knifeSprite = (GameObject)Instantiate(preKnifeSprite, Vector3.zero, Quaternion.Euler(knifeObject.spriteKnife.transform.localRotation.x + 180, knifeObject.spriteKnife.transform.localRotation.y, knifeObject.spriteKnife.transform.localRotation.z + 90));
                 knifeSprite.GetComponent<SpriteRenderer>().sprite = KnifeSpriteCut;
+                knifeSprite.GetComponent<SpriteRenderer>().sortingOrder = 10;
                 knifeSprite.transform.position = knifeObject.spriteKnife.transform.position;
                 knifeSprite.transform.parent = MoveMonster;
                 knifeSprite.transform.localScale = knifeObject.transform.localScale;

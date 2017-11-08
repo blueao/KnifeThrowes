@@ -14,12 +14,40 @@ public class HandleButtonBuy : MonoBehaviour
     public Sprite[] EffectBuy;
     public Sprite[] EffectUnlock;
     [HideInInspector]
-    public bool isCanbuy;
+    private bool isCanbuy;
     Tween anim;
+
+    public bool IsCanbuy { get { return isCanbuy; }
+        set { isCanbuy = value;
+            if (!value)
+            {
+                setValue();
+            }
+            else
+            {
+                AnimBuy.enabled = false;
+                AnimBuy.transform.GetChild(0).GetComponent<Image>().enabled = false;
+                Buy.enabled = true;
+                Gold.enabled = true;
+                Money.enabled = true;
+            }
+
+        } }
+
+    public void setValue()
+    {
+        AnimBuy.enabled = true;
+        AnimBuy.transform.GetChild(0).GetComponent<Image>().enabled = true;
+        Buy.enabled = false;
+        Gold.enabled = false;
+        Money.enabled = false;
+    }
+
     public void ButtonClickBuy()
     {
         int index = int.Parse(gameObject.transform.parent.name.Remove(0, 9));
-        if (isCanbuy == true)
+        string nameobj = gameObject.transform.parent.name;
+        if (IsCanbuy == true)
         {
             int scores = PlayerPrefs.GetInt(ModelHandle.KeyScore);
             if (scores >= int.Parse(Money.sprite.name.Remove(0, 5)))
@@ -27,8 +55,9 @@ public class HandleButtonBuy : MonoBehaviour
                 PlayerPrefs.SetInt(ModelHandle.KeyScore, scores - int.Parse(Money.sprite.name.Remove(0, 5)));
                 ModelHandle.Instance.SetScore(scores - int.Parse(Money.sprite.name.Remove(0, 5)));
                 ModelHandle.Instance.setSpriTemp(index);
-                isCanbuy = false;
+                IsCanbuy = false;
                 AnimBuy.enabled = true;
+                AnimBuy.transform.GetChild(0).GetComponent<Image>().enabled = false;
                 Buy.enabled = false;
                 Gold.enabled = false;
                 Money.enabled = false;
@@ -56,10 +85,8 @@ public class HandleButtonBuy : MonoBehaviour
     {
         ModelHandle.Instance.setUpKnifeAfterBuy(index);
         ModelHandle.Instance.setUpSpriteCutAfterBuy(index);
-
         PlayerPrefs.SetInt(ModelHandle.KeyKnifeSprite, index);
         PlayerPrefs.SetInt(ModelHandle.KeyKnifeSprite + index, index);
-
         ModelHandle.Instance.ActiveShop(false);
     }
 }
