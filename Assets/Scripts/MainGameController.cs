@@ -83,6 +83,8 @@ public class MainGameController : MonoBehaviour, IOberser
 
     public AudioSource BackGround;
     public AudioSource SoundManager;
+    public AudioClip BackGroundMusic2;
+    public AudioClip BackGroundMusic;
     public AudioClip BallonExp;
     public AudioClip BatAppear;
     public AudioClip BatDie;
@@ -247,6 +249,7 @@ public class MainGameController : MonoBehaviour, IOberser
         MoveMonster = Map1;
         setStartPosBG();
 
+        //BackGround.Play(BackGroundMusic,vollumnBG)
         Initialized();
     }
     void Initialized()
@@ -266,7 +269,7 @@ public class MainGameController : MonoBehaviour, IOberser
         }
         //
 
-        ModelHandle.Instance.actionSetCoin += SetCoin;
+        //ModelHandle.Instance.actionSetCoin += SetCoin;
         ModelHandle.Instance.actiongGetCoin += getCoinPool;
 
         if (RedTargetPos.Length > RedTargetPos2.Length)
@@ -1317,7 +1320,8 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void SetUpMap1()
     {
-
+        BackGround.clip=BackGroundMusic;
+        BackGround.Play();
         for (int i = 0; i < Grass.Length; i++)
         {
             Grass[i].GetComponent<SpriteRenderer>().sprite = Grass1[i];
@@ -1348,7 +1352,8 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void SetUpMap2()
     {
-
+        BackGround.clip = BackGroundMusic2;
+        BackGround.Play();
         for (int i = 0; i < Grass2.Length; i++)
         {
             Grass[i].GetComponent<SpriteRenderer>().sprite = Grass2[i];
@@ -1434,6 +1439,7 @@ public class MainGameController : MonoBehaviour, IOberser
     public void OnGetClick()
     {
         ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
+        ModelHandle.Instance.SetScore(2000);
         isPanelGet(false);
         isActiveMenu(true);
     }
@@ -1651,7 +1657,8 @@ public class MainGameController : MonoBehaviour, IOberser
                 ListKnifeSprite[index].gameObject.SetActive(false);
             });
     }
-    float vollumn = 1f;
+    [HideInInspector]
+    public float vollumn = 1f;
     public void SetSound(string sound)
     {
         switch (sound)

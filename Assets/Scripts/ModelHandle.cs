@@ -57,7 +57,7 @@ public class ModelHandle
         scores += score;
         PlayerPrefs.SetInt(KeyScore, scores);
         mainRect.GetComponent<MainGameController>().ScoreNumber.text = scores.ToString();
-        actionSetCoin();
+        //actionSetCoin();
     }
     public void setSpriTemp(int index)
     {
@@ -91,6 +91,12 @@ public class ModelHandle
     public void setSpriteKnifePos()
     {
         mainRect.GetComponent<MainGameController>().setPosKnifeSprite();
+    }
+    public void setVolumn(float background, float Sound)
+    {
+        mainRect.GetComponent<MainGameController>().BackGround.volume = background;
+        mainRect.GetComponent<MainGameController>().vollumn = Sound;
+        mainRect.GetComponent<MainGameController>().SoundManager.volume = Sound;
     }
     public static ModelHandle Instance
     {

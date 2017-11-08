@@ -30,7 +30,7 @@ public class ScrollRectController : MonoBehaviour
     Sprite imagelock;
     private void Start()
     {
-        ModelHandle.Instance.SetScore(PlayerPrefs.GetInt(ModelHandle.KeyScore));
+        //ModelHandle.Instance.SetScore(PlayerPrefs.GetInt(ModelHandle.KeyScore));
 #if TESTTING
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt(ModelHandle.KeyScore, 20000);
