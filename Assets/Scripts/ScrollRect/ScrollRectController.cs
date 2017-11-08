@@ -31,6 +31,9 @@ public class ScrollRectController : MonoBehaviour
     Sprite imagelock;
     private void Start()
     {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt(ModelHandle.KeyScore, 20000);
+        ModelHandle.Instance.SetScore(PlayerPrefs.GetInt(ModelHandle.KeyScore));
 #if TESTTING
 
         PlayerPrefs.SetInt(ModelHandle.KeyScore, 20000);
@@ -76,6 +79,7 @@ public class ScrollRectController : MonoBehaviour
     int indexItemsBuyed = -1;
    public void InitShop()
     {
+
         for (int i = 0; i < listGO.Count; i++)
         {
             if (PlayerPrefs.HasKey((ModelHandle.KeyKnifeSprite + i)))
@@ -86,8 +90,9 @@ public class ScrollRectController : MonoBehaviour
             {
                 setActiveLock(false);
             }
-            if (i == indexItemsBuyed)
+            if (i == indexItemsBuyed && listGO[i].transform.GetChild(1).GetComponent<HandleButtonBuy>().isCanbuy)
             {
+                Debug.Log("abc");
                 listGO[i].transform.GetChild(1).GetComponent<HandleButtonBuy>().isCanbuy = false;
                 listGO[i].transform.GetChild(1).GetComponent<HandleButtonBuy>().AnimBuy.enabled = true;
                 listGO[i].transform.GetChild(1).GetComponent<HandleButtonBuy>().AnimBuy.transform.GetChild(0).GetComponent<Image>().enabled = true;
