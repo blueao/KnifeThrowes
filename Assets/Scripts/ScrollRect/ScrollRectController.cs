@@ -33,9 +33,9 @@ public class ScrollRectController : MonoBehaviour
     {
         ModelHandle.Instance.SetScore(PlayerPrefs.GetInt(ModelHandle.KeyScore));
 #if TESTTING
-        //PlayerPrefs.DeleteAll();
-        //PlayerPrefs.SetInt(ModelHandle.KeyScore, 20000);
-        //ModelHandle.Instance.SetScore(PlayerPrefs.GetInt(ModelHandle.KeyScore));
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt(ModelHandle.KeyScore, 20000);
+        ModelHandle.Instance.SetScore(PlayerPrefs.GetInt(ModelHandle.KeyScore));
 #endif
 
         for (int i = 0; i < ModelHandle.Instance.isObjBuyed.Length; i++)
