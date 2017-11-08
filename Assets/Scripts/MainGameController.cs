@@ -1612,16 +1612,18 @@ public class MainGameController : MonoBehaviour, IOberser
                 ListKnifeSprite[i].GetComponent<SpriteRenderer>().sprite = KnifeSpriteCut;
                 ListKnifeSprite[i].GetComponent<SpriteRenderer>().sortingOrder = 10;
                 ListKnifeSprite[i].transform.position = knifeObject.spriteKnife.transform.position;
-                ListKnifeSprite[i].transform.localRotation = Quaternion.Euler(knifeObject.spriteKnife.transform.localRotation.x + 180, knifeObject.spriteKnife.transform.localRotation.y, knifeObject.spriteKnife.transform.localRotation.z + 90);
-                ListKnifeSprite[i].SetActive(true);
+                ListKnifeSprite[i].transform.rotation = knifeObject.spriteKnife.transform.rotation;
+                ListKnifeSprite[i].transform.Rotate(knifeObject.spriteKnife.transform.rotation.x, knifeObject.spriteKnife.transform.rotation.y+180, knifeObject.spriteKnife.transform.rotation.z+90,Space.Self);
                 ListKnifeSprite[i].transform.parent = MoveMonster;
+               // ListKnifeSprite[i].transform.localRotation = Quaternion.Euler(knifeObject.spriteKnife.transform.localRotation.x +180, knifeObject.spriteKnife.transform.localRotation.y, knifeObject.spriteKnife.transform.localRotation.z + 90);
+                ListKnifeSprite[i].SetActive(true);
+         
                 DisableSpriteKnife(i);
                 break;
             }
             if (objSpriteActive >= ListKnifeSprite.Count - 1)
             {
-                Debug.Log("Intantine");
-                GameObject knifeSprite = (GameObject)Instantiate(preKnifeSprite, Vector3.zero, Quaternion.Euler(knifeObject.spriteKnife.transform.localRotation.x + 180, knifeObject.spriteKnife.transform.localRotation.y, knifeObject.spriteKnife.transform.localRotation.z + 90));
+                GameObject knifeSprite = (GameObject)Instantiate(preKnifeSprite, Vector3.zero,Quaternion.Euler(knifeObject.spriteKnife.transform.rotation.x, knifeObject.spriteKnife.transform.rotation.y+180, knifeObject.spriteKnife.transform.rotation.z + 90));
                 knifeSprite.GetComponent<SpriteRenderer>().sprite = KnifeSpriteCut;
                 knifeSprite.GetComponent<SpriteRenderer>().sortingOrder = 10;
                 knifeSprite.transform.position = knifeObject.spriteKnife.transform.position;

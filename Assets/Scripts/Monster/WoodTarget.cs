@@ -22,15 +22,15 @@ public class WoodTarget : MonoBehaviour, IMonster
         if (this.name.Contains("wood target 1"))
         {
 
-            box.size = new Vector2(0.3f, 2.37f);
+            box.size = new Vector2(0.3f, 1.4f);
         }
         else if (this.name.Contains("wood target 2"))
         {
-
+            box.size = new Vector2(0.3f, 1.4f);
         }
         else if (this.name.Contains("red target"))
         {
-            box.size = new Vector2(0.2f, 1.84f);
+            box.size = new Vector2(0.2f, 1.1f);
         }
         startposition = transform.localPosition;
       

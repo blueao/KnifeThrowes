@@ -84,19 +84,6 @@ public class ModelHandle
     {
         mainRect.GetComponent<MainGameController>().isActiveShopDao(isActive);
     }
-    //public void AddGOListShop(GameObject go,int index)
-    //{
-    //    List<Transform> listObj = new List<Transform>();
-    //    for (int i = 0; i < mainRect.panel.childCount; i++)
-    //    {
-    //        if (mainRect.panel.GetChild(i).gameObject.name.Contains("KnifeLeft"))
-    //        {
-    //            listObj.Add(mainRect.panel.GetChild(i));
-    //            mainRect.InitShop(index);
-    //        }
-    //    }
-    //    mainRect.listGO = Enumerable.ToList(Enumerable.Distinct(listObj));
-    //}
     public void SetSound(string sound)
     {
         mainRect.GetComponent<MainGameController>().SetSound(sound);

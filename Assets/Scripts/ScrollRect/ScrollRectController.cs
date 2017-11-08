@@ -8,7 +8,6 @@ public class ScrollRectController : MonoBehaviour
 {
 
     public RectTransform panel;
-    public List<Transform> listGO;
     //public RectTransform center;
     public GameObject preFabKnifeShop;
     public MainGameController MainGame;
