@@ -88,9 +88,9 @@ public class ModelHandle
     {
         mainRect.GetComponent<MainGameController>().SetSound(sound);
     }
-    public void setSpriteKnifePos()
+    public void setSpriteKnifePos(float xTarget)
     {
-        mainRect.GetComponent<MainGameController>().setPosKnifeSprite();
+        mainRect.GetComponent<MainGameController>().setPosKnifeSprite(xTarget);
     }
     public void setVolumn(float background, float Sound)
     {

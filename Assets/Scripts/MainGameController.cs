@@ -1320,7 +1320,7 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void SetUpMap1()
     {
-        BackGround.clip=BackGroundMusic;
+        BackGround.clip = BackGroundMusic;
         BackGround.Play();
         for (int i = 0; i < Grass.Length; i++)
         {
@@ -1608,7 +1608,7 @@ public class MainGameController : MonoBehaviour, IOberser
             QuitPanel.SetActive(true);
     }
     public int objSpriteActive = 0;
-    public void setPosKnifeSprite()
+    public void setPosKnifeSprite(float xTarget)
     {
 
         for (int i = 0; i < ListKnifeSprite.Count; i++)
@@ -1617,23 +1617,43 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListKnifeSprite[i].GetComponent<SpriteRenderer>().sprite = KnifeSpriteCut;
                 ListKnifeSprite[i].GetComponent<SpriteRenderer>().sortingOrder = 10;
-                ListKnifeSprite[i].transform.position = knifeObject.spriteKnife.transform.position;
-                ListKnifeSprite[i].transform.rotation = knifeObject.spriteKnife.transform.rotation;
-                ListKnifeSprite[i].transform.Rotate(knifeObject.spriteKnife.transform.rotation.x, knifeObject.spriteKnife.transform.rotation.y+180, knifeObject.spriteKnife.transform.rotation.z+90,Space.Self);
                 ListKnifeSprite[i].transform.parent = MoveMonster;
-               // ListKnifeSprite[i].transform.localRotation = Quaternion.Euler(knifeObject.spriteKnife.transform.localRotation.x +180, knifeObject.spriteKnife.transform.localRotation.y, knifeObject.spriteKnife.transform.localRotation.z + 90);
+                ListKnifeSprite[i].transform.position = new Vector3(knifeObject.spriteKnife.transform.position.x, knifeObject.spriteKnife.transform.position.y, knifeObject.spriteKnife.transform.position.z);
+                //if (xTarget < ListKnifeSprite[i].transform.localPosition.x)
+                //{
+                //    xTarget = xTarget + (ListKnifeSprite[i].transform.localPosition.x - xTarget) - speedMoveBG;
+                //}
+                //else
+                //{
+                //    xTarget = xTarget - ( xTarget - ListKnifeSprite[i].transform.localPosition.x) - speedMoveBG;
+                //}
+                xTarget = xTarget - (xTarget - ListKnifeSprite[i].transform.localPosition.x);
+                ListKnifeSprite[i].transform.localPosition = new Vector3(xTarget, ListKnifeSprite[i].transform.localPosition.y, ListKnifeSprite[i].transform.localPosition.z);
+                ListKnifeSprite[i].transform.rotation = knifeObject.spriteKnife.transform.rotation;
+                ListKnifeSprite[i].transform.Rotate(knifeObject.spriteKnife.transform.rotation.x, knifeObject.spriteKnife.transform.rotation.y + 180, knifeObject.spriteKnife.transform.rotation.z + 90, Space.Self);
+                // ListKnifeSprite[i].transform.localRotation = Quaternion.Euler(knifeObject.spriteKnife.transform.localRotation.x +180, knifeObject.spriteKnife.transform.localRotation.y, knifeObject.spriteKnife.transform.localRotation.z + 90);
                 ListKnifeSprite[i].SetActive(true);
-         
+
                 DisableSpriteKnife(i);
                 break;
             }
             if (objSpriteActive >= ListKnifeSprite.Count - 1)
             {
-                GameObject knifeSprite = (GameObject)Instantiate(preKnifeSprite, Vector3.zero,Quaternion.Euler(knifeObject.spriteKnife.transform.rotation.x, knifeObject.spriteKnife.transform.rotation.y+180, knifeObject.spriteKnife.transform.rotation.z + 90));
+                GameObject knifeSprite = (GameObject)Instantiate(preKnifeSprite, Vector3.zero, Quaternion.Euler(knifeObject.spriteKnife.transform.rotation.x, knifeObject.spriteKnife.transform.rotation.y + 180, knifeObject.spriteKnife.transform.rotation.z + 90));
                 knifeSprite.GetComponent<SpriteRenderer>().sprite = KnifeSpriteCut;
                 knifeSprite.GetComponent<SpriteRenderer>().sortingOrder = 10;
-                knifeSprite.transform.position = knifeObject.spriteKnife.transform.position;
                 knifeSprite.transform.parent = MoveMonster;
+                knifeSprite.transform.position = new Vector3(knifeObject.spriteKnife.transform.position.x, knifeObject.spriteKnife.transform.position.y, knifeObject.spriteKnife.transform.position.z);
+                //if (xTarget < knifeSprite.transform.localPosition.x)
+                //{
+                //    xTarget = xTarget + (knifeSprite.transform.localPosition.x - xTarget) - speedMoveBG;
+                //}
+                //else
+                //{
+                //    xTarget = xTarget - (xTarget - knifeSprite.transform.localPosition.x) - speedMoveBG;
+                //}
+                xTarget = xTarget - (xTarget - knifeSprite.transform.localPosition.x);
+                knifeSprite.transform.localPosition = new Vector3(xTarget- speedMoveBG, knifeSprite.transform.localPosition.y, knifeSprite.transform.localPosition.z);
                 knifeSprite.transform.localScale = knifeObject.transform.localScale;
                 knifeSprite.name = ListKnifeSprite[ListKnifeSprite.Count - 1].gameObject.name.Remove(11) + ListKnifeSprite.Count + i;
                 knifeSprite.SetActive(true);
@@ -1662,10 +1682,10 @@ public class MainGameController : MonoBehaviour, IOberser
     public void SetSound(string sound)
     {
         switch (sound)
-        { 
+        {
             case ModelHandle.BallonEx:
                 SoundManager.PlayOneShot(BallonExp, vollumn);
-            break;
+                break;
             case ModelHandle.BatApp:
                 SoundManager.PlayOneShot(BatAppear, vollumn);
                 break;
