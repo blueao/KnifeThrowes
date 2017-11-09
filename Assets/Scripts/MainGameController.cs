@@ -75,6 +75,9 @@ public class MainGameController : MonoBehaviour, IOberser
 
     public GameObject preKnifeSprite;
 
+
+    public GameObject preCoinPool;
+
     public Sprite KnifeSpriteCut;
 
     public ScrollRectController scrollrecController;
@@ -150,6 +153,7 @@ public class MainGameController : MonoBehaviour, IOberser
     //List Boar Type
     [HideInInspector]
     public List<GameObject> ListCoinPool = new List<GameObject>();
+
     //
     [HideInInspector]
     public List<GameObject> ListBird = new List<GameObject>();
@@ -270,7 +274,7 @@ public class MainGameController : MonoBehaviour, IOberser
         //
 
         //ModelHandle.Instance.actionSetCoin += SetCoin;
-        ModelHandle.Instance.actiongGetCoin += getCoinPool;
+        //ModelHandle.Instance.actiongGetCoin += getCoinPool;
 
         if (RedTargetPos.Length > RedTargetPos2.Length)
         {
@@ -358,7 +362,6 @@ public class MainGameController : MonoBehaviour, IOberser
         ghostCount = ghostPos.Length;
         BatCount = batPos.Length;
         CowCount = cowpos.Length;
-
         Coinpool = 5;
         //SetupPositionObj();
     }
@@ -639,7 +642,14 @@ public class MainGameController : MonoBehaviour, IOberser
             ListKnifeSprite.Add(knifeSprite);
             knifeSprite.SetActive(false);
         }
-
+        for (int i = 0; i < Coinpool; i++)
+        {
+            GameObject listnewCoin = (GameObject)Instantiate(preCoinPool, poolPosition, Quaternion.identity);
+            listnewCoin.name = "NewCoinPool"+i;
+            listnewCoin.transform.parent = MoveMonster;
+            ModelHandle.Instance.ListNewCoinPool.Add(listnewCoin);
+            listnewCoin.SetActive(false);
+        }
         for (int i = 0; i < Coinpool; i++)
         {
             GameObject coinpool = (GameObject)Instantiate(preFabCoinImage, poolPosition, Quaternion.identity);
@@ -715,6 +725,12 @@ public class MainGameController : MonoBehaviour, IOberser
         {
             GameObject woodTarget = (GameObject)Instantiate(preFabWoodTarget, poolPosition, Quaternion.identity);
             woodTarget.name = "wood target 1" + i;
+            if (woodTarget.GetComponent<WoodTarget>().Dead != null)
+            {
+                woodTarget.GetComponent<WoodTarget>().Dead.Kill();
+                woodTarget.GetComponent<WoodTarget>().Dead = null;
+            }
+            woodTarget.GetComponent<SpriteRenderer>().DOFade(1, 0f);
             ListWoodTarget.Add(woodTarget);
             woodTarget.transform.parent = MoveMonster;
             ListTotalObject.Add(woodTarget);
@@ -1739,5 +1755,25 @@ public class MainGameController : MonoBehaviour, IOberser
                 break;
         }
     }
-
+   
+    public void setPosCoinPool(Transform trans,int money)
+    {
+        for (int i = 0; i < ModelHandle.Instance.ListNewCoinPool.Count; i++)
+        {
+            if (!ModelHandle.Instance.ListNewCoinPool[i].activeSelf)
+            {
+                ModelHandle.Instance.ListNewCoinPool[i].GetComponent<GoldCoinController>().RunAnimCoin(trans,money);
+                break;
+            }
+            else
+            {
+                GameObject listnewCoin = (GameObject)Instantiate(preCoinPool, trans.localPosition, Quaternion.identity);
+                listnewCoin.name = "NewCoinPool" + (ModelHandle.Instance.ListNewCoinPool.Count+ i).ToString();
+                listnewCoin.transform.parent = MoveMonster;
+                ModelHandle.Instance.ListNewCoinPool.Add(listnewCoin);
+                listnewCoin.GetComponent<GoldCoinController>().RunAnimCoin(trans, money);
+                break;
+            }
+        }
+    }
 }

@@ -46,7 +46,8 @@ public class ModelHandle
     public Transform CoinStart;
     public Action actionSetCoin;
     public Action<Vector3> actiongGetCoin;
-
+    [HideInInspector]
+    public List<GameObject> ListNewCoinPool = new List<GameObject>();
     public bool[] isObjBuyed = new bool[34];
     ModelHandle() { }
 
@@ -127,5 +128,9 @@ public class ModelHandle
                 mainRect.GetComponent<MainGameController>().CanWin = true;
             }
         }
+    }
+    public void setPosCoinPool(Transform parent,int point)
+    {
+        mainRect.GetComponent<MainGameController>().setPosCoinPool(parent, point);
     }
 }

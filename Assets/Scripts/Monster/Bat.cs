@@ -31,6 +31,7 @@ public class Bat : MonoBehaviour, IMonster
     public SpriteRenderer EffectBlood;
     public void Die()
     {
+        ModelHandle.Instance.setPosCoinPool(this.transform, 1);
         sprite.enabled = false;
         box.enabled = false;
         if (tweenPath != null)
@@ -73,7 +74,7 @@ public class Bat : MonoBehaviour, IMonster
             move1.Kill();
             move1 = null;
         }
-        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         SetSprite();
         box.isTrigger = true;
         sprite.enabled = true;

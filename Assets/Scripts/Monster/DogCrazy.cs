@@ -32,6 +32,7 @@ public class DogCrazy : MonoBehaviour, IMonster
     [ContextMenu("die")]
     public void Die()
     {
+        ModelHandle.Instance.setPosCoinPool(this.transform, 10);
         ModelHandle.Instance.MonsterDeadCount++;
         StartCoroutine(WaitForDead());
         box.enabled = false;
@@ -76,7 +77,8 @@ public class DogCrazy : MonoBehaviour, IMonster
 
     public void InPool()
     {
-        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+    
         if (anim != null)
         {
             anim.Kill();

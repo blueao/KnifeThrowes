@@ -126,6 +126,7 @@ public class Stupid : MonoBehaviour, IMonster
         }
         if (collision.name == "Knife")
         {
+            ModelHandle.Instance.setPosCoinPool(this.transform, 1);
             ModelHandle.Instance.SetSound(ModelHandle.StupidDead);
             Die();
         }
@@ -193,7 +194,7 @@ public class Stupid : MonoBehaviour, IMonster
         //    CoMove = null;
         //}
         speedmove = 2;
-        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         transform.localPosition = new Vector3(0, 15, 0);
         if (GetComponent<BoxCollider2D>() != null)
         {

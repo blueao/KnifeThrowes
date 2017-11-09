@@ -26,6 +26,7 @@ public class Spiders : MonoBehaviour, IMonster
     public SpriteRenderer EffectBlood;
     public void Die()
     {
+        ModelHandle.Instance.setPosCoinPool(this.transform, 1);
         ModelHandle.Instance.MonsterDeadCount++;
         sprite.enabled = false;
         box.enabled = false;
@@ -52,7 +53,7 @@ public class Spiders : MonoBehaviour, IMonster
 
     public void InPool()
     {
-        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         SetSprite();
         transform.localPosition = new Vector3(0, 15, 0);
         transform.localRotation = Quaternion.Euler(Vector3.zero);
@@ -101,6 +102,7 @@ public class Spiders : MonoBehaviour, IMonster
     {
         if (collision.name == "Knife")
         {
+            ModelHandle.Instance.setPosCoinPool(this.transform, 1);
             ModelHandle.Instance.SetSound(ModelHandle.HitWood);
             Die();
         }

@@ -11,6 +11,7 @@ public class Ghost : MonoBehaviour, IMonster
     public List<GameObject> listshadow = new List<GameObject>();
     public void Die()
     {
+        ModelHandle.Instance.setPosCoinPool(this.transform, 10);
         if (move != null)
         {
             move.Kill();
@@ -148,7 +149,7 @@ public class Ghost : MonoBehaviour, IMonster
         yield return new WaitUntil(() => death == null);
         sprite.enabled = false;
         ModelHandle.Instance.SetScore(10);
-        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         InPool();
     }
 }

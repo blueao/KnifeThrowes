@@ -34,6 +34,7 @@ public class Boar : MonoBehaviour, IMonster
     [ContextMenu("die")]
     public void Die()
     {
+        ModelHandle.Instance.setPosCoinPool(this.transform, 10);
         ModelHandle.Instance.MonsterDeadCount++;
         if (gameObject.name.Contains("wizard"))
         {
@@ -78,7 +79,7 @@ public class Boar : MonoBehaviour, IMonster
 
     public void InPool()
     {
-         ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        // ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         if (anim != null)
         {
             anim.Kill();

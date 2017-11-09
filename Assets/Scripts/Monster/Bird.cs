@@ -38,6 +38,7 @@ public class Bird : MonoBehaviour, IMonster
     [ContextMenu("die")]
     public void Die()
     {
+        ModelHandle.Instance.setPosCoinPool(this.transform, 10);
         if (move != null)
         {
             move.Kill();
@@ -88,7 +89,7 @@ public class Bird : MonoBehaviour, IMonster
     }
     public void InPool()
     {
-        ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         if (anim != null)
         {
             anim.Kill();

@@ -28,6 +28,7 @@ public class Ballon : MonoBehaviour, IMonster
     }
     public void Die()
     {
+        ModelHandle.Instance.setPosCoinPool(this.transform, 10);
         box.enabled = false;
         if (tweenMove != null)
         {
@@ -98,7 +99,7 @@ public class Ballon : MonoBehaviour, IMonster
          {
              sprite.enabled = false;
              ModelHandle.Instance.SetScore(10);
-             ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
+             //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
              InPool();
          });
 
