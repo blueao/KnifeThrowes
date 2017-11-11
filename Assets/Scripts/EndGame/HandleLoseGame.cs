@@ -2,7 +2,8 @@
 using System.Collections;
 using DG.Tweening;
 
-public class HandleLoseGame : MonoBehaviour {
+public class HandleLoseGame : MonoBehaviour
+{
 
     public MainGameController MainGame;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,10 +26,21 @@ public class HandleLoseGame : MonoBehaviour {
     }
     IEnumerator ShowPanelLose()
     {
-        yield return new WaitForSeconds(1f);
-        if (!MainGame.PanelLose.activeSelf)
+        yield return new WaitForSeconds(0f);
+
+        if (UM_AdManager.IsInited)
         {
-            MainGame.PanelLose.SetActive(true);
+            FunnyKnifeAdsManager.Instance.ShowInterstitialAd();
+        }
+        else
+        {
+            FunnyKnifeAdsManager.Instance.StartInterstitialAd();
+
+            if (!MainGame.PanelLose.activeSelf)
+            {
+                MainGame.PanelLose.SetActive(true);
+            }
         }
     }
+
 }

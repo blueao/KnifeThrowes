@@ -40,6 +40,11 @@ public class HandleKnifeSprite : MonoBehaviour
 
             return;
         }
+
+        //if (transform.localRotation.z <= ModelHandle.Instance.currentKnifeLocation +90)
+        //{
+        //    return;
+        //}
         if (collision.name != "BorderBottom" && !MainGame.knifeObject.isMiss /*&&ModelHandle.Instance.isCanHit*/||
             collision.name != "BorderTop" && !MainGame.knifeObject.isMiss /*&& ModelHandle.Instance.isCanHit*/)
         {
@@ -48,16 +53,16 @@ public class HandleKnifeSprite : MonoBehaviour
                 MainGame.transform.localPosition = startCameraPosition;
             });
             MainGame.knifeObject.Hit();
-            //if (collision.GetComponent<WoodTarget>())
-            //{
-            //    MainGame.knifeObject.Idie();
-            //}
-            //else
-            //{
-            //    MainGame.knifeObject.ImpactKnife(true);
-
-            //}
+            if (collision.GetComponent<WoodTarget>())
+            {
+                MainGame.knifeObject.Idie();
+            }
+            else
+            {
+                MainGame.knifeObject.ImpactKnife(true);
+            }
         }
+
 
 
     }

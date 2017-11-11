@@ -47,7 +47,7 @@ public class WoodTarget : MonoBehaviour, IMonster
         ModelHandle.Instance.MonsterDeadCount++;
         box.enabled = false;
         // spriteItems.enabled = false;
-        Dead = gameObject.GetComponent<SpriteRenderer>().DOFade(0, 7f).OnComplete(() =>
+        Dead = gameObject.GetComponent<SpriteRenderer>().DOFade(0, 3f).OnComplete(() =>
         {
             InPool();
             gameObject.GetComponent<SpriteRenderer>().DOFade(1, 0f);
@@ -85,7 +85,7 @@ public class WoodTarget : MonoBehaviour, IMonster
         tweenMove.Append(transform.DOLocalMoveY(transform.localPosition.y + 1, 3f));
         tweenMove.Append(transform.DOLocalMoveY(startposition.y, 3f));
         tweenMove.SetLoops(-1);
-        tweenMove.Play();
+        //tweenMove.Play();
 
     }
 
@@ -118,7 +118,7 @@ public class WoodTarget : MonoBehaviour, IMonster
    public Tween Dead;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Knife" /*&& ModelHandle.Instance.isCanHit*/)
+        if (collision.name == "Knife" /*&& collision.transform.localRotation.z > ModelHandle.Instance.currentKnifeLocation + 90 *//*&& ModelHandle.Instance.isCanHit*/)
         {
             ModelHandle.Instance.setPosCoinPool(this.transform, 1);
             ModelHandle.Instance.SetSound(ModelHandle.HitWood);

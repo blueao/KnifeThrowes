@@ -38,6 +38,8 @@ public class ModelHandle
     public const string BatDead = "BatDie";
     public const string BatApp = "BatAppear";
     public const string BallonEx = "BallonExp";
+    //Key Load Map2 
+    public const string SetMap2 = "ActiveMap2";
     //
     private int monsterDeadCount;
     private static ModelHandle instance = null;
@@ -50,6 +52,7 @@ public class ModelHandle
     public List<GameObject> ListNewCoinPool = new List<GameObject>();
     public bool[] isObjBuyed = new bool[34];
     ModelHandle() { }
+    public float currentKnifeLocation;
 
     public ScrollRectController mainRect = GameObject.FindObjectOfType(typeof(ScrollRectController)) as ScrollRectController;
     public void SetScore(int score)
@@ -58,6 +61,7 @@ public class ModelHandle
         scores += score;
         PlayerPrefs.SetInt(KeyScore, scores);
         mainRect.GetComponent<MainGameController>().ScoreNumber.text = scores.ToString();
+        mainRect.GetComponent<MainGameController>().CoinMenu.text = scores.ToString();
         //actionSetCoin();
     }
     public void setSpriTemp(int index)
@@ -132,5 +136,18 @@ public class ModelHandle
     public void setPosCoinPool(Transform parent,int point)
     {
         mainRect.GetComponent<MainGameController>().setPosCoinPool(parent, point);
+    }
+
+    public void PurchaseSuccess(int score)
+    {
+        SetScore(score);
+    }
+    public void HandleLoseGame()
+    {
+        mainRect.GetComponent<MainGameController>().MainGameHandleLoseGame();
+    }
+    public void DesObjSpriteKnifeCut()
+    {
+        mainRect.GetComponent<MainGameController>().objSpriteActive--;
     }
 }
