@@ -647,7 +647,7 @@ public class MainGameController : MonoBehaviour, IOberser
         for (int i = 0; i < Coinpool; i++)
         {
             GameObject listnewCoin = (GameObject)Instantiate(preCoinPool, poolPosition, Quaternion.identity);
-            listnewCoin.name = "NewCoinPool"+i;
+            listnewCoin.name = "NewCoinPool" + i;
             listnewCoin.transform.parent = MoveMonster;
             ModelHandle.Instance.ListNewCoinPool.Add(listnewCoin);
             listnewCoin.SetActive(false);
@@ -1630,28 +1630,29 @@ public class MainGameController : MonoBehaviour, IOberser
     public int objSpriteActive = 0;
     public void setPosKnifeSprite(float xTarget)
     {
+        float newPosKnifeCut =0f;
         for (int i = 0; i < ListKnifeSprite.Count; i++)
         {
+
             ListKnifeSprite[i].GetComponent<SpriteRenderer>().sprite = KnifeSpriteCut;
+            float widthKnife = ListKnifeSprite[i].GetComponent<SpriteRenderer>().sprite.rect.height/100f;
             ListKnifeSprite[i].GetComponent<SpriteRenderer>().sortingOrder = 10;
             ListKnifeSprite[i].transform.parent = MoveMonster;
 
             if (!ListKnifeSprite[i].gameObject.activeSelf)
             {
-                
+
                 ListKnifeSprite[i].transform.position = new Vector3(knifeObject.spriteKnife.transform.position.x, knifeObject.spriteKnife.transform.position.y, knifeObject.spriteKnife.transform.position.z);
-                //if (xTarget < ListKnifeSprite[i].transform.localPosition.x)
-                //{
-                //    xTarget = xTarget + (ListKnifeSprite[i].transform.localPosition.x - xTarget) - speedMoveBG;
-                //}
-                //else
-                //{
-                //    xTarget = xTarget - ( xTarget - ListKnifeSprite[i].transform.localPosition.x) - speedMoveBG;
-                //}
-                xTarget = xTarget - (xTarget - ListKnifeSprite[i].transform.localPosition.x);
-                ListKnifeSprite[i].transform.localPosition = new Vector3(xTarget, ListKnifeSprite[i].transform.localPosition.y, ListKnifeSprite[i].transform.localPosition.z);
+                ListKnifeSprite[i].transform.localPosition = new Vector3(xTarget -widthKnife/2f, ListKnifeSprite[i].transform.localPosition.y, ListKnifeSprite[i].transform.localPosition.z);
                 ListKnifeSprite[i].transform.rotation = knifeObject.spriteKnife.transform.rotation;
+         
                 ListKnifeSprite[i].transform.Rotate(knifeObject.spriteKnife.transform.rotation.x, knifeObject.spriteKnife.transform.rotation.y + 180, knifeObject.spriteKnife.transform.rotation.z + 90, Space.Self);
+
+                if (ListKnifeSprite[i].transform.rotation.z <= 180)
+                {
+                    ListKnifeSprite[i].transform.rotation = Quaternion.Euler(ListKnifeSprite[i].transform.rotation.x, ListKnifeSprite[i].transform.rotation.y+180, 240);
+                }
+
                 // ListKnifeSprite[i].transform.localRotation = Quaternion.Euler(knifeObject.spriteKnife.transform.localRotation.x +180, knifeObject.spriteKnife.transform.localRotation.y, knifeObject.spriteKnife.transform.localRotation.z + 90);
                 ListKnifeSprite[i].SetActive(true);
 
@@ -1665,16 +1666,13 @@ public class MainGameController : MonoBehaviour, IOberser
                 knifeSprite.GetComponent<SpriteRenderer>().sortingOrder = 10;
                 knifeSprite.transform.parent = MoveMonster;
                 knifeSprite.transform.position = new Vector3(knifeObject.spriteKnife.transform.position.x, knifeObject.spriteKnife.transform.position.y, knifeObject.spriteKnife.transform.position.z);
-                //if (xTarget < knifeSprite.transform.localPosition.x)
-                //{
-                //    xTarget = xTarget + (knifeSprite.transform.localPosition.x - xTarget) - speedMoveBG;
-                //}
-                //else
-                //{
-                //    xTarget = xTarget - (xTarget - knifeSprite.transform.localPosition.x) - speedMoveBG;
-                //}
-                xTarget = xTarget - (xTarget - knifeSprite.transform.localPosition.x);
-                knifeSprite.transform.localPosition = new Vector3(xTarget- speedMoveBG, knifeSprite.transform.localPosition.y, knifeSprite.transform.localPosition.z);
+
+                knifeSprite.transform.localPosition = new Vector3(xTarget - widthKnife / 2f, knifeSprite.transform.localPosition.y, knifeSprite.transform.localPosition.z);
+
+                if (knifeSprite.transform.rotation.z <= 180)
+                {
+                    knifeSprite.transform.rotation = Quaternion.Euler(knifeSprite.transform.rotation.x, knifeSprite.transform.rotation.y + 180, 240);
+                }
                 knifeSprite.transform.localScale = knifeObject.transform.localScale;
                 knifeSprite.name = ListKnifeSprite[ListKnifeSprite.Count - 1].gameObject.name.Remove(11) + ListKnifeSprite.Count + i;
                 knifeSprite.SetActive(true);
@@ -1761,20 +1759,20 @@ public class MainGameController : MonoBehaviour, IOberser
                 break;
         }
     }
-   
-    public void setPosCoinPool(Transform trans,int money)
+
+    public void setPosCoinPool(Transform trans, int money)
     {
         for (int i = 0; i < ModelHandle.Instance.ListNewCoinPool.Count; i++)
         {
             if (!ModelHandle.Instance.ListNewCoinPool[i].activeSelf)
             {
-                ModelHandle.Instance.ListNewCoinPool[i].GetComponent<GoldCoinController>().RunAnimCoin(trans,money);
+                ModelHandle.Instance.ListNewCoinPool[i].GetComponent<GoldCoinController>().RunAnimCoin(trans, money);
                 break;
             }
             else
             {
                 GameObject listnewCoin = (GameObject)Instantiate(preCoinPool, trans.localPosition, Quaternion.identity);
-                listnewCoin.name = "NewCoinPool" + (ModelHandle.Instance.ListNewCoinPool.Count+ i).ToString();
+                listnewCoin.name = "NewCoinPool" + (ModelHandle.Instance.ListNewCoinPool.Count + i).ToString();
                 listnewCoin.transform.parent = MoveMonster;
                 ModelHandle.Instance.ListNewCoinPool.Add(listnewCoin);
                 listnewCoin.GetComponent<GoldCoinController>().RunAnimCoin(trans, money);
