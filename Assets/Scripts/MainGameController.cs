@@ -1055,6 +1055,8 @@ public class MainGameController : MonoBehaviour, IOberser
         {
             ListWoodTarget[i].GetComponent<WoodTarget>().ResetState();
         }
+        int scores = PlayerPrefs.GetInt(ModelHandle.KeyScore);
+        CoinMenu.text = scores.ToString();
         Menu.SetActive(true);
         PanelLose.SetActive(false);
         CanMove = false;
@@ -1461,13 +1463,13 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public Text ScoreNumber;
     public Transform Coin;
+    public Transform CoinImage;
     public void AnimCoin()
     {
         Sequence se = DOTween.Sequence();
-        se.Append(Coin.DOScaleX(0, 0.5f));
-        se.Append(Coin.DOScaleX(1, 0.5f));
+        se.Append(CoinImage.DOScaleX(0, 0.5f));
+        se.Append(CoinImage.DOScaleX(1, 0.5f));
         se.SetLoops(-1);
-
     }
 
 
@@ -1626,14 +1628,15 @@ public class MainGameController : MonoBehaviour, IOberser
     public int objSpriteActive = 0;
     public void setPosKnifeSprite(float xTarget)
     {
-
         for (int i = 0; i < ListKnifeSprite.Count; i++)
         {
+            ListKnifeSprite[i].GetComponent<SpriteRenderer>().sprite = KnifeSpriteCut;
+            ListKnifeSprite[i].GetComponent<SpriteRenderer>().sortingOrder = 10;
+            ListKnifeSprite[i].transform.parent = MoveMonster;
+
             if (!ListKnifeSprite[i].gameObject.activeSelf)
             {
-                ListKnifeSprite[i].GetComponent<SpriteRenderer>().sprite = KnifeSpriteCut;
-                ListKnifeSprite[i].GetComponent<SpriteRenderer>().sortingOrder = 10;
-                ListKnifeSprite[i].transform.parent = MoveMonster;
+                
                 ListKnifeSprite[i].transform.position = new Vector3(knifeObject.spriteKnife.transform.position.x, knifeObject.spriteKnife.transform.position.y, knifeObject.spriteKnife.transform.position.z);
                 //if (xTarget < ListKnifeSprite[i].transform.localPosition.x)
                 //{
@@ -1675,6 +1678,7 @@ public class MainGameController : MonoBehaviour, IOberser
                 knifeSprite.SetActive(true);
                 ListKnifeSprite.Add(knifeSprite);
                 DisableSpriteKnife(ListKnifeSprite.Count - 1);
+                //break;
             }
         }
         objSpriteActive++;

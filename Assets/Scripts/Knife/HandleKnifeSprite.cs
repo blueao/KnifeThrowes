@@ -15,7 +15,7 @@ public class HandleKnifeSprite : MonoBehaviour
     private void Start()
     {
         startCameraPosition = MainGame.transform.localPosition;
-      
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -48,10 +48,23 @@ public class HandleKnifeSprite : MonoBehaviour
                 MainGame.transform.localPosition = startCameraPosition;
             });
             MainGame.knifeObject.Hit();
+            if (collision.GetComponent<WoodTarget>())
+            {
+                MainGame.knifeObject.RBknife.constraints = RigidbodyConstraints2D.FreezeAll;
+                MainGame.knifeObject.isThow = false;
+                if (MainGame.knifeObject.KnifeRotate != null)
+                {
+                    MainGame.knifeObject.KnifeRotate.Kill();
+                    MainGame.knifeObject.KnifeRotate = null;
+                }
+                DOVirtual.DelayedCall(0.1f, () => { MainGame.knifeObject.Idie(); });
+            }
+            else
+                MainGame.knifeObject.ImpactKnife(true);
         }
 
 
-        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "BorderBottom" || collision.gameObject.name == "BorderTop")

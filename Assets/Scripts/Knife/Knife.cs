@@ -39,6 +39,7 @@ public class Knife : MonoBehaviour, IKnife
 
     public void Hit()
     {
+
         MainGame.IsDrop = false;
         if (ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop != null)
         {
@@ -46,7 +47,7 @@ public class Knife : MonoBehaviour, IKnife
             ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop = null;
         }
         isFly = false;
-        ImpactKnife(true);
+        //ImpactKnife(true);
         RBknife.isKinematic = true;
         box.enabled = false;
         animatorEffectKnife.gameObject.GetComponent<TrailRenderer>().Clear();
@@ -107,6 +108,7 @@ public class Knife : MonoBehaviour, IKnife
         }
         else
             RBknife.constraints = RigidbodyConstraints2D.None;
+
     }
     public void ResetKnife()
     {
@@ -119,6 +121,7 @@ public class Knife : MonoBehaviour, IKnife
         isThow = false;
         ChildKnife.transform.localRotation = Quaternion.Euler(new Vector3(180, 0, 0));
         animatorEffectKnife.gameObject.GetComponent<TrailRenderer>().Clear();
+        RBknife.constraints = RigidbodyConstraints2D.None;
     }
     private void Start()
     {
