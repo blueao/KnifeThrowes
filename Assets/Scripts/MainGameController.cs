@@ -258,6 +258,8 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     void Initialized()
     {
+        Music.value = 1f;
+        Volume.value = 1f;
         int scores = PlayerPrefs.GetInt(ModelHandle.KeyScore);
         ScoreNumber.text = scores.ToString();
         AnimCoin();
@@ -1779,5 +1781,52 @@ public class MainGameController : MonoBehaviour, IOberser
                 break;
             }
         }
+    }
+
+    public GameObject ShopUSD;
+    public GameObject PanelContempl;
+    public void isActiveShopUSD(bool isActive)
+    {
+        ShopUSD.SetActive(isActive);
+        PanelContempl.SetActive(!isActive);
+    }
+    public void OnClickShopUSD()
+    {
+        ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
+        if (!ShopDao.activeSelf)
+        {
+            ShopDao.SetActive(true);
+        }
+        if (ShopUSD.activeSelf)
+        {
+            isActiveShopUSD(false);
+            return;
+        }
+        isActiveShopUSD(true);
+    }
+    public Slider Volume;
+    public Slider Music;
+    public GameObject PanelSound;
+    public void OnValueChange()
+    {
+        vollumn = Music.value;
+    }
+    public void OmVolumeChange()
+    {
+        BackGround.volume = Volume.value;
+    }
+    public void isActivePanelVolume(bool isActive)
+    {
+        PanelSound.SetActive(isActive);
+    }
+    public void OnClickSetting()
+    {
+        ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
+        isActivePanelVolume(true);
+    }
+    public void OnClickExitSetting()
+    {
+        ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
+        isActivePanelVolume(false);
     }
 }

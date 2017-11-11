@@ -47,7 +47,7 @@ public class Knife : MonoBehaviour, IKnife
             ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop = null;
         }
         isFly = false;
-        //ImpactKnife(true);
+        ImpactKnife(true);
         RBknife.isKinematic = true;
         box.enabled = false;
         animatorEffectKnife.gameObject.GetComponent<TrailRenderer>().Clear();

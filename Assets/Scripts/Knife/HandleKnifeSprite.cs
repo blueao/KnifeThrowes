@@ -48,19 +48,15 @@ public class HandleKnifeSprite : MonoBehaviour
                 MainGame.transform.localPosition = startCameraPosition;
             });
             MainGame.knifeObject.Hit();
-            if (collision.GetComponent<WoodTarget>())
-            {
-                MainGame.knifeObject.RBknife.constraints = RigidbodyConstraints2D.FreezeAll;
-                MainGame.knifeObject.isThow = false;
-                if (MainGame.knifeObject.KnifeRotate != null)
-                {
-                    MainGame.knifeObject.KnifeRotate.Kill();
-                    MainGame.knifeObject.KnifeRotate = null;
-                }
-                DOVirtual.DelayedCall(0.1f, () => { MainGame.knifeObject.Idie(); });
-            }
-            else
-                MainGame.knifeObject.ImpactKnife(true);
+            //if (collision.GetComponent<WoodTarget>())
+            //{
+            //    MainGame.knifeObject.Idie();
+            //}
+            //else
+            //{
+            //    MainGame.knifeObject.ImpactKnife(true);
+
+            //}
         }
 
 
@@ -100,5 +96,6 @@ public class HandleKnifeSprite : MonoBehaviour
         MainGame.knifeObject.Idie();
 
     }
+
 }
 

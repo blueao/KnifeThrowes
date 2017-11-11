@@ -47,7 +47,7 @@ public class WoodTarget : MonoBehaviour, IMonster
         ModelHandle.Instance.MonsterDeadCount++;
         box.enabled = false;
         // spriteItems.enabled = false;
-        Dead = gameObject.GetComponent<SpriteRenderer>().DOFade(0, 5f).OnComplete(() =>
+        Dead = gameObject.GetComponent<SpriteRenderer>().DOFade(0, 7f).OnComplete(() =>
         {
             InPool();
             gameObject.GetComponent<SpriteRenderer>().DOFade(1, 0f);
