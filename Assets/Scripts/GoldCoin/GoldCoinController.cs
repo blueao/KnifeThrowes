@@ -32,7 +32,10 @@ public class GoldCoinController : MonoBehaviour {
         transform.rotation = Quaternion.Euler(Vector3.zero);
         transform.localScale = Vector3.one;
         sprite.enabled = true;
-        rotate = (transform.DOScaleX(0, 0.3f).OnComplete(() => { transform.DOScaleX(1, 0.3f); }).SetLoops(-1));
+        if (money>=10)
+        {
+            rotate = (transform.DOScaleX(0, 0.3f).OnComplete(() => { transform.DOScaleX(1, 0.3f); }).SetLoops(-1));
+        }
         Move = (transform.DOLocalMoveY((transform.localPosition.y + parent.GetComponent<SpriteRenderer>().sprite.rect.height/100f), 1f).OnComplete(() => {
             if (rotate != null)
             {

@@ -1058,9 +1058,16 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void OnClickExit()
     {
+        if (se != null)
+        {
+            se.Kill();
+            se = null;
+        }
+        Time.timeScale = 1;
         ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         resetListKnifeSprite();
         IsGameReadyToPlay = false;
+        QuitPanel.SetActive(false);
         for (int i = 0; i < ListPumkin.Count; i++)
         {
             ListPumkin[i].GetComponent<Stupid>().ResetState();
@@ -1078,7 +1085,6 @@ public class MainGameController : MonoBehaviour, IOberser
         CanMove = false;
         ResetAllObjToPool();
         ResetBG();
-        BackGround.Stop();
     }
     #region resetOBj
     public void ResetAllObjToPool()
@@ -1344,7 +1350,6 @@ public class MainGameController : MonoBehaviour, IOberser
         PanelSound.SetActive(false);
         ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         int Keymap2 = PlayerPrefs.GetInt(ModelHandle.SetMap2);
-        Debug.Log(Keymap2);
         if (Keymap2 == 1)
         {
 
@@ -1440,9 +1445,15 @@ public class MainGameController : MonoBehaviour, IOberser
         Map2.gameObject.SetActive(true);
         MoveMonster = Map2;
     }
+    Sequence se;
     public void CountNumber()
     {
-        Sequence se = DOTween.Sequence();
+        if (se!=null)
+        {
+            se.Kill();
+            se = null;
+        }
+        se = DOTween.Sequence();
         PanelCount.SetActive(true);
         int count = 3;
         textCount.text = count.ToString();
@@ -1647,14 +1658,29 @@ public class MainGameController : MonoBehaviour, IOberser
         PanelSound.SetActive(false);
         isActiveShopDao(false);
     }
+    public void OnButtonClickResume()
+    {
+        Time.timeScale = 1;
+        BackGround.UnPause();
+        SoundManager.UnPause();
+        QuitPanel.SetActive(false);
+    }
     public void SetActiveQuitPanel()
     {
         if (QuitPanel.activeSelf)
         {
+            Time.timeScale = 1;
+            BackGround.UnPause();
+            SoundManager.UnPause();
             QuitPanel.SetActive(false);
-        }
+        }   
         else
+        {
+            Time.timeScale = 0;
+            BackGround.Pause();
+            SoundManager.Pause();
             QuitPanel.SetActive(true);
+        }
     }
     public int objSpriteActive = 0;
     public void setPosKnifeSprite(float xTarget, float yTarget)
