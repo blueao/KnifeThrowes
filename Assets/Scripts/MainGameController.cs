@@ -86,8 +86,9 @@ public class MainGameController : MonoBehaviour, IOberser
 
     public AudioSource BackGround;
     public AudioSource SoundManager;
+    public AudioClip BackGroundMenu;
     public AudioClip BackGroundMusic2;
-    public AudioClip BackGroundMusic;
+    public AudioClip BackGroundMusic1;
     public AudioClip BallonExp;
     public AudioClip BatAppear;
     public AudioClip BatDie;
@@ -258,8 +259,10 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     void Initialized()
     {
+        BackGround.clip = BackGroundMenu;
+        BackGround.Play();
         int keyActive = PlayerPrefs.GetInt(ModelHandle.SetMap2);
-        if (keyActive==1)
+        if (keyActive == 1)
         {
             SetupBGMap2();
         }
@@ -922,12 +925,12 @@ public class MainGameController : MonoBehaviour, IOberser
             //}
             if (spriteKnife.localRotation.z == 0)
             {
-               ModelHandle.Instance.currentKnifeLocation = spriteKnife.localRotation.z;
-               knifeObject.KnifeRotate = spriteKnife.DOLocalRotate(new Vector3(0, 0, -180), 0.5f).OnComplete(() =>
-                {
-                    knifeObject.isThow = true;
-                    IsDrop = true;
-                });
+                ModelHandle.Instance.currentKnifeLocation = spriteKnife.localRotation.z;
+                knifeObject.KnifeRotate = spriteKnife.DOLocalRotate(new Vector3(0, 0, -180), 0.5f).OnComplete(() =>
+                 {
+                     knifeObject.isThow = true;
+                     IsDrop = true;
+                 });
 
             }
             if (IsDrop && rotateDrop == null)
@@ -1069,6 +1072,8 @@ public class MainGameController : MonoBehaviour, IOberser
         int scores = PlayerPrefs.GetInt(ModelHandle.KeyScore);
         CoinMenu.text = scores.ToString();
         Menu.SetActive(true);
+        BackGround.clip = BackGroundMenu;
+        BackGround.Play();
         PanelLose.SetActive(false);
         CanMove = false;
         ResetAllObjToPool();
@@ -1292,11 +1297,13 @@ public class MainGameController : MonoBehaviour, IOberser
     #endregion
     public void OnClickClassic()
     {
+      
         ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         isActiveChooseMap(true);
     }
     public void isActiveChooseMap(bool isActive)
     {
+        PanelSound.SetActive(false);
         if (PanelChooseMap.activeSelf)
         {
             PanelChooseMap.SetActive(!isActive);
@@ -1306,11 +1313,19 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void isActiveMenu(bool isActive)
     {
+        PanelSound.SetActive(false);
         Menu.SetActive(isActive);
+        if (isActive)
+        {
+            Debug.Log("Play");
+            BackGround.clip = BackGroundMenu;
+            BackGround.Play();
+        }
     }
     int ChooseMapNumber;
     public void StartGame()
     {
+        PanelSound.SetActive(false);
         ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         SetUpMap1();
         endPositionBGSky = endPositionBG;
@@ -1326,6 +1341,7 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void StartGame2()
     {
+        PanelSound.SetActive(false);
         ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         int Keymap2 = PlayerPrefs.GetInt(ModelHandle.SetMap2);
         Debug.Log(Keymap2);
@@ -1358,7 +1374,7 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void SetUpMap1()
     {
-        BackGround.clip = BackGroundMusic;
+        BackGround.clip = BackGroundMusic1;
         BackGround.Play();
         for (int i = 0; i < Grass.Length; i++)
         {
@@ -1617,15 +1633,18 @@ public class MainGameController : MonoBehaviour, IOberser
     public GameObject ShopDao;
     public void isActiveShopDao(bool isActive)
     {
+        PanelSound.SetActive(false);
         ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         ShopDao.SetActive(isActive);
     }
     public void OPenShop()
     {
+
         isActiveShopDao(true);
     }
     public void CloseShop()
     {
+        PanelSound.SetActive(false);
         isActiveShopDao(false);
     }
     public void SetActiveQuitPanel()
@@ -1638,14 +1657,14 @@ public class MainGameController : MonoBehaviour, IOberser
             QuitPanel.SetActive(true);
     }
     public int objSpriteActive = 0;
-    public void setPosKnifeSprite(float xTarget)
+    public void setPosKnifeSprite(float xTarget, float yTarget)
     {
-        float newPosKnifeCut =0f;
+        float newPosKnifeCut = 0f;
         for (int i = 0; i < ListKnifeSprite.Count; i++)
         {
 
             ListKnifeSprite[i].GetComponent<SpriteRenderer>().sprite = KnifeSpriteCut;
-            float widthKnife = ListKnifeSprite[i].GetComponent<SpriteRenderer>().sprite.rect.height/100f;
+            float widthKnife = ListKnifeSprite[i].GetComponent<SpriteRenderer>().sprite.rect.height / 100f;
             ListKnifeSprite[i].GetComponent<SpriteRenderer>().sortingOrder = 10;
             ListKnifeSprite[i].transform.parent = MoveMonster;
 
@@ -1653,19 +1672,28 @@ public class MainGameController : MonoBehaviour, IOberser
             {
 
                 ListKnifeSprite[i].transform.position = new Vector3(knifeObject.spriteKnife.transform.position.x, knifeObject.spriteKnife.transform.position.y, knifeObject.spriteKnife.transform.position.z);
-                ListKnifeSprite[i].transform.localPosition = new Vector3(xTarget -widthKnife/2f, ListKnifeSprite[i].transform.localPosition.y, ListKnifeSprite[i].transform.localPosition.z);
+                ListKnifeSprite[i].transform.localPosition = new Vector3(xTarget - widthKnife / 2f, ListKnifeSprite[i].transform.localPosition.y, ListKnifeSprite[i].transform.localPosition.z);
                 ListKnifeSprite[i].transform.rotation = knifeObject.spriteKnife.transform.rotation;
-         
+
                 ListKnifeSprite[i].transform.Rotate(knifeObject.spriteKnife.transform.rotation.x, knifeObject.spriteKnife.transform.rotation.y + 180, knifeObject.spriteKnife.transform.rotation.z + 90, Space.Self);
 
                 if (ListKnifeSprite[i].transform.rotation.z <= 180)
                 {
-                    ListKnifeSprite[i].transform.rotation = Quaternion.Euler(ListKnifeSprite[i].transform.rotation.x, ListKnifeSprite[i].transform.rotation.y+180, 240);
+                    ListKnifeSprite[i].transform.rotation = Quaternion.Euler(ListKnifeSprite[i].transform.rotation.x, ListKnifeSprite[i].transform.rotation.y + 180, 240);
+                    float newYPosition = ListKnifeSprite[i].transform.localPosition.y;
+                    if (newYPosition >= yTarget)
+                    {
+                        newYPosition = newYPosition - yTarget > 0.2f ? yTarget + 0.2f : newYPosition;
+                    }
+                    else
+                    {
+                        newYPosition = yTarget - newYPosition > 1.2f ? yTarget - 1.2f : newYPosition;
+                    }
+                    ListKnifeSprite[i].transform.localPosition = new Vector3(ListKnifeSprite[i].transform.localPosition.x, newYPosition, ListKnifeSprite[i].transform.localPosition.z);
                 }
 
                 // ListKnifeSprite[i].transform.localRotation = Quaternion.Euler(knifeObject.spriteKnife.transform.localRotation.x +180, knifeObject.spriteKnife.transform.localRotation.y, knifeObject.spriteKnife.transform.localRotation.z + 90);
                 ListKnifeSprite[i].SetActive(true);
-                Debug.Log("iiiiiii: " +i);
                 ListKnifeSprite[i].GetComponent<FadeKnifeCut>().DisableSpriteKnife();
                 break;
             }
@@ -1682,6 +1710,16 @@ public class MainGameController : MonoBehaviour, IOberser
                 if (knifeSprite.transform.rotation.z <= 180)
                 {
                     knifeSprite.transform.rotation = Quaternion.Euler(knifeSprite.transform.rotation.x, knifeSprite.transform.rotation.y + 180, 240);
+                    float newYPosition = knifeSprite.transform.localPosition.y;
+                    if (newYPosition >= yTarget)
+                    {
+                        newYPosition = newYPosition - yTarget > 0.2f ? yTarget + 0.2f : newYPosition;
+                    }
+                    else
+                    {
+                        newYPosition = yTarget - newYPosition > 1.2f ? yTarget - 1.2f : newYPosition;
+                    }
+                    knifeSprite.transform.localPosition = new Vector3(knifeSprite.transform.localPosition.x, newYPosition, knifeSprite.transform.localPosition.z);
                 }
                 knifeSprite.transform.localScale = knifeObject.transform.localScale;
                 knifeSprite.name = ListKnifeSprite[ListKnifeSprite.Count - 1].gameObject.name.Remove(11) + ListKnifeSprite.Count + i;
@@ -1794,6 +1832,7 @@ public class MainGameController : MonoBehaviour, IOberser
     public GameObject PanelContempl;
     public void isActiveShopUSD(bool isActive)
     {
+        PanelSound.SetActive(false);
         ShopUSD.SetActive(isActive);
         PanelContempl.SetActive(!isActive);
     }
@@ -1820,30 +1859,38 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void OmVolumeChange()
     {
-        BackGround.volume  = Volume.value;
+        BackGround.volume = Volume.value;
     }
-    public void isActivePanelVolume(bool isActive)
+    public void isActivePanelVolume()
     {
-        PanelSound.SetActive(isActive);
+        if (PanelSound.activeSelf)
+        {
+            PanelSound.SetActive(false);
+        }
+        else
+        PanelSound.SetActive(true);
     }
     public void OnClickSetting()
     {
         ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
-        isActivePanelVolume(true);
+        isActivePanelVolume();
     }
     public void OnClickExitSetting()
     {
         ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
-        isActivePanelVolume(false);
+        PanelSound.SetActive(false);
     }
 
+    public GameObject PanelAdmobUnvaible;
     public void OnClickShowAdsToOpenMap()
     {
+        ModelHandle.Instance.ClosePanelSound();
         FunnyKnifeAdsManager.Instance.ShowVideoReward(HandleVideoRewaredToOpenMap);
     }
 
     public void OnClickShowAdsToGetMoney()
     {
+        ModelHandle.Instance.ClosePanelSound();
         FunnyKnifeAdsManager.Instance.ShowVideoReward(HandleVideoRewaredToGetMoney);
     }
 
@@ -1875,11 +1922,19 @@ public class MainGameController : MonoBehaviour, IOberser
     public Image BGPlayMap2;
     public void SetupBGMap2()
     {
-        PlayerPrefs.SetInt(ModelHandle.SetMap2,1);
+        PlayerPrefs.SetInt(ModelHandle.SetMap2, 1);
         BGMap2.sprite = Map2Active;
         LockMap2.enabled = false;
         TextBGMap2.enabled = false;
         ImagePlay.enabled = true;
         BGPlayMap2.sprite = PlayMap2;
+    }
+    public void isActivePanelAdsModUn(bool isActive)
+    {
+        PanelAdmobUnvaible.SetActive(isActive);
+    }
+    public void OnClickDisablePanelAdsmob()
+    {
+        isActivePanelAdsModUn(false);
     }
 }

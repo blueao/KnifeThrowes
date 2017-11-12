@@ -45,6 +45,7 @@ public class HandleButtonBuy : MonoBehaviour
 
     public void ButtonClickBuy()
     {
+        ModelHandle.Instance.ClosePanelSound();
         int index = int.Parse(gameObject.transform.parent.name.Remove(0, 9));
         string nameobj = gameObject.transform.parent.name;
         if (IsCanbuy == true)

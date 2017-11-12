@@ -6,7 +6,7 @@ using System;
 public class FunnyKnifeAdsManager : MonoBehaviour
 {
 
-    private bool isLoadInt = false;
+    public bool isLoadInt = false;
 
     public RewardBasedVideoAd rewardBasedVideo;
 
@@ -84,6 +84,7 @@ public class FunnyKnifeAdsManager : MonoBehaviour
         }
         else
         {
+            ModelHandle.Instance.ActivePanelAdsmobUn(true);
             RequestRewardedVideo();
         }
     }
@@ -117,7 +118,6 @@ public class FunnyKnifeAdsManager : MonoBehaviour
 
     public void HandleRewardBasedVideoFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
-        RequestRewardedVideo();
     }
 
     public void HandleRewardBasedVideoOpened(object sender, EventArgs args)
@@ -179,11 +179,7 @@ public class FunnyKnifeAdsManager : MonoBehaviour
         UM_AdManager.OnInterstitialLoaded -= HandleOnInterstitialLoaded;
         UM_AdManager.OnInterstitialLoadFail -= HandleOnInterstitialLoadFail;
         UM_AdManager.OnInterstitialClosed -= HandleOnInterstitialClosed;
-
-        ModelHandle.Instance.HandleLoseGame();
-
-        InitializeActions();
-        LoadInterstitialAd();
+        isLoadInt = false;
     }
 
     void HandleOnInterstitialLoaded()
@@ -192,5 +188,6 @@ public class FunnyKnifeAdsManager : MonoBehaviour
 
         UM_AdManager.OnInterstitialLoaded -= HandleOnInterstitialLoaded;
         UM_AdManager.OnInterstitialLoadFail -= HandleOnInterstitialLoadFail;
+        isLoadInt = true;
     }
 }

@@ -93,15 +93,23 @@ public class ModelHandle
     {
         mainRect.GetComponent<MainGameController>().SetSound(sound);
     }
-    public void setSpriteKnifePos(float xTarget)
+    public void setSpriteKnifePos(float xTarget,float yTarget)
     {
-        mainRect.GetComponent<MainGameController>().setPosKnifeSprite(xTarget);
+        mainRect.GetComponent<MainGameController>().setPosKnifeSprite(xTarget, yTarget);
     }
     public void setVolumn(float background, float Sound)
     {
         mainRect.GetComponent<MainGameController>().BackGround.volume = background;
         mainRect.GetComponent<MainGameController>().vollumn = Sound;
         mainRect.GetComponent<MainGameController>().SoundManager.volume = Sound;
+    }
+    public void ClosePanelSound()
+    {
+        mainRect.GetComponent<MainGameController>().PanelSound.SetActive(false);
+    }
+    public void ActivePanelAdsmobUn(bool isActive)
+    {
+        mainRect.GetComponent<MainGameController>().isActivePanelAdsModUn(isActive);
     }
     public static ModelHandle Instance
     {

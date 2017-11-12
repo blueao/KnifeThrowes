@@ -28,14 +28,12 @@ public class HandleLoseGame : MonoBehaviour
     {
         yield return new WaitForSeconds(0f);
 
-        if (UM_AdManager.IsInited)
+        if (FunnyKnifeAdsManager.Instance.isLoadInt)
         {
             FunnyKnifeAdsManager.Instance.ShowInterstitialAd();
         }
         else
         {
-            FunnyKnifeAdsManager.Instance.StartInterstitialAd();
-
             if (!MainGame.PanelLose.activeSelf)
             {
                 MainGame.PanelLose.SetActive(true);

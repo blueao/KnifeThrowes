@@ -128,7 +128,7 @@ public class WoodTarget : MonoBehaviour, IMonster
                 tweenMove = null;
             }
             Die();
-            ModelHandle.Instance.setSpriteKnifePos(this.transform.localPosition.x);
+            ModelHandle.Instance.setSpriteKnifePos(this.transform.localPosition.x,this.transform.localPosition.y);
         }
         if (collision.name == "StartMove")
         {
