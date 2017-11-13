@@ -15,7 +15,6 @@ public class FadeKnifeCut : MonoBehaviour {
        tween =   transform.GetComponent<SpriteRenderer>().DOFade(0, 3f).OnComplete(() =>
         {
             Color tmp = new Color();
-            Debug.Log("tween " + tmp);
             tmp.a = 255;
             tmp.b = 1;
             tmp.r = 1;

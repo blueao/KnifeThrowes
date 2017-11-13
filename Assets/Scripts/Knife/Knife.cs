@@ -55,6 +55,7 @@ public class Knife : MonoBehaviour, IKnife
 
     public void Idie()
     {
+        RBknife.constraints = RigidbodyConstraints2D.None;
         MainGame.IsDrop = false;
         if (ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop != null)
         {

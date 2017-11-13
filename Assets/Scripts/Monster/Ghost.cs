@@ -47,7 +47,7 @@ public class Ghost : MonoBehaviour, IMonster
     public void Move()
     {
         isMove = true;
-        move.Join(transform.DOLocalMoveX(transform.localPosition.x - 10, 6f));
+        move.Join(transform.DOLocalMoveX(transform.localPosition.x - 10, 4f));
 
         move.Join(transform.DOLocalMoveY(transform.localPosition.y + 1f, 2f).OnComplete(()=> {
             transform.DOLocalMoveY(transform.localPosition.y - 1f, 2f);
