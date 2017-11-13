@@ -1303,7 +1303,7 @@ public class MainGameController : MonoBehaviour, IOberser
     #endregion
     public void OnClickClassic()
     {
-      
+
         ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         isActiveChooseMap(true);
     }
@@ -1448,7 +1448,7 @@ public class MainGameController : MonoBehaviour, IOberser
     Sequence se;
     public void CountNumber()
     {
-        if (se!=null)
+        if (se != null)
         {
             se.Kill();
             se = null;
@@ -1673,7 +1673,7 @@ public class MainGameController : MonoBehaviour, IOberser
             BackGround.UnPause();
             SoundManager.UnPause();
             QuitPanel.SetActive(false);
-        }   
+        }
         else
         {
             Time.timeScale = 0;
@@ -1894,7 +1894,7 @@ public class MainGameController : MonoBehaviour, IOberser
             PanelSound.SetActive(false);
         }
         else
-        PanelSound.SetActive(true);
+            PanelSound.SetActive(true);
     }
     public void OnClickSetting()
     {
@@ -1963,4 +1963,5 @@ public class MainGameController : MonoBehaviour, IOberser
     {
         isActivePanelAdsModUn(false);
     }
+
 }
