@@ -910,19 +910,6 @@ public class MainGameController : MonoBehaviour, IOberser
         calculatorRotateKnife();
         if (knifeObject.isFly)
         {
-            //if (knifeObject.ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop == null)
-            //{
-            //    knifeObject.isThow = true;
-
-            //    knifeObject.ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop = knifeObject.ChildKnife.transform.DOLocalRotate(new Vector3(
-            //        knifeObject.ChildKnife.transform.localRotation.x,
-            //        knifeObject.ChildKnife.transform.localRotation.y,
-            //        -540), time, RotateMode.FastBeyond360).OnComplete(() =>
-            //        {
-            //            knifeObject.animatorEffectKnife.GetComponent<TrailRenderer>().enabled = false;
-            //            IsDrop = true;
-            //        });
-            //}
             if (spriteKnife.localRotation.z == 0)
             {
                 ModelHandle.Instance.currentKnifeLocation = spriteKnife.localRotation.z;
@@ -986,10 +973,9 @@ public class MainGameController : MonoBehaviour, IOberser
     public float a = 1f;
     public void DragPosition()
     {
+
         if (Input.GetMouseButtonDown(0) && knifeObject.isIdie)
         {
-
-
             startMousePosition = Input.mousePosition;
             knifeObject.isDrag = true;
         }

@@ -16,10 +16,12 @@ public class Spiders : MonoBehaviour, IMonster
     private void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+		SetSprite();
         gameObject.AddComponent<BoxCollider2D>();
         box = GetComponent<BoxCollider2D>();
         startposition = transform.localPosition;
-        SetSprite();
+		box.offset = new Vector2(0, -2.3f);
+        box.size = new Vector2(1.31f, 1.13f);
     }
     Tween death;
     public Sprite[] ListBloodSprite;
@@ -95,7 +97,7 @@ public class Spiders : MonoBehaviour, IMonster
         sprite.sprite = ListSprite[0];
         width = sprite.sprite.bounds.size.x;
         height = sprite.sprite.bounds.size.y;
-        box.offset = new Vector2(0, -2.3f);
+       
         //box.size = new Vector2(1.3f, 2.2f);
     }
     private void OnTriggerEnter2D(Collider2D collision)

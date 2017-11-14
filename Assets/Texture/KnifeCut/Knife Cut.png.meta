@@ -72,7 +72,6 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
@@ -81,11 +80,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: c knife (1)
+    - serializedVersion: 2
+      name: c knife (1)
       rect:
         serializedVersion: 2
         x: 231
@@ -96,7 +98,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 1200 (1)
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 1200 (1)
       rect:
         serializedVersion: 2
         x: 1
@@ -107,7 +111,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 1200 (2)
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 1200 (2)
       rect:
         serializedVersion: 2
         x: 104
@@ -118,7 +124,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 1300
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 1300
       rect:
         serializedVersion: 2
         x: 199
@@ -129,7 +137,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 1800
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 1800
       rect:
         serializedVersion: 2
         x: 92
@@ -140,7 +150,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 2000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 2000
       rect:
         serializedVersion: 2
         x: 114
@@ -151,7 +163,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 2300
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 2300
       rect:
         serializedVersion: 2
         x: 185
@@ -162,7 +176,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 2600
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 2600
       rect:
         serializedVersion: 2
         x: 164
@@ -173,7 +189,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 2900
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 2900
       rect:
         serializedVersion: 2
         x: 1
@@ -184,7 +202,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 3500
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 3500
       rect:
         serializedVersion: 2
         x: 33
@@ -195,7 +215,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 5000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 5000
       rect:
         serializedVersion: 2
         x: 1
@@ -206,7 +228,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 8000 (1)
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 8000 (1)
       rect:
         serializedVersion: 2
         x: 160
@@ -217,7 +241,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 8000 (2)
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 8000 (2)
       rect:
         serializedVersion: 2
         x: 65
@@ -228,7 +254,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 8500
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 8500
       rect:
         serializedVersion: 2
         x: 219
@@ -239,7 +267,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 9000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 9000
       rect:
         serializedVersion: 2
         x: 90
@@ -250,7 +280,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 10000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 10000
       rect:
         serializedVersion: 2
         x: 90
@@ -261,7 +293,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 11000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 11000
       rect:
         serializedVersion: 2
         x: 52
@@ -272,7 +306,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 12000 (1)
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 12000 (1)
       rect:
         serializedVersion: 2
         x: 128
@@ -283,7 +319,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 12000 (2)
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 12000 (2)
       rect:
         serializedVersion: 2
         x: 219
@@ -294,7 +332,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 12000 (3)
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 12000 (3)
       rect:
         serializedVersion: 2
         x: 156
@@ -305,7 +345,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 15000 (1)
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 15000 (1)
       rect:
         serializedVersion: 2
         x: 208
@@ -316,7 +358,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 15000 (2)
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 15000 (2)
       rect:
         serializedVersion: 2
         x: 1
@@ -327,7 +371,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 15000 (3)
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 15000 (3)
       rect:
         serializedVersion: 2
         x: 72
@@ -338,7 +384,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 16000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 16000
       rect:
         serializedVersion: 2
         x: 33
@@ -349,7 +397,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 17000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 17000
       rect:
         serializedVersion: 2
         x: 1
@@ -360,7 +410,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 18000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 18000
       rect:
         serializedVersion: 2
         x: 52
@@ -371,7 +423,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 22000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 22000
       rect:
         serializedVersion: 2
         x: 209
@@ -382,7 +436,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 24000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 24000
       rect:
         serializedVersion: 2
         x: 172
@@ -393,7 +449,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 27000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 27000
       rect:
         serializedVersion: 2
         x: 172
@@ -404,7 +462,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 28000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 28000
       rect:
         serializedVersion: 2
         x: 95
@@ -415,7 +475,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 30000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 30000
       rect:
         serializedVersion: 2
         x: 126
@@ -426,7 +488,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 31000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 31000
       rect:
         serializedVersion: 2
         x: 126
@@ -437,7 +501,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 33000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 33000
       rect:
         serializedVersion: 2
         x: 38
@@ -448,7 +514,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 35000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 35000
       rect:
         serializedVersion: 2
         x: 190
@@ -459,7 +527,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: c knife 38000
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: c knife 38000
       rect:
         serializedVersion: 2
         x: 134
@@ -470,6 +540,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

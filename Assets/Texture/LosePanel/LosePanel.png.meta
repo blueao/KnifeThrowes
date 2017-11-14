@@ -44,7 +44,6 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -53,11 +52,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: button no watch
+    - serializedVersion: 2
+      name: button no watch
       rect:
         serializedVersion: 2
         x: 1
@@ -67,13 +69,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -38.5, y: 32.5}
-        - {x: -39.5, y: 31.5}
-        - {x: -39.5, y: -32.5}
-        - {x: 39.5, y: -32.5}
-        - {x: 39.5, y: 32.5}
-    - name: button play again
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: button play again
       rect:
         serializedVersion: 2
         x: 1
@@ -83,19 +82,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 136.5, y: 48}
-        - {x: -135.5, y: 48}
-        - {x: -152.5, y: 36}
-        - {x: -154.5, y: 30}
-        - {x: -154.5, y: -31}
-        - {x: -144.5, y: -45}
-        - {x: -135.5, y: -48}
-        - {x: 136.5, y: -48}
-        - {x: 152.5, y: -36}
-        - {x: 154.5, y: -32}
-        - {x: 154.5, y: 35}
-    - name: button yes watch
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: button yes watch
       rect:
         serializedVersion: 2
         x: 1
@@ -105,13 +95,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -38.5, y: 32.5}
-        - {x: -39.5, y: 31.5}
-        - {x: -39.5, y: -32.5}
-        - {x: 39.5, y: -32.5}
-        - {x: 39.5, y: 32.5}
-    - name: panel watch video to get 1000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: panel watch video to get 1000
       rect:
         serializedVersion: 2
         x: 1
@@ -121,28 +108,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 275.5, y: 118.5}
-        - {x: 273.5, y: 123.5}
-        - {x: 265.5, y: 131.5}
-        - {x: 264.5, y: 131.5}
-        - {x: 262.5, y: 134.5}
-        - {x: 257.5, y: 136.5}
-        - {x: -257.5, y: 136.5}
-        - {x: -262.5, y: 134.5}
-        - {x: -270.5, y: 126.5}
-        - {x: -270.5, y: 125.5}
-        - {x: -273.5, y: 123.5}
-        - {x: -275.5, y: 118.5}
-        - {x: -275.5, y: -118.5}
-        - {x: -272.5, y: -125.5}
-        - {x: -264.5, y: -133.5}
-        - {x: -257.5, y: -136.5}
-        - {x: 257.5, y: -136.5}
-        - {x: 264.5, y: -133.5}
-        - {x: 272.5, y: -125.5}
-        - {x: 275.5, y: -118.5}
-    - name: text no watch
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text no watch
       rect:
         serializedVersion: 2
         x: 82
@@ -153,7 +122,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: text play again
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text play again
       rect:
         serializedVersion: 2
         x: 82
@@ -163,21 +134,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -137, y: 26}
-        - {x: -137, y: -26}
-        - {x: -19, y: -26}
-        - {x: -19, y: 17}
-        - {x: -21, y: 19}
-        - {x: -61, y: 26}
-      - - {x: 13, y: 26}
-        - {x: -9, y: 21}
-        - {x: -14, y: 12}
-        - {x: -14, y: -26}
-        - {x: 137, y: -26}
-        - {x: 137, y: 23}
-        - {x: 129, y: 26}
-    - name: text yes watch
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text yes watch
       rect:
         serializedVersion: 2
         x: 82
@@ -187,17 +147,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -9.5, y: -16}
-        - {x: 36.5, y: -16}
-        - {x: 36.5, y: 13}
-        - {x: 33.5, y: 16}
-        - {x: -36.5, y: 16}
-        - {x: -36.5, y: -9}
-        - {x: -34.5, y: -16}
-        - {x: -12.5, y: -16}
-        - {x: -12.5, y: -10}
-        - {x: -12.5, y: -12}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

@@ -51,7 +51,6 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -60,11 +59,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: button buy gold by usd
+    - serializedVersion: 2
+      name: button buy gold by usd
       rect:
         serializedVersion: 2
         x: 1
@@ -74,24 +76,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 159.5, y: 51.5}
-        - {x: 157.5, y: 54.5}
-        - {x: 151.5, y: 60.5}
-        - {x: 148.5, y: 62.5}
-        - {x: -148.5, y: 62.5}
-        - {x: -151.5, y: 60.5}
-        - {x: -157.5, y: 54.5}
-        - {x: -159.5, y: 51.5}
-        - {x: -159.5, y: -52.5}
-        - {x: -157.5, y: -55.5}
-        - {x: -152.5, y: -60.5}
-        - {x: -149.5, y: -62.5}
-        - {x: 149.5, y: -62.5}
-        - {x: 152.5, y: -60.5}
-        - {x: 157.5, y: -55.5}
-        - {x: 159.5, y: -52.5}
-    - name: logo money 5000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: logo money 5000
       rect:
         serializedVersion: 2
         x: 455
@@ -101,16 +89,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -23.5, y: 19.5}
-        - {x: -24.5, y: 16.5}
-        - {x: -24.5, y: -16.5}
-        - {x: -19.5, y: -19.5}
-        - {x: 17.5, y: -19.5}
-        - {x: 24.5, y: -16.5}
-        - {x: 24.5, y: 16.5}
-        - {x: 20.5, y: 19.5}
-    - name: logo money 25000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: logo money 25000
       rect:
         serializedVersion: 2
         x: 453
@@ -120,13 +102,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -24, y: 31}
-        - {x: -24, y: -31}
-        - {x: 19, y: -31}
-        - {x: 24, y: -28}
-        - {x: 24, y: 31}
-    - name: logo money 65000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: logo money 65000
       rect:
         serializedVersion: 2
         x: 343
@@ -136,14 +115,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -49, y: 31}
-        - {x: -49, y: -31}
-        - {x: 47, y: -31}
-        - {x: 49, y: -30}
-        - {x: 49, y: 11}
-        - {x: 3, y: 31}
-    - name: logo money 250000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: logo money 250000
       rect:
         serializedVersion: 2
         x: 343
@@ -153,14 +128,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -60.5, y: 33}
-        - {x: -60.5, y: -31}
-        - {x: -53.5, y: -33}
-        - {x: 43.5, y: -33}
-        - {x: 60.5, y: -28}
-        - {x: 60.5, y: 33}
-    - name: panel shop gold
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: panel shop gold
       rect:
         serializedVersion: 2
         x: 1
@@ -170,21 +141,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 170, y: 303.5}
-        - {x: 164, y: 309.5}
-        - {x: 161, y: 310.5}
-        - {x: -161, y: 310.5}
-        - {x: -164, y: 309.5}
-        - {x: -170, y: 303.5}
-        - {x: -170, y: -303.5}
-        - {x: -163, y: -309.5}
-        - {x: -162, y: -309.5}
-        - {x: -161, y: -310.5}
-        - {x: 162, y: -310.5}
-        - {x: 163, y: -309.5}
-        - {x: 170, y: -303.5}
-    - name: text 1,99 usd
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text 1,99 usd
       rect:
         serializedVersion: 2
         x: 343
@@ -194,21 +154,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -38, y: 24.5}
-        - {x: -59, y: 24.5}
-        - {x: -63, y: 22.5}
-        - {x: -63, y: -17.5}
-        - {x: -57, y: -24.5}
-        - {x: -41, y: -24.5}
-        - {x: -33, y: -17.5}
-        - {x: -33, y: 12.5}
-        - {x: -34, y: 19.5}
-      - - {x: -23, y: 24.5}
-        - {x: -23, y: -23.5}
-        - {x: 63, y: -23.5}
-        - {x: 63, y: 24.5}
-    - name: text 4,99 usd
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text 4,99 usd
       rect:
         serializedVersion: 2
         x: 343
@@ -218,23 +167,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -43, y: 24.5}
-        - {x: -64, y: 24.5}
-        - {x: -66, y: 20.5}
-        - {x: -66, y: -22.5}
-        - {x: -65, y: -24.5}
-        - {x: -39, y: -24.5}
-        - {x: -36, y: -16.5}
-        - {x: -36, y: 14.5}
-        - {x: -37, y: 17.5}
-      - - {x: -5, y: 24.5}
-        - {x: -19, y: 23.5}
-        - {x: -27, y: 3.5}
-        - {x: -27, y: -23.5}
-        - {x: 66, y: -23.5}
-        - {x: 66, y: 24.5}
-    - name: text 9,99 usd
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text 9,99 usd
       rect:
         serializedVersion: 2
         x: 343
@@ -244,22 +180,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -41, y: 25}
-        - {x: -65, y: 25}
-        - {x: -68, y: 24}
-        - {x: -68, y: -17}
-        - {x: -61, y: -25}
-        - {x: -46, y: -25}
-        - {x: -37, y: -16}
-        - {x: -37, y: 17}
-      - - {x: -26, y: 25}
-        - {x: -26, y: -18}
-        - {x: -24, y: -24}
-        - {x: 68, y: -24}
-        - {x: 68, y: 21}
-        - {x: 61, y: 25}
-    - name: text 19,99 usd
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text 19,99 usd
       rect:
         serializedVersion: 2
         x: 343
@@ -269,22 +193,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -70, y: 24.5}
-        - {x: -77, y: 18.5}
-        - {x: -77, y: -18.5}
-        - {x: -71, y: -24.5}
-        - {x: -53, y: -24.5}
-        - {x: -46, y: -18.5}
-        - {x: -46, y: 15.5}
-        - {x: -54, y: 24.5}
-      - - {x: -36, y: 23.5}
-        - {x: -37, y: 21.5}
-        - {x: -37, y: -14.5}
-        - {x: -34, y: -24.5}
-        - {x: 77, y: -24.5}
-        - {x: 77, y: 23.5}
-    - name: text 25000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text 25000
       rect:
         serializedVersion: 2
         x: 343
@@ -294,19 +206,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 12, y: 16.5}
-        - {x: 11, y: 13.5}
-        - {x: 11, y: 11.5}
-        - {x: 11, y: 13.5}
-        - {x: 7, y: 16.5}
-        - {x: -53, y: 16.5}
-        - {x: -54, y: 14.5}
-        - {x: -54, y: -16.5}
-        - {x: 52, y: -16.5}
-        - {x: 54, y: -14.5}
-        - {x: 54, y: 16.5}
-    - name: text 65000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text 65000
       rect:
         serializedVersion: 2
         x: 343
@@ -316,17 +219,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 37, y: 16.5}
-        - {x: 34, y: 13.5}
-        - {x: 34, y: 11.5}
-        - {x: 33, y: 16.5}
-        - {x: -55, y: 16.5}
-        - {x: -55, y: -16.5}
-        - {x: 55, y: -16.5}
-        - {x: 55, y: 14.5}
-        - {x: 53, y: 16.5}
-    - name: text 250000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text 250000
       rect:
         serializedVersion: 2
         x: 343
@@ -336,22 +232,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 47, y: 16.5}
-        - {x: 44, y: 13.5}
-        - {x: 44, y: 11.5}
-        - {x: 43, y: 16.5}
-        - {x: -22, y: 16.5}
-        - {x: -24, y: 10.5}
-        - {x: -25, y: 8.5}
-        - {x: -25, y: 7.5}
-        - {x: -24, y: 11.5}
-        - {x: -24, y: 16.5}
-        - {x: -65, y: 16.5}
-        - {x: -65, y: -16.5}
-        - {x: 65, y: -16.5}
-        - {x: 65, y: 16.5}
-    - name: text1 5000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text1 5000
       rect:
         serializedVersion: 2
         x: 343
@@ -361,16 +245,8 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5113636, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 22, y: 16.5}
-        - {x: 21, y: 13.5}
-        - {x: 21, y: 11.5}
-        - {x: 21, y: 16.5}
-        - {x: -45, y: 16.5}
-        - {x: -45, y: -16.5}
-        - {x: 40, y: -16.5}
-        - {x: 43, y: -13.5}
-        - {x: 43, y: 16.5}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

@@ -51,7 +51,6 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -60,11 +59,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: button ok 1
+    - serializedVersion: 2
+      name: button ok 1
       rect:
         serializedVersion: 2
         x: 904
@@ -74,14 +76,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -54, y: 45}
-        - {x: -56, y: 43}
-        - {x: -56, y: -45}
-        - {x: 56, y: -45}
-        - {x: 56, y: 44}
-        - {x: 54, y: 45}
-    - name: button play 1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: button play 1
       rect:
         serializedVersion: 2
         x: 785
@@ -91,15 +89,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -36.5, y: 60.5}
-        - {x: -58.5, y: 39.5}
-        - {x: -58.5, y: -41.5}
-        - {x: -55.5, y: -60.5}
-        - {x: 58.5, y: -60.5}
-        - {x: 58.5, y: 44.5}
-        - {x: 43.5, y: 60.5}
-    - name: button play 2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: button play 2
       rect:
         serializedVersion: 2
         x: 933
@@ -109,15 +102,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -42, y: 40}
-        - {x: -42, y: -36}
-        - {x: -41, y: -40}
-        - {x: 12, y: -40}
-        - {x: 42, y: -20}
-        - {x: 42, y: 16}
-        - {x: 18, y: 40}
-    - name: button watch now 1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: button watch now 1
       rect:
         serializedVersion: 2
         x: 785
@@ -127,16 +115,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -68, y: 67.5}
-        - {x: -73, y: 61.5}
-        - {x: -73, y: -60.5}
-        - {x: -68, y: -67.5}
-        - {x: 68, y: -67.5}
-        - {x: 73, y: -60.5}
-        - {x: 73, y: 61.5}
-        - {x: 68, y: 67.5}
-    - name: lock 1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: lock 1
       rect:
         serializedVersion: 2
         x: 904
@@ -146,14 +128,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -24, y: 41}
-        - {x: -28, y: 27}
-        - {x: -28, y: -41}
-        - {x: 28, y: -41}
-        - {x: 28, y: 23}
-        - {x: 24, y: 41}
-    - name: logo ok 1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: logo ok 1
       rect:
         serializedVersion: 2
         x: 933
@@ -163,14 +141,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -35.5, y: 34.5}
-        - {x: -35.5, y: -7.5}
-        - {x: -16.5, y: -34.5}
-        - {x: 1.5, y: -34.5}
-        - {x: 35.5, y: 16.5}
-        - {x: 35.5, y: 34.5}
-    - name: 'panel  background halloween lock '
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 'panel  background halloween lock '
       rect:
         serializedVersion: 2
         x: 1
@@ -180,27 +154,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 288, y: -66.5}
-        - {x: 290, y: -64.5}
-        - {x: 290, y: 64.5}
-        - {x: 289, y: 67.5}
-        - {x: 281, y: 75.5}
-        - {x: 278, y: 76.5}
-        - {x: -278, y: 76.5}
-        - {x: -281, y: 75.5}
-        - {x: -289, y: 67.5}
-        - {x: -290, y: 64.5}
-        - {x: -290, y: -64.5}
-        - {x: -288, y: -67.5}
-        - {x: -282, y: -74.5}
-        - {x: -279, y: -75.5}
-        - {x: -277, y: -76.5}
-        - {x: 277, y: -76.5}
-        - {x: 279, y: -75.5}
-        - {x: 282, y: -74.5}
-        - {x: 288, y: -67.5}
-    - name: 'panel  background noel  lock '
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 'panel  background noel  lock '
       rect:
         serializedVersion: 2
         x: 1
@@ -210,27 +167,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 290, y: 64.5}
-        - {x: 288, y: 66.5}
-        - {x: 288, y: 67.5}
-        - {x: 282, y: 74.5}
-        - {x: 279, y: 75.5}
-        - {x: 277, y: 76.5}
-        - {x: -277, y: 76.5}
-        - {x: -279, y: 75.5}
-        - {x: -282, y: 74.5}
-        - {x: -288, y: 67.5}
-        - {x: -290, y: 64.5}
-        - {x: -290, y: -64.5}
-        - {x: -289, y: -67.5}
-        - {x: -281, y: -75.5}
-        - {x: -278, y: -76.5}
-        - {x: 278, y: -76.5}
-        - {x: 281, y: -75.5}
-        - {x: 289, y: -67.5}
-        - {x: 290, y: -64.5}
-    - name: 'panel  background noel '
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 'panel  background noel '
       rect:
         serializedVersion: 2
         x: 1
@@ -240,27 +180,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 290, y: 64.5}
-        - {x: 288, y: 66.5}
-        - {x: 288, y: 67.5}
-        - {x: 282, y: 74.5}
-        - {x: 279, y: 75.5}
-        - {x: 277, y: 76.5}
-        - {x: -277, y: 76.5}
-        - {x: -279, y: 75.5}
-        - {x: -282, y: 74.5}
-        - {x: -288, y: 67.5}
-        - {x: -290, y: 64.5}
-        - {x: -290, y: -64.5}
-        - {x: -289, y: -67.5}
-        - {x: -281, y: -75.5}
-        - {x: -278, y: -76.5}
-        - {x: 278, y: -76.5}
-        - {x: 281, y: -75.5}
-        - {x: 289, y: -67.5}
-        - {x: 290, y: -64.5}
-    - name: panel ad service is unavaible 1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: panel ad service is unavaible 1
       rect:
         serializedVersion: 2
         x: 1
@@ -270,14 +193,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -266.5, y: 166.5}
-        - {x: -266.5, y: -166.5}
-        - {x: 264.5, y: -166.5}
-        - {x: 266.5, y: -164.5}
-        - {x: 266.5, y: 164.5}
-        - {x: 264.5, y: 166.5}
-    - name: panel classic
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: panel classic
       rect:
         serializedVersion: 2
         x: 1
@@ -287,27 +206,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 391, y: -241.5}
-        - {x: 391, y: 241.5}
-        - {x: 389, y: 246.5}
-        - {x: 380, y: 255.5}
-        - {x: 373, y: 258.5}
-        - {x: -373, y: 258.5}
-        - {x: -380, y: 255.5}
-        - {x: -389, y: 246.5}
-        - {x: -391, y: 241.5}
-        - {x: -391, y: -241.5}
-        - {x: -389, y: -246.5}
-        - {x: -379, y: -255.5}
-        - {x: -378, y: -255.5}
-        - {x: -377, y: -257.5}
-        - {x: -374, y: -258.5}
-        - {x: 374, y: -258.5}
-        - {x: 377, y: -257.5}
-        - {x: 379, y: -255.5}
-        - {x: 389, y: -246.5}
-    - name: panel seclect background 1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: panel seclect background 1
       rect:
         serializedVersion: 2
         x: 1
@@ -317,27 +219,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 288, y: -66.5}
-        - {x: 290, y: -64.5}
-        - {x: 290, y: 64.5}
-        - {x: 289, y: 67.5}
-        - {x: 281, y: 75.5}
-        - {x: 278, y: 76.5}
-        - {x: -278, y: 76.5}
-        - {x: -281, y: 75.5}
-        - {x: -289, y: 67.5}
-        - {x: -290, y: 64.5}
-        - {x: -290, y: -64.5}
-        - {x: -288, y: -67.5}
-        - {x: -282, y: -74.5}
-        - {x: -279, y: -75.5}
-        - {x: -277, y: -76.5}
-        - {x: 277, y: -76.5}
-        - {x: 279, y: -75.5}
-        - {x: 282, y: -74.5}
-        - {x: 288, y: -67.5}
-    - name: panel seclect background halloween
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: panel seclect background halloween
       rect:
         serializedVersion: 2
         x: 1
@@ -347,27 +232,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 288, y: -66.5}
-        - {x: 290, y: -64.5}
-        - {x: 290, y: 64.5}
-        - {x: 289, y: 67.5}
-        - {x: 281, y: 75.5}
-        - {x: 278, y: 76.5}
-        - {x: -278, y: 76.5}
-        - {x: -281, y: 75.5}
-        - {x: -289, y: 67.5}
-        - {x: -290, y: 64.5}
-        - {x: -290, y: -64.5}
-        - {x: -288, y: -67.5}
-        - {x: -282, y: -74.5}
-        - {x: -279, y: -75.5}
-        - {x: -277, y: -76.5}
-        - {x: 277, y: -76.5}
-        - {x: 279, y: -75.5}
-        - {x: 282, y: -74.5}
-        - {x: 288, y: -67.5}
-    - name: text watch a video to unlock
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text watch a video to unlock
       rect:
         serializedVersion: 2
         x: 1
@@ -378,6 +246,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

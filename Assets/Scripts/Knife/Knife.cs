@@ -37,7 +37,7 @@ public class Knife : MonoBehaviour, IKnife
         box.enabled = true;
     }
 
-    public void Hit()
+    public void Hit(bool active)
     {
 
         MainGame.IsDrop = false;
@@ -47,7 +47,7 @@ public class Knife : MonoBehaviour, IKnife
             ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop = null;
         }
         isFly = false;
-        ImpactKnife(true);
+        ImpactKnife(active);
         RBknife.isKinematic = true;
         box.enabled = false;
         animatorEffectKnife.gameObject.GetComponent<TrailRenderer>().Clear();
@@ -55,14 +55,13 @@ public class Knife : MonoBehaviour, IKnife
 
     public void Idie()
     {
-        RBknife.constraints = RigidbodyConstraints2D.None;
+
         MainGame.IsDrop = false;
         if (ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop != null)
         {
             ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop.Kill();
             ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop = null;
         }
-
         if (ChildKnife.GetComponent<HandleKnifeSprite>().go != null)
         {
             StopCoroutine(ChildKnife.GetComponent<HandleKnifeSprite>().go);
@@ -92,7 +91,7 @@ public class Knife : MonoBehaviour, IKnife
             if (color == material[i].name.ToLower())
             {
                 //ChildKnife.GetComponent<TrailRenderer>().material = material[i];
-               // animatorEffectKnife.gameObject.GetComponent<TrailRenderer>().material = material[i];
+                // animatorEffectKnife.gameObject.GetComponent<TrailRenderer>().material = material[i];
                 animatorEffectKnife.runtimeAnimatorController = ListAnimaterEffect[i];
                 break;
             }

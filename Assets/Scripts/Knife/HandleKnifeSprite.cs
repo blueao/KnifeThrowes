@@ -52,14 +52,15 @@ public class HandleKnifeSprite : MonoBehaviour
             {
                 MainGame.transform.localPosition = startCameraPosition;
             });
-            MainGame.knifeObject.Hit();
+           
             if (collision.GetComponent<WoodTarget>())
             {
+                MainGame.knifeObject.Hit(false);
                 MainGame.knifeObject.Idie();
             }
             else
             {
-                MainGame.knifeObject.ImpactKnife(true);
+                MainGame.knifeObject.Hit(true);
             }
         }
 

@@ -55,7 +55,6 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -64,11 +63,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: button cancel
+    - serializedVersion: 2
+      name: button cancel
       rect:
         serializedVersion: 2
         x: 1
@@ -78,14 +80,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -86, y: -30.5}
-        - {x: -85, y: -31.5}
-        - {x: 86, y: -31.5}
-        - {x: 86, y: 31.5}
-        - {x: -84, y: 31.5}
-        - {x: -86, y: 29.5}
-    - name: button exit
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: button exit
       rect:
         serializedVersion: 2
         x: 824
@@ -95,12 +93,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -96.5, y: 30}
-        - {x: -96.5, y: -30}
-        - {x: 96.5, y: -30}
-        - {x: 96.5, y: 30}
-    - name: button pause
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: button pause
       rect:
         serializedVersion: 2
         x: 717
@@ -110,12 +106,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -29, y: 26.5}
-        - {x: -29, y: -26.5}
-        - {x: 29, y: -26.5}
-        - {x: 29, y: 26.5}
-    - name: button resume
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: button resume
       rect:
         serializedVersion: 2
         x: 824
@@ -125,12 +119,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -97, y: 30}
-        - {x: -97, y: -30}
-        - {x: 97, y: -30}
-        - {x: 97, y: 30}
-    - name: button yes
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: button yes
       rect:
         serializedVersion: 2
         x: 175
@@ -140,14 +132,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -86, y: -30.5}
-        - {x: -85, y: -31.5}
-        - {x: 86, y: -31.5}
-        - {x: 86, y: 31.5}
-        - {x: -84, y: 31.5}
-        - {x: -86, y: 29.5}
-    - name: logo gold
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: logo gold
       rect:
         serializedVersion: 2
         x: 717
@@ -157,16 +145,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -21, y: 23}
-        - {x: -23, y: 20}
-        - {x: -23, y: -17}
-        - {x: -16, y: -23}
-        - {x: 14, y: -23}
-        - {x: 23, y: -16}
-        - {x: 23, y: 21}
-        - {x: 17, y: 23}
-    - name: multi
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: multi
       rect:
         serializedVersion: 2
         x: 1
@@ -176,25 +158,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.4915254, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 61, y: -51.5}
-        - {x: 62, y: -55.5}
-        - {x: 65, y: -60.5}
-        - {x: 114, y: -54.5}
-        - {x: 114, y: 64.5}
-        - {x: 106, y: 102.5}
-        - {x: -46, y: 102.5}
-        - {x: -110, y: 50.5}
-        - {x: -110, y: -54.5}
-        - {x: -68, y: -87.5}
-        - {x: -31, y: -68.5}
-        - {x: -15, y: -102.5}
-        - {x: 32, y: -102.5}
-        - {x: 72, y: -88.5}
-        - {x: 74, y: -81.5}
-        - {x: 65, y: -62.5}
-        - {x: 63, y: -59.5}
-    - name: oh no lose
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: oh no lose
       rect:
         serializedVersion: 2
         x: 239
@@ -204,19 +171,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.4957265, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -26, y: 102.5}
-        - {x: -82, y: 79.5}
-        - {x: -110, y: 27.5}
-        - {x: -110, y: -54.5}
-        - {x: -109, y: -83.5}
-        - {x: -77, y: -102.5}
-        - {x: 57, y: -102.5}
-        - {x: 77, y: -87.5}
-        - {x: 112, y: -53.5}
-        - {x: 112, y: 73.5}
-        - {x: 102, y: 102.5}
-    - name: panel are you sure to exit
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: panel are you sure to exit
       rect:
         serializedVersion: 2
         x: 255
@@ -226,12 +184,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -283.5, y: 91.5}
-        - {x: -283.5, y: -91.5}
-        - {x: 283.5, y: -91.5}
-        - {x: 283.5, y: 91.5}
-    - name: panel lv and gold
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: panel lv and gold
       rect:
         serializedVersion: 2
         x: 349
@@ -241,17 +197,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 183, y: 17}
-        - {x: 182, y: 20}
-        - {x: 170, y: 29}
-        - {x: 166, y: 31}
-        - {x: -183, y: 31}
-        - {x: -183, y: -31}
-        - {x: 163, y: -31}
-        - {x: 171, y: -29}
-        - {x: 183, y: -15}
-    - name: panel lv
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: panel lv
       rect:
         serializedVersion: 2
         x: 824
@@ -261,14 +210,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -77, y: 27}
-        - {x: -77, y: -27}
-        - {x: 73, y: -27}
-        - {x: 77, y: -23}
-        - {x: 77, y: 18}
-        - {x: 73, y: 27}
-    - name: panel menu pause
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: panel menu pause
       rect:
         serializedVersion: 2
         x: 804
@@ -278,12 +223,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -107, y: 74.5}
-        - {x: -107, y: -74.5}
-        - {x: 107, y: -74.5}
-        - {x: 107, y: 74.5}
-    - name: text cancel
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text cancel
       rect:
         serializedVersion: 2
         x: 59
@@ -294,7 +237,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: text exit
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text exit
       rect:
         serializedVersion: 2
         x: 717
@@ -304,13 +249,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 42.5, y: -1.5}
-        - {x: 42.5, y: 16.5}
-        - {x: -42.5, y: 16.5}
-        - {x: -42.5, y: -16.5}
-        - {x: 40.5, y: -16.5}
-    - name: text lv
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text lv
       rect:
         serializedVersion: 2
         x: 184
@@ -321,7 +263,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: text resume
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text resume
       rect:
         serializedVersion: 2
         x: 824
@@ -331,15 +275,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 83.5, y: 17}
-        - {x: -83.5, y: 17}
-        - {x: -83.5, y: -17}
-        - {x: -71.5, y: -17}
-        - {x: -71.5, y: -16}
-        - {x: -70.5, y: -17}
-        - {x: 83.5, y: -17}
-    - name: text yes
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text yes
       rect:
         serializedVersion: 2
         x: 1
@@ -350,7 +289,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: unblelievable
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: unblelievable
       rect:
         serializedVersion: 2
         x: 1
@@ -360,22 +301,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -44, y: 102.5}
-        - {x: -97, y: 82.5}
-        - {x: -65, y: 32.5}
-        - {x: -62, y: 29.5}
-        - {x: -55, y: 29.5}
-        - {x: -108, y: 29.5}
-        - {x: -111, y: 28.5}
-        - {x: -109, y: 21.5}
-        - {x: -126, y: -8.5}
-        - {x: -126, y: -53.5}
-        - {x: -50, y: -102.5}
-        - {x: 63, y: -102.5}
-        - {x: 126, y: -59.5}
-        - {x: 126, y: 53.5}
-        - {x: 70, y: 102.5}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 

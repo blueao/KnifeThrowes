@@ -5,6 +5,6 @@ public interface IKnife  {
 
     void Idie();
     void Fly();
-    void Hit();
+    void Hit(bool active);
     void Miss();
 }

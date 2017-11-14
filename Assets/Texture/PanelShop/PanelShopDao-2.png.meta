@@ -88,7 +88,6 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -97,11 +96,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: knife 1300
+    - serializedVersion: 2
+      name: knife 1300
       rect:
         serializedVersion: 2
         x: 729
@@ -111,17 +113,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -102.5, y: 27}
-        - {x: -153.5, y: 18}
-        - {x: -153.5, y: -19}
-        - {x: -152.5, y: -23}
-        - {x: -149.5, y: -27}
-        - {x: 130.5, y: -27}
-        - {x: 153.5, y: -10}
-        - {x: 153.5, y: 12}
-        - {x: 42.5, y: 27}
-    - name: knife 2000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 2000
       rect:
         serializedVersion: 2
         x: 287
@@ -132,7 +127,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: knife 2300
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 2300
       rect:
         serializedVersion: 2
         x: 1765
@@ -142,19 +139,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -125, y: 21}
-        - {x: -135, y: 15}
-        - {x: -135, y: -13}
-        - {x: -109, y: -21}
-        - {x: -85, y: -21}
-        - {x: -62, y: -20}
-        - {x: -57, y: -21}
-        - {x: 98, y: -21}
-        - {x: 135, y: -12}
-        - {x: 135, y: 8}
-        - {x: 123, y: 21}
-    - name: knife 2900
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 2900
       rect:
         serializedVersion: 2
         x: 1765
@@ -164,15 +152,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -133.5, y: 24}
-        - {x: -133.5, y: 2}
-        - {x: -73.5, y: -21}
-        - {x: -36.5, y: -24}
-        - {x: 66.5, y: -24}
-        - {x: 133.5, y: -16}
-        - {x: 133.5, y: 24}
-    - name: knife 3500
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 3500
       rect:
         serializedVersion: 2
         x: 535
@@ -182,15 +165,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -133.5, y: 22}
-        - {x: -135.5, y: 20}
-        - {x: -135.5, y: -22}
-        - {x: 109.5, y: -22}
-        - {x: 135.5, y: -15}
-        - {x: 135.5, y: 14}
-        - {x: 69.5, y: 22}
-    - name: knife 5000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 5000
       rect:
         serializedVersion: 2
         x: 1713
@@ -200,20 +178,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 153.5, y: 18}
-        - {x: 108.5, y: 24}
-        - {x: -139.5, y: 24}
-        - {x: -152.5, y: 21}
-        - {x: -153.5, y: 15}
-        - {x: -153.5, y: -13}
-        - {x: -146.5, y: -14}
-        - {x: -58.5, y: -24}
-        - {x: 5.5, y: -24}
-        - {x: 116.5, y: -17}
-        - {x: 149.5, y: -8}
-        - {x: 153.5, y: -5}
-    - name: knife 8000 (1)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 8000 (1)
       rect:
         serializedVersion: 2
         x: 1713
@@ -223,17 +191,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -26.5, y: 24}
-        - {x: -159.5, y: 24}
-        - {x: -159.5, y: -12}
-        - {x: -158.5, y: -22}
-        - {x: -149.5, y: -24}
-        - {x: 157.5, y: -24}
-        - {x: 159.5, y: -9}
-        - {x: 159.5, y: 9}
-        - {x: 111.5, y: 21}
-    - name: knife 8000 (2)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 8000 (2)
       rect:
         serializedVersion: 2
         x: 1281
@@ -243,13 +204,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -158.5, y: 20}
-        - {x: -158.5, y: -20}
-        - {x: 124.5, y: -20}
-        - {x: 158.5, y: -14}
-        - {x: 158.5, y: 20}
-    - name: knife 8500
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 8500
       rect:
         serializedVersion: 2
         x: 1713
@@ -259,17 +217,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 139, y: 24.5}
-        - {x: -111, y: 24.5}
-        - {x: -156, y: 20.5}
-        - {x: -156, y: -8.5}
-        - {x: -96, y: -24.5}
-        - {x: 144, y: -24.5}
-        - {x: 152, y: -22.5}
-        - {x: 156, y: -12.5}
-        - {x: 156, y: 22.5}
-    - name: knife 10000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 10000
       rect:
         serializedVersion: 2
         x: 808
@@ -279,16 +230,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -125, y: 31}
-        - {x: -134, y: 22}
-        - {x: -134, y: -25}
-        - {x: -93, y: -31}
-        - {x: 57, y: -31}
-        - {x: 134, y: -15}
-        - {x: 134, y: 25}
-        - {x: 92, y: 31}
-    - name: knife 12000 (1)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 12000 (1)
       rect:
         serializedVersion: 2
         x: 1562
@@ -298,15 +243,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -152, y: -27}
-        - {x: 129, y: -27}
-        - {x: 152, y: -6}
-        - {x: 152, y: 27}
-        - {x: -140, y: 27}
-        - {x: -150, y: 23}
-        - {x: -152, y: 21}
-    - name: knife 12000 (2)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 12000 (2)
       rect:
         serializedVersion: 2
         x: 1457
@@ -316,14 +256,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -142, y: 21}
-        - {x: -153, y: 16}
-        - {x: -153, y: -21}
-        - {x: 127, y: -21}
-        - {x: 153, y: 8}
-        - {x: 153, y: 21}
-    - name: knife 15000  (2)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 15000  (2)
       rect:
         serializedVersion: 2
         x: 1078
@@ -333,14 +269,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -143, y: 29}
-        - {x: -143, y: -29}
-        - {x: 123, y: -29}
-        - {x: 143, y: -16}
-        - {x: 143, y: 5}
-        - {x: 114, y: 29}
-    - name: knife 16000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 16000
       rect:
         serializedVersion: 2
         x: 1765
@@ -350,15 +282,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -109.5, y: 27.5}
-        - {x: -137.5, y: 8.5}
-        - {x: -137.5, y: -27.5}
-        - {x: 123.5, y: -27.5}
-        - {x: 137.5, y: -25.5}
-        - {x: 137.5, y: 17.5}
-        - {x: 81.5, y: 27.5}
-    - name: knife 17000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 17000
       rect:
         serializedVersion: 2
         x: 299
@@ -368,18 +295,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -4.5, y: 38.5}
-        - {x: -52.5, y: 38.5}
-        - {x: -136.5, y: 19.5}
-        - {x: -136.5, y: -24.5}
-        - {x: -96.5, y: -38.5}
-        - {x: 23.5, y: -38.5}
-        - {x: 102.5, y: -20.5}
-        - {x: 122.5, y: -14.5}
-        - {x: 136.5, y: -4.5}
-        - {x: 136.5, y: 16.5}
-    - name: knife 22000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 22000
       rect:
         serializedVersion: 2
         x: 1320
@@ -389,16 +308,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 115, y: 28.5}
-        - {x: -85, y: 28.5}
-        - {x: -156, y: 12.5}
-        - {x: -156, y: -28.5}
-        - {x: 88, y: -28.5}
-        - {x: 136, y: -26.5}
-        - {x: 156, y: -18.5}
-        - {x: 156, y: 5.5}
-    - name: knife 24000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 24000
       rect:
         serializedVersion: 2
         x: 1011
@@ -408,15 +321,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -113.5, y: 31}
-        - {x: -153.5, y: 16}
-        - {x: -153.5, y: -17}
-        - {x: -145.5, y: -31}
-        - {x: 153.5, y: -31}
-        - {x: 153.5, y: 12}
-        - {x: 84.5, y: 31}
-    - name: knife 27000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 27000
       rect:
         serializedVersion: 2
         x: 760
@@ -426,15 +334,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -154.5, y: 29.5}
-        - {x: -154.5, y: -19.5}
-        - {x: -152.5, y: -25.5}
-        - {x: -133.5, y: -29.5}
-        - {x: 121.5, y: -29.5}
-        - {x: 154.5, y: -19.5}
-        - {x: 154.5, y: 29.5}
-    - name: knife 28000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 28000
       rect:
         serializedVersion: 2
         x: 1765
@@ -444,17 +347,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -27.5, y: 28.5}
-        - {x: -103.5, y: 26.5}
-        - {x: -136.5, y: 4.5}
-        - {x: -136.5, y: -14.5}
-        - {x: -124.5, y: -28.5}
-        - {x: 101.5, y: -28.5}
-        - {x: 136.5, y: -5.5}
-        - {x: 136.5, y: 16.5}
-        - {x: 71.5, y: 28.5}
-    - name: knife 30000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 30000
       rect:
         serializedVersion: 2
         x: 1634
@@ -464,12 +360,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -148.5, y: 25}
-        - {x: -148.5, y: -25}
-        - {x: 148.5, y: -25}
-        - {x: 148.5, y: 25}
-    - name: knife 31000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 31000
       rect:
         serializedVersion: 2
         x: 1713
@@ -479,15 +373,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -121, y: 27.5}
-        - {x: -158, y: 25.5}
-        - {x: -158, y: -27.5}
-        - {x: 144, y: -27.5}
-        - {x: 158, y: -23.5}
-        - {x: 158, y: -2.5}
-        - {x: 102, y: 27.5}
-    - name: knife 35000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 35000
       rect:
         serializedVersion: 2
         x: 1056
@@ -497,16 +386,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -155.5, y: 25}
-        - {x: -159.5, y: 19}
-        - {x: -159.5, y: -8}
-        - {x: -148.5, y: -25}
-        - {x: 133.5, y: -25}
-        - {x: 159.5, y: -12}
-        - {x: 159.5, y: 22}
-        - {x: 138.5, y: 25}
-    - name: knife 38000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife 38000
       rect:
         serializedVersion: 2
         x: 697
@@ -516,22 +399,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -21, y: -25.5}
-        - {x: 59, y: -31.5}
-        - {x: 89, y: -31.5}
-        - {x: 156, y: -4.5}
-        - {x: 156, y: 22.5}
-        - {x: 69, y: 31.5}
-        - {x: -149, y: 31.5}
-        - {x: -156, y: 30.5}
-        - {x: -156, y: -19.5}
-        - {x: -110, y: -31.5}
-        - {x: -24, y: -31.5}
-        - {x: -23, y: -29.5}
-        - {x: -23, y: -14.5}
-        - {x: -23, y: -21.5}
-    - name: knife contempl (1)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (1)
       rect:
         serializedVersion: 2
         x: 271
@@ -541,20 +412,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 120.5, y: 192}
-        - {x: 120.5, y: 241}
-        - {x: 117.5, y: 247}
-        - {x: 99.5, y: 249}
-        - {x: 78.5, y: 249}
-        - {x: -97.5, y: -155}
-        - {x: -120.5, y: -239}
-        - {x: -120.5, y: -249}
-        - {x: -109.5, y: -249}
-        - {x: -68.5, y: -215}
-        - {x: 3.5, y: -98}
-        - {x: 44.5, y: -22}
-    - name: knife contempl (3)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (3)
       rect:
         serializedVersion: 2
         x: 514
@@ -564,19 +425,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 122, y: 229}
-        - {x: 117, y: 235}
-        - {x: 63, y: 235}
-        - {x: -22, y: 87}
-        - {x: -79, y: -78}
-        - {x: -122, y: -218}
-        - {x: -122, y: -235}
-        - {x: -102, y: -235}
-        - {x: -36, y: -182}
-        - {x: 91, y: 62}
-        - {x: 122, y: 184}
-    - name: knife contempl (4)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (4)
       rect:
         serializedVersion: 2
         x: 490
@@ -586,18 +438,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 118.5, y: 244.5}
-        - {x: 62.5, y: 244.5}
-        - {x: 52.5, y: 228.5}
-        - {x: -112.5, y: -126.5}
-        - {x: -118.5, y: -181.5}
-        - {x: -118.5, y: -244.5}
-        - {x: -101.5, y: -244.5}
-        - {x: 0.5, y: -91.5}
-        - {x: 112.5, y: 162.5}
-        - {x: 118.5, y: 181.5}
-    - name: knife contempl (7)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (7)
       rect:
         serializedVersion: 2
         x: 1281
@@ -607,16 +451,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 50, y: 176}
-        - {x: -36, y: 83}
-        - {x: -87, y: -78}
-        - {x: -87, y: -176}
-        - {x: -59, y: -176}
-        - {x: 61, y: -29}
-        - {x: 87, y: 115}
-        - {x: 87, y: 176}
-    - name: knife contempl (9)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (9)
       rect:
         serializedVersion: 2
         x: 299
@@ -626,17 +464,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 66, y: 225}
-        - {x: 15, y: 130}
-        - {x: -80, y: -67}
-        - {x: -120, y: -197}
-        - {x: -120, y: -225}
-        - {x: -74, y: -225}
-        - {x: 95, y: 28}
-        - {x: 120, y: 156}
-        - {x: 120, y: 225}
-    - name: knife contempl (10)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (10)
       rect:
         serializedVersion: 2
         x: 1
@@ -646,20 +477,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 132, y: 273.5}
-        - {x: 111, y: 273.5}
-        - {x: 105, y: 269.5}
-        - {x: 53, y: 167.5}
-        - {x: -16, y: 91.5}
-        - {x: -124, y: -167.5}
-        - {x: -148, y: -260.5}
-        - {x: -148, y: -273.5}
-        - {x: -129, y: -273.5}
-        - {x: -65, y: -256.5}
-        - {x: 148, y: 195.5}
-        - {x: 148, y: 262.5}
-    - name: knife contempl (12)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (12)
       rect:
         serializedVersion: 2
         x: 1
@@ -669,20 +490,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 134, y: 155}
-        - {x: 134, y: 248}
-        - {x: 131, y: 251}
-        - {x: 85, y: 251}
-        - {x: -105, y: -95}
-        - {x: -134, y: -224}
-        - {x: -134, y: -251}
-        - {x: -122, y: -251}
-        - {x: -107, y: -246}
-        - {x: -59, y: -187}
-        - {x: -30, y: -134}
-        - {x: 13, y: -72}
-    - name: knife contempl (14)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (14)
       rect:
         serializedVersion: 2
         x: 1005
@@ -692,17 +503,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 61, y: 198.5}
-        - {x: -94, y: -83.5}
-        - {x: -106, y: -155.5}
-        - {x: -106, y: -198.5}
-        - {x: -88, y: -198.5}
-        - {x: -74, y: -193.5}
-        - {x: 67, y: -19.5}
-        - {x: 106, y: 127.5}
-        - {x: 106, y: 198.5}
-    - name: knife contempl (15)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (15)
       rect:
         serializedVersion: 2
         x: 535
@@ -712,21 +516,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 79.5, y: 141.5}
-        - {x: 126.5, y: 199.5}
-        - {x: 126.5, y: 218.5}
-        - {x: 110.5, y: 222.5}
-        - {x: 51.5, y: 222.5}
-        - {x: 39.5, y: 215.5}
-        - {x: -54.5, y: 54.5}
-        - {x: -126.5, y: -178.5}
-        - {x: -126.5, y: -222.5}
-        - {x: -107.5, y: -222.5}
-        - {x: -55.5, y: -171.5}
-        - {x: 13.5, y: -9.5}
-        - {x: 61.5, y: -17.5}
-    - name: knife contempl (16)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (16)
       rect:
         serializedVersion: 2
         x: 790
@@ -736,19 +529,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 132, y: 98.5}
-        - {x: 132, y: 220.5}
-        - {x: 128, y: 221.5}
-        - {x: 55, y: 221.5}
-        - {x: -8, y: 168.5}
-        - {x: -132, y: -140.5}
-        - {x: -132, y: -221.5}
-        - {x: -125, y: -221.5}
-        - {x: -99, y: -197.5}
-        - {x: -86, y: -182.5}
-        - {x: 46, y: -59.5}
-    - name: knife contempl (17)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (17)
       rect:
         serializedVersion: 2
         x: 1
@@ -758,19 +542,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 142, y: 180.5}
-        - {x: 142, y: 252.5}
-        - {x: 88, y: 252.5}
-        - {x: -40, y: 69.5}
-        - {x: -114, y: -136.5}
-        - {x: -142, y: -240.5}
-        - {x: -142, y: -252.5}
-        - {x: -135, y: -252.5}
-        - {x: -111, y: -228.5}
-        - {x: -33, y: -134.5}
-        - {x: 70, y: -15.5}
-    - name: knife contempl (19)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (19)
       rect:
         serializedVersion: 2
         x: 287
@@ -780,22 +555,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 107, y: 133.5}
-        - {x: 123, y: 178.5}
-        - {x: 123, y: 220.5}
-        - {x: 77, y: 237.5}
-        - {x: 35, y: 237.5}
-        - {x: -41, y: 48.5}
-        - {x: -92, y: -93.5}
-        - {x: -123, y: -220.5}
-        - {x: -123, y: -237.5}
-        - {x: -109, y: -237.5}
-        - {x: -90, y: -232.5}
-        - {x: -60, y: -202.5}
-        - {x: 17, y: -106.5}
-        - {x: 49, y: 5.5}
-    - name: knife contempl (20)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (20)
       rect:
         serializedVersion: 2
         x: 1056
@@ -805,16 +568,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 61.5, y: 197}
-        - {x: -68.5, y: 12}
-        - {x: -111.5, y: -126}
-        - {x: -111.5, y: -197}
-        - {x: -97.5, y: -197}
-        - {x: -53.5, y: -174}
-        - {x: 111.5, y: 107}
-        - {x: 111.5, y: 197}
-    - name: knife contempl (21)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (21)
       rect:
         serializedVersion: 2
         x: 760
@@ -824,20 +581,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 121.5, y: 173}
-        - {x: 121.5, y: 214}
-        - {x: 64.5, y: 214}
-        - {x: 36.5, y: 193}
-        - {x: -36.5, y: 96}
-        - {x: -118.5, y: -77}
-        - {x: -121.5, y: -107}
-        - {x: -121.5, y: -214}
-        - {x: -102.5, y: -214}
-        - {x: -18.5, y: -97}
-        - {x: 16.5, y: -17}
-        - {x: 28.5, y: 48}
-    - name: knife contempl (22)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (22)
       rect:
         serializedVersion: 2
         x: 1304
@@ -847,19 +594,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 128, y: 206}
-        - {x: 118, y: 215}
-        - {x: 83, y: 215}
-        - {x: -52, y: 76}
-        - {x: -98, y: -88}
-        - {x: -128, y: -201}
-        - {x: -128, y: -215}
-        - {x: -84, y: -215}
-        - {x: 69, y: -8}
-        - {x: 111, y: 16}
-        - {x: 128, y: 152}
-    - name: knife contempl (24)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (24)
       rect:
         serializedVersion: 2
         x: 1
@@ -869,21 +607,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 112, y: 196}
-        - {x: 112, y: 239}
-        - {x: 105, y: 243}
-        - {x: 70, y: 243}
-        - {x: 60, y: 240}
-        - {x: -89, y: 35}
-        - {x: -112, y: -80}
-        - {x: -112, y: -241}
-        - {x: -107, y: -243}
-        - {x: -94, y: -243}
-        - {x: -49, y: -177}
-        - {x: -9, y: -10}
-        - {x: 76, y: 125}
-    - name: knife contempl (28)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (28)
       rect:
         serializedVersion: 2
         x: 541
@@ -893,18 +620,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 123, y: 223}
-        - {x: 93, y: 223}
-        - {x: 35, y: 176}
-        - {x: -61, y: 54}
-        - {x: -123, y: -160}
-        - {x: -123, y: -223}
-        - {x: -96, y: -223}
-        - {x: 18, y: -52}
-        - {x: 120, y: 154}
-        - {x: 123, y: 173}
-    - name: knife contempl (29)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (29)
       rect:
         serializedVersion: 2
         x: 729
@@ -914,18 +633,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 126.5, y: 232}
-        - {x: 79.5, y: 232}
-        - {x: 65.5, y: 226}
-        - {x: -113.5, y: -43}
-        - {x: -126.5, y: -160}
-        - {x: -126.5, y: -232}
-        - {x: -117.5, y: -232}
-        - {x: -93.5, y: -207}
-        - {x: 49.5, y: -8}
-        - {x: 126.5, y: 160}
-    - name: knife contempl (32)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (32)
       rect:
         serializedVersion: 2
         x: 227
@@ -935,20 +646,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 117.5, y: 238}
-        - {x: 88.5, y: 238}
-        - {x: 52.5, y: 191}
-        - {x: -39.5, y: 46}
-        - {x: -113.5, y: -95}
-        - {x: -130.5, y: -217}
-        - {x: -130.5, y: -238}
-        - {x: -119.5, y: -238}
-        - {x: -43.5, y: -168}
-        - {x: 15.5, y: -37}
-        - {x: 130.5, y: 172}
-        - {x: 130.5, y: 203}
-    - name: knife contempl (33)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (33)
       rect:
         serializedVersion: 2
         x: 789
@@ -958,19 +659,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 133.5, y: 179}
-        - {x: 133.5, y: 222}
-        - {x: 76.5, y: 222}
-        - {x: 42.5, y: 161}
-        - {x: -133.5, y: -204}
-        - {x: -133.5, y: -222}
-        - {x: -106.5, y: -222}
-        - {x: -66.5, y: -208}
-        - {x: -6.5, y: -145}
-        - {x: 45.5, y: 4}
-        - {x: 120.5, y: 160}
-    - name: knife contempl (34)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: knife contempl (34)
       rect:
         serializedVersion: 2
         x: 1058
@@ -980,18 +672,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 112, y: 219.5}
-        - {x: 71, y: 219.5}
-        - {x: -16, y: 74.5}
-        - {x: -92, y: -98.5}
-        - {x: -122, y: -206.5}
-        - {x: -122, y: -219.5}
-        - {x: -89, y: -219.5}
-        - {x: -32, y: -210.5}
-        - {x: 122, y: 96.5}
-        - {x: 122, y: 214.5}
-    - name: logo money 250000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: logo money 250000
       rect:
         serializedVersion: 2
         x: 574
@@ -1001,14 +685,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -60.5, y: 33}
-        - {x: -60.5, y: -31}
-        - {x: -53.5, y: -33}
-        - {x: 43.5, y: -33}
-        - {x: 60.5, y: -28}
-        - {x: 60.5, y: 33}
-    - name: text 4,99 usd
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text 4,99 usd
       rect:
         serializedVersion: 2
         x: 1562
@@ -1018,23 +698,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -43, y: 24.5}
-        - {x: -64, y: 24.5}
-        - {x: -66, y: 20.5}
-        - {x: -66, y: -22.5}
-        - {x: -65, y: -24.5}
-        - {x: -39, y: -24.5}
-        - {x: -36, y: -16.5}
-        - {x: -36, y: 14.5}
-        - {x: -37, y: 17.5}
-      - - {x: -5, y: 24.5}
-        - {x: -19, y: 23.5}
-        - {x: -27, y: 3.5}
-        - {x: -27, y: -23.5}
-        - {x: 66, y: -23.5}
-        - {x: 66, y: 24.5}
-    - name: text 9,99 usd
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text 9,99 usd
       rect:
         serializedVersion: 2
         x: 1562
@@ -1044,22 +711,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -41, y: 25}
-        - {x: -65, y: 25}
-        - {x: -68, y: 24}
-        - {x: -68, y: -17}
-        - {x: -61, y: -25}
-        - {x: -46, y: -25}
-        - {x: -37, y: -16}
-        - {x: -37, y: 17}
-      - - {x: -26, y: 25}
-        - {x: -26, y: -18}
-        - {x: -24, y: -24}
-        - {x: 68, y: -24}
-        - {x: 68, y: 21}
-        - {x: 61, y: 25}
-    - name: text 25000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text 25000
       rect:
         serializedVersion: 2
         x: 1933
@@ -1069,19 +724,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 12, y: 16.5}
-        - {x: 11, y: 13.5}
-        - {x: 11, y: 11.5}
-        - {x: 11, y: 13.5}
-        - {x: 7, y: 16.5}
-        - {x: -53, y: 16.5}
-        - {x: -54, y: 14.5}
-        - {x: -54, y: -16.5}
-        - {x: 52, y: -16.5}
-        - {x: 54, y: -14.5}
-        - {x: 54, y: 16.5}
-    - name: text 250000
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: text 250000
       rect:
         serializedVersion: 2
         x: 1562
@@ -1091,22 +737,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 47, y: 16.5}
-        - {x: 44, y: 13.5}
-        - {x: 44, y: 11.5}
-        - {x: 43, y: 16.5}
-        - {x: -22, y: 16.5}
-        - {x: -24, y: 10.5}
-        - {x: -25, y: 8.5}
-        - {x: -25, y: 7.5}
-        - {x: -24, y: 11.5}
-        - {x: -24, y: 16.5}
-        - {x: -65, y: 16.5}
-        - {x: -65, y: -16.5}
-        - {x: 65, y: -16.5}
-        - {x: 65, y: 16.5}
-    - name: unlockknife (3)
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: unlockknife (3)
       rect:
         serializedVersion: 2
         x: 1457
@@ -1116,51 +750,10 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.46456692, y: 0.503096}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 127, y: 15.5}
-        - {x: 114, y: 62.5}
-        - {x: 100, y: 101.5}
-        - {x: 79, y: 133.5}
-        - {x: 62, y: 139.5}
-        - {x: 46, y: 139.5}
-        - {x: 38, y: 130.5}
-        - {x: 1, y: 136.5}
-        - {x: -45, y: 129.5}
-        - {x: -74, y: 110.5}
-        - {x: -90, y: 93.5}
-        - {x: -113, y: 46.5}
-        - {x: -118, y: 14.5}
-        - {x: -118, y: -78.5}
-        - {x: -72, y: -146.5}
-        - {x: -35, y: -160.5}
-        - {x: -2, y: -160.5}
-        - {x: 53, y: -142.5}
-        - {x: 109, y: -109.5}
-        - {x: 127, y: -69.5}
-      - - {x: 79, y: 141.5}
-        - {x: 74, y: 137.5}
-        - {x: 74, y: 133.5}
-        - {x: 78, y: 129.5}
-        - {x: 82, y: 129.5}
-        - {x: 85, y: 132.5}
-        - {x: 86, y: 136.5}
-        - {x: 82, y: 141.5}
-      - - {x: 69, y: 147.5}
-        - {x: 66, y: 143.5}
-        - {x: 66, y: 139.5}
-        - {x: 70, y: 138.5}
-        - {x: 74, y: 138.5}
-        - {x: 74, y: 145.5}
-        - {x: 73, y: 147.5}
-      - - {x: 77, y: 156.5}
-        - {x: 73, y: 155.5}
-        - {x: 73, y: 145.5}
-        - {x: 75, y: 144.5}
-        - {x: 82, y: 144.5}
-        - {x: 84, y: 147.5}
-        - {x: 84, y: 153.5}
-        - {x: 83, y: 156.5}
-    - name: unlockknife
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: unlockknife
       rect:
         serializedVersion: 2
         x: 1562
@@ -1170,15 +763,8 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.48091602, y: 0.5708333}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -35, y: 49.5}
-        - {x: -51, y: 27.5}
-        - {x: -51, y: -34.5}
-        - {x: -14, y: -65.5}
-        - {x: 28, y: -65.5}
-        - {x: 55, y: -45.5}
-        - {x: 55, y: 35.5}
-        - {x: 18, y: 49.5}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 
