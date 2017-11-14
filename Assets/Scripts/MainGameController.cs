@@ -1071,7 +1071,8 @@ public class MainGameController : MonoBehaviour, IOberser
         CanMove = false;
         ResetAllObjToPool();
         ResetBG();
-    }
+        PanelExitInPause.SetActive(false);
+}
     #region resetOBj
     public void ResetAllObjToPool()
     {
@@ -1936,6 +1937,7 @@ public class MainGameController : MonoBehaviour, IOberser
     {
         PlayerPrefs.SetInt(ModelHandle.SetMap2, 1);
         BGMap2.sprite = Map2Active;
+        BGMap2.GetComponent<Button>().enabled = true;
         LockMap2.enabled = false;
         TextBGMap2.enabled = false;
         ImagePlay.enabled = true;
@@ -1950,4 +1952,26 @@ public class MainGameController : MonoBehaviour, IOberser
         isActivePanelAdsModUn(false);
     }
 
+    public GameObject PanelExitReady;
+    public void OnClickReadyToExit()
+    {
+        PanelExitReady.SetActive(true);
+    }
+    public void YesReadyExit()
+    {
+        Application.Quit();
+    }
+    public void NoReadyExit()
+    {
+        PanelExitReady.SetActive(false);
+    }
+    public GameObject PanelExitInPause;
+    public void OnOpenExitInPause()
+    {
+        PanelExitInPause.SetActive(true);
+    }
+    public void NoExitInPause()
+    {
+        PanelExitInPause.SetActive(false);
+    }
 }
