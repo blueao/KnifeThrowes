@@ -446,6 +446,7 @@ public class MainGameController : MonoBehaviour, IOberser
             }
         }
         int fruitnum = 0;
+       
         for (int j = 0; j < ListFruit.Count; j++)
         {
             ListFruit[j].transform.parent = MoveMonster;
@@ -454,7 +455,7 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListFruit[j].transform.localPosition = FruitPos[fruitnum].transform.localPosition;
                 ListFruit[j].SetActive(true);
-                ListStupid[j].GetComponent<Stupid>().isActiveMove = false;
+                ListFruit[j].GetComponent<Stupid>().isActiveMove = false;
                 fruitnum++;
             }
         }
@@ -496,8 +497,8 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListPumkin[j].transform.localPosition = PumKinPos[pumkinNum].transform.localPosition;
                 ListPumkin[j].SetActive(true);
-                ListStupid[j].GetComponent<Stupid>().isActiveMove = false;
-                ListStupid[j].GetComponent<Stupid>().jumb = false;
+                ListPumkin[j].GetComponent<Stupid>().isActiveMove = false;
+                ListPumkin[j].GetComponent<Stupid>().jumb = false;
                 pumkinNum++;
             }
         }
@@ -733,7 +734,6 @@ public class MainGameController : MonoBehaviour, IOberser
 
         }
 
-
         for (int i = 0; i < woodtarget1; i++)
         {
             GameObject woodTarget = (GameObject)Instantiate(preFabWoodTarget, poolPosition, Quaternion.identity);
@@ -939,6 +939,10 @@ public class MainGameController : MonoBehaviour, IOberser
         pos.z = 10;
         if (knifeObject.isIdie)
         {
+            if (knifeObject.ChildKnife.transform.localRotation.z!=0)
+            {
+                knifeObject.ChildKnife.transform.localRotation = Quaternion.Euler(new Vector3(180, 0, 0));
+            }
             Vector2 mouseCamera = Camera.main.ScreenToWorldPoint(pos) - knifeObject.knifeTransfom.position;
             float tan = Mathf.Atan2(mouseCamera.y, mouseCamera.x) * Mathf.Rad2Deg;
             if (tan > 0 && tan < 60f)
@@ -1119,7 +1123,7 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListFruit[j].transform.localPosition = poolPosition;
                 ListFruit[j].SetActive(false);
-                ListStupid[j].GetComponent<Stupid>().isActiveMove = false;
+                ListFruit[j].GetComponent<Stupid>().isActiveMove = false;
                 fruitnum++;
             }
         }
@@ -1158,8 +1162,8 @@ public class MainGameController : MonoBehaviour, IOberser
             {
                 ListPumkin[j].transform.localPosition = poolPosition;
                 ListPumkin[j].SetActive(false);
-                ListStupid[j].GetComponent<Stupid>().isActiveMove = false;
-                ListStupid[j].GetComponent<Stupid>().jumb = false;
+                ListPumkin[j].GetComponent<Stupid>().isActiveMove = false;
+                ListPumkin[j].GetComponent<Stupid>().jumb = false;
                 pumkinNum++;
             }
         }

@@ -1,0 +1,450 @@
+fileFormatVersion: 2
+guid: 40d756bd4971a6a458c36d8d2985b965
+timeCreated: 1510760826
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: 1 gold  (1)
+    21300002: 1 gold  (2)
+    21300004: 1 gold  (3)
+    21300006: 1 gold  (4)
+    21300008: 1 gold  (5)
+    21300010: 1 gold  (6)
+    21300012: 1 gold  (7)
+    21300014: 1 gold  (8)
+    21300016: 10 gold (1)
+    21300018: 10 gold (2)
+    21300020: 10 gold (3)
+    21300022: 10 gold (4)
+    21300024: 10 gold (5)
+    21300026: 10 gold (6)
+    21300028: 10 gold (7)
+    21300030: 10 gold (8)
+    21300032: 20 gold (1)
+    21300034: 20 gold (2)
+    21300036: 20 gold (3)
+    21300038: 20 gold (4)
+    21300040: 20 gold (5)
+    21300042: 20 gold (6)
+    21300044: 20 gold (7)
+    21300046: 20 gold (8)
+    21300048: effect money gold (1)
+    21300050: effect money gold (2)
+    21300052: effect money gold (3)
+    21300054: effect money gold (4)
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 1 gold  (1)
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 599
+        width: 77
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 1 gold  (2)
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 863
+        width: 68
+        height: 79
+      alignment: 9
+      pivot: {x: 0.49264705, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 1 gold  (3)
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 701
+        width: 52
+        height: 79
+      alignment: 9
+      pivot: {x: 0.4903846, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 1 gold  (4)
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 701
+        width: 41
+        height: 79
+      alignment: 9
+      pivot: {x: 0.47560975, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 1 gold  (5)
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 620
+        width: 17
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 1 gold  (6)
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 539
+        width: 39
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 1 gold  (7)
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 944
+        width: 53
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 1 gold  (8)
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 356
+        width: 73
+        height: 79
+      alignment: 9
+      pivot: {x: 0.51369864, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 10 gold (1)
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 518
+        width: 77
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 10 gold (2)
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 782
+        width: 68
+        height: 79
+      alignment: 9
+      pivot: {x: 0.49264705, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 10 gold (3)
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 620
+        width: 52
+        height: 79
+      alignment: 9
+      pivot: {x: 0.4903846, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 10 gold (4)
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 782
+        width: 41
+        height: 79
+      alignment: 9
+      pivot: {x: 0.47560975, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 10 gold (5)
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 620
+        width: 17
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 10 gold (6)
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 458
+        width: 39
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 10 gold (7)
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 944
+        width: 53
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 10 gold (8)
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 356
+        width: 73
+        height: 79
+      alignment: 9
+      pivot: {x: 0.51369864, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 20 gold (1)
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 437
+        width: 77
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 20 gold (2)
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 701
+        width: 68
+        height: 79
+      alignment: 9
+      pivot: {x: 0.49264705, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 20 gold (3)
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 782
+        width: 53
+        height: 79
+      alignment: 9
+      pivot: {x: 0.4811321, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 20 gold (4)
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 863
+        width: 41
+        height: 79
+      alignment: 9
+      pivot: {x: 0.4512195, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 20 gold (5)
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 620
+        width: 16
+        height: 79
+      alignment: 9
+      pivot: {x: 0.46875, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 20 gold (6)
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 539
+        width: 39
+        height: 79
+      alignment: 9
+      pivot: {x: 0.47435898, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 20 gold (7)
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 863
+        width: 68
+        height: 79
+      alignment: 9
+      pivot: {x: 0.4632353, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 20 gold (8)
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 944
+        width: 73
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5273973, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: effect money gold (1)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 18
+        width: 331
+        height: 314
+      alignment: 9
+      pivot: {x: 0.4833837, y: 0.53821653}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: effect money gold (2)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 334
+        width: 339
+        height: 344
+      alignment: 9
+      pivot: {x: 0.49262536, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: effect money gold (3)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 680
+        width: 344
+        height: 343
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49854228}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: effect money gold (4)
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 35
+        width: 336
+        height: 297
+      alignment: 9
+      pivot: {x: 0.49702382, y: 0.49158248}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

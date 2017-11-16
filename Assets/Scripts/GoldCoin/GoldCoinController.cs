@@ -2,7 +2,8 @@
 using System.Collections;
 using DG.Tweening;
 
-public class GoldCoinController : MonoBehaviour {
+public class GoldCoinController : MonoBehaviour
+{
 
     SpriteRenderer sprite;
     public Sprite Coin1;
@@ -13,7 +14,9 @@ public class GoldCoinController : MonoBehaviour {
     Tween rotate;
     Tween Move;
     Tween Anim;
-
+    Tween AnimCoin;
+    public Sprite[] sprite1Coin;
+    public Sprite[] sprite10Coin;
     public void RunAnimCoin(Transform parent, int money)
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -32,11 +35,21 @@ public class GoldCoinController : MonoBehaviour {
         transform.rotation = Quaternion.Euler(Vector3.zero);
         transform.localScale = Vector3.one;
         sprite.enabled = true;
-        if (money>=10)
+        if (money == 10)
         {
-            rotate = (transform.DOScaleX(0, 0.3f).OnComplete(() => { transform.DOScaleX(1, 0.3f); }).SetLoops(-1));
+            AnimCoin = DOTween.To(() => 0, x => sprite.sprite = sprite10Coin[x], sprite10Coin.Length - 1, 0.2f).OnComplete(() =>
+            {
+            }).SetLoops(-1);
+            //rotate = (transform.DOScaleX(0, 0.3f).OnComplete(() => { transform.DOScaleX(1, 0.3f); }).SetLoops(-1));
         }
-        Move = (transform.DOLocalMoveY((transform.localPosition.y + parent.GetComponent<SpriteRenderer>().sprite.rect.height/100f), 1f).OnComplete(() => {
+        else
+        {
+            AnimCoin = DOTween.To(() => 0, x => sprite.sprite = sprite1Coin[x], sprite1Coin.Length - 1, 0.2f).OnComplete(() =>
+            {
+            }).SetLoops(-1);
+        }
+        Move = (transform.DOLocalMoveY((transform.localPosition.y + parent.GetComponent<SpriteRenderer>().sprite.rect.height / 100f), 1f).OnComplete(() =>
+        {
             if (rotate != null)
             {
                 rotate.Kill();
@@ -48,6 +61,11 @@ public class GoldCoinController : MonoBehaviour {
                 sprite.enabled = false;
                 transform.localPosition = Vector3.zero;
 
+                if (AnimCoin != null)
+                {
+                    AnimCoin.Kill();
+                    AnimCoin = null;
+                }
                 if (Move != null)
                 {
                     Move.Kill();

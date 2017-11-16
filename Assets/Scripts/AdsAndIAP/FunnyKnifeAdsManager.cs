@@ -62,7 +62,7 @@ public class FunnyKnifeAdsManager : MonoBehaviour
     {
 #if UNITY_ANDROID
         //ca-app-pub-3940256099942544/5224354917
-        string adUnitId = "ca-app-pub-3940256099942544/5224354917";
+        string adUnitId = "ca-app-pub-4902919474667404/5748028316";
 #elif UNITY_IPHONE
             string adUnitId = "ca-app-pub-3940256099942544/1712485313";
 #else

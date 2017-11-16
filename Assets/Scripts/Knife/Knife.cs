@@ -55,7 +55,6 @@ public class Knife : MonoBehaviour, IKnife
 
     public void Idie()
     {
-
         MainGame.IsDrop = false;
         if (ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop != null)
         {
@@ -75,7 +74,6 @@ public class Knife : MonoBehaviour, IKnife
         isIdie = true;
         isFly = false;
         ResetKnife();
-        StopCoroutine(ChildKnife.GetComponent<HandleKnifeSprite>().Rigid());
         box.isTrigger = true;
         box.enabled = false;
     }
@@ -101,13 +99,15 @@ public class Knife : MonoBehaviour, IKnife
     {
         animatorEffectKnife.GetComponent<SpriteRenderer>().enabled = isActive;
         animatorEffectKnife.enabled = isActive;
-        animatorEffectKnife.Play(0, 0, 0);
         if (isActive)
         {
+            animatorEffectKnife.Play(0, 0, 0);
             RBknife.constraints = RigidbodyConstraints2D.FreezeAll;
         }
         else
+        {
             RBknife.constraints = RigidbodyConstraints2D.None;
+        }
 
     }
     public void ResetKnife()
