@@ -9,7 +9,7 @@ public class WoodTarget : MonoBehaviour, IMonster
     public SpriteRenderer spriteItems;
     public BoxCollider2D box;
     private Vector3 startposition;
-    private Sequence tweenMove;
+    private Tween tweenMove;
     public Sprite[] ListSprite;
     float width;
     float height;
@@ -33,7 +33,6 @@ public class WoodTarget : MonoBehaviour, IMonster
             box.size = new Vector2(0.2f, 1.1f);
         }
         startposition = transform.localPosition;
-      
     }
     public void Die()
     {
@@ -61,7 +60,7 @@ public class WoodTarget : MonoBehaviour, IMonster
 
     public void InPool()
     {
-        
+
         transform.localPosition = new Vector3(0, 15, 0);
         //box.enabled = true;
         spriteItems.enabled = true;
@@ -69,7 +68,6 @@ public class WoodTarget : MonoBehaviour, IMonster
         spriteItems.enabled = true;
 
         //gameObject.SetActive(false);
-
     }
     public void ResetState()
     {
@@ -81,11 +79,10 @@ public class WoodTarget : MonoBehaviour, IMonster
     }
     public void Move()
     {
-        tweenMove = DOTween.Sequence();
-        tweenMove.Append(transform.DOLocalMoveY(transform.localPosition.y + 1, 3f));
-        tweenMove.Append(transform.DOLocalMoveY(startposition.y, 3f));
-        tweenMove.SetLoops(-1);
-        //tweenMove.Play();
+        tweenMove = transform.DOLocalMoveY(transform.localPosition.y + 1, 3f).OnComplete(() =>
+        {
+            transform.DOLocalMoveY(startposition.y, 3f);
+        }).SetLoops(-1,LoopType.Yoyo);
 
     }
 
@@ -115,7 +112,7 @@ public class WoodTarget : MonoBehaviour, IMonster
             height = spriteItems.sprite.bounds.size.y;
         }
     }
-   public Tween Dead;
+    public Tween Dead;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.name == "Knife" /*&& collision.transform.localRotation.z > ModelHandle.Instance.currentKnifeLocation + 90 *//*&& ModelHandle.Instance.isCanHit*/)
@@ -128,7 +125,7 @@ public class WoodTarget : MonoBehaviour, IMonster
                 tweenMove = null;
             }
             Die();
-            ModelHandle.Instance.setSpriteKnifePos(this.transform.localPosition.x,this.transform.localPosition.y);
+            ModelHandle.Instance.setSpriteKnifePos(this.transform.localPosition.x, this.transform.localPosition.y);
         }
         if (collision.name == "StartMove")
         {

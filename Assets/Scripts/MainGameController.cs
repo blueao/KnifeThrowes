@@ -374,6 +374,7 @@ public class MainGameController : MonoBehaviour, IOberser
         BatCount = batPos.Length;
         CowCount = cowpos.Length;
         Coinpool = 5;
+        CreateObject();
         //SetupPositionObj();
     }
 
@@ -1054,6 +1055,7 @@ public class MainGameController : MonoBehaviour, IOberser
             se = null;
         }
         Time.timeScale = 1;
+        DOTween.timeScale = 1;
         ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         resetListKnifeSprite();
         IsGameReadyToPlay = false;
@@ -1327,7 +1329,7 @@ public class MainGameController : MonoBehaviour, IOberser
         SetUpMap1();
         endPositionBGSky = endPositionBG;
         //setStartPosBG();
-        CreateObject();
+        //CreateObject();
         ResetBG();
         ChooseMapNumber = 0;
 
@@ -1347,7 +1349,7 @@ public class MainGameController : MonoBehaviour, IOberser
             SetUpMap2();
             endPositionBGSky = -widthBG;
             //setStartPosBG();
-            CreateObject();
+            //CreateObject();
             ChooseMapNumber = 1;
             ResetBG();
             SetupPositionObj(RedTargetPos2, TargetPos2, Stupid2, FruitPos2, BoarsPos2, BallonPos2, PumKinPos2, VulturePos2, SpriderPos2, DumkinPos2, CrazyDog2, batPos, ghostPos, rabbitPos, wizardPos, birdPos, cowpos);
@@ -1651,6 +1653,7 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void OnButtonClickResume()
     {
+        DOTween.timeScale = 1;
         Time.timeScale = 1;
         BackGround.UnPause();
         SoundManager.UnPause();
@@ -1661,6 +1664,7 @@ public class MainGameController : MonoBehaviour, IOberser
         if (QuitPanel.activeSelf)
         {
             Time.timeScale = 1;
+            DOTween.timeScale = 1;
             BackGround.UnPause();
             SoundManager.UnPause();
             QuitPanel.SetActive(false);
@@ -1668,6 +1672,7 @@ public class MainGameController : MonoBehaviour, IOberser
         else
         {
             Time.timeScale = 0;
+            DOTween.timeScale = 0;
             BackGround.Pause();
             SoundManager.Pause();
             QuitPanel.SetActive(true);
