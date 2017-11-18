@@ -280,6 +280,7 @@ public class MainGameController : MonoBehaviour, IOberser
             int indexKnife = PlayerPrefs.GetInt(ModelHandle.KeyKnifeSprite);
             this.GetComponent<ScrollRectController>().setUseSpriteKnife(indexKnife);
             GetComponent<ScrollRectController>().setUseSpriteKnifeCut(indexKnife);
+            ModelHandle.Instance.setUpSpriteCutAfterBuy(indexKnife);
         }
 
         //

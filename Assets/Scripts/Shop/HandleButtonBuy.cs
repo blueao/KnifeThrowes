@@ -54,7 +54,7 @@ public class HandleButtonBuy : MonoBehaviour
             if (scores >= int.Parse(Money.sprite.name.Remove(0, 5)))
             {
                 PlayerPrefs.SetInt(ModelHandle.KeyScore, scores - int.Parse(Money.sprite.name.Remove(0, 5)));
-                ModelHandle.Instance.SetScore(scores - int.Parse(Money.sprite.name.Remove(0, 5)));
+                ModelHandle.Instance.setScoreText(scores - int.Parse(Money.sprite.name.Remove(0, 5)));
                 ModelHandle.Instance.setSpriTemp(index);
                 IsCanbuy = false;
                 AnimBuy.enabled = true;

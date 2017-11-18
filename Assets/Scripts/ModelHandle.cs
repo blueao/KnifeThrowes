@@ -10,6 +10,7 @@ public class ModelHandle
     //public bool isCanHit;
     //Varible Key
     public const string KeyKnifeSprite = "KnifeLeft";
+    public const string KeyKnifeSpriteCut = "KnifeLeftCut";
     public const string KeyScore = "score";
     public const string SetBlueTrail = "blue";
     public const string SetGreenTrail = "green";
@@ -63,6 +64,13 @@ public class ModelHandle
         mainRect.GetComponent<MainGameController>().ScoreNumber.text = scores.ToString();
         mainRect.GetComponent<MainGameController>().CoinMenu.text = scores.ToString();
         //actionSetCoin();
+    }
+    public void setScoreText(int score)
+    {
+        int scores = PlayerPrefs.GetInt(KeyScore);
+        PlayerPrefs.SetInt(KeyScore, scores);
+        mainRect.GetComponent<MainGameController>().ScoreNumber.text = scores.ToString();
+        mainRect.GetComponent<MainGameController>().CoinMenu.text = scores.ToString();
     }
     public void setSpriTemp(int index)
     {
