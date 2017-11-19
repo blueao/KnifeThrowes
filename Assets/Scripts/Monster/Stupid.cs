@@ -9,9 +9,12 @@ public class Stupid : MonoBehaviour, IMonster
     public Sprite[] MStupid;
     public Sprite[] Pumkin;
     public Sprite[] Fruit;
+    public Sprite[] FruitNoel;
+    public Sprite[] PumKinNoel;
     public Sprite[] EffectStupid;
     public Sprite[] EffectPumkin;
     public Sprite[] EffectFruit;
+    public Sprite[] EffectNoelDead;
     private SpriteRenderer spriteItems;
     Sprite[] usedSprite;
     private float width;

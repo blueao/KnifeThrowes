@@ -1,0 +1,646 @@
+fileFormatVersion: 2
+guid: 703b929e3524b37488d839b0d096a036
+timeCreated: 1511021862
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: background logo
+    21300002: fruit noen (1)
+    21300004: fruit noen (2)
+    21300006: fruit noen (3)
+    21300008: fruit noen (4)
+    21300010: fruit noen (5)
+    21300012: fruit noen (6)
+    21300014: fruit noen (7)
+    21300016: fruit noen (8)
+    21300018: fruit noen (9)
+    21300020: logo cario
+    21300022: no  (1)
+    21300024: no  (2)
+    21300026: no  (3)
+    21300028: no  (4)
+    21300030: no  (5)
+    21300032: no  (6)
+    21300034: no  (7)
+    21300036: no  (8)
+    21300038: rocksmall (1)
+    21300040: rocksmall (2)
+    21300042: santa (1)
+    21300044: santa (2)
+    21300046: santa (3)
+    21300048: santa (4)
+    21300050: snow man (1)
+    21300052: snow man (2)
+    21300054: snowman stupid (1)
+    21300056: snowman stupid (2)
+    21300058: snowman stupid (3)
+    21300060: snowman stupid (4)
+    21300062: snowman stupid (5)
+    21300064: tree map 3 (1)
+    21300066: tree map 3 (2)
+    21300068: tree map 3 (3)
+    21300070: tree map 3 (4)
+    21300072: tree map 3 (5)
+    21300074: tree map 3 (6)
+    21300076: bear (1)
+    21300078: bear (2)
+    21300080: bear (3)
+    21300082: bear (4)
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: background logo
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1279
+        width: 1024
+        height: 768
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bear (1)
+      rect:
+        serializedVersion: 2
+        x: 1544
+        y: 929
+        width: 301
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bear (2)
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 617
+        width: 276
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bear (3)
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 36
+        width: 252
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bear (4)
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 1077
+        width: 313
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: fruit noen (1)
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 953
+        width: 79
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: fruit noen (2)
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 1176
+        width: 102
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: fruit noen (3)
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 812
+        width: 88
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: fruit noen (4)
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 859
+        width: 77
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: fruit noen (5)
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 1031
+        width: 112
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: fruit noen (6)
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 955
+        width: 84
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: fruit noen (7)
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 869
+        width: 96
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: fruit noen (8)
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 977
+        width: 99
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: fruit noen (9)
+      rect:
+        serializedVersion: 2
+        x: 1865
+        y: 1109
+        width: 112
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: logo cario
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 1907
+        width: 444
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: no  (1)
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 1142
+        width: 118
+        height: 135
+      alignment: 9
+      pivot: {x: 0.75, y: 0.45555556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: no  (2)
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 1061
+        width: 204
+        height: 216
+      alignment: 9
+      pivot: {x: 0.5514706, y: 0.4560185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: no  (3)
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 1209
+        width: 390
+        height: 344
+      alignment: 9
+      pivot: {x: 0.5089744, y: 0.50436044}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: no  (4)
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 1555
+        width: 397
+        height: 350
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49571428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: no  (5)
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 499
+        width: 377
+        height: 349
+      alignment: 9
+      pivot: {x: 0.52122015, y: 0.49426934}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: no  (6)
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 850
+        width: 382
+        height: 357
+      alignment: 9
+      pivot: {x: 0.4934555, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: no  (7)
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 569
+        width: 251
+        height: 279
+      alignment: 9
+      pivot: {x: 0.5278884, y: 0.46057346}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: no  (8)
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 203
+        width: 243
+        height: 294
+      alignment: 9
+      pivot: {x: 0.52469134, y: 0.46768707}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: rocksmall (1)
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 1220
+        width: 220
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: rocksmall (2)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1213
+        width: 294
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: santa (1)
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 297
+        width: 301
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: santa (2)
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 930
+        width: 276
+        height: 277
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: santa (3)
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 209
+        width: 251
+        height: 288
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: santa (4)
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 38
+        width: 313
+        height: 257
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: snow man (1)
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 1
+        width: 197
+        height: 200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: snow man (2)
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 6
+        width: 141
+        height: 201
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: snowman stupid (1)
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 1081
+        width: 100
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: snowman stupid (2)
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 772
+        width: 91
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: snowman stupid (3)
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 839
+        width: 95
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: snowman stupid (4)
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 936
+        width: 110
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: snowman stupid (5)
+      rect:
+        serializedVersion: 2
+        x: 1865
+        y: 1014
+        width: 112
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: tree map 3 (1)
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 1279
+        width: 568
+        height: 768
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: tree map 3 (2)
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 439
+        width: 137
+        height: 768
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: tree map 3 (3)
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 439
+        width: 139
+        height: 768
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: tree map 3 (4)
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 67
+        width: 208
+        height: 370
+      alignment: 9
+      pivot: {x: 0.50240386, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: tree map 3 (5)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 10
+        width: 306
+        height: 427
+      alignment: 9
+      pivot: {x: 0.501634, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: tree map 3 (6)
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 439
+        width: 146
+        height: 768
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

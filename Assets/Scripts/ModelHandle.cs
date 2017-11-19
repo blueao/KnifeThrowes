@@ -42,6 +42,8 @@ public class ModelHandle
     //Key Load Map2 
     public const string SetMap2 = "ActiveMap2";
     //
+    public bool isNoel;
+        //
     private int monsterDeadCount;
     private static ModelHandle instance = null;
     private static readonly object padlock = new object();

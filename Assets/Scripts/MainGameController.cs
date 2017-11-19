@@ -17,6 +17,7 @@ public class MainGameController : MonoBehaviour, IOberser
     public Transform[] Moutain;
     public Transform[] House;
     public Transform[] Sky;
+    public Transform[] Forest;
     private bool isGameReadyToPlay;
 
     //UI
@@ -114,6 +115,7 @@ public class MainGameController : MonoBehaviour, IOberser
     private float speedMoveBG;
     private float endPositionBG;
     private float endPositionBGSky;
+    private float endPositionBGGrass;
     //List Stupid Type
     [HideInInspector]
     public List<GameObject> ListStupid = new List<GameObject>();
@@ -206,6 +208,19 @@ public class MainGameController : MonoBehaviour, IOberser
     public Transform[] rabbitPos;
     public Transform[] batPos;
     public Transform[] cowpos;
+    //ListMap3
+    public Transform[] RedTargetPos3;
+    public Transform[] Stupid3;
+    public Transform[] PumkinNoelPos3;
+    public Transform[] BoarsPos3;
+    public Transform[] FruitNoelPos3;
+    public Transform[] BallonPos3;
+    public Transform[] CrazyDog3;
+    public Transform[] BirdPos3;
+    public Transform[] SnowManPos3;
+    public Transform[] SantaPos3;
+    public Transform[] BearBoss3;
+    //
     //Map1
     [SerializeField]
     private Sprite[] Grass1;
@@ -224,6 +239,15 @@ public class MainGameController : MonoBehaviour, IOberser
     private Sprite[] House2;
     [SerializeField]
     private Sprite[] Sky2;
+    //Map3
+    [SerializeField]
+    private Sprite[] Grass3;
+    [SerializeField]
+    private Sprite[] Hill3;
+    [SerializeField]
+    private Sprite[] Forest3;
+    [SerializeField]
+    private Sprite[] Sky3;
 
     //Reset
     Vector3 startPostionMoveMonster;
@@ -239,6 +263,9 @@ public class MainGameController : MonoBehaviour, IOberser
     Vector3 startBGHill1;
     Vector3 startBGHill2;
     Vector3 startBGHill3;
+    Vector3 startForest1;
+    Vector3 startForest2;
+    Vector3 startForest3;
 
     void Start()
     {
@@ -448,7 +475,7 @@ public class MainGameController : MonoBehaviour, IOberser
             }
         }
         int fruitnum = 0;
-       
+
         for (int j = 0; j < ListFruit.Count; j++)
         {
             ListFruit[j].transform.parent = MoveMonster;
@@ -835,22 +862,26 @@ public class MainGameController : MonoBehaviour, IOberser
 
 
     }
+    int countListGrass;
     int countListSky;
     public void MoveBackGround()
     {
-
-        for (int i = 0; i < Grass.Length; i++)
+        for (int i = 0; i < 3; i++)
         {
             Grass[i].localPosition += Vector3.left * speedMoveBG;
             Hill[i].localPosition += Vector3.left * speedMoveBG;
             Moutain[i].localPosition += Vector3.left * speedMoveBG;
             Sky[i].localPosition += Vector3.left * speedMoveBG;
-            if (Grass[i].localPosition.x <= endPositionBG)
+            Forest[i].localPosition += Vector3.left * speedMoveBG;
+            if (Grass[i].localPosition.x <= endPositionBGGrass)
             {
-                Grass[i].localPosition = new Vector3(Grass[i].localPosition.x - (speedMoveBG * Grass.Length) + widthBG * Grass.Length - (Mathf.Abs(endPositionBG - Grass[i].localPosition.x) + 0.2f), Grass[i].localPosition.y, Grass[i].localPosition.z);
+                Grass[i].localPosition = new Vector3(Grass[i].localPosition.x - (speedMoveBG * countListGrass) + widthBG * countListGrass - (Mathf.Abs(endPositionBGGrass - Grass[i].localPosition.x) + 0.2f), Grass[i].localPosition.y, Grass[i].localPosition.z);
+            }
+            if (Hill[i].localPosition.x <= endPositionBG)
+            {
+                Forest[i].localPosition = new Vector3(Forest[i].localPosition.x - (speedMoveBG * Forest.Length) + widthBG * Forest.Length - (Mathf.Abs(endPositionBG - Forest[i].localPosition.x) + 0.2f), Forest[i].localPosition.y, Forest[i].localPosition.z);
                 Hill[i].localPosition = new Vector3(Hill[i].localPosition.x - (speedMoveBG * Hill.Length) + widthBG * Hill.Length - (Mathf.Abs(endPositionBG - Hill[i].localPosition.x) + 0.2f), Hill[i].localPosition.y, Hill[i].localPosition.z);
                 Moutain[i].localPosition = new Vector3(Moutain[i].localPosition.x - (speedMoveBG * Moutain.Length) + widthBG * Moutain.Length - (Mathf.Abs(endPositionBG - Moutain[i].localPosition.x) + 0.2f), Moutain[i].localPosition.y, Moutain[i].localPosition.z);
-
             }
             if (Sky[i].localPosition.x <= endPositionBGSky && i < countListSky)
             {
@@ -941,7 +972,7 @@ public class MainGameController : MonoBehaviour, IOberser
         pos.z = 10;
         if (knifeObject.isIdie)
         {
-            if (knifeObject.ChildKnife.transform.localRotation.z!=0)
+            if (knifeObject.ChildKnife.transform.localRotation.z != 0)
             {
                 knifeObject.ChildKnife.transform.localRotation = Quaternion.Euler(new Vector3(180, 0, 0));
             }
@@ -1079,7 +1110,7 @@ public class MainGameController : MonoBehaviour, IOberser
         ResetAllObjToPool();
         ResetBG();
         PanelExitInPause.SetActive(false);
-}
+    }
     #region resetOBj
     public void ResetAllObjToPool()
     {
@@ -1325,10 +1356,12 @@ public class MainGameController : MonoBehaviour, IOberser
     int ChooseMapNumber;
     public void StartGame()
     {
+        ModelHandle.Instance.isNoel = false;
         PanelSound.SetActive(false);
         ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         SetUpMap1();
         endPositionBGSky = endPositionBG;
+        endPositionBGGrass = endPositionBG;
         //setStartPosBG();
         //CreateObject();
         ResetBG();
@@ -1341,6 +1374,7 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void StartGame2()
     {
+        ModelHandle.Instance.isNoel = false;
         PanelSound.SetActive(false);
         ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         int Keymap2 = PlayerPrefs.GetInt(ModelHandle.SetMap2);
@@ -1361,6 +1395,21 @@ public class MainGameController : MonoBehaviour, IOberser
         else
             OnClickShowAdsToOpenMap();
     }
+    public void StartGame3()
+    {
+        ModelHandle.Instance.isNoel = true;
+        PanelSound.SetActive(false);
+        ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
+        SetUpMap3();
+        endPositionBGGrass = -widthBG;
+        endPositionBGSky = endPositionBG;
+        ResetBG();
+        ChooseMapNumber = 2;
+
+        isActionMonsterNeverUse();
+        isActiveMenu(false);
+        CountNumber();
+    }
     public void isActionMonsterNeverUse()
     {
         for (int i = 0; i < ListTotalObject.Count; i++)
@@ -1373,6 +1422,7 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void SetUpMap1()
     {
+        countListGrass = Grass.Length;
         BackGround.clip = BackGroundMusic1;
         BackGround.Play();
         for (int i = 0; i < Grass.Length; i++)
@@ -1398,6 +1448,11 @@ public class MainGameController : MonoBehaviour, IOberser
         for (int i = 0; i < House.Length; i++)
         {
             House[i].gameObject.SetActive(false);
+        }
+        for (int i = 0; i < Forest.Length; i++)
+        {
+            //Forest[i].GetComponent<SpriteRenderer>().sprite = Forest3[i];
+            Forest[i].gameObject.SetActive(false);
         }
         Map2.gameObject.SetActive(false);
         Map1.gameObject.SetActive(true);
@@ -1435,9 +1490,52 @@ public class MainGameController : MonoBehaviour, IOberser
         {
             House[i].gameObject.SetActive(true);
         }
+        for (int i = 0; i < Forest.Length; i++)
+        {
+            //Forest[i].GetComponent<SpriteRenderer>().sprite = Forest3[i];
+            Forest[i].gameObject.SetActive(false);
+        }
         Map1.gameObject.SetActive(false);
         Map2.gameObject.SetActive(true);
         MoveMonster = Map2;
+    }
+    public void SetUpMap3()
+    {
+        BackGround.clip = null;
+        //BackGround.Play();
+        for (int i = 0; i < Grass.Length; i++)
+        {
+            if (i >= Grass3.Length)
+            {
+                Grass[i].gameObject.SetActive(false);
+                break;
+            }
+            Grass[i].GetComponent<SpriteRenderer>().sprite = Grass3[i];
+            countListGrass = i + 1;
+        }
+        for (int i = 0; i < Hill3.Length; i++)
+        {
+            Hill[i].GetComponent<SpriteRenderer>().sprite = Hill3[i];
+        }
+        for (int i = 0; i < Moutain.Length; i++)
+        {
+            Moutain[i].gameObject.SetActive(false);
+        }
+        for (int i = 0; i < House.Length; i++)
+        {
+            House[i].gameObject.SetActive(false);
+        }
+        for (int i = 0; i < Sky.Length; i++)
+        {
+            Sky[i].gameObject.SetActive(true);
+            Sky[i].GetComponent<SpriteRenderer>().sprite = Sky3[i];
+            countListSky = i + 1;
+        }
+        for (int i = 0; i < Forest.Length; i++)
+        {
+            Forest[i].GetComponent<SpriteRenderer>().sprite = Forest3[i];
+            Forest[i].gameObject.SetActive(true);
+        }
     }
     Sequence se;
     public void CountNumber()
@@ -1541,6 +1639,10 @@ public class MainGameController : MonoBehaviour, IOberser
         startBGHill1 = Hill[0].transform.localPosition;
         startBGHill2 = Hill[1].transform.localPosition;
         startBGHill3 = Hill[2].transform.localPosition;
+
+        startForest1 = Forest[0].transform.localPosition;
+        startForest2 = Forest[1].transform.localPosition;
+        startForest3 = Forest[2].transform.localPosition;
     }
     public void ResetBG()
     {
@@ -1563,6 +1665,10 @@ public class MainGameController : MonoBehaviour, IOberser
         Hill[0].transform.localPosition = startBGHill1;
         Hill[1].transform.localPosition = startBGHill2;
         Hill[2].transform.localPosition = startBGHill3;
+
+        Forest[0].transform.localPosition = startForest1;
+        Forest[1].transform.localPosition = startForest2;
+        Forest[2].transform.localPosition = startForest3;
     }
     public void getCoinPool(Vector3 start)
     {
