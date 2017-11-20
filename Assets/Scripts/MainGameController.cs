@@ -51,11 +51,15 @@ public class MainGameController : MonoBehaviour, IOberser
     public int rabitCount;
     public int wizardCount;
     public int birdCount;
+    public int snowmanCount;
+    public int bearCount;
+    public int santaCount;
     private Vector3 poolPosition;
     public GameObject QuitPanel;
     //MoveObj
     public Transform Map1;
     public Transform Map2;
+    public Transform Map3;
     private Transform MoveMonster;
     //prefab Monster
     public GameObject preFab;
@@ -73,7 +77,11 @@ public class MainGameController : MonoBehaviour, IOberser
     public GameObject preGhost;
     public GameObject preBird;
     public GameObject preWizard;
-
+    //
+    public GameObject preSnowMan;
+    public GameObject preBear;
+    public GameObject preSanta;
+    //
     public GameObject preKnifeSprite;
 
 
@@ -109,6 +117,7 @@ public class MainGameController : MonoBehaviour, IOberser
     public AudioClip StupidAlive;
     public AudioClip StupidDie;
 
+    public GameObject StartMove;
     //BG
     private float widthBG;
     private float heightBG;
@@ -169,6 +178,16 @@ public class MainGameController : MonoBehaviour, IOberser
     //
     [HideInInspector]
     public List<GameObject> ListRabbit = new List<GameObject>();
+    //
+    [HideInInspector]
+    public List<GameObject> ListSnowMan = new List<GameObject>();
+    //
+    [HideInInspector]
+    public List<GameObject> ListBear = new List<GameObject>();
+    //
+    [HideInInspector]
+    public List<GameObject> ListSanta = new List<GameObject>();
+    //
     public int Coinpool = 5;
     //ListTransMap1
     public Transform[] RedTargetPos;
@@ -189,6 +208,9 @@ public class MainGameController : MonoBehaviour, IOberser
     public Transform[] rabbitPos0;
     public Transform[] batPos0;
     public Transform[] cowpos0;
+    public Transform[] SnowManPos;
+    public Transform[] SantaPos;
+    public Transform[] BearBoss;
     //ListMap2
     public Transform[] RedTargetPos2;
     public Transform[] Stupid2;
@@ -208,10 +230,16 @@ public class MainGameController : MonoBehaviour, IOberser
     public Transform[] rabbitPos;
     public Transform[] batPos;
     public Transform[] cowpos;
+    public Transform[] SnowManPos2;
+    public Transform[] SantaPos2;
+    public Transform[] BearBoss2;
     //ListMap3
     public Transform[] RedTargetPos3;
+    public Transform[] TargetPos3;
     public Transform[] Stupid3;
     public Transform[] PumkinNoelPos3;
+    public Transform[] VulturePos3;
+    public Transform[] DumkinPos3;
     public Transform[] BoarsPos3;
     public Transform[] FruitNoelPos3;
     public Transform[] BallonPos3;
@@ -220,6 +248,12 @@ public class MainGameController : MonoBehaviour, IOberser
     public Transform[] SnowManPos3;
     public Transform[] SantaPos3;
     public Transform[] BearBoss3;
+    public Transform[] cowpos3;
+    public Transform[] ghostPos3;
+    public Transform[] rabbitPos3;
+    public Transform[] batPos3;
+    public Transform[] wizardPos3;
+    public Transform[] SpriderPos3;
     //
     //Map1
     [SerializeField]
@@ -284,6 +318,24 @@ public class MainGameController : MonoBehaviour, IOberser
         //BackGround.Play(BackGroundMusic,vollumnBG)
         Initialized();
     }
+
+    public Transform[] SwapListBiggest(Transform[] a, Transform[] b, Transform[] c)
+    {
+        Transform[] result = null;
+        if (a.Length > b.Length)
+        {
+            result = a;
+        }
+        else
+            result = b;
+
+        if (result.Length > c.Length)
+        {
+            return result;
+        }
+        else
+            return c;
+    }
     void Initialized()
     {
         BackGround.clip = BackGroundMenu;
@@ -292,6 +344,11 @@ public class MainGameController : MonoBehaviour, IOberser
         if (keyActive == 1)
         {
             SetupBGMap2();
+        }
+        int keyActive3 = PlayerPrefs.GetInt(ModelHandle.SetMap3);
+        if (keyActive3 == 1)
+        {
+            SetupBGMap3();
         }
         Music.value = 1f;
         Volume.value = 1f;
@@ -315,14 +372,8 @@ public class MainGameController : MonoBehaviour, IOberser
         //ModelHandle.Instance.actionSetCoin += SetCoin;
         //ModelHandle.Instance.actiongGetCoin += getCoinPool;
 
-        if (RedTargetPos.Length > RedTargetPos2.Length)
-        {
-            redtarget = RedTargetPos.Length;
-        }
-        else
-        {
-            redtarget = RedTargetPos2.Length;
-        }
+        redtarget = SwapListBiggest(RedTargetPos, RedTargetPos2, RedTargetPos3).Length;
+
         if (TargetPos.Length > TargetPos2.Length)
         {
             woodtarget1 = TargetPos.Length % 2;
@@ -333,74 +384,24 @@ public class MainGameController : MonoBehaviour, IOberser
             woodtarget1 = TargetPos2.Length % 2;
             woodtarget2 = TargetPos2.Length - woodtarget1;
         }
-        if (Stupid.Length > Stupid2.Length)
-        {
-            StupidCount = Stupid.Length;
-        }
-        else
-            StupidCount = Stupid2.Length;
-
-        if (FruitPos.Length > FruitPos2.Length)
-        {
-            FruitCount = FruitPos.Length;
-        }
-        else
-            FruitCount = FruitPos2.Length;
-        if (BoarsPos.Length > BoarsPos2.Length)
-        {
-            BoarCount = BoarsPos.Length;
-        }
-        else
-            BoarCount = BoarsPos2.Length;
-        if (BallonPos.Length > BallonPos2.Length)
-        {
-            BallonCount = BallonPos.Length;
-        }
-        else
-            BallonCount = BallonPos2.Length;
-
-        if (PumKinPos.Length > PumKinPos2.Length)
-        {
-            PumkinCount = PumKinPos.Length;
-        }
-        else
-            PumkinCount = PumKinPos2.Length;
-
-        if (VulturePos.Length > VulturePos2.Length)
-        {
-            VultureCount = VulturePos.Length;
-        }
-        else
-            VultureCount = VulturePos2.Length;
-
-        if (SpriderPos.Length > SpriderPos2.Length)
-        {
-            SpiderCount = SpriderPos.Length;
-        }
-        else
-            SpiderCount = SpriderPos2.Length;
-
-        if (DumkinPos.Length > DumkinPos2.Length)
-        {
-            DummyCount = DumkinPos.Length;
-        }
-        else
-            DummyCount = DumkinPos2.Length;
-
-
-        if (CrazyDog.Length > CrazyDog2.Length)
-        {
-            CrazyDogCount = CrazyDog.Length;
-        }
-        else
-            CrazyDogCount = CrazyDog2.Length;
-
-        birdCount = birdPos.Length;
-        wizardCount = wizardPos.Length;
-        rabitCount = rabbitPos.Length;
+        StupidCount = SwapListBiggest(Stupid, Stupid2, Stupid3).Length;
+        FruitCount = SwapListBiggest(FruitPos, FruitPos2, FruitNoelPos3).Length;
+        BoarCount = SwapListBiggest(BoarsPos, BoarsPos2, BoarsPos3).Length;
+        BallonCount = SwapListBiggest(BallonPos, BallonPos2, BallonPos3).Length;
+        PumkinCount = SwapListBiggest(PumKinPos, PumKinPos2, PumkinNoelPos3).Length;
+        VultureCount = SwapListBiggest(VulturePos, VulturePos2, VulturePos3).Length;
+        SpiderCount = SwapListBiggest(SpriderPos, SpriderPos2, SpriderPos3).Length;
+        DummyCount = SwapListBiggest(DumkinPos, DumkinPos2, DumkinPos3).Length;
+        CrazyDogCount = SwapListBiggest(CrazyDog, CrazyDog2, CrazyDog3).Length;
+        birdCount = SwapListBiggest(birdPos, birdPos0, BirdPos3).Length;
+        wizardCount = SwapListBiggest(wizardPos0, wizardPos, wizardPos3).Length;
+        rabitCount = SwapListBiggest(rabbitPos0, rabbitPos, rabbitPos3).Length;
         ghostCount = ghostPos.Length;
         BatCount = batPos.Length;
         CowCount = cowpos.Length;
+        snowmanCount = SwapListBiggest(SnowManPos, SnowManPos2, SnowManPos3).Length;
+        bearCount = SwapListBiggest(BearBoss, BearBoss2, BearBoss3).Length;
+        santaCount = SwapListBiggest(SantaPos, SantaPos2, SantaPos3).Length;
         Coinpool = 5;
         CreateObject();
         //SetupPositionObj();
@@ -424,7 +425,10 @@ public class MainGameController : MonoBehaviour, IOberser
                        Transform[] rabbitPos,
                          Transform[] wizardPos,
                            Transform[] birdPos,
-                            Transform[] cowpos
+                            Transform[] cowpos,
+         Transform[] SnowManPos,
+         Transform[] BearPos,
+         Transform[] SantaPos
         )
     {
         int redIndex = 0;
@@ -482,6 +486,8 @@ public class MainGameController : MonoBehaviour, IOberser
             if (ListFruit[j].name.Contains("Fruit")
                 && (fruitnum < FruitPos.Length))
             {
+                ListFruit[j].GetComponent<Stupid>().spriteItems = ListFruit[j].GetComponent<SpriteRenderer>();
+                ListFruit[j].GetComponent<Stupid>().SetSprite();
                 ListFruit[j].transform.localPosition = FruitPos[fruitnum].transform.localPosition;
                 ListFruit[j].SetActive(true);
                 ListFruit[j].GetComponent<Stupid>().isActiveMove = false;
@@ -524,6 +530,8 @@ public class MainGameController : MonoBehaviour, IOberser
             if (ListPumkin[j].name.Contains("Pumkin")
                 && (pumkinNum < PumKinPos.Length))
             {
+                ListPumkin[j].GetComponent<Stupid>().spriteItems = ListPumkin[j].GetComponent<SpriteRenderer>();
+                ListPumkin[j].GetComponent<Stupid>().SetSprite();
                 ListPumkin[j].transform.localPosition = PumKinPos[pumkinNum].transform.localPosition;
                 ListPumkin[j].SetActive(true);
                 ListPumkin[j].GetComponent<Stupid>().isActiveMove = false;
@@ -669,6 +677,45 @@ public class MainGameController : MonoBehaviour, IOberser
                 ListCow[j].transform.localPosition = cowpos[cownum].transform.localPosition;
                 ListCow[j].SetActive(true);
                 cownum++;
+            }
+        }
+        //
+        int snowmannum = 0;
+        for (int j = 0; j < ListSnowMan.Count; j++)
+        {
+            ListSnowMan[j].transform.parent = MoveMonster;
+            if (ListSnowMan[j].name.Contains("SnowMan")
+                && (snowmannum < SnowManPos.Length))
+            {
+                ListSnowMan[j].transform.localPosition = SnowManPos[snowmannum].transform.localPosition;
+                ListSnowMan[j].SetActive(true);
+                snowmannum++;
+            }
+        }
+        //
+        int bearnum = 0;
+        for (int j = 0; j < ListBear.Count; j++)
+        {
+            ListBear[j].transform.parent = MoveMonster;
+            if (ListBear[j].name.Contains("Bear")
+                && (bearnum < BearPos.Length))
+            {
+                ListBear[j].transform.localPosition = BearPos[bearnum].transform.localPosition;
+                ListBear[j].SetActive(true);
+                bearnum++;
+            }
+        }
+        //
+        int santanum = 0;
+        for (int j = 0; j < ListSanta.Count; j++)
+        {
+            ListSanta[j].transform.parent = MoveMonster;
+            if (ListSanta[j].name.Contains("Santa")
+                && (santanum < SantaPos.Length))
+            {
+                ListSanta[j].transform.localPosition = SantaPos[santanum].transform.localPosition;
+                ListSanta[j].SetActive(true);
+                santanum++;
             }
         }
     }
@@ -859,8 +906,30 @@ public class MainGameController : MonoBehaviour, IOberser
             boar.transform.parent = MoveMonster;
             ListTotalObject.Add(boar);
         }
-
-
+        for (int i = 0; i < snowmanCount; i++)
+        {
+            GameObject snowman = (GameObject)Instantiate(preSnowMan, poolPosition, Quaternion.identity);
+            snowman.name = "SnowMan" + i;
+            ListSnowMan.Add(snowman);
+            snowman.transform.parent = MoveMonster;
+            ListTotalObject.Add(snowman);
+        }
+        for (int i = 0; i < bearCount; i++)
+        {
+            GameObject bear = (GameObject)Instantiate(preBear, poolPosition, Quaternion.identity);
+            bear.name = "Bear" + i;
+            ListBear.Add(bear);
+            bear.transform.parent = MoveMonster;
+            ListTotalObject.Add(bear);
+        }
+        for (int i = 0; i < santaCount; i++)
+        {
+            GameObject santa = (GameObject)Instantiate(preSanta, poolPosition, Quaternion.identity);
+            santa.name = "Santa" + i;
+            ListSanta.Add(santa);
+            santa.transform.parent = MoveMonster;
+            ListTotalObject.Add(santa);
+        }
     }
     int countListGrass;
     int countListSky;
@@ -933,6 +1002,7 @@ public class MainGameController : MonoBehaviour, IOberser
         set
         {
             isGameReadyToPlay = value;
+            StartMove.SetActive(value);
             EndColider.enabled = value;
         }
     }
@@ -1324,6 +1394,43 @@ public class MainGameController : MonoBehaviour, IOberser
                 cownum++;
             }
         }
+        //
+        int snowman = 0;
+        for (int j = 0; j < ListSnowMan.Count; j++)
+        {
+            ListSnowMan[j].transform.parent = MoveMonster;
+            if (ListSnowMan[j].name.Contains("SnowMan"))
+            {
+                ListSnowMan[j].transform.localPosition = poolPosition;
+                ListSnowMan[j].SetActive(false);
+                snowman++;
+            }
+        }
+        //
+        int bearnum = 0;
+        for (int j = 0; j < ListBear.Count; j++)
+        {
+            ListBear[j].transform.parent = MoveMonster;
+            if (ListBear[j].name.Contains("Bear"))
+            {
+                ListBear[j].transform.localPosition = poolPosition;
+                ListBear[j].SetActive(false);
+                bearnum++;
+            }
+        }
+
+        //
+        int santanum = 0;
+        for (int j = 0; j < ListSanta.Count; j++)
+        {
+            ListSanta[j].transform.parent = MoveMonster;
+            if (ListSanta[j].name.Contains("Santa"))
+            {
+                ListSanta[j].transform.localPosition = poolPosition;
+                ListSanta[j].SetActive(false);
+                santanum++;
+            }
+        }
     }
     #endregion
     public void OnClickClassic()
@@ -1367,7 +1474,7 @@ public class MainGameController : MonoBehaviour, IOberser
         ResetBG();
         ChooseMapNumber = 0;
 
-        SetupPositionObj(RedTargetPos, TargetPos, Stupid, FruitPos, BoarsPos, BallonPos, PumKinPos, VulturePos, SpriderPos, DumkinPos, CrazyDog, batPos0, ghostPos0, rabbitPos0, wizardPos0, birdPos0, cowpos0);
+        SetupPositionObj(RedTargetPos, TargetPos, Stupid, FruitPos, BoarsPos, BallonPos, PumKinPos, VulturePos, SpriderPos, DumkinPos, CrazyDog, batPos0, ghostPos0, rabbitPos0, wizardPos0, birdPos0, cowpos0, SnowManPos, BearBoss, SantaPos);
         isActionMonsterNeverUse();
         isActiveMenu(false);
         CountNumber();
@@ -1387,7 +1494,7 @@ public class MainGameController : MonoBehaviour, IOberser
             //CreateObject();
             ChooseMapNumber = 1;
             ResetBG();
-            SetupPositionObj(RedTargetPos2, TargetPos2, Stupid2, FruitPos2, BoarsPos2, BallonPos2, PumKinPos2, VulturePos2, SpriderPos2, DumkinPos2, CrazyDog2, batPos, ghostPos, rabbitPos, wizardPos, birdPos, cowpos);
+            SetupPositionObj(RedTargetPos2, TargetPos2, Stupid2, FruitPos2, BoarsPos2, BallonPos2, PumKinPos2, VulturePos2, SpriderPos2, DumkinPos2, CrazyDog2, batPos, ghostPos, rabbitPos, wizardPos, birdPos, cowpos, SnowManPos2, BearBoss2, SantaPos2);
             isActionMonsterNeverUse();
             isActiveMenu(false);
             CountNumber();
@@ -1400,15 +1507,21 @@ public class MainGameController : MonoBehaviour, IOberser
         ModelHandle.Instance.isNoel = true;
         PanelSound.SetActive(false);
         ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
-        SetUpMap3();
-        endPositionBGGrass = -widthBG;
-        endPositionBGSky = endPositionBG;
-        ResetBG();
-        ChooseMapNumber = 2;
-
-        isActionMonsterNeverUse();
-        isActiveMenu(false);
-        CountNumber();
+        int Keymap3 = PlayerPrefs.GetInt(ModelHandle.SetMap3);
+        if (Keymap3 == 1)
+        {
+            SetUpMap3();
+            endPositionBGGrass = -widthBG;
+            endPositionBGSky = endPositionBG;
+            ResetBG();
+            ChooseMapNumber = 2;
+            SetupPositionObj(RedTargetPos3, TargetPos3, Stupid3, FruitNoelPos3, BoarsPos3, BallonPos3, PumkinNoelPos3, VulturePos3, SpriderPos3, DumkinPos3, CrazyDog3, batPos3, ghostPos3, rabbitPos3, wizardPos3, BirdPos3, cowpos3, SnowManPos3, BearBoss3, SantaPos3);
+            isActionMonsterNeverUse();
+            isActiveMenu(false);
+            CountNumber();
+        }
+        else
+            OnClickShowAdsToOpenMap();
     }
     public void isActionMonsterNeverUse()
     {
@@ -1427,6 +1540,7 @@ public class MainGameController : MonoBehaviour, IOberser
         BackGround.Play();
         for (int i = 0; i < Grass.Length; i++)
         {
+            Grass[i].gameObject.SetActive(true);
             Grass[i].GetComponent<SpriteRenderer>().sprite = Grass1[i];
         }
         for (int i = 0; i < Hill.Length; i++)
@@ -1454,8 +1568,9 @@ public class MainGameController : MonoBehaviour, IOberser
             //Forest[i].GetComponent<SpriteRenderer>().sprite = Forest3[i];
             Forest[i].gameObject.SetActive(false);
         }
-        Map2.gameObject.SetActive(false);
         Map1.gameObject.SetActive(true);
+        Map2.gameObject.SetActive(false);
+        Map3.gameObject.SetActive(false);
         MoveMonster = Map1;
     }
     public void SetUpMap2()
@@ -1497,6 +1612,7 @@ public class MainGameController : MonoBehaviour, IOberser
         }
         Map1.gameObject.SetActive(false);
         Map2.gameObject.SetActive(true);
+        Map3.gameObject.SetActive(false);
         MoveMonster = Map2;
     }
     public void SetUpMap3()
@@ -1536,6 +1652,10 @@ public class MainGameController : MonoBehaviour, IOberser
             Forest[i].GetComponent<SpriteRenderer>().sprite = Forest3[i];
             Forest[i].gameObject.SetActive(true);
         }
+        Map1.gameObject.SetActive(false);
+        Map2.gameObject.SetActive(false);
+        Map3.gameObject.SetActive(true);
+        MoveMonster = Map3;
     }
     Sequence se;
     public void CountNumber()
@@ -1585,11 +1705,32 @@ public class MainGameController : MonoBehaviour, IOberser
     {
         PanelGet.SetActive(isActive);
     }
+
+    public int isRewardMap1;
+    public int isRewardMap2;
+    public int isRewardMap3;
     public void OnContinueClick()
     {
         ModelHandle.Instance.SetSound(ModelHandle.ButtonCli);
         isPanelWinGame(false);
-        isPanelGet(true);
+        isRewardMap1 = PlayerPrefs.GetInt(ModelHandle.GetrewardMap1);
+        isRewardMap2 = PlayerPrefs.GetInt(ModelHandle.GetrewardMap2);
+        isRewardMap3 = PlayerPrefs.GetInt(ModelHandle.GetrewardMap3);
+        if (isRewardMap1 == 0 && Map1.gameObject.activeSelf)
+        {
+            isPanelGet(true);
+
+        }
+        else if (isRewardMap2 == 0 && Map2.gameObject.activeSelf)
+        {
+            isPanelGet(true);
+        }
+        else if (isRewardMap3 == 0 && Map3.gameObject.activeSelf)
+        {
+            isPanelGet(true);
+        }
+        else
+            isActiveMenu(true);
     }
     public void OnGetClick()
     {
@@ -1597,6 +1738,18 @@ public class MainGameController : MonoBehaviour, IOberser
         ModelHandle.Instance.SetScore(2000);
         isPanelGet(false);
         isActiveMenu(true);
+        if (Map1.gameObject.activeSelf)
+        {
+            PlayerPrefs.SetInt(ModelHandle.GetrewardMap1, 1);
+        }
+        if (Map2.gameObject.activeSelf)
+        {
+            PlayerPrefs.SetInt(ModelHandle.GetrewardMap2, 1);
+        }
+        if (Map3.gameObject.activeSelf)
+        {
+            PlayerPrefs.SetInt(ModelHandle.GetrewardMap2, 1);
+        }
     }
     public Text ScoreNumber;
     public Transform Coin;
@@ -1610,14 +1763,19 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void Reset()
     {
+        ModelHandle.Instance.isLose = false;
         resetListKnifeSprite();
         if (ChooseMapNumber == 0)
         {
-            SetupPositionObj(RedTargetPos, TargetPos, Stupid, FruitPos, BoarsPos, BallonPos, PumKinPos, VulturePos, SpriderPos, DumkinPos, CrazyDog, batPos0, ghostPos0, rabbitPos0, wizardPos0, birdPos0, cowpos0);
+            SetupPositionObj(RedTargetPos, TargetPos, Stupid, FruitPos, BoarsPos, BallonPos, PumKinPos, VulturePos, SpriderPos, DumkinPos, CrazyDog, batPos0, ghostPos0, rabbitPos0, wizardPos0, birdPos0, cowpos0, SnowManPos, BearBoss, SantaPos);
         }
         if (ChooseMapNumber == 1)
         {
-            SetupPositionObj(RedTargetPos2, TargetPos2, Stupid2, FruitPos2, BoarsPos2, BallonPos2, PumKinPos2, VulturePos2, SpriderPos2, DumkinPos2, CrazyDog2, batPos, ghostPos, rabbitPos, wizardPos, birdPos, cowpos);
+            SetupPositionObj(RedTargetPos2, TargetPos2, Stupid2, FruitPos2, BoarsPos2, BallonPos2, PumKinPos2, VulturePos2, SpriderPos2, DumkinPos2, CrazyDog2, batPos, ghostPos, rabbitPos, wizardPos, birdPos, cowpos, SnowManPos2, BearBoss2, SantaPos2);
+        }
+        if (ChooseMapNumber == 2)
+        {
+            SetupPositionObj(RedTargetPos3, TargetPos3, Stupid3, FruitNoelPos3, BoarsPos3, BallonPos3, PumkinNoelPos3, VulturePos3, SpriderPos3, DumkinPos3, CrazyDog3, batPos3, ghostPos3, rabbitPos3, wizardPos3, BirdPos3, cowpos3, SnowManPos3, BearBoss3, SantaPos3);
         }
         ResetBG();
         knifeObject.Idie();
@@ -1646,6 +1804,7 @@ public class MainGameController : MonoBehaviour, IOberser
     }
     public void ResetBG()
     {
+        ModelHandle.Instance.isLose = false;
         MoveMonster.transform.localPosition = startPostionMoveMonster;
         Grass[0].transform.localPosition = startBGGrass1;
         Grass[1].transform.localPosition = startBGGrass2;
@@ -2026,7 +2185,12 @@ public class MainGameController : MonoBehaviour, IOberser
     public void HandleVideoRewaredToOpenMap()
     {
         Debug.Log("HandleVideoRewaredToOpenMap");
-        SetupBGMap2();
+        if (!PlayerPrefs.HasKey(ModelHandle.SetMap2))
+        {
+            SetupBGMap2();
+        }
+        else
+            SetupBGMap3();
     }
     public void MainGameHandleLoseGame()
     {
@@ -2058,6 +2222,26 @@ public class MainGameController : MonoBehaviour, IOberser
         TextBGMap2.enabled = false;
         ImagePlay.enabled = true;
         BGPlayMap2.sprite = PlayMap2;
+        //map3
+        TextBGMap3.gameObject.SetActive(true);
+        BGPlayMap3.gameObject.SetActive(true);
+    }
+    public Image BGMap3;
+    public Image TextBGMap3;
+    public Image LockMap3;
+    public Sprite Map3Active;
+    public Sprite PlayMap3;
+    public Image ImagePlay3;
+    public Image BGPlayMap3;
+    public void SetupBGMap3()
+    {
+        PlayerPrefs.SetInt(ModelHandle.SetMap3, 1);
+        BGMap3.sprite = Map3Active;
+        BGMap3.GetComponent<Button>().enabled = true;
+        LockMap3.enabled = false;
+        TextBGMap3.enabled = false;
+        ImagePlay3.enabled = true;
+        BGPlayMap3.sprite = PlayMap3;
     }
     public void isActivePanelAdsModUn(bool isActive)
     {

@@ -16,10 +16,14 @@ public class HandleLoseGame : MonoBehaviour
             || collision.GetComponent<Spiders>()
             || collision.GetComponent<Ghost>()
             || collision.GetComponent<Bird>()
+            || collision.GetComponent<SnowMan>()
+            || collision.GetComponent<Bear>()
+            || collision.GetComponent<Santa>()
             )
         {
             MainGame.IsGameReadyToPlay = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            ModelHandle.Instance.isLose = true;
             StartCoroutine(ShowPanelLose());
             //DOTween.KillAll();
         }

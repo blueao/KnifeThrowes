@@ -1,21 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 using DG.Tweening;
+using System;
 
-public class Stupid : MonoBehaviour, IMonster
-{
+public class SnowMan : MonoBehaviour {
+
     private BoxCollider2D box;
-    public Sprite[] MStupid;
-    public Sprite[] Pumkin;
-    public Sprite[] Fruit;
-    public Sprite[] FruitNoel;
-    public Sprite[] PumKinNoel;
-    public Sprite[] EffectStupid;
-    public Sprite[] EffectPumkin;
-    public Sprite[] EffectFruit;
+    public Sprite[] SpriteSnowMan;
     public Sprite[] EffectNoelDead;
-    public SpriteRenderer spriteItems;
+    private SpriteRenderer spriteItems;
     Sprite[] usedSprite;
     private float width;
     private float height;
@@ -36,10 +29,6 @@ public class Stupid : MonoBehaviour, IMonster
         gameObject.AddComponent<BoxCollider2D>();
         box = GetComponent<BoxCollider2D>();
         rdStupid = GetComponent<Rigidbody2D>();
-        if (!transform.name.Contains("Pumkin"))
-        {
-            box.isTrigger = true;
-        }
         rdStupid.isKinematic = true;
         se = DOTween.Sequence();
         heightJumb = 4f;
@@ -69,12 +58,12 @@ public class Stupid : MonoBehaviour, IMonster
     {
         rdStupid.constraints = RigidbodyConstraints2D.FreezeAll;
         anim = DOTween.To(() => 0, x => spriteItems.sprite = usedSprite[x], usedSprite.Length - 1, 1f).OnComplete(() =>
-              {
-                  spriteItems.enabled = false;
-                  InPool();
-                  ModelHandle.Instance.SetScore(1);
-                  ModelHandle.Instance.MonsterDeadCount++;
-              });
+        {
+            spriteItems.enabled = false;
+            InPool();
+            ModelHandle.Instance.SetScore(10);
+            ModelHandle.Instance.MonsterDeadCount++;
+        });
 
     }
     public void Fly()
@@ -86,21 +75,8 @@ public class Stupid : MonoBehaviour, IMonster
     {
         if (isActiveMove)
         {
-            if (transform.name.Contains("Fruit"))
-            {
-                se.Append(movetween = transform.DOLocalMoveX(transform.localPosition.x - width * 1.5f, 1f));
-                heightJumb = UnityEngine.Random.Range(height, height * 2);
-            }
-            if (transform.name.Contains("Pumkin"))
-            {
                 se.Append(movetween = transform.DOLocalMoveX(transform.localPosition.x - width * 2f, 1f));
                 heightJumb = height * 2;
-            }
-            if (transform.name.Contains("Stupid"))
-            {
-                se.Append(movetween = transform.DOLocalMoveX(transform.localPosition.x - width, 1f));
-                heightJumb = UnityEngine.Random.Range(height, height * 2);
-            }
         }
         jumb = true;
 
@@ -116,12 +92,6 @@ public class Stupid : MonoBehaviour, IMonster
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.GetComponent<Stone>())
-        //{
-        //    isActiveMove = true;
-
-        //    box.isTrigger = false;
-        //}
         if (collision.name == "BorderBottom")
         {
             speedmove = 1;
@@ -129,7 +99,7 @@ public class Stupid : MonoBehaviour, IMonster
         }
         if (collision.name == "Knife")
         {
-            ModelHandle.Instance.setPosCoinPool(this.transform, 1);
+            ModelHandle.Instance.setPosCoinPool(this.transform, 10);
             ModelHandle.Instance.SetSound(ModelHandle.StupidDead);
             Die();
         }
@@ -164,9 +134,9 @@ public class Stupid : MonoBehaviour, IMonster
                 TouchGrass.GetComponent<SpriteRenderer>().enabled = true;
                 TouchGrass.enabled = true;
                 TouchGrass.Play("touchGrass", 0, 0);
-                DoScale = transform.DOScaleY(height / 2, 0.2f).OnComplete(() =>
+                DoScale = transform.DOScaleY(0.5f, 0.2f).OnComplete(() =>
                 {
-                    transform.DOScaleY(height, 0.3f).OnComplete(() =>
+                    transform.DOScaleY(1, 0.3f).OnComplete(() =>
                     {
                         TouchGrass.GetComponent<SpriteRenderer>().enabled = false;
                         TouchGrass.enabled = false;
@@ -191,13 +161,7 @@ public class Stupid : MonoBehaviour, IMonster
     }
     public void InPool()
     {
-        //if (CoMove != null)
-        //{
-        //    StopCoroutine(CoMove);
-        //    CoMove = null;
-        //}
         speedmove = 2;
-        //ModelHandle.Instance.actiongGetCoin(this.transform.localPosition);
         transform.localPosition = new Vector3(0, 15, 0);
         if (GetComponent<BoxCollider2D>() != null)
         {
@@ -246,16 +210,6 @@ public class Stupid : MonoBehaviour, IMonster
         {
             rdStupid.isKinematic = true;
         }
-        //if (CoMove != null)
-        //{
-        //    StopCoroutine(CoMove);
-        //    CoMove = null;
-        //}
-        //if (anim != null)
-        //{
-        //    anim.Kill();
-        //    anim = null;
-        //}
         if (jumtween != null)
         {
             jumtween.Kill();
@@ -274,42 +228,9 @@ public class Stupid : MonoBehaviour, IMonster
     }
     public void SetSprite()
     {
-        if (this.name.Contains("Stupid"))
-        {
-            usedSprite = EffectStupid;
-            spriteItems.sprite = MStupid[UnityEngine.Random.Range(0, MStupid.Length)];
+            usedSprite = EffectNoelDead;
+            spriteItems.sprite = SpriteSnowMan[UnityEngine.Random.Range(0, SpriteSnowMan.Length)];
             width = spriteItems.sprite.bounds.size.x;
-            height = spriteItems.sprite.bounds.size.y;
-        }
-        else if (this.name.Contains("Fruit"))
-        {
-            if (ModelHandle.Instance.isNoel)
-            {
-                usedSprite = EffectNoelDead;
-                spriteItems.sprite = FruitNoel[UnityEngine.Random.Range(0, FruitNoel.Length)];
-            }
-            else
-            {
-                usedSprite = EffectFruit;
-                spriteItems.sprite = Fruit[UnityEngine.Random.Range(0, Fruit.Length)];
-            }
-            width = spriteItems.sprite.bounds.size.x;
-            height = spriteItems.sprite.bounds.size.y;
-        }
-        else if (this.name.Contains("Pumkin"))
-        {
-            if (ModelHandle.Instance.isNoel)
-            {
-                spriteItems.sprite = PumKinNoel[UnityEngine.Random.Range(0, PumKinNoel.Length)];
-                usedSprite = EffectNoelDead;
-            }
-            else
-            {
-                spriteItems.sprite = Pumkin[UnityEngine.Random.Range(0, Pumkin.Length)];
-                usedSprite = EffectPumkin;
-            }
-            width = spriteItems.sprite.bounds.size.x;
-            height = spriteItems.sprite.bounds.size.y;
-        }
+            height = spriteItems.sprite.bounds.size.y/2;
     }
 }

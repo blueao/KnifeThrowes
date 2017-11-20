@@ -41,8 +41,14 @@ public class ModelHandle
     public const string BallonEx = "BallonExp";
     //Key Load Map2 
     public const string SetMap2 = "ActiveMap2";
+    public const string SetMap3 = "ActiveMap3";
+    //
+    public const string GetrewardMap1 = "GetrewardMap1";
+    public const string GetrewardMap2 = "GetrewardMap2";
+    public const string GetrewardMap3 = "GetrewardMap3";
     //
     public bool isNoel;
+    public bool isLose;
         //
     private int monsterDeadCount;
     private static ModelHandle instance = null;
