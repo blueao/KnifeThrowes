@@ -25,6 +25,7 @@ public class HandleKnifeSprite : MonoBehaviour
         }
         if (collision.name == "BorderBottom" && !MainGame.knifeObject.isMiss || collision.name == "BorderTop" == !MainGame.knifeObject.isMiss)
         {
+            gameObject.name = "Miss";
             MainGame.transform.DOShakePosition(0.5f, 0.1f).SetAutoKill(true).OnComplete(() =>
             {
                 MainGame.transform.localPosition = startCameraPosition;

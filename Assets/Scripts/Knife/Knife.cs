@@ -55,6 +55,7 @@ public class Knife : MonoBehaviour, IKnife
 
     public void Idie()
     {
+        ChildKnife.name = "Knife";
         MainGame.IsDrop = false;
         if (ChildKnife.GetComponent<HandleKnifeSprite>().RotateKnifeLoop != null)
         {
