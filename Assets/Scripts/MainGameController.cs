@@ -1490,6 +1490,7 @@ public class MainGameController : MonoBehaviour, IOberser
 
             SetUpMap2();
             endPositionBGSky = -widthBG;
+            endPositionBGGrass = endPositionBG;
             //setStartPosBG();
             //CreateObject();
             ChooseMapNumber = 1;
@@ -1577,8 +1578,10 @@ public class MainGameController : MonoBehaviour, IOberser
     {
         BackGround.clip = BackGroundMusic2;
         BackGround.Play();
-        for (int i = 0; i < Grass2.Length; i++)
+        countListGrass = Grass.Length;
+        for (int i = 0; i < Grass.Length; i++)
         {
+            Grass[i].gameObject.SetActive(true);
             Grass[i].GetComponent<SpriteRenderer>().sprite = Grass2[i];
         }
         for (int i = 0; i < Hill2.Length; i++)
