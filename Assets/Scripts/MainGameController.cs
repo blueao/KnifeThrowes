@@ -4,6 +4,7 @@ using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class MainGameController : MonoBehaviour, IOberser
 {
@@ -301,8 +302,15 @@ public class MainGameController : MonoBehaviour, IOberser
     Vector3 startForest2;
     Vector3 startForest3;
 
+    public Camera camera;
+    private void Awake()
+    {
+       ModelHandle.Instance.mainRect = GameObject.FindObjectOfType(typeof(ScrollRectController)) as ScrollRectController;
+    }
     void Start()
     {
+        camera.enabled = true;
+        camera.orthographicSize = ModelHandle.Instance.cameraSetting;
         spriteKnife = knifeObject.spriteKnife.GetComponent<Transform>();
         spriteKnife.localPosition = new Vector3(spriteKnife.localPosition.x + knifeObject.spriteKnife.bounds.size.y, spriteKnife.localPosition.y, spriteKnife.localPosition.z);
         knifeObject.startKnifeTransfom = spriteKnife.localPosition;

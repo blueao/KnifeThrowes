@@ -58,6 +58,7 @@ public class HandleKnifeSprite : MonoBehaviour
             {
                 MainGame.knifeObject.Hit(false);
                 MainGame.knifeObject.Idie();
+                MainGame.knifeObject.isIdie = true;
             }
             else
             {

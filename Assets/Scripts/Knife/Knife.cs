@@ -113,6 +113,7 @@ public class Knife : MonoBehaviour, IKnife
     }
     public void ResetKnife()
     {
+        isIdie = true;
         MainGame.IsDrop = false;
         animatorEffectKnife.GetComponent<TrailRenderer>().enabled = true;
         isMiss = false;

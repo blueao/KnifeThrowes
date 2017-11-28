@@ -76,6 +76,13 @@ public class WoodTarget : MonoBehaviour, IMonster
             tweenMove.Kill();
             tweenMove = null;
         }
+        if (Dead != null)
+        {
+            Dead.Kill();
+            Dead = null;
+            InPool();
+            gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
     public void Move()
     {

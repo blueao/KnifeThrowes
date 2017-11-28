@@ -1,33 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FunnyKnifeIAPMAnager : MonoBehaviour {
+public class FunnyKnifeIAPMAnager : MonoBehaviour
+{
 
     public string CONSUMABLE_PRODUCT_ID = "product id";
     public int ItemValue = 0;
 
-    void Awake()
-    {
+    public string[] ListProductId;
+    public int[] ListProductValue;
 
-        UM_InAppPurchaseManager.Client.OnPurchaseFinished += OnPurchaseFlowFinishedAction;
-        UM_InAppPurchaseManager.Client.OnServiceConnected += OnConnectFinished;
+    private void Start()
+    {
+        InitIAPManager();
     }
 
     public void InitIAPManager()
     {
+        UM_InAppPurchaseManager.Client.OnPurchaseFinished += OnPurchaseFlowFinishedAction;
+        UM_InAppPurchaseManager.Client.OnServiceConnected += OnConnectFinished;
         UM_InAppPurchaseManager.Client.OnServiceConnected += OnBillingConnectFinishedAction;
         UM_InAppPurchaseManager.Client.Connect();
     }
 
-    public void PurchaseProduct()
+    public void PurchaseProduct( int index)
     {
         if (UM_InAppPurchaseManager.Client.IsConnected)
         {
-
-        UM_InAppPurchaseManager.Client.Purchase(CONSUMABLE_PRODUCT_ID);
+            CONSUMABLE_PRODUCT_ID = ListProductId[index];
+            ItemValue = ListProductValue[index];
+            UM_InAppPurchaseManager.Client.Purchase(CONSUMABLE_PRODUCT_ID);
         }
         else
         {
+            CONSUMABLE_PRODUCT_ID = ListProductId[index];
+            ItemValue = ListProductValue[index];
             UM_InAppPurchaseManager.Client.Connect();
             UM_InAppPurchaseManager.Client.Purchase(CONSUMABLE_PRODUCT_ID);
         }
@@ -42,7 +49,7 @@ public class FunnyKnifeIAPMAnager : MonoBehaviour {
         }
         else
         {
-            Debug.Log( "Billing init Failed");
+            Debug.Log("Billing init Failed");
         }
     }
 
@@ -51,8 +58,11 @@ public class FunnyKnifeIAPMAnager : MonoBehaviour {
         UM_InAppPurchaseManager.Client.OnPurchaseFinished -= OnPurchaseFlowFinishedAction;
         if (result.isSuccess)
         {
-            Debug.Log( "Product " + result.product.id + " purchase Success");
-            ModelHandle.Instance.PurchaseSuccess(ItemValue);
+            Debug.Log("Product " + result.product.id + " purchase Success");
+            if (result.product.id == CONSUMABLE_PRODUCT_ID)
+            {
+                ModelHandle.Instance.PurchaseSuccess(ItemValue);
+            }
         }
         else
         {

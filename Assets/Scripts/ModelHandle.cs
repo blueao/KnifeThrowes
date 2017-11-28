@@ -60,10 +60,11 @@ public class ModelHandle
     [HideInInspector]
     public List<GameObject> ListNewCoinPool = new List<GameObject>();
     public bool[] isObjBuyed = new bool[34];
+    public float cameraSetting;
     ModelHandle() { }
     public float currentKnifeLocation;
 
-    public ScrollRectController mainRect = GameObject.FindObjectOfType(typeof(ScrollRectController)) as ScrollRectController;
+    public ScrollRectController mainRect;/* = GameObject.FindObjectOfType(typeof(ScrollRectController)) as ScrollRectController;*/
     public void SetScore(int score)
     {
         int scores = PlayerPrefs.GetInt(KeyScore);
